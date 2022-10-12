@@ -1,38 +1,33 @@
-# Etsy-clone - Feature list 
-<h2>User</h2>
+# About Etsy-Clone
 
-A user can create an account by clicking on the sign in button that will show a modal for a user to register with an email, first name, and password.
-If a user does not wish to make an account, a user can log in as a guest (DEMOUSER).
-After creating an account, a user can log in with an email and password.
-By clicking the profile button in the navigation bar, a dropdown menu will show with three options: a logged in user can see their purchases and reviews, a page that shows what products the user is selling, and a sign out button.
-Users have the option to log out after they are done using the website which will redirect them back to the homepage.
+Etsy is a web-application clone inspired by [Etsy](https://www.etsy.com/), that allows users to purchase handmade products. It is also a place to sell crafty products to users who are interested. 
 
-<h2>Product Listings</h2> 
+* [Click here to view Clone Live Site]() 
 
-A logged in user has the option to sell their product by filling out valid information with multiple images to show the product. 
-All products can be seen on the homepage.
-Clicking on a product will redirect a user to a page with details of the product.
-Logged in users who are selling a product have the option to edit with valid information.
-If a logged in user does not wish to sell their product, the product can be deleted. 
+Please see below links to Project Wiki:
+[API Documentation](https://github.com/haiyen2003/Etsy-clone/wiki/API-Documentation)
+[Features](https://github.com/haiyen2003/Etsy-clone/wiki/Feature-List)
+[Database Schema](https://github.com/haiyen2003/Etsy-clone/wiki/Database-Schema)
+[User Story](https://github.com/haiyen2003/Etsy-clone/wiki/User-Story)
+[Redux State](https://github.com/haiyen2003/Etsy-clone/wiki/Redux-State)
 
 
-<h2>Shopping Cart</h2>
 
-Users have the option to add products to their cart but a user who is not logged in will be redirected to sign in with an account/demouser.
-A product quantity can be increased or decreased to edit how many products a user wants.
-Products can be removed if a user does not wish to purchase a product no longer.
-Shopping cart has to be empty after user checkout
+This project is built with:  
 
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 
-<h2>Comments/Reviews</h2>
+# Run Locally
 
-All users can see reviews for each individual product, however, a logged in user has the option to make a review.
-All reviews created by a user can be seen when clicking on the profile button under the drop-down menu with the name “purchases and reviews”. This will redirect the user to a page showing the user's review and purchases.
-On the “purchases and reviews” page, the user can edit their own review or delete the review entirely. 
+# Features Direction
 
-<h2>Search</h2>
-
-In the search bar, all users can look up a product that they want to view. 
-User can type in search criteria in the search bar
-User can use filter button to create search criteria 
-Will filter out what the user is searching for then render in the designated page.
+# Future Focus
