@@ -4,16 +4,16 @@ Etsy is a web-application clone inspired by [Etsy](https://www.etsy.com/), that 
 
 * [Click here to view Clone Live Site]() 
 
-Please see below links to Project Wiki:
-[API Documentation](https://github.com/haiyen2003/Etsy-clone/wiki/API-Documentation)
-[Features](https://github.com/haiyen2003/Etsy-clone/wiki/Feature-List)
-[Database Schema](https://github.com/haiyen2003/Etsy-clone/wiki/Database-Schema)
-[User Story](https://github.com/haiyen2003/Etsy-clone/wiki/User-Story)
-[Redux State](https://github.com/haiyen2003/Etsy-clone/wiki/Redux-State)
+### Please see below links to Project Wiki:
+##### [API Documentation](https://github.com/haiyen2003/Etsy-clone/wiki/API-Documentation)
+##### [Features](https://github.com/haiyen2003/Etsy-clone/wiki/Feature-List)
+##### [Database Schema](https://github.com/haiyen2003/Etsy-clone/wiki/Database-Schema)
+##### [User Story](https://github.com/haiyen2003/Etsy-clone/wiki/User-Story)
+##### [Redux State](https://github.com/haiyen2003/Etsy-clone/wiki/Redux-State)
 
 
 
-This project is built with:  
+### This project is built with:  
 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
