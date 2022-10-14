@@ -1,6 +1,6 @@
-# About Etsy-Clone
+# Artsy
 
-Etsy is a web-application clone inspired by [Etsy](https://www.etsy.com/), that allows users to purchase handmade products. It is also a place to sell crafty products to users who are interested.
+Artsy is a web-application clone inspired by [Etsy](https://www.etsy.com/), that allows users to purchase handmade products. It is also a place to sell crafty products to users who are interested.
 
 * [Click here to view Clone Live Site]()
 
