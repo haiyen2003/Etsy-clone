@@ -2,7 +2,7 @@
 FROM python: 3.9
 # Set the following enviroment variables
 #
-ENV REACT_APP_BASE_URL =
+ENV REACT_APP_BASE_URL = https://artsy-1014.herokuapp.com/
 # REACT_APP_BASE_URL -> Your deployment URL
 
 # FLASK_APP -> entry point to your flask app
@@ -28,8 +28,6 @@ COPY /react-app/build/* app/static/
 # install psycopg2
 RUN pip install -r requirements.txt
 RUN pip install psycopg2
-
-
 CMD gunicorn app:app
 
 # Start the flask environment by setting our
