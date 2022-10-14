@@ -19,7 +19,7 @@ ENV SQLALCHEMY_ECHO=true
 # Copy the built react app (it's built for us) from the
 # /react-app/build/ directory into your flasks app/static directory
 WORKDIR /var/www
-COPY ..
+COPY . .
 COPY /react-app/build/* app/static/
 
 # Run the next two python install commands with PIP
