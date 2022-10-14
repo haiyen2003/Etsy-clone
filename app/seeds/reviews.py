@@ -1,4 +1,4 @@
-from app.models import db
+from app.models import db, Review 
 
 def seed_reviews():
 review01 = Review(

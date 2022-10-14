@@ -1,4 +1,4 @@
-from app.models import db
+from app.models import db, Product
 
 
 def seed_products():
@@ -45,6 +45,39 @@ def seed_products():
         createdAt= "2021-11-19 20:39:36",
         updatedAt= "2021-11-19 20:39:36",
         previewImage= "https://i.etsystatic.com/11774051/r/il/4ac32d/1251597408/il_794xN.1251597408_iwor.jpg"
+)
+    product05 = Product(
+        name= "Fuzzy Car Accessories, Steering Wheel Cover, Gear Shift Knob Cover, Handbrake Cover, Rear View Mirror Cover, Belt Cover. Accessories Set.",
+        description= "Drive with Style and choose handmade covers from shop 'BeutySteeringWheel'. :)",
+        price= 25.59,
+        userId = 5,
+        category= "Toys & Entertainment",
+        highlight = "Materials",
+        createdAt= "2021-11-19 20:39:36",
+        updatedAt= "2021-11-19 20:39:36",
+        previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
+)
+    product06 = Product(
+        name= "Meth joke coffee mug. Coffee because meth is illegal.",
+        description= "11 ounce or 15 ounce premium white ceramic mugs-Images are printed with magical dye sublimation process that infuses the ink into the ceramic. This means the image is a part of the mug. Image will not rub, peel or come off like adhesive vinyl or other processes.",
+        price= 15.00,
+        userId = 6,
+        category= "Home & Living",
+        highlight = "Materials",
+        createdAt= "2021-11-19 20:39:36",
+        updatedAt= "2021-11-19 20:39:36",
+        previewImage= "https://i.etsystatic.com/10501376/r/il/12ca23/3542919463/il_794xN.3542919463_if7i.jpg"
+)
+    product07 = Product(
+        name= "Dainty Chain Bracelet, Delicate Bracelets for Women, Layering Bracelet, Gold Chain, Coin, Tube, Lace, Satellite Chain",
+        description= "Beautiful dainty chain bracelet in 14K gold or sterling silver. Our delicate bracelets are offered in four unique styles: coin chain, tube chain, lace chain, oval link or satellite chain. Pick one or more for a custom layering look just for you!",
+        price= 31.00,
+        userId = 7,
+        category= "Jewelry & Accessories",
+        highlight = "Made to Order",
+        createdAt= "2021-11-19 20:39:36",
+        updatedAt= "2021-11-19 20:39:36",
+        previewImage= "https://i.etsystatic.com/10934823/r/il/30ef21/1339090870/il_794xN.1339090870_8lk9.jpg"
 )
     product16 = Product(
         name= "Dainty Name Necklace with Birth Flower, Personalized Name Necklace, Custom Gold Name Jewelry, Birthday Gift for Her, Bridesmaid Gift",
