@@ -1,14 +1,13 @@
 # Start with the python:3.9 image
-FROM python: 3.9
+FROM python:3.9
 # Set the following enviroment variables
 #
-ENV REACT_APP_BASE_URL = https://artsy-1014.herokuapp.com/
+ENV REACT_APP_BASE_URL =https://artsy-1014.herokuapp.com/
 # REACT_APP_BASE_URL -> Your deployment URL
 
 # FLASK_APP -> entry point to your flask app
 # FLASK_ENV -> Tell flask to use the production server
 # SQLALCHEMY_ECHO -> Just set it to true
-
 ENV FLASK_APP=app
 ENV FLASK_ENV=production
 ENV SQLALCHEMY_ECHO=true
