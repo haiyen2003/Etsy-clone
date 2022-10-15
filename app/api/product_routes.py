@@ -15,4 +15,11 @@ def products():
 @product_routes.route('/<int:id>')
 def product(id):
     product = Product.query.get(id)
+    if product is None:
+        return {'message': "No such product"}
     return product.to_dict()
+
+#create a product
+@product_routes.route('/', methods=["POST"])
+def add_product():
+    pass
