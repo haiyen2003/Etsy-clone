@@ -79,6 +79,7 @@ export const thunkGetAllProduct = () => async dispatch => {
     if (response.ok) {
         const data = await response.json()
         dispatch(actionGetAllProduct(data))
+        console.log('thunkGETALLPRODUCT', data)
     }
 }
 
@@ -122,14 +123,15 @@ const productReducer = (state = initialState, action) => {
         newState[action.product.id] = action.product;
         return newState;
       case getAllProduct:
-        newState = {};
-        action.products.forEach((product) => {
+          newState = {};
+          console.log('REDUCERPRODUCT', action.products.products)
+        action.products.products.forEach((product) => {
           newState[product.id] = product;
         });
         return newState;
       case getCurrentProduct:
         newState = {};
-        action.products.forEach((product) => {
+        action.products.products.forEach((product) => {
           newState[product.id] = product;
         });
         return newState;
