@@ -213,7 +213,7 @@ def seed_reviews():
     productId = 37,
     userId = 24,
     stars = 5,
-    comment = 'I just adore this painting, I couldn't be any happier!',
+    comment = "I just adore this painting, I couldn't be any happier!",
     createdAt= "2022-10-19 20:39:36",
     updatedAt= "2021-10-19 20:39:36",
     )

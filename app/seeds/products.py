@@ -434,7 +434,7 @@ def seed_products():
     )
     product40 = Product(
         name= "Ciclistas 30x40 Pulg Acrilic",
-        description= "Original acrylic on canvas 30"x40" from cyclist collection finished in 2017. Painting is perfect condition, stretched. ",
+        description= "Original acrylic on canvas 30'x40' from cyclist collection finished in 2017. Painting is perfect condition, stretched.",
         price= 3000,
         userId = 10,
         category= "Art & Collectibles",

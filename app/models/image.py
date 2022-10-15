@@ -11,7 +11,7 @@ class Image(db.Model):
     url= db.Column(db.String(250), nullable=False)
     productId = db.Column(db.Integer, db.ForeignKey('products.id'), nullable=False)
 
-    product = db.relationship('Product', back_populates='images')
+    # product = db.relationship('Product', back_populates='images')
 
     def to_dict(self):
         return {

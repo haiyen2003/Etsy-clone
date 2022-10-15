@@ -15,11 +15,11 @@ class Product(db.Model):
     highlights = db.Column(db.String(50), nullable=False)
     createdAt = db.Column(db.DateTime, nullable=False)
     updatedAt = db.Column(db.DateTime, nullable=False)
-
+    previewImage= db.Column(db.String(255), nullable=False)
     reviews = db.relationship('Review', back_populates='product', cascade = 'all, delete')
     cart = db.relationship('Cart', back_populates='products')
     user = db.relationship('User', back_populates='products')
-    images = db.relationship('Image', back_populates='product', cascade = 'all, delete')
+    # images = db.relationship('Image', back_populates='product', cascade = 'all, delete')
 
     def to_dict(self):
         return {
@@ -31,6 +31,7 @@ class Product(db.Model):
             'category':self.category,
             'highlights':self.highlights,
             'createdAt':self.createdAt,
-            'updatedAt':self.updatedAt
+            'updatedAt':self.updatedAt,
+            'previewImage':self.previewImage
 
         }
