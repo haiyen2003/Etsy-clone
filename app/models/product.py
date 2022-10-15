@@ -1,7 +1,6 @@
 from .db import db
 from datetime import datetime
-
-
+from .image import Image
 
 class Product(db.Model):
     __tablename__ = 'products'
@@ -12,7 +11,7 @@ class Product(db.Model):
     price = db.Column(db.Float, nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     category = db.Column(db.String(50), nullable=False)
-    highlights = db.Column(db.String(50), nullable=False)
+    highlights = db.Column(db.String(100), nullable=False)
     createdAt = db.Column(db.DateTime, nullable=False)
     updatedAt = db.Column(db.DateTime, nullable=False)
 
@@ -32,5 +31,4 @@ class Product(db.Model):
             'highlights':self.highlights,
             'createdAt':self.createdAt,
             'updatedAt':self.updatedAt
-
         }

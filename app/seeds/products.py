@@ -11,7 +11,7 @@ def seed_products():
         highlight = "Handmade",
         createdAt= "2021-11-19 20:39:36",
         updatedAt= "2021-11-19 20:39:36",
-        previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
+        previewImage= "https://i.etsystatic.com/26618873/r/il/e4cdfe/3990084111/il_794xN.3990084111_tmlb.jpg"
 )
     product02 = Product(
         name= "3D Wooden Fox Decoration with light,Wooden Wolf Horse Decor Craft,Wooden Christmas ornament,Wall Decoration,Desktop ornaments,Free Engraving",
@@ -24,7 +24,7 @@ def seed_products():
         updatedAt= "2021-11-19 20:39:36",
         previewImage= "https://i.etsystatic.com/26618873/r/il/e4cdfe/3990084111/il_794xN.3990084111_tmlb.jpg"
 )
-   product03 = Product(
+    product03 = Product(
         name= "Botanical Print Set of 4 - Botanical Illustration - Botanical Art Print - Art Prints - Vintage Botanical Print Set of 4 - Botanical Poster",
         description= "This is for a set of 4 prints of a Botanical Floral illustration that has been hand painted and were found in an Antique natural history text book. The original has been digitally enhanced and are printed on heavy matte photo paper.",
         price= 38.00,
@@ -333,10 +333,9 @@ def seed_products():
         updatedAt= "2021-11-19 20:39:36",
         previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
 )
-
     product31 = Product(
         name= "DROPS Air A medium thick blow yarn, baby alpaca and merino wool, Beautiful knitting yarn",
-        description= "An exciting "blow yarn" made from soft baby alpaca and cozy and warm merino wool. As implied in blow yarn, this quality has an unique construction where instead of spinning, the fibres of baby alpaca and merino wool are air blown into a tube together.",
+        description= "An exciting `blow yarn" made from soft baby alpaca and cozy and warm merino wool. As implied in blow yarn, this quality has an unique construction where instead of spinning, the fibres of baby alpaca and merino wool are air blown into a tube together.",
         price= 100,
         userId = 1,
         category= "Clothing & Shoes",
@@ -347,7 +346,7 @@ def seed_products():
 )
     product32 = Product(
         name= "Drops air, aran weight knitting yarn, alpaca yarn and merino wool, blow yarn, worsted yarn, drops yarn, knitting yarn, medium thick yarn",
-        description= "An exciting "blow yarn" made from soft baby alpaca and cozy and warm merino wool. As implied in blow yarn, this quality has an unique construction where instead of spinning.",
+        description= "An exciting `blow yarn` made from soft baby alpaca and cozy and warm merino wool. As implied in blow yarn, this quality has an unique construction where instead of spinning.",
         price= 150,
         userId = 2,
         category= "Clothing & Shoes",
