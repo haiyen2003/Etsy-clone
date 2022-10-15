@@ -67,6 +67,11 @@ export const thunkGetAllProduct = (payload) => async dispatch => {
       method: "GET",
       header: { "Content-Type": "application/json" },
     });
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(actionGetAllProduct(data))
+    }
 }
 
 
@@ -82,6 +87,12 @@ const productReducer = (state = initialState, action) => {
     switch (action.type) {
         case createProduct:
             newState[action.product.id] = action.product
+            return newState
+        case getAllProduct:
+            newState = {};
+            action.products.forEach(product => {
+                newState[product.id] = product
+            })
             return newState
         default:
             return state
