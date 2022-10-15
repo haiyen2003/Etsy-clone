@@ -16,3 +16,4 @@ def products():
 def product(id):
     product = Product.query.get(id)
     return product.to_dict()
+
