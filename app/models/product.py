@@ -1,12 +1,11 @@
 from .db import db
-<<<<<<< HEAD
+
 from datetime import datetime
 from .image import Image
-=======
+
 from sqlalchemy.types  import DateTime, Date 
 
 
->>>>>>> test_lyn
 
 class Product(db.Model):
     __tablename__ = 'products'
@@ -17,11 +16,7 @@ class Product(db.Model):
     price = db.Column(db.Float, nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     category = db.Column(db.String(50), nullable=False)
-<<<<<<< HEAD
-    highlights = db.Column(db.String(100), nullable=False)
-=======
     highlight = db.Column(db.String(50), nullable=False)
->>>>>>> test_lyn
     createdAt = db.Column(db.DateTime, nullable=False)
     updatedAt = db.Column(db.DateTime, nullable=False)
     previewImage= db.Column(db.String(255), nullable=False)
@@ -40,11 +35,7 @@ class Product(db.Model):
             'category':self.category,
             'highlight':self.highlight,
             'createdAt':self.createdAt,
-<<<<<<< HEAD
-            'updatedAt':self.updatedAt
-=======
             'updatedAt':self.updatedAt,
             'previewImage':self.previewImage
 
->>>>>>> test_lyn
         }
