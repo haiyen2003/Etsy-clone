@@ -35,5 +35,5 @@ class ProductForm(FlaskForm):
     description = StringField("Product Description", [DataRequired()])
     price = FloatField("Price", [DataRequired()])
     category = SelectField("Category", coerce = int)
-    highlights = StringField("Highlights")
+    highlight = StringField("Highlight")
     imageURL = StringField("Image URL")
