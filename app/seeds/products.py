@@ -1,4 +1,7 @@
 from app.models import db, Product
+from datetime import datetime, date
+
+now = date.today()
 
 
 def seed_products():
@@ -9,8 +12,8 @@ def seed_products():
         userId =1,
         category= "Home & Living",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
     )
     product02 = Product(
@@ -20,8 +23,8 @@ def seed_products():
         userId = 2,
         category= "Home & Living",
         highlight = "Materials",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/26618873/r/il/e4cdfe/3990084111/il_794xN.3990084111_tmlb.jpg"
     )
     product03 = Product(
@@ -31,8 +34,8 @@ def seed_products():
         userId = 3,
         category= "Home & Living",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/12324116/r/il/6b44c0/4241871316/il_794xN.4241871316_9tuv.jpg"
     )
     product04 = Product(
@@ -42,8 +45,8 @@ def seed_products():
         userId = 4,
         category= "Toys & Entertainment",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/11774051/r/il/4ac32d/1251597408/il_794xN.1251597408_iwor.jpg"
     )
     product05 = Product(
@@ -53,8 +56,8 @@ def seed_products():
         userId = 5,
         category= "Toys & Entertainment",
         highlight = "Materials",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
     )
     product06 = Product(
@@ -64,8 +67,8 @@ def seed_products():
         userId = 6,
         category= "Home & Living",
         highlight = "Materials",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/10501376/r/il/12ca23/3542919463/il_794xN.3542919463_if7i.jpg"
     )
     product07 = Product(
@@ -75,8 +78,8 @@ def seed_products():
         userId = 7,
         category= "Jewelry & Accessories",
         highlight = "Made to Order",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/10934823/r/il/30ef21/1339090870/il_794xN.1339090870_8lk9.jpg"
     )
     product08 = Product(
@@ -86,8 +89,8 @@ def seed_products():
         userId = 8,
         category= "Jewelry & Accessories",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/7645072/r/il/dacff5/1696593437/il_794xN.1696593437_30ci.jpg"
     )
     product09 = Product(
@@ -97,8 +100,8 @@ def seed_products():
         userId = 9,
         category= "Jewelry & Accessories",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/11392819/r/il/f6e03a/1234859552/il_794xN.1234859552_s7vy.jpg"
     )
     product10 = Product(
@@ -108,21 +111,19 @@ def seed_products():
         userId = 10,
         category= "Wedding & Party",
         highlight = "Materials",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/10316178/r/il/2070b5/2506090917/il_794xN.2506090917_66m9.jpg"
     )
     product11 = Product(
-        ownerId= 2,
-        name= "Set of 2 - Champagne Flutes",
-        about= "Set of 2 - Champagne Flutes Personalized, Wedding Gifts, Mr and Mrs Champagne Glasses, Toasting Flutes for Couples - Bride and Groom",
+        name= "Set of 2 - Champagne Flutes Personalized, Wedding Gifts, Mr and Mrs Champagne Glasses, Toasting Flutes for Couples - Bride and Groom",
         description= "Set of 2 - Wedding Champagne Flutes, Mr. and Mrs. Champagne Glasses, Wedding Gifts for Couples, Toasting Flutes",
         price= 19.99,
         userId = 1,
         category= "Wedding & Party",
         highlight = "Can be personalized",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/14466987/r/il/40ede1/2584790379/il_794xN.2584790379_pwyg.jpg"
     )
     product12 = Product(
@@ -132,8 +133,8 @@ def seed_products():
         userId = 2,
         category= "Wedding & Party",
         highlight = "Can be personalized",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/12896129/r/il/928fc4/1380024725/il_794xN.1380024725_2yrf.jpg"
     )
     product13 = Product(
@@ -143,8 +144,8 @@ def seed_products():
         userId = 3,
         category= "Art & Collectibles",
         highlight = "Made to Order",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/26291699/r/il/269539/2838983613/il_794xN.2838983613_sull.jpg"
     )
     product14 = Product(
@@ -154,8 +155,8 @@ def seed_products():
         userId = 4,
         category= "Art & Collectibles",
         highlight = "Made to Order",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/31038643/r/il/f82816/4033193826/il_794xN.4033193826_1x9j.jpg"
     )
     product15 = Product(
@@ -165,8 +166,8 @@ def seed_products():
         userId = 5,
         category= "Art & Collectibles",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/12233055/r/il/c7fe9f/976711688/il_794xN.976711688_7xa0.jpg"
     )
     product16 = Product(
@@ -176,8 +177,8 @@ def seed_products():
         userId =1,
         category= "Personalized Gifts",
         highlight = "Handmade Item",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://images.pexels.com/photos/860009/pexels-photo-860009.jpeg"
      )
     product17 = Product(
@@ -187,8 +188,8 @@ def seed_products():
         userId = 2,
         category= "Personalized Gifts",
         highlight = "Handmade Item",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://images.pexels.com/photos/965981/pexels-photo-965981.jpeg"
     )
     product18 = Product(
@@ -198,8 +199,8 @@ def seed_products():
         userId=3,
         category= "Home Decor",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://images.pexels.com/photos/6634662/pexels-photo-6634662.jpeg"
     )
     product19 = Product(
@@ -209,8 +210,8 @@ def seed_products():
         userId=4,
         category= "Home Decor",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://images.pexels.com/photos/3817497/pexels-photo-3817497.jpeg"
     )
     product20 = Product(
@@ -220,8 +221,8 @@ def seed_products():
         userId =5,
         category= "Home Decor",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://images.pexels.com/photos/6850482/pexels-photo-6850482.jpeg"
     )
     product21 = Product(
@@ -231,8 +232,8 @@ def seed_products():
         userId = 6,
         category= "Home Decor",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://images.pexels.com/photos/6621468/pexels-photo-6621468.jpeg"
     )
     product22 = Product(
@@ -242,8 +243,8 @@ def seed_products():
         userId = 6,
         category= "Home Decor",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://images.pexels.com/photos/3811836/pexels-photo-3811836.jpeg"
     )
     product23 = Product(
@@ -253,8 +254,8 @@ def seed_products():
         userId = 7,
         category= "Home Decor",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
     )
     product24 = Product(
@@ -264,8 +265,8 @@ def seed_products():
         userId = 8,
         category= "Home Decor",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://images.pexels.com/photos/7181110/pexels-photo-7181110.jpeg"
     )
     product25 = Product(
@@ -275,8 +276,8 @@ def seed_products():
         userId = 9,
         category= "Home Decor",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://images.pexels.com/photos/7181113/pexels-photo-7181113.jpeg"
     )
     product26 = Product(
@@ -286,8 +287,8 @@ def seed_products():
         userId =10,
         category= "Home Decor",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://images.pexels.com/photos/4830748/pexels-photo-4830748.jpeg"
     )
     product27 = Product(
@@ -297,8 +298,8 @@ def seed_products():
         userId = 10,
         category= "Home Decor",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://images.pexels.com/photos/7175390/pexels-photo-7175390.jpeg"
     )
     product28 = Product(
@@ -308,8 +309,8 @@ def seed_products():
         userId = 9,
         category= "Home Decor",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
     )
     product29 = Product(
@@ -319,18 +320,19 @@ def seed_products():
         userId = 8,
         category= "Home Decor",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://images.pexels.com/photos/1087909/pexels-photo-1087909.jpeg"
     )
     product30 = Product(
         name= "Recycled clear glass that are sourced across the world.",
         description= "Our vision is to try to make the world a better place. We accept any types of glass for us to craft these wonderful vases.",
         price= 40,
+        userId =9,
         category= "Home Decor",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
     )
     product31 = Product(
@@ -340,8 +342,8 @@ def seed_products():
         userId = 1,
         category= "Clothing & Shoes",
         highlight = "Handmade",
-        createdAt= "2022-10-14 20:39:36",
-        updatedAt= "2022-10-14 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/21915528/r/il/b90fa5/3300321021/il_1588xN.3300321021_elpl.jpg"
     )
     product32 = Product(
@@ -351,19 +353,19 @@ def seed_products():
         userId = 2,
         category= "Clothing & Shoes",
         highlight = "Materials: Primary fiber: Alpaca; Secondary fiber: Polyamide",
-        createdAt= "2022-10-14 20:39:36",
-        updatedAt= "2022-10-14 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/10304510/r/il/f7568b/2230955130/il_1588xN.2230955130_6yrs.jpg"
     )
     product33 = Product(
         name= "Alpaca yarn, Drops Alpaca yarn, Organic wool, soft alpaca yarn, knitting yarn, Natural fiber",
         description= "Alpaca is a lovely yarn spun from 3 strands of 100% superfine alpaca, with an extra twist to provide a durable surface. ",
         price= 200,
-        usreId = 3,
+        userId = 3,
         category= "Clothing & Shoes",
         highlight = "Handmade",
-        createdAt= "2022-10-14 20:39:36",
-        updatedAt= "2022-10-14 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/32226150/r/il/3018e8/3921909534/il_1588xN.3921909534_k49c.jpg"
     )
     product34 = Product(
@@ -373,8 +375,8 @@ def seed_products():
         userId = 4,
         category= "Clothing & Shoes",
         highlight = "Handmade",
-        createdAt= "2022-10-14 20:39:36",
-        updatedAt= "2022-10-14 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/18889371/r/il/4ed750/3040943685/il_1588xN.3040943685_894g.jpg"
     )
     product35 = Product(
@@ -384,8 +386,8 @@ def seed_products():
         userId =5,
         category= "Clothing & Shoes",
         highlight = "Handmade",
-        createdAt= "2022-10-14 20:39:36",
-        updatedAt= "2022-10-14 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/18508755/r/il/0b5349/2440378086/il_1588xN.2440378086_5mad.jpg"
     )
     product36 = Product(
@@ -395,8 +397,8 @@ def seed_products():
         userId=6,
         category= "Art & Collectibles",
         highlight = "Handmade",
-        createdAt= "2022-10-14 20:39:36",
-        updatedAt= "2022-10-14 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/21187145/r/il/0e7a7e/2466292412/il_1588xN.2466292412_f2kw.jpg"
     )
     product37 = Product(
@@ -406,8 +408,8 @@ def seed_products():
         userId=7,
         category= "Art & Collectibles",
         highlight = "Handmade",
-        createdAt= "2022-10-14 20:39:36",
-        updatedAt= "2022-10-14 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/21187145/r/il/0f5035/3489428794/il_1588xN.3489428794_kqk5.jpg"
     )
     product38 = Product(
@@ -417,8 +419,8 @@ def seed_products():
         userId=8,
         category= "Art & Collectibles",
         highlight = "Handmade",
-        createdAt= "2022-10-14 20:39:36",
-        updatedAt= "2022-10-14 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/20809018/r/il/423612/3877368233/il_1588xN.3877368233_i0f2.jpg"
     )
     product39 = Product(
@@ -428,8 +430,8 @@ def seed_products():
         userId = 9,
         category= "Art & Collectibles",
         highlight = "Handmade",
-        createdAt= "2022-10-14 20:39:36",
-        updatedAt= "2022-10-14 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/17085680/r/il/e2325f/3530850675/il_1588xN.3530850675_7a9p.jpg"
     )
     product40 = Product(
@@ -439,8 +441,8 @@ def seed_products():
         userId = 10,
         category= "Art & Collectibles",
         highlight = "Handmade",
-        createdAt= "2022-10-14 20:39:36",
-        updatedAt= "2022-10-14 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/20085606/r/il/0aaeef/3552040603/il_1588xN.3552040603_h1z7.jpg"
     )
     product41 = Product(
@@ -450,8 +452,8 @@ def seed_products():
         userId = 1,
         category= "Art & Collectibles",
         highlight = "Handmade",
-        createdAt= "2022-10-14 20:39:36",
-        updatedAt= "2022-10-14 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/27937711/r/il/cd3380/4144385824/il_1588xN.4144385824_2r55.jpg"
     )
     product42 = Product(
@@ -461,8 +463,8 @@ def seed_products():
         userId = 2,
         category= "Art & Collectibles",
         highlight = "Handmade",
-        createdAt= "2022-10-14 20:39:36",
-        updatedAt= "2022-10-14 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/5203219/r/il/cba206/4247312242/il_1588xN.4247312242_lalu.jpg"
     )
     product43 = Product(
@@ -472,19 +474,19 @@ def seed_products():
         userId = 3,
         category= "Art & Collectibles",
         highlight = "Handmade",
-        createdAt= "2022-10-14 20:39:36",
-        updatedAt= "2022-10-14 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/23629440/r/il/435525/3007420413/il_1588xN.3007420413_7max.jpg"
     )
     product44 = Product(
-        about= "Parisian street scene, vintage Italian oil painting, Parisian piazza, impressionist, signed",
+        name= "Parisian street scene, vintage Italian oil painting, Parisian piazza, impressionist, signed",
         description= "A stunning street scene of Paris in the rain. Colorful jackets and the brick building are all the more vibrant against the gloomy sky.",
         price= 1000,
         userId = 4,
         category= "Art & Collectibles",
         highlight = "Handmade",
-        createdAt= "2022-10-14 20:39:36",
-        updatedAt= "2022-10-14 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/28509808/r/il/a91a70/3465342691/il_1588xN.3465342691_i43b.jpg"
     )
     product45 = Product(
@@ -494,8 +496,8 @@ def seed_products():
         userId=5,
         category= "Art & Collectibles",
         highlight = "Handmade",
-        createdAt= "2022-10-14 20:39:36",
-        updatedAt= "2022-10-14 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/8360328/r/il/b13679/1475839035/il_1588xN.1475839035_tgc8.jpg"
     )
 
