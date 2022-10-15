@@ -82,6 +82,7 @@ export const thunkGetAllProduct = () => async dispatch => {
     }
 }
 
+// USE THIS THUNK FOR CURRENT USER PRODUCT PAGE
 export const thunkGetCurrentProduct = () => async dispatch => {
     const response = await fetch('/api/products', {
         method: "GET",
