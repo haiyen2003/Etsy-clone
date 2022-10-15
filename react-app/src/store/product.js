@@ -3,6 +3,7 @@
 const createProduct = '/product/createProduct'
 const getAllProduct = '/product/getAllProduct'
 const getCurrentProduct = '/product/getCurrentProduct'
+const getOneProduct = '/product/getOneProduct'
 const updateProduct = '/product/updateProduct'
 const deleteProduct = '/product/deleteProduct'
 
@@ -28,6 +29,13 @@ const actionGetCurrentProduct = (products) => {
     return {
         type: getCurrentProduct,
         products
+    }
+}
+
+const actionGetOneProduct = (product) => {
+    return {
+        type: getOneProduct,
+        product
     }
 }
 
@@ -62,7 +70,7 @@ export const thunkCreateProduct = (payload) => async dispatch => {
     }
 }
 
-export const thunkGetAllProduct = (payload) => async dispatch => {
+export const thunkGetAllProduct = () => async dispatch => {
     const response = await fetch("/api/products", {
       method: "GET",
       header: { "Content-Type": "application/json" },
@@ -71,6 +79,30 @@ export const thunkGetAllProduct = (payload) => async dispatch => {
     if (response.ok) {
         const data = await response.json()
         dispatch(actionGetAllProduct(data))
+    }
+}
+
+export const thunkGetCurrentProduct = () => async dispatch => {
+    const response = await fetch('/api/products', {
+        method: "GET",
+        header: { "Content-Type": "application/json" },
+    })
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(actionGetCurrentProduct(data))
+    }
+}
+
+export const thunkGetOneProduct = (id) => async dispatch => {
+    const response = await fetch(`/api/products/${id}`, {
+      method: "GET",
+      header: { "Content-Type": "application/json" },
+    });
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(actionGetOneProduct(data))
     }
 }
 
@@ -85,17 +117,27 @@ const initialState = {}
 const productReducer = (state = initialState, action) => {
     let newState = {...state}
     switch (action.type) {
-        case createProduct:
-            newState[action.product.id] = action.product
-            return newState
-        case getAllProduct:
-            newState = {};
-            action.products.forEach(product => {
-                newState[product.id] = product
-            })
-            return newState
-        default:
-            return state
+      case createProduct:
+        newState[action.product.id] = action.product;
+        return newState;
+      case getAllProduct:
+        newState = {};
+        action.products.forEach((product) => {
+          newState[product.id] = product;
+        });
+        return newState;
+      case getCurrentProduct:
+        newState = {};
+        action.products.forEach((product) => {
+          newState[product.id] = product;
+        });
+        return newState;
+       case getOneProduct:
+         newState = {};
+         newState[action.product.id] = action.product
+         return newState
+      default:
+        return state;
     }
 }
 
