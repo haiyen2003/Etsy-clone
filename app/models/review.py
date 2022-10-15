@@ -1,5 +1,5 @@
 from .db import db
-from datetime import datetime
+from sqlalchemy.types  import DateTime, Date 
 
 
 
