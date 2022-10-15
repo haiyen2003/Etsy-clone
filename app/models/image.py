@@ -1,9 +1,6 @@
 
 from .db import db
 
-
-
-
 class Image(db.Model):
     __tablename__ = 'images'
 
@@ -18,5 +15,4 @@ class Image(db.Model):
             'id': self.id,
             'url': self.url,
             'productId':self.productId,
-
         }
