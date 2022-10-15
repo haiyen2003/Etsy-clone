@@ -79,6 +79,96 @@ def seed_products():
         updatedAt= "2021-11-19 20:39:36",
         previewImage= "https://i.etsystatic.com/10934823/r/il/30ef21/1339090870/il_794xN.1339090870_8lk9.jpg"
 )
+    product08 = Product(
+        name= "GREEN LEAF EARRINGS, Leaf studs, Tiny Dangle Earrings, spring jewelry, Nature Jewelry, Green Leaves",
+        description= "High-quality picture is printed on waterproof paper and protected with a glass cabochon. All findings are Nickel Free.",
+        price= 7.56,
+        userId = 8,
+        category= "Jewelry & Accessories",
+        highlight = "Handmade",
+        createdAt= "2021-11-19 20:39:36",
+        updatedAt= "2021-11-19 20:39:36",
+        previewImage= "https://i.etsystatic.com/7645072/r/il/dacff5/1696593437/il_794xN.1696593437_30ci.jpg"
+)
+    product09 = Product(
+        name= "Blue Teardrop pendant Necklace, Fancy, Dressy necklace, Formal Jewelry, Homecoming, crystal, Pendant Royal Blue, PROM jewelry, For Mom",
+        description= "A classic look that can be worn during and after a wedding or any special occasion. Perfect for a Homecoming Dance, Formal, Sorority Formal, holiday party, wedding.... New Year's Eve",
+        price= 18.95,
+        userId = 9,
+        category= "Jewelry & Accessories",
+        highlight = "Handmade",
+        createdAt= "2021-11-19 20:39:36",
+        updatedAt= "2021-11-19 20:39:36",
+        previewImage= "https://i.etsystatic.com/11392819/r/il/f6e03a/1234859552/il_794xN.1234859552_s7vy.jpg"
+)
+    product10 = Product(
+        name= "Wedding, Fairy lights, Rustic Wedding Decor, Wedding Centerpiece Lights, Mason Jar Lighting, Copper Wire Lights, Battery included *No Jar",
+        description= "Whimsical fairy lights for your rustic wedding decor. Easy! Just add to your wedding centerpiece. DIY Mason jar lighting to make your wedding tables stunning!",
+        price= 3.33,
+        userId = 10,
+        category= "Wedding & Party",
+        highlight = "Materials",
+        createdAt= "2021-11-19 20:39:36",
+        updatedAt= "2021-11-19 20:39:36",
+        previewImage= "https://i.etsystatic.com/10316178/r/il/2070b5/2506090917/il_794xN.2506090917_66m9.jpg"
+)
+    product11 = Product(
+        ownerId= 2,
+        name= "Set of 2 - Champagne Flutes",
+        about= "Set of 2 - Champagne Flutes Personalized, Wedding Gifts, Mr and Mrs Champagne Glasses, Toasting Flutes for Couples - Bride and Groom",
+        description= "Set of 2 - Wedding Champagne Flutes, Mr. and Mrs. Champagne Glasses, Wedding Gifts for Couples, Toasting Flutes",
+        price= 19.99,
+        userId = 1,
+        category= "Wedding & Party",
+        highlight = "Can be personalized",
+        createdAt= "2021-11-19 20:39:36",
+        updatedAt= "2021-11-19 20:39:36",
+        previewImage= "https://i.etsystatic.com/14466987/r/il/40ede1/2584790379/il_794xN.2584790379_pwyg.jpg"
+)
+    product12 = Product(
+        name= "Vintage style silver wedding band, Filigree wedding ring, Nature silver band, Men wedding band, Women wedding ring, Leaves ring, Unique band",
+        description= "Vintage style silver wedding band, Filigree wedding ring, Nature silver band, Men wedding band, Women wedding ring, Leaves ring, Unique wedding band, Sterling silver ring.",
+        price= 93.60,
+        userId = 2,
+        category= "Wedding & Party",
+        highlight = "Can be personalized",
+        createdAt= "2021-11-19 20:39:36",
+        updatedAt= "2021-11-19 20:39:36",
+        previewImage= "https://i.etsystatic.com/12896129/r/il/928fc4/1380024725/il_794xN.1380024725_2yrf.jpg"
+)
+    product13 = Product(
+        name= "Digital custom portrait in my style",
+        description= "Personalized Portrait | Couple portrait | Family portrait | Valentine custom gift | digital custom portrait in my style | digital art commission | family illustration | couple illustration | pet illustration commission | Wedding illustration | draw from photo",
+        price= 4.89,
+        userId = 3,
+        category= "Art & Collectibles",
+        highlight = "Made to Order",
+        createdAt= "2021-11-19 20:39:36",
+        updatedAt= "2021-11-19 20:39:36",
+        previewImage= "https://i.etsystatic.com/26291699/r/il/269539/2838983613/il_794xN.2838983613_sull.jpg"
+)
+    product14 = Product(
+        name= "Now Spinning Vinyl Record Holder for Musicians, Dads, Music Lovers, DJs, Record Stores (Single or Double LP)",
+        description= "HIGH DEMAND! Holidays are coming! Sold out? Get added to the waitlist, so you don't miss this popular gift!",
+        price= 34.99,
+        userId = 4,
+        category= "Art & Collectibles",
+        highlight = "Made to Order",
+        createdAt= "2021-11-19 20:39:36",
+        updatedAt= "2021-11-19 20:39:36",
+        previewImage= "https://i.etsystatic.com/31038643/r/il/f82816/4033193826/il_794xN.4033193826_1x9j.jpg"
+)
+    product15 = Product(
+        name= "Pokeball with Ringlight, Pokemon cosplay must have",
+        description= "Battery required for LED: 9V (Rectangular battery). Shipping time: 2 weeks to 1 month. Total Time: 3 WEEKS TO TWO MONTH from order to receiving it, will take much longer if you give the wrong address. ALL POKEBALLS are handmade, and customized ball takes longer.",
+        price= 34.40,
+        userId = 5,
+        category= "Art & Collectibles",
+        highlight = "Handmade",
+        createdAt= "2021-11-19 20:39:36",
+        updatedAt= "2021-11-19 20:39:36",
+        previewImage= "https://i.etsystatic.com/12233055/r/il/c7fe9f/976711688/il_794xN.976711688_7xa0.jpg"
+)
     product16 = Product(
         name= "Dainty Name Necklace with Birth Flower, Personalized Name Necklace, Custom Gold Name Jewelry, Birthday Gift for Her, Bridesmaid Gift",
         description= "Dainty Name Necklace with Birth Flower, Personalized Name Necklace, Custom Gold Name Jewelry, Birthday Gift for Her, Mother's Day Gifts",

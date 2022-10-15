@@ -1,4 +1,4 @@
-from app.models import db, Review 
+from app.models import db, Review
 
 def seed_reviews():
 review01 = Review(
@@ -161,4 +161,84 @@ review20 = Review(
     comment = 'Nice usage. Will buy again the next time I have more allowance.'
     createdAt= "2021-11-19 20:39:36",
     updatedAt= "2021-11-19 20:39:36",
+)
+review21 = Review(
+    productId = 31,
+    userId = 20,
+    stars = 5,
+    comment = "Beautiful yarn. It's sooo soft. I received all the colors I asked for and a sweet little gift as well."
+    createdAt= "2022-10-19 20:39:36",
+    updatedAt= "2021-10-19 20:39:36",
+)
+review22 = Review(
+    productId = 32,
+    userId = 21,
+    stars = 5,
+    comment = 'Ordering this yarn was a breeze.'
+    createdAt= "2022-10-19 20:39:36",
+    updatedAt= "2021-10-19 20:39:36",
+)
+review23 = Review(
+    productId = 33,
+    userId = 21,
+    stars = 5,
+    comment = 'I am very happy with this purchase. The yarn is exactly as described and the color is identical to the one shown online.'
+    createdAt= "2022-10-19 20:39:36",
+    updatedAt= "2021-10-19 20:39:36",
+)
+review24 = Review(
+    productId = 34,
+    userId = 21,
+    stars = 5,
+    comment = 'Ordering this yarn was a breeze.'
+    createdAt= "2022-10-19 20:39:36",
+    updatedAt= "2021-10-19 20:39:36",
+)
+review25 = Review(
+    productId = 35,
+    userId = 21,
+    stars = 5,
+    comment = 'Softest and most beautiful yarn ever! Not only super light and cloud soft.'
+    createdAt= "2022-10-19 20:39:36",
+    updatedAt= "2021-10-19 20:39:36",
+)
+review26 = Review(
+    productId = 36,
+    userId = 23,
+    stars = 5,
+    comment = 'This watercolor is stunning!'
+    createdAt= "2022-10-19 20:39:36",
+    updatedAt= "2021-10-19 20:39:36",
+)
+review27 = Review(
+    productId = 37,
+    userId = 24,
+    stars = 5,
+    comment = 'I just adore this painting, I couldn't be any happier!'
+    createdAt= "2022-10-19 20:39:36",
+    updatedAt= "2021-10-19 20:39:36",
+)
+review28 = Review(
+    productId = 38,
+    userId = 25,
+    stars = 5,
+    comment = 'I love this quilt art watercolor print by William Gardner of Gardnerwatercolors!'
+    createdAt= "2022-10-19 20:39:36",
+    updatedAt= "2021-10-19 20:39:36",
+)
+review29 = Review(
+    productId = 39,
+    userId = 27,
+    stars = 5,
+    comment = 'It’s beautiful and exceeded my expectations! The colors are fabulous and I can’t wait to frame it and hang it on my wall. Thank you William!!!'
+    createdAt= "2022-10-19 20:39:36",
+    updatedAt= "2021-10-19 20:39:36",
+)
+review30 = Review(
+    productId = 40,
+    userId = 29,
+    stars = 5,
+    comment = 'The color was very vibrant and the print was high quality.'
+    createdAt= "2022-10-19 20:39:36",
+    updatedAt= "2021-10-19 20:39:36",
 )
