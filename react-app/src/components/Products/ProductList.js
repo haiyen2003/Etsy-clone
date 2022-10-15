@@ -15,7 +15,7 @@ function ProductList() {
 
     useEffect(() => {
         dispatch(thunkGetAllProduct())
-    }, [])
+    }, [dispatch])
         // dispatch(thunkGetAllProduct());
 
     
@@ -26,7 +26,7 @@ function ProductList() {
                 {allproducts && allproducts.map((product) => (
                 <div key={product.id}>
                     <div>
-                    <NavLink to={`/product/${product.id}`}>
+                    <NavLink to={`/products/${product.id}`}>
                     <img src={product.previewImage} alt="product" width="250" height="250"></img>
                     </NavLink>
                     </div>
