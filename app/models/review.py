@@ -1,7 +1,5 @@
 from .db import db
-from sqlalchemy.types  import DateTime, Date 
-
-
+from sqlalchemy.types  import DateTime, Date
 
 class Review(db.Model):
     __tablename__ = 'reviews'
@@ -29,5 +27,4 @@ class Review(db.Model):
             'userId':self.userId,
             'createdAt':self.createdAt,
             'updatedAt':self.updatedAt
-
         }
