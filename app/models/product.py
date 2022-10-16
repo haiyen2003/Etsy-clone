@@ -33,8 +33,4 @@ class Product(db.Model):
             'createdAt':self.createdAt,
             'updatedAt':self.updatedAt,
             'previewImage':self.previewImage
-<<<<<<< HEAD
-
-=======
->>>>>>> test-Yen
         }
