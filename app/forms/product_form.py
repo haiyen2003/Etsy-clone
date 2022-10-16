@@ -31,7 +31,8 @@ def highlights_validation(form, field):
 
 def imageURL_validation(form, field):
     img = field.data
-    if not img[-3:] == 'jpg' or not img[-3:] == 'jpeg' or not img[-3:] == 'png' or not img[-3:] == 'webp' or not img[-3:] == 'gif' or not img[-3:] == 'svg':
+    if not img[-3:] == 'jpg':
+    # or img[-4:] != 'jpeg' or img[-3:] != 'png' or img[-4:] != 'webp' or img[-3:] != 'gif' or img[-3:] != 'svg':
         raise ValidationError("Input must be a valid Image Url")
 
 
@@ -39,6 +40,6 @@ class ProductForm(FlaskForm):
     name = StringField("Product Name", validators= [DataRequired(), name_validation])
     description = StringField("Product Description", validators= [DataRequired(), description_validation])
     price = FloatField("Price", validators=[DataRequired(), price_validation])
-    category = StringField("Category", validators=[DataRequired(), highlights_validation])
-    highlight = StringField("Highlights")
-    imageURL = StringField("Image URL", validators= [imageURL_validation])
+    category = StringField("Category", validators=[DataRequired()])
+    highlight = StringField("Highlights", validators=[DataRequired(), highlights_validation])
+    previewImage = StringField("Image URL", validators= [DataRequired(), imageURL_validation])

@@ -1,9 +1,11 @@
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models import Product, db
 from app.forms import ProductForm
 from app.api.auth_routes import validation_errors_to_error_messages
+from datetime import datetime
 
+now = datetime.now()
 
 product_routes = Blueprint('products', __name__)
 
@@ -35,10 +37,13 @@ def add_product():
             price = form.data['price'],
             category = form.data['category'],
             highlight = form.data['highlight'],
-            previewImage = form.data['previewImage']
+            previewImage = form.data['previewImage'],
+            userId = current_user.id,
+            createdAt = now,
+            updatedAt = now
         )
 
         db.session.add(new_product)
         db.session.commit()
         return new_product.to_dict()
-    # return {"errors" : validation_errors_to_error_messages(form.errors)}, 400
+    return {"errors" : validation_errors_to_error_messages(form.errors)}, 400
