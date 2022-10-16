@@ -24,6 +24,20 @@ const actionGetAllProductReview = (reviews) => {
     }
 }
 
+const actionGetCurrentReview = (reviews) => {
+    return {
+        type: getCurrentReview,
+        reviews
+    }
+}
+
+const actionEditReview = (review) => {
+    return {
+        type: editReview,
+        review
+    }
+}
+
 
 
 
@@ -59,6 +73,29 @@ export const thunkGetAllProductReview = (productId) => async dispatch => {
 }
 
 
+export const thunkGetCurrentReview = () => async dispatch => {
+    const response = await fetch('/api/reviews')
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(actionGetCurrentReview(data))
+    }
+}
+
+
+export const thunkEditReview = (payload) => async dispatch => {
+    const response = await fetch(`/api/reviews/${payload.reviewId}`, {
+      method: "POST",
+      header: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(actionEditReview(data))
+        return data
+    }
+}
 
 
 
@@ -76,6 +113,21 @@ const reviewReducer = (state = initialState, action) => {
     let newState = {...state}
     switch (action.type) {
         case createReview:
+            newState[action.review.id] = action.review
+            return newState
+        case getAllProductReview:
+            newState = {};
+            action.reviews.forEach((review) => {
+                newState[review.id] = review;
+            });
+            return newState
+        case getCurrentReview:
+            newState = {};
+            action.reviews.forEach((review) => {
+                newState[review.id] = review;
+            });
+            return newState
+        case editReview:
             newState[action.review.id] = action.review
             return newState
         default:
