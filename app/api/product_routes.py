@@ -23,7 +23,7 @@ def product(id):
     return product.to_dict()
 
 #create a product
-@product_routes.route('/', methods=["POST"])
+@product_routes.route('/new', methods=["POST"])
 @login_required
 def add_product():
     form = ProductForm()
@@ -41,4 +41,4 @@ def add_product():
         db.session.add(new_product)
         db.session.commit()
         return new_product.to_dict()
-    return {"errors" : validation_errors_to_error_messages(form.errors)}, 400
+    # return {"errors" : validation_errors_to_error_messages(form.errors)}, 400
