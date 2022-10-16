@@ -1,6 +1,7 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import Product
+from app.forms import ProductForm
 
 product_routes = Blueprint('products', __name__)
 
@@ -21,5 +22,11 @@ def product(id):
 
 #create a product
 @product_routes.route('/', methods=["POST"])
+@login_required
 def add_product():
-    pass
+    form = ProductForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        new_product = Product(
+            name = form.data['name']
+        )
