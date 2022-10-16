@@ -1,0 +1,26 @@
+.splash-container{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.top-container{
+  width:100%;
+  height: 200px;
+  display:flex;
+  flex-direction:column;
+}
+.background-band{
+  position:absolute;
+  width:100%;
+  height:100px;
+  background-color:#F8EBE6
+
+}
+
+.categoryproducts{
+  display:flex;
+  justify-content:center;
+  
+}

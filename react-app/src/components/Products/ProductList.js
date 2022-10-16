@@ -3,6 +3,7 @@ import { NavLink, Route, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetAllProduct } from "../../store/product";
+import './ProductList.css'
 
 
 
@@ -14,9 +15,7 @@ function ProductList() {
     console.log('allproducts=', allproducts)
 
     const categoryproducts=[allproducts[9], allproducts[35], allproducts[2], allproducts[12], allproducts[25], allproducts[30]]
-    const topsix = allproducts.slice(0,6);
-    console.log('topsix', topsix)
-    //  console.log('categoryproducts', categoryproducts);
+    console.log('categoryproducts', categoryproducts);
     // console.log('previeimage', categoryproducts[0].previewImage)
     useEffect(() => {
         dispatch(thunkGetAllProduct())
@@ -26,15 +25,19 @@ function ProductList() {
 
     return (
         <div className='splash-container'>
-            <div>
+            <div className='top-container'>
+            <div className='background-band'></div>
+            <div className='categoryproducts'>
                 {
-                    topsix.map((product) =>(
-                      <div key={product.id}>
-                        <img src={product.previewImage} alt='product'/>
-                      </div>
-                    ))
+                    // categoryproducts.map((product) =>(
+                    //   <div key={product.id}>
+                    //     <img src={product.previewImage} alt="product"></img>
+                    //   </div>
+                    // ))
                 }
             </div>
+            </div>
+
             <div>
                 {allproducts && allproducts.map((product) => (
                 <div key={product.id}>

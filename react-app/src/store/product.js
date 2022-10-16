@@ -71,7 +71,7 @@ export const thunkCreateProduct = (payload) => async dispatch => {
 }
 
 export const thunkGetAllProduct = () => async dispatch => {
-    const response = await fetch("/api/products", {
+    const response = await fetch(`/api/products`, {
       method: "GET",
       header: { "Content-Type": "application/json" },
     });
@@ -85,7 +85,7 @@ export const thunkGetAllProduct = () => async dispatch => {
 
 // USE THIS THUNK FOR CURRENT USER PRODUCT PAGE
 export const thunkGetCurrentProduct = () => async dispatch => {
-    const response = await fetch('/api/products', {
+    const response = await fetch('/api/products/current', {
         method: "GET",
         header: { "Content-Type": "application/json" },
     })
