@@ -5,7 +5,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 from app.forms import ReviewForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
-
+now = datetime.now()
 
 review_routes = Blueprint('reviews', __name__)
 
@@ -45,8 +45,11 @@ def create_review(id):
     newreview = Review(
        review = data['review'],
        stars = data['stars'],
+       reviewImg = data['reviewImg'],
        productId = id,
-       userId = current_user.id
+       userId = current_user.id,
+       createdAt = now,
+       updatedAt = now
     )
     db.session.add(newreview)
     db.session.commit()
