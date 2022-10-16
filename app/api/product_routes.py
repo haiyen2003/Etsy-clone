@@ -24,6 +24,15 @@ def product(id):
         return {'message': "No such product"}
     return product.to_dict()
 
+#get current user product
+@product_routes.route("/current")
+@login_required
+def currentuser_product():
+    currentuserid = current_user.id
+    products = Product.query.all(currentuserid)
+    return {'products': [product.to_dict() for product in products]}
+
+
 #create a product
 @product_routes.route('/new', methods=["POST"])
 @login_required
