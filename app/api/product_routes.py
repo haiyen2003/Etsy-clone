@@ -30,11 +30,11 @@ def add_product():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         new_product = Product(
-            name = form.data['name']
-            description = form.data['description']
-            price = form.data['price']
-            category = form.data['category']
-            highlight = form.data['highlight']
+            name = form.data['name'],
+            description = form.data['description'],
+            price = form.data['price'],
+            category = form.data['category'],
+            highlight = form.data['highlight'],
             previewImage = form.data['previewImage']
         )
 
