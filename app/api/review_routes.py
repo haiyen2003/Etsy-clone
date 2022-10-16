@@ -16,7 +16,7 @@ def get_product_reviews(id):
   return {'product_reviews': [review.to_dict() for review in product_reviews]}
 
 #get reviews based on userId
-@review_routes.route('')
+@review_routes.route('/')
 @login_required
 def get_user_reviews():
   user_reviews = Review.query.filter(Review.userId == current_user.id).all()
@@ -55,7 +55,7 @@ def create_review(id):
     return {'errors': validation_errors_to_error_messages(form.errors)},400
 
 #update a review
-@review_routes.route('/products/<int:productId>/reviews/<int:reviewId>', methods=['PUT'])
+@review_routes.route('/<int:reviewId>', methods=['PUT'])
 @login_required
 def update_product_review(productId, reviewId):
     form = ReviewForm()
