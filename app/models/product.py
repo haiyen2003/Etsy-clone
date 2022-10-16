@@ -1,9 +1,5 @@
 from .db import db
-
-from datetime import datetime
-from .image import Image
-
-from sqlalchemy.types  import DateTime, Date 
+from sqlalchemy.types  import DateTime, Date
 
 
 
@@ -37,5 +33,4 @@ class Product(db.Model):
             'createdAt':self.createdAt,
             'updatedAt':self.updatedAt,
             'previewImage':self.previewImage
-
         }
