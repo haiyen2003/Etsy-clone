@@ -15,13 +15,15 @@ def seed_carts():
     )
 
     item01 = CartItem(
-       productId = 1,
-       quantity = 2
+        cartId = 1,
+        productId = 1,
+        quantity = 2
     )
 
     item02 = CartItem(
-       productId = 3,
-       quantity = 1
+        cartId = 1,
+        productId = 3,
+        quantity = 1
     )
 
     db.session.add(user)
