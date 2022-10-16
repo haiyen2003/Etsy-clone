@@ -38,12 +38,12 @@ const actionEditReview = (review) => {
     }
 }
 
-
-
-
-
-
-
+const actionDeleteReview = (id) => {
+    return {
+        type: deleteReview,
+        id
+    }
+}
 
 
 // THUNKS
@@ -85,7 +85,7 @@ export const thunkGetCurrentReview = () => async dispatch => {
 
 export const thunkEditReview = (payload) => async dispatch => {
     const response = await fetch(`/api/reviews/${payload.reviewId}`, {
-      method: "POST",
+      method: "PUT",
       header: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
@@ -98,10 +98,14 @@ export const thunkEditReview = (payload) => async dispatch => {
 }
 
 
-
-
-
-
+export const thunkDeleteReview = (id) => async dispatch => {
+    const response = await fetch(`/api/reviews/${id}`, {
+        method: 'DELETE'
+    })
+    if (response.ok) {
+        dispatch(actionDeleteReview(id))
+    }
+}
 
 
 
@@ -129,6 +133,9 @@ const reviewReducer = (state = initialState, action) => {
             return newState
         case editReview:
             newState[action.review.id] = action.review
+            return newState
+        case deleteReview:
+            delete newState[action.id]
             return newState
         default:
             return state
