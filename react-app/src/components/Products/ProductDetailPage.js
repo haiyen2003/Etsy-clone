@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetOneProduct } from "../../store/product";
 import './ProductDetailPage.css'
+import { thunkGetAllProductReview } from "../../store/review";
 
 
 function ProductDetailPage() {
@@ -13,16 +14,17 @@ function ProductDetailPage() {
     const product = useSelector(state => state.product[id])
     // console.log(product)
 
-    // const review = useSelector(state => state.review)
+    const review = useSelector(state => state.review)
+    console.log('this', review)
     // const reviewCounter = Object.values(review).length
 
     useEffect(() => {
         dispatch(thunkGetOneProduct(id))
-        //dispatch for GET ALL REVIEWS
+        dispatch(thunkGetAllProductReview(id))
     },[dispatch, id])
 
     return (
-      <div>
+      <div className="mainproduct_container">
         <div className="productcontainer">
           <div>
             <img
@@ -50,7 +52,7 @@ function ProductDetailPage() {
               </div>
             </div>
             <div className="descriptiondetail_medal">
-              <i class="fa-solid fa-medal fa-2xl"></i>
+              <i className="fa-solid fa-medal fa-2xl"></i>
               <div className="descriptiondetail_text">
                 Star Seller. This seller consistently earned 5-star reviews,
                 shipped on time, and replied quickly to any messages they
@@ -58,17 +60,20 @@ function ProductDetailPage() {
               </div>
             </div>
             <div className="descriptiondetail_cart">
-              <i class="fa-solid fa-van-shuttle fa-2xl"></i>
+              <i className="fa-solid fa-van-shuttle fa-2xl"></i>
               <div className="descriptiondetail_text">
                 <span className="hooray_text">Hooray!&nbsp;</span>This item
                 ships free to the US.
               </div>
             </div>
-            <div>{product?.description}</div>
-            <div>{product?.highlight}</div>
-            <div>{product?.category}</div>
+            <div className="productdetail_text">Details </div>
+            <div className="productdetail_listtext">•&nbsp;{`${product?.highlight}`}</div>
+            <div className="productdetail_listtext">•&nbsp;{product?.category}</div>
+            <div className="productdetail_text"> Description</div>
+            <div className="productdetail_text">{product?.description}</div>
           </div>
         </div>
+        <div>REVIEWS</div>
       </div>
     );
 }

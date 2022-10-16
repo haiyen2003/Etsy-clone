@@ -63,9 +63,10 @@ export const thunkCreateReview = (payload) => async dispatch => {
 }
 
 
-export const thunkGetAllProductReview = (productId) => async dispatch => {
-    const response = await fetch(`/api/products/${productId}/reviews`)
-    
+export const thunkGetAllProductReview = (id) => async dispatch => {
+    const response = await fetch(`/api/products/${id}/reviews`)
+    console.log(id)
+    console.log(response)
     if (response.ok) {
         const data = await response.json()
         dispatch(actionGetAllProductReview(data))
