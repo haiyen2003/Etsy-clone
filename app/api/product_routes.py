@@ -47,3 +47,16 @@ def add_product():
         db.session.commit()
         return new_product.to_dict()
     return {"errors" : validation_errors_to_error_messages(form.errors)}, 400
+
+#update product
+@product_routes.route('/<int:id>/edit', methods=["PUT"])
+@login_required
+def update_product():
+    form = ProductForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        edit_product = Product.query.get(id)
+        if edit_product.userId != current_user.id:
+            return {"errors" : "You don't have the right to edit the product"}, 403
+
+        
