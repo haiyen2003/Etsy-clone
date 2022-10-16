@@ -77,3 +77,12 @@ def update_product(id):
         db.session.commit()
         return edit_product.to_dict()
     return {"errors" : validation_errors_to_error_messages(form.errors)}, 400
+
+#delete a product
+@product_routes.route("/<int:id>/delete", methods=['DELETE'])
+@login_required
+def delete_product(id):
+    delete_product = Product.query.get(id)
+    db.session.delete(delete_product)
+    db.session.commit()
+    return ("Successfully deleted!")
