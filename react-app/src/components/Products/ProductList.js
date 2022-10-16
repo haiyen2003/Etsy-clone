@@ -13,8 +13,10 @@ function ProductList() {
     const dispatch = useDispatch()
     console.log('allproducts=', allproducts)
 
-    categoryproducts=[allproducts[9], allproducts[35], allproducts[2], allproducts[12], allproducts[25], allproducts[30]]
-     console.log('categoryproducts', categoryproducts);
+    const categoryproducts=[allproducts[9], allproducts[35], allproducts[2], allproducts[12], allproducts[25], allproducts[30]]
+    const topsix = allproducts.slice(0,6);
+    console.log('topsix', topsix)
+    //  console.log('categoryproducts', categoryproducts);
     // console.log('previeimage', categoryproducts[0].previewImage)
     useEffect(() => {
         dispatch(thunkGetAllProduct())
@@ -24,15 +26,15 @@ function ProductList() {
 
     return (
         <div className='splash-container'>
-            {/* <div>
+            <div>
                 {
-                    categoryproducts.map((product) =>(
+                    topsix.map((product) =>(
                       <div key={product.id}>
                         <img src={product.previewImage} alt='product'/>
                       </div>
                     ))
                 }
-            </div> */}
+            </div>
             <div>
                 {allproducts && allproducts.map((product) => (
                 <div key={product.id}>
