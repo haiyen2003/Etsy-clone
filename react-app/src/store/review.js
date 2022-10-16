@@ -1,7 +1,7 @@
 // TYPES
 
 const createReview = '/review/createReview'
-const getAllReview = '/review/getAllReview'
+const getAllProductReview = '/review/getAllProductReview'
 const getCurrentReview = '/review/getCurrentReview'
 const editReview = '/review/editReview'
 const deleteReview = '/review/deleteReview'
@@ -14,6 +14,13 @@ const actionCreateReview = (review) => {
     return {
         type: createReview,
         review
+    }
+}
+
+const actionGetAllProductReview = (reviews) => {
+    return {
+        type: getAllProductReview,
+        reviews
     }
 }
 
@@ -38,6 +45,16 @@ export const thunkCreateReview = (payload) => async dispatch => {
         const data = await response.json()
         dispatch(actionCreateReview(data))
         return data
+    }
+}
+
+
+export const thunkGetAllProductReview = (productId) => async dispatch => {
+    const response = await fetch(`/api/products/${productId}/reviews`)
+    
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(actionGetAllProductReview(data))
     }
 }
 

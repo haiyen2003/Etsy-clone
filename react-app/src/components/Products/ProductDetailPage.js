@@ -10,7 +10,7 @@ function ProductDetailPage() {
     const dispatch = useDispatch()
 
     const product = useSelector(state => state.product[id])
-    console.log(product)
+    // console.log(product)
 
     // const review = useSelector(state => state.review)
     // const reviewCounter = Object.values(review).length

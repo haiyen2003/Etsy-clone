@@ -11,7 +11,7 @@ function ProductList() {
     const product = useSelector((state) => state.product)
     const allproducts = Object.values(product)
     const dispatch = useDispatch()
-    console.log(allproducts)
+    // console.log(allproducts)
 
     useEffect(() => {
         dispatch(thunkGetAllProduct())
