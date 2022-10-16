@@ -29,7 +29,7 @@ def product(id):
 @login_required
 def currentuser_product():
     currentuserid = current_user.id
-    products = Product.query.all(currentuserid)
+    products = Product.query.filter(Product.userId == currentuserid)
     return {'products': [product.to_dict() for product in products]}
 
 
