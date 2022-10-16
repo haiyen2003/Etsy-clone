@@ -60,7 +60,7 @@ def create_review(id):
 #update a review
 @review_routes.route('/<int:reviewId>', methods=['PUT'])
 @login_required
-def update_product_review(productId, reviewId):
+def update_product_review(reviewId):
     form = ReviewForm()
     form['csrf_token'].data=request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -68,6 +68,7 @@ def update_product_review(productId, reviewId):
       if updatedreview:
          updatedreview.review = form.data['review']
          updatedreview.stars = form.data['stars']
+         updatedreview.reviewImg = form.data['reviewImg']
 
          db.session.commit()
          return updatedreview.to_dict()
