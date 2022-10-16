@@ -73,13 +73,13 @@ def update_product(id):
 
     if form.validate_on_submit():
         edit_product = Product.query.get(id)
-        edit_product.name = form.data['name'],
-        edit_product.description = form.data['description'],
-        edit_product.price = form.data['price'],
-        edit_product.category = form.data['category'],
-        edit_product.highlight = form.data['highlight'],
-        edit_product.previewImage = form.data['previewImage'],
-        # edit_product.userId = current_user.id,
+        edit_product.name = form.data['name']
+        edit_product.description = form.data['description']
+        edit_product.price = form.data['price']
+        edit_product.category = form.data['category']
+        edit_product.highlight = form.data['highlight']
+        edit_product.previewImage = form.data['previewImage']
+        # edit_product.userId = current_user.id
         # edit_product.createdAt = now,
         edit_product.updatedAt = now
         # db.session.add(edit_product)
