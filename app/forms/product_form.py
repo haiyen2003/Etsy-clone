@@ -29,11 +29,16 @@ def highlights_validation(form, field):
     if len(hl) < 10 or len(hl) > 100:
         raise ValidationError("highlights must be more than 10 characters and less than 100 characters")
 
+def imageURL_validation(form, field):
+    img = field.data
+    if not img[-3:] == 'jpg' or not img[-3:] == 'jpeg' or not img[-3:] == 'png' or not img[-3:] == 'webp' or not img[-3:] == 'gif' or not img[-3:] == 'svg':
+        raise ValidationError("Input must be a valid Image Url")
+
 
 class ProductForm(FlaskForm):
-    name = StringField("Product Name", [DataRequired()])
-    description = StringField("Product Description", [DataRequired()])
-    price = FloatField("Price", [DataRequired()])
-    category = SelectField("Category", coerce = int)
-    highlight = StringField("Highlight")
-    previewImage = StringField("PreviewImage")
+    name = StringField("Product Name", validators= [DataRequired(), name_validation])
+    description = StringField("Product Description", validators= [DataRequired(), description_validation])
+    price = FloatField("Price", validators=[DataRequired(), price_validation])
+    category = StringField("Category", validators=[DataRequired(), highlights_validation])
+    highlight = StringField("Highlights")
+    imageURL = StringField("Image URL", validators= [imageURL_validation])

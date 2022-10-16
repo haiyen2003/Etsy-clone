@@ -1,8 +1,4 @@
 from .db import db
-
-from datetime import datetime
-from .image import Image
-
 from sqlalchemy.types  import DateTime, Date
 
 
@@ -33,9 +29,12 @@ class Product(db.Model):
             'price':self.price,
             'userId':self.userId,
             'category':self.category,
-            'highlight':self.highlight,
+            'highlight':self.highlights,
             'createdAt':self.createdAt,
             'updatedAt':self.updatedAt,
             'previewImage':self.previewImage
+<<<<<<< HEAD
 
+=======
+>>>>>>> test-Yen
         }
