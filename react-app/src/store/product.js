@@ -122,6 +122,16 @@ export const thunkUpdateProduct = (payload) => async dispatch => {
     }
 }
 
+export const thunkDeleteProduct = (id) => async dispatch => {
+    const response = await fetch(`/api/products/${id}`, {
+        method: 'DELETE'
+    })
+
+    if (response.ok) {
+        dispatch(actionDeleteProduct(id))
+    }
+}
+
 
 
 
@@ -155,6 +165,9 @@ const productReducer = (state = initialState, action) => {
          return newState
         case updateProduct:
             newState[action.product.id] = action.product
+            return newState
+        case deleteProduct:
+            delete newState[action.id]
             return newState
       default:
         return state;
