@@ -21,4 +21,4 @@ class ReviewForm(FlaskForm):
     review = StringField('review', validators=[DataRequired(), review_validation ])
     stars = IntegerField('stars', validators=[DataRequired()])
     reviewImg = StringField('reviewimg', validators=[URL(require_tld=True, message="Please enter a valid URL"), imageURL_validation])
-    submit = SubmitField("Submit")
+    # submit = SubmitField("Submit")
