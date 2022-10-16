@@ -29,7 +29,7 @@ class Product(db.Model):
             'price':self.price,
             'userId':self.userId,
             'category':self.category,
-            'highlight':self.highlights,
+            'highlight':self.highlight,
             'createdAt':self.createdAt,
             'updatedAt':self.updatedAt,
             'previewImage':self.previewImage

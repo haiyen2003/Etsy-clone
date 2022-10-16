@@ -31,8 +31,8 @@ def highlights_validation(form, field):
 
 def imageURL_validation(form, field):
     img = field.data
-    if not img[-3:] == 'jpg':
-    # or img[-4:] != 'jpeg' or img[-3:] != 'png' or img[-4:] != 'webp' or img[-3:] != 'gif' or img[-3:] != 'svg':
+    if not img[-3:] == 'jpg' and (not img[-3:] == 'png') and img[-4:] != 'jpeg' and img[-4:] != 'webp' and img[-3:] != 'gif' and img[-3:] != 'svg':
+    
         raise ValidationError("Input must be a valid Image Url")
 
 
