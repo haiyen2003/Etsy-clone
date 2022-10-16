@@ -348,10 +348,6 @@ def seed_products():
         previewImage= "https://i.etsystatic.com/21915528/r/il/b90fa5/3300321021/il_1588xN.3300321021_elpl.jpg"
     )
     product32 = Product(
-        name= "Drops air, aran weight knitting yarn, alpaca yarn and merino wool, blow yarn, worsted yarn, drops yarn, knitting yarn, medium thick yarn",
-        description= "An exciting 'blow yarn' made from soft baby alpaca and cozy and warm merino wool. As implied in blow yarn, this quality has an unique construction where instead of spinning.",
-        name= "Drops air, aran weight knitting yarn, alpaca yarn and merino wool, blow yarn, worsted yarn, drops yarn, knitting yarn, medium thick yarn",
-        description= "An exciting `blow yarn` made from soft baby alpaca and cozy and warm merino wool. As implied in blow yarn, this quality has an unique construction where instead of spinning.",
         name= "Brushed Alpaca silk yarn! Garnstudio DROPS Design Brushed Alpaca silk 67% baby alpaca 23 mulberry silk fluffy knitting wool - 25 grams",
         description= "Super soft DROPS Alpaca Silk has a sophisticated shade card ranging from soft beige and gray hues, to gorgeous reds and purples. The yarn’s feather light and surprisingly warm features make it suitable for both small and large garments, and it can be knitted relatively fast on larger needles. DROPS Alpaca Silk can be used as an effect yarn when worked together with other yarns for lovely soft results!",
         price= 150,
