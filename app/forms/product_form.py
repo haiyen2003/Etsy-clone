@@ -39,7 +39,7 @@ def imageURL_validation(form, field):
 class ProductForm(FlaskForm):
     name = StringField("Product Name", validators= [DataRequired(), name_validation])
     description = StringField("Product Description", validators= [DataRequired(), description_validation])
-    price = DecimalField("Price", validators=[DataRequired(), price_validation])
+    price = DecimalField("Price", validators=[DataRequired(), price_validation], place=2, rounding = ROUND_UP)
     category = StringField("Category", validators=[DataRequired()])
     highlight = StringField("Highlights", validators=[DataRequired(), highlights_validation])
     previewImage = StringField("Image URL", validators= [DataRequired(), imageURL_validation])
