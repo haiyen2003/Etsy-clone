@@ -11,17 +11,28 @@ function ProductList() {
     const product = useSelector((state) => state.product)
     const allproducts = Object.values(product)
     const dispatch = useDispatch()
-    console.log(allproducts)
+    console.log('allproducts=', allproducts)
 
+    categoryproducts=[allproducts[9], allproducts[35], allproducts[2], allproducts[12], allproducts[25], allproducts[30]]
+     console.log('categoryproducts', categoryproducts);
+    // console.log('previeimage', categoryproducts[0].previewImage)
     useEffect(() => {
         dispatch(thunkGetAllProduct())
     }, [dispatch])
         // dispatch(thunkGetAllProduct());
 
-    
+
     return (
-        <div>
-            <h1>HOMEPAGE</h1>
+        <div className='splash-container'>
+            {/* <div>
+                {
+                    categoryproducts.map((product) =>(
+                      <div key={product.id}>
+                        <img src={product.previewImage} alt='product'/>
+                      </div>
+                    ))
+                }
+            </div> */}
             <div>
                 {allproducts && allproducts.map((product) => (
                 <div key={product.id}>
@@ -31,11 +42,11 @@ function ProductList() {
                     </NavLink>
                     </div>
                 </div>
-                ))}    
+                ))}
 
             </div>
         </div>
-        
+
     )
 }
 
