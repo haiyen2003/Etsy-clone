@@ -26,11 +26,7 @@ def seed_products():
         createdAt= now,
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/26618873/r/il/e4cdfe/3990084111/il_794xN.3990084111_tmlb.jpg"
-<<<<<<< HEAD
-)
-=======
     )
->>>>>>> test_lyn
     product03 = Product(
         name= "Botanical Print Set of 4 - Botanical Illustration - Botanical Art Print - Art Prints - Vintage Botanical Print Set of 4 - Botanical Poster",
         description= "This is for a set of 4 prints of a Botanical Floral illustration that has been hand painted and were found in an Antique natural history text book. The original has been digitally enhanced and are printed on heavy matte photo paper.",
