@@ -1,4 +1,4 @@
-from app.models import db, CartItem, User
+from app.models import db, CartItem, User, Cart
 from datetime import datetime, date
 
 now = date.today()
@@ -7,11 +7,11 @@ now = date.today()
 def seed_carts():
 
     user = User(
-        id = 50, username='cart-demo', email='cart-demo@aa.io', firstName="firstName01", lastName='lastName01', password='password'
+        id = 50, username='cart-demo', email='cart-demo@aaa.io', firstName="firstName03", lastName='lastName01', password='password'
     )
 
     cart = Cart(
-        id = 1, userId = 50,
+        id = 1, userId = 50
     )
 
     item01 = CartItem(

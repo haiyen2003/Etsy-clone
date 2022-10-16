@@ -6,6 +6,7 @@ now = date.today()
 
 def seed_products():
     product01 = Product(
+        id = 1,
         name= "Black Large Wall Clock, Real Mirror Clock ,Black colored numerals on a Silver colored mirror",
         description= "Our products are produced from real mirror.You should not choose models made with plexi mirror and mirror effect.Pay attention to this detail before ordering.",
         price= 120.00,
@@ -17,6 +18,7 @@ def seed_products():
         previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
     )
     product02 = Product(
+        id = 2,
         name= "3D Wooden Fox Decoration with light,Wooden Wolf Horse Decor Craft,Wooden Christmas ornament,Wall Decoration,Desktop ornaments,Free Engraving",
         description= "This 3D tabletop ornament has 3 designs of Fox/Wolf/Horse. Each design contains five layers of interwoven forest plants and wildlife scenes. Each layer is carefully cut and polished to highlight each layer, then glued together to create a beautiful 3D effect that gives the piece depth.",
         price= 15.99,
@@ -28,6 +30,7 @@ def seed_products():
         previewImage= "https://i.etsystatic.com/26618873/r/il/e4cdfe/3990084111/il_794xN.3990084111_tmlb.jpg"
     )
     product03 = Product(
+        id = 3,
         name= "Botanical Print Set of 4 - Botanical Illustration - Botanical Art Print - Art Prints - Vintage Botanical Print Set of 4 - Botanical Poster",
         description= "This is for a set of 4 prints of a Botanical Floral illustration that has been hand painted and were found in an Antique natural history text book. The original has been digitally enhanced and are printed on heavy matte photo paper.",
         price= 38.00,
@@ -335,7 +338,7 @@ def seed_products():
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
 )
-   
+
     product33 = Product(
         name= "Alpaca yarn, Drops Alpaca yarn, Organic wool, soft alpaca yarn, knitting yarn, Natural fiber",
         description= "Alpaca is a lovely yarn spun from 3 strands of 100% superfine alpaca, with an extra twist to provide a durable surface. ",
@@ -510,9 +513,6 @@ def seed_products():
     db.session.add(product28)
     db.session.add(product29)
     db.session.add(product30)
-    db.session.add(product31)
-    db.session.add(product32)
-    db.session.add(product33)
     db.session.add(product34)
     db.session.add(product35)
     db.session.add(product36)
