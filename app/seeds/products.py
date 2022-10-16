@@ -12,10 +12,10 @@ def seed_products():
         userId =1,
         category= "Home & Living",
         highlight = "Handmade",
-        createdAt= "2021-11-19 20:39:36",
-        updatedAt= "2021-11-19 20:39:36",
+        createdAt= now,
+        updatedAt= now,
         previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
-)
+    )
     product02 = Product(
         name= "3D Wooden Fox Decoration with light,Wooden Wolf Horse Decor Craft,Wooden Christmas ornament,Wall Decoration,Desktop ornaments,Free Engraving",
         description= "This 3D tabletop ornament has 3 designs of Fox/Wolf/Horse. Each design contains five layers of interwoven forest plants and wildlife scenes. Each layer is carefully cut and polished to highlight each layer, then glued together to create a beautiful 3D effect that gives the piece depth.",
@@ -26,7 +26,7 @@ def seed_products():
         createdAt= now,
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/26618873/r/il/e4cdfe/3990084111/il_794xN.3990084111_tmlb.jpg"
-)
+    )
     product03 = Product(
         name= "Botanical Print Set of 4 - Botanical Illustration - Botanical Art Print - Art Prints - Vintage Botanical Print Set of 4 - Botanical Poster",
         description= "This is for a set of 4 prints of a Botanical Floral illustration that has been hand painted and were found in an Antique natural history text book. The original has been digitally enhanced and are printed on heavy matte photo paper.",
@@ -334,8 +334,8 @@ def seed_products():
         createdAt= now,
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
-)
 
+    )
     product31 = Product(
         name= "DROPS Air A medium thick blow yarn, baby alpaca and merino wool, Beautiful knitting yarn",
         description= "An exciting 'blow yarn' made from soft baby alpaca and cozy and warm merino wool. As implied in blow yarn, this quality has an unique construction where instead of spinning, the fibres of baby alpaca and merino wool are air blown into a tube together.",
@@ -348,8 +348,8 @@ def seed_products():
         previewImage= "https://i.etsystatic.com/21915528/r/il/b90fa5/3300321021/il_1588xN.3300321021_elpl.jpg"
     )
     product32 = Product(
-        name= "Drops air, aran weight knitting yarn, alpaca yarn and merino wool, blow yarn, worsted yarn, drops yarn, knitting yarn, medium thick yarn",
-        description= "An exciting 'blow yarn' made from soft baby alpaca and cozy and warm merino wool. As implied in blow yarn, this quality has an unique construction where instead of spinning.",
+        name= "Brushed Alpaca silk yarn! Garnstudio DROPS Design Brushed Alpaca silk 67% baby alpaca 23 mulberry silk fluffy knitting wool - 25 grams",
+        description= "Super soft DROPS Alpaca Silk has a sophisticated shade card ranging from soft beige and gray hues, to gorgeous reds and purples. The yarn’s feather light and surprisingly warm features make it suitable for both small and large garments, and it can be knitted relatively fast on larger needles. DROPS Alpaca Silk can be used as an effect yarn when worked together with other yarns for lovely soft results!",
         price= 150,
         userId = 2,
         category= "Clothing & Shoes",

@@ -28,7 +28,8 @@ def username_length(form, field):
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists])
-    email = StringField('email', validators=[DataRequired(), user_exists, Email(message="Please enter valid email")])
+    #email = StringField('email', validators=[DataRequired(), user_exists, Email(message="Please enter valid email")])
+    email = StringField('email', validators=[DataRequired(), user_exists])
     password = StringField('password', validators=[DataRequired()])
     firstName = StringField('first_name', validators=[DataRequired()])
     lastName = StringField('last_name', validators=[DataRequired()])
