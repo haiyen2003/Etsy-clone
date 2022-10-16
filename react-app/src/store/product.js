@@ -71,7 +71,7 @@ export const thunkCreateProduct = (payload) => async dispatch => {
 }
 
 export const thunkGetAllProduct = () => async dispatch => {
-    const response = await fetch("/api/products", {
+    const response = await fetch(`/api/products`, {
       method: "GET",
       header: { "Content-Type": "application/json" },
     });
@@ -79,13 +79,13 @@ export const thunkGetAllProduct = () => async dispatch => {
     if (response.ok) {
         const data = await response.json()
         dispatch(actionGetAllProduct(data))
-        console.log('thunkGETALLPRODUCT', data)
+        //console.log('thunkGETALLPRODUCT', data)
     }
 }
 
 // USE THIS THUNK FOR CURRENT USER PRODUCT PAGE
 export const thunkGetCurrentProduct = () => async dispatch => {
-    const response = await fetch('/api/products', {
+    const response = await fetch('/api/products/current', {
         method: "GET",
         header: { "Content-Type": "application/json" },
     })
@@ -124,7 +124,7 @@ const productReducer = (state = initialState, action) => {
         return newState;
       case getAllProduct:
           newState = {};
-          console.log('REDUCERPRODUCT', action.products.products)
+          //console.log('REDUCERPRODUCT', action.products.products)
         action.products.products.forEach((product) => {
           newState[product.id] = product;
         });
@@ -149,10 +149,3 @@ const productReducer = (state = initialState, action) => {
 
 
 export default productReducer
-
-
-
-
-
-
-
