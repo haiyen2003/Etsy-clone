@@ -5,22 +5,129 @@
   align-items:center;
 }
 
-.top-container{
+/* .top-container{
   width:100%;
-  height: 200px;
+  height: 700px;
   display:flex;
   flex-direction:column;
-}
+} */
 .background-band{
-  position:absolute;
+  margin-top:-22px;
+
   width:100%;
-  height:100px;
-  background-color:#F8EBE6
+  height:165px;
+  background-color:#F8EBE6;
+  position:relative;
+  top:70px;
 
 }
 
 .categoryproducts{
+  margin-left:240px;
+  margin-right:240px;
+  font-family: Cambria;
+  display: flex;
+  justify-content: space-around;
+  justify-items:space-around;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:nonwrap;
+  column-gap:60px;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  top:-10px;
+
+}
+.categorydiv{
+ height:auto;
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  font-family: Cambria;
+}
+.productdiv{
+  height:auto;
+  display: flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  }
+.product_category_name{
+  font-family: Cambria;
+ font-weight:600;
+
+  font-family:sans-serif
+}
+.product_category_image{
+  width:115px;
+  height:115px;
+  border-radius:50%;
+  object-fit:fill;
+  border:1px solid rgb(200, 200,200);
+}
+.all_products_container{
+  /* margin-top:330px; */
+  margin-left:40px;
+  margin-right:40px;
+
+  font-family: Cambria;
+  justify-content: center;
+  justify-items:center;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  column-gap:10px;
+  row-gap:20px;
+  position:relative;
+  top:70px;
+}
+
+  .product_header{
+    margin-left:-1040px;
+
+    justify-content: start;
+   /* justify-items:center; */
+   display:flex;
+    font-family: Cambria;
+
+    font-weight:700;
+    font-size:28px;
+    color:black;
+    font-family:Arial, Helvetica, sans-serif;
+    /* margin-bottom:200px; */
+    position:relative;
+    top:60px;
+  }
+.productlist_image{
+  height:200px;
+  width: 250px;
+  border-radius: 12px;
+  display:flex;
+  object-fit:cover;
   display:flex;
   justify-content:center;
-  
+  padding:2px;
+
+}
+.product_info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top:10px;
+  font-size: 16;
+  font-family:sans-serif;
+  width:250px;
+  font-weight:700px;
+
+}
+.product_navlink{
+  text-decoration: none;
+  display:grid;
+  justify-self:center;
+  align-items:center;
+  padding:5px;
+  color:black;
 }

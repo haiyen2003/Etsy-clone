@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
+import { useDispatch, useSelector } from 'react-redux';
+import LoginForm from './components/auth/LoginFormModal/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
@@ -10,25 +11,22 @@ import User from './components/User';
 import ProductList from './components/Products/ProductList';
 import ProductDetailPage from './components/Products/ProductDetailPage';
 import { authenticate } from './store/session';
+import {Modal} from './context/Modal';
 
 function App() {
-  const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-
+  const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    (async() => {
-      await dispatch(authenticate());
-      setLoaded(true);
-    })();
+    dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
-
-  if (!loaded) {
-    return null;
-  }
 
   return (
     <BrowserRouter>
-      <NavBar />
+
+      <NavBar isLoaded={isLoaded}/>
+
+
+      {isLoaded && (
       <Switch>
         <Route path='/' exact={true} >
           <ProductList />
@@ -49,6 +47,7 @@ function App() {
           <User />
         </ProtectedRoute>
       </Switch>
+      )}
     </BrowserRouter>
   );
 }

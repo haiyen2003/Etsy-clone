@@ -14,7 +14,7 @@ function ProductList() {
     const dispatch = useDispatch()
     // console.log('allproducts=', allproducts)
 
-    // const categoryproducts=[allproducts[9], allproducts[35], allproducts[2], allproducts[12], allproducts[25], allproducts[30]]
+    const categoryproducts=[allproducts[9], allproducts[35], allproducts[2], allproducts[12], allproducts[25], allproducts[30]]
     // console.log('categoryproducts', categoryproducts);
     // console.log('previeimage', categoryproducts[0].previewImage)
     useEffect(() => {
@@ -25,27 +25,42 @@ function ProductList() {
 
     return (
         <div className='splash-container'>
-            <div className='top-container'>
+
             <div className='background-band'></div>
+
             <div className='categoryproducts'>
                 {
-                    // categoryproducts.map((product) =>(
-                    //   <div key={product.id}>
-                    //     <img src={product.previewImage} alt="product"></img>
-                    //   </div>
-                    // ))
+                   categoryproducts?.map((product) =>(
+                      <div  className='categorydiv' key={product?.id}>
+                        <img k className='product_category_image' src={product?.previewImage} alt="product"></img>
+                        <br></br>
+                        <div className='product_category_name'>{product?.category} </div>
+                      </div>
+                    ))
+
                 }
-            </div>
+
             </div>
 
-            <div>
+            <div className='product_header'>
+                Popular gifts right now
+            </div>
+
+            <div className='all_products_container'>
+
                 {allproducts && allproducts.map((product) => (
-                <div key={product.id}>
-                    <div>
-                    <NavLink to={`/products/${product.id}`}>
-                    <img src={product.previewImage} alt="product" width="250" height="250"></img>
-                    </NavLink>
+                <div calssName= 'productdiv' key={product.id}>
+
+                    <NavLink to={`/products/${product.id}`} className='product_navlink'>
+                    <img src={product.previewImage} alt="product" className='productlist_image'></img>
+
+                    <div className='product_info'>
+                        <div style={{ fontweight: '700' }}>{product.name}</div>
+
                     </div>
+                    <div className='product_info'>${product.price}</div>
+                    </NavLink>
+
                 </div>
                 ))}
 
