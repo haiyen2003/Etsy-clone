@@ -14,10 +14,23 @@ cart_routes = Blueprint('carts', __name__)
 @login_required
 def current_cart():
     currentUserId = current_user.id
-    cart = Cart.query.filter(Cart.userId == currentUserId)
-    return {'cart': [items._str_() for items in cart]}
+    cartItems = db.session.query(Cart) \
+                            .filter(Cart.userId == currentUserId) \
+                            .options(db.joinedload(Cart.product)) \
+                            .all()
+    if cartItems and len(cartItems) > 0:
+        details = []
+        for item in cartItems:
+            productInfo = item.product.to_dict()
+            itemDict = item.to_dict()
+            itemDict['product details'] = productInfo
+            details.append(itemDict)
+        # return {'cart': [items._str_() for items in cartItems]}
+        return {'cart': details}
+    else:
+        return {'message': 'Your cart is empty'}
 
-    # return {'cart': [cart.to_dict()]}
+
 # #create a product
 # @cart_routes.route('/new', methods=["POST"])
 # @login_required

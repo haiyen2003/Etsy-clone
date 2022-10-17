@@ -11,10 +11,10 @@ class Cart(db.Model):
     createAt = db.Column(db.DateTime, nullable=False)
     updateAt = db.Column(db.DateTime, nullable=False)
 
-    user = db.relationship('User', back_populates='carts', foreign_key=[userId])
-    product= db.relationship('Product', back_populates='carts', foreign_key=[productId])
+    user = db.relationship('User', back_populates='carts', foreign_keys=[userId])
+    product= db.relationship('Product', back_populates='carts', foreign_keys=[productId])
 
-    def _str_(self):
+    def to_dict(self):
         return {
             "userId": self.userId,
             "id": self.id,

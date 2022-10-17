@@ -40,7 +40,7 @@ def upgrade():
     sa.Column('createAt', sa.DateTime(), nullable=False),
     sa.Column('updateAt', sa.DateTime(), nullable=False),
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
-    sa.ForeignKeyConstraint(['productId'], ['products.id'],)
+    sa.ForeignKeyConstraint(['productId'], ['products.id'],),
     sa.PrimaryKeyConstraint('id')
     )
 

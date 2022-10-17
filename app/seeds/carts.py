@@ -3,15 +3,14 @@ from datetime import datetime, date
 
 now = date.today()
 
-
 def seed_carts():
 
-   cart1 = Cart(userId = 1, productId=1, quantity=2, createAt=now, updateAt=now)
-   cart2 = Cart(userId=1, productId=2, quantity = 3, createAt = now, updateAt = now)
-   cart3 = Cart(userId=2, productId=3, quantity = 3, createAt = now, updateAt = now)
-   cart4 = Cart(userId=2, productId=4, quantity = 3, createAt = now, updateAt = now)
-   cart5 = Cart(userId=3, productId=5, quantity = 3, createAt = now, updateAt = now)
-   cart6 = Cart(userId=3, productId=6, quantity = 3, createAt = now, updateAt = now)
+    cart1 = Cart(userId = 4, productId=1, quantity=2, createAt=now, updateAt=now)
+    cart2 = Cart(userId=4, productId=2, quantity = 3, createAt = now, updateAt = now)
+    cart3 = Cart(userId=2, productId=3, quantity = 3, createAt = now, updateAt = now)
+    cart4 = Cart(userId=2, productId=4, quantity = 3, createAt = now, updateAt = now)
+    cart5 = Cart(userId=3, productId=5, quantity = 3, createAt = now, updateAt = now)
+    cart6 = Cart(userId=3, productId=6, quantity = 3, createAt = now, updateAt = now)
 
     db.session.add(cart1)
     db.session.add(cart2)

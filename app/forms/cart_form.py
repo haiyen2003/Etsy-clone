@@ -10,3 +10,4 @@ def quantiylen(form, field):
 
 class CartForm(FlaskForm):
     quantity = IntegerField('quantity', validators=[DataRequired(), quantiylen])
+    
