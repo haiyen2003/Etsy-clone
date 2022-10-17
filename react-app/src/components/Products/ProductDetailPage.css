@@ -183,4 +183,43 @@
     width: 350px;
 }
 
+.group_info_div {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+background-color: rgb(51, 71, 106);
+color: white;
+height: 150px;
+padding: 50px;
+}
 
+.footer_main_div {
+    display: flex;
+    justify-content: space-between;
+ 
+}
+
+.footer_text_div {
+    display: flex;
+    flex-direction: row;
+}
+
+.more_info_text {
+    text-decoration: none;
+    color: white;
+    outline: none;
+}
+
+
+
+.more_info_text:hover {
+    text-decoration: underline;
+}
+
+.test {
+    background-color: rgb(36, 37, 70);
+    justify-content: center;
+
+    padding: 25px;
+        color: white;
+}
