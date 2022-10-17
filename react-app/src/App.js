@@ -10,6 +10,7 @@ import User from './components/User';
 import ProductList from './components/Products/ProductList';
 import ProductDetailPage from './components/Products/ProductDetailPage';
 import { authenticate } from './store/session';
+import {Modal} from './context/Modal';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
