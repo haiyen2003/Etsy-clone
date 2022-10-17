@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import Product, db, Cart
+from app.models import Product, db, CartItem
 from app.forms import ProductForm
 from app.api.auth_routes import validation_errors_to_error_messages
 from datetime import datetime
@@ -14,9 +14,9 @@ cart_routes = Blueprint('carts', __name__)
 @login_required
 def current_cart():
     currentUserId = current_user.id
-    cartItems = db.session.query(Cart) \
-                            .filter(Cart.userId == currentUserId) \
-                            .options(db.joinedload(Cart.product)) \
+    cartItems = db.session.query(CartItem) \
+                            .filter(CartItem.userId == currentUserId) \
+                            .options(db.joinedload(CartItem.product)) \
                             .all()
     if cartItems and len(cartItems) > 0:
         details = []
@@ -35,6 +35,7 @@ def current_cart():
 @cart_routes.route('/<int:id>', methods=["PUT"])
 @login_required
 def update_cart(id):
+    pass
 #     print(id)
 #     form = ProductForm()
 #     form['csrf_token'].data = request.cookies['csrf_token']

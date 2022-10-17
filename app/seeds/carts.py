@@ -12,12 +12,12 @@ def seed_cartItems():
     cartItem5 = CartItem(userId=3, productId=5, quantity = 3, createAt = now, updateAt = now)
     cartItem6 = CartItem(userId=3, productId=6, quantity = 3, createAt = now, updateAt = now)
 
-    db.session.add(CartItem1)
-    db.session.add(CartItem2)
-    db.session.add(CartItem3)
-    db.session.add(CartItem4)
-    db.session.add(CartItem5)
-    db.session.add(CartItem6)
+    db.session.add(cartItem1)
+    db.session.add(cartItem2)
+    db.session.add(cartItem3)
+    db.session.add(cartItem4)
+    db.session.add(cartItem5)
+    db.session.add(cartItem6)
     db.session.commit()
 
 def undo_cartItems():
