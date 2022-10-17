@@ -78,6 +78,21 @@
     padding: 0px 25px 10px;
 }
 
+.shipping_info_detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.date_string_text {
+    font-size: 10pt;
+}
+
+
+.reviewdetail_div {
+    width: 600px;
+}
+
 
 .productdetail {
     display: flex;

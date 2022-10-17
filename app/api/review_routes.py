@@ -12,6 +12,7 @@ review_routes = Blueprint('reviews', __name__)
 #get reivews based on productId
 @review_routes.route('/products/<int:id>')
 def get_product_reviews(id):
+  print('this is', id)
   product_reviews = Review.query.filter(Review.productId == id).all()
   return {'product_reviews': [review.to_dict() for review in product_reviews]}
 

@@ -12,11 +12,34 @@ function ProductDetailPage() {
     const dispatch = useDispatch()
 
     const product = useSelector(state => state.product[id])
-    // console.log(product)
+
 
     const review = useSelector(state => state.review)
-    console.log('this', review)
-    // const reviewCounter = Object.values(review).length
+    const test = Object.values(review)
+    const wonder = test[0]
+    const reviewCount = Object.values(review).length
+    // console.log(reviewCount)
+
+    const today = new Date()
+    const tomorrow = new Date()
+    const week = new Date()
+    const nextweek = new Date()
+    const nextday = new Date()
+
+    nextday.setDate(nextday.getDate() + 1);
+
+    tomorrow.setDate(tomorrow.getDate() + 5);
+    week.setDate(week.getDate() + 7)
+    nextweek.setDate(week.getDate() + 4);
+
+    const options = {
+        month: "short",
+        day: "numeric"
+    };
+
+    const dayoptions = {
+        day: "numeric"
+    }
 
     useEffect(() => {
         dispatch(thunkGetOneProduct(id))
@@ -32,6 +55,12 @@ function ProductDetailPage() {
               src={product?.previewImage}
               alt="product"
             ></img>
+            <div className="reviewdetail_div">
+              <div>{reviewCount} reviews</div>
+              <div></div>
+              <div>{wonder?.review}</div>
+              <div>{wonder?.createdAt}</div>
+            </div>
           </div>
           <div className="productdetail">
             <div>USERNAME WILL GO HERE</div>
@@ -67,13 +96,34 @@ function ProductDetailPage() {
               </div>
             </div>
             <div className="productdetail_text">Details </div>
-            <div className="productdetail_listtext">•&nbsp;{`${product?.highlight}`}</div>
-            <div className="productdetail_listtext">•&nbsp;{product?.category}</div>
+            <div className="productdetail_listtext">
+              •&nbsp;{`${product?.highlight}`}
+            </div>
+            <div className="productdetail_listtext">
+              •&nbsp;{product?.category}
+            </div>
             <div className="productdetail_text"> Description</div>
             <div className="productdetail_text">{product?.description}</div>
+            <div className="productdetail_text">
+              Shipping and return policies
+            </div>
+            <div className="productdetail_text">Estimated arrival</div>
+            <div className="shipping_info_detail">
+                <div>
+                <i className="fa-regular fa-hand"></i>
+            <div className="date_string_text">{`${today.toLocaleDateString(undefined, options)}`}</div>
+                </div>
+                <div>
+                    <i className="fa-regular fa-paper-plane"></i>
+            <div className="date_string_text">{`${nextday.toLocaleDateString(undefined, options)} - ${tomorrow.toLocaleDateString(undefined, dayoptions)}`}</div>
+                </div>
+                <div>
+                <i className="fa-solid fa-gifts"></i>
+            <div className="date_string_text">{`${week.toLocaleDateString(undefined, options)} - ${nextweek.toLocaleDateString(undefined, dayoptions)}`}</div>
+                </div>
+            </div>
           </div>
         </div>
-        <div>REVIEWS</div>
       </div>
     );
 }
