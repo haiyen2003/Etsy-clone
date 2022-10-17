@@ -60,7 +60,7 @@ const actionDeleteProduct = (id) => {
 export const thunkCreateProduct = (payload) => async dispatch => {
     const response = await fetch('/api/products/new', {
         method: 'POST',
-        header: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(payload)
     })
     if (response.ok) {
@@ -73,7 +73,7 @@ export const thunkCreateProduct = (payload) => async dispatch => {
 export const thunkGetAllProduct = () => async dispatch => {
     const response = await fetch("/api/products/", {
       method: "GET",
-      header: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" },
     });
 
     // console.log('getthunkallres', response)
@@ -89,7 +89,7 @@ export const thunkGetAllProduct = () => async dispatch => {
 export const thunkGetCurrentProduct = () => async dispatch => {
     const response = await fetch('/api/products/current', {
         method: "GET",
-        header: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json" },
     })
 
     if (response.ok) {
@@ -101,7 +101,7 @@ export const thunkGetCurrentProduct = () => async dispatch => {
 export const thunkGetOneProduct = (id) => async dispatch => {
     const response = await fetch(`/api/products/${id}`, {
       method: "GET",
-      header: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
@@ -113,7 +113,7 @@ export const thunkGetOneProduct = (id) => async dispatch => {
 export const thunkUpdateProduct = (payload) => async dispatch => {
     const response = await fetch(`/api/products/${payload.id}`, {
       method: "PUT",
-      header: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
 

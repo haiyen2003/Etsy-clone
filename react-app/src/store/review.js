@@ -52,7 +52,7 @@ const actionDeleteReview = (id) => {
 export const thunkCreateReview = (payload) => async dispatch => {
     const response = await fetch(`/api/reviews/products/${payload.id}`, {
       method: "POST",
-      header: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
     if(response.ok) {
@@ -89,7 +89,7 @@ export const thunkGetCurrentReview = () => async dispatch => {
 export const thunkEditReview = (payload) => async dispatch => {
     const response = await fetch(`/api/reviews/${payload.reviewId}`, {
       method: "PUT",
-      header: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
 
