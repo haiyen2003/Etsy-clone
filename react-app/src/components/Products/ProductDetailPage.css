@@ -157,6 +157,26 @@
     font-size: 9pt;
 }
 
+.meet_seller_div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 15px;
+
+}
+
+.meet_seller_text {
+    display: flex;
+    flex-direction: column;
+}
+
+.more_from_seller_div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 515px;
+}
+
 .productdetail {
     display: flex;
     flex-direction: column;
