@@ -77,7 +77,7 @@ export const thunkGetAllProduct = () => async dispatch => {
     });
 
     // console.log('getthunkallres', response)
-
+    // test
     if (response.ok) {
         const data = await response.json()
         dispatch(actionGetAllProduct(data))
