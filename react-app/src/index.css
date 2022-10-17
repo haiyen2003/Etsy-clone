@@ -1,13 +1,8 @@
 /* TODO Add site wide styles */
-<<<<<<< HEAD
-html{
-  font-family:"Graphik Webfont"
-}
 
-body{
-  margin:0%;
-}
-=======
+
+
+
 * {
     box-sizing: border-box;
 }
@@ -15,4 +10,3 @@ body{
 body {
     margin: 0;
 }
-
