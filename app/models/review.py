@@ -7,10 +7,10 @@ class Review(db.Model):
     __tablename__ = 'reviews'
 
     id = db.Column(db.Integer, primary_key=True)
-    review = db.Column(db.String(500), nullable=False)
+    review = db.Column(db.String(1000), nullable=False)
     stars = db.Column(db.Integer, nullable=False)
     productId = db.Column(db.Integer, db.ForeignKey('products.id'), nullable=False)
-    reviewImg = db.Column(db.String(100))
+    reviewImg = db.Column(db.String(1000))
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     createdAt = db.Column(db.DateTime, nullable=False)
     updatedAt = db.Column(db.DateTime, nullable=False)
