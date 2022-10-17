@@ -41,11 +41,11 @@ def update_cart(id):
     if item is None:
         return {'message': ['item not found in cart']}, 404
 
-    if not item.userId == current_user.id
+    if not item.userId == current_user.id:
         return {'message': 'Unauthorized'}, 403
 
     if form.validate_on_submit():
-        item.updateAt = today
+        item.updateAt = now
         item.quantity = form.data['quantity']
         db.session.commit()
         return item.to_dict()

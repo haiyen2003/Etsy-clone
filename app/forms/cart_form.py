@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, ValidationError
 from app.models import CartItem
 
 def validate_form(form, field):
-    if field.data is None or field.data is not int:
+    if field.data is None or not int(field.data):
         raise ValidationError('Please type in a number')
 
 def quantiylen(form, field):
