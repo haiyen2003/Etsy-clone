@@ -1,10 +1,11 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.fields import (
-    SelectField, SelectMultipleField, StringField, SubmitField, IntegerField, FloatField
+    SelectField, SelectMultipleField, StringField, SubmitField, IntegerField, FloatField, DecimalField
 )
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import Product
+from decimal import ROUND_HALF_UP
 
 
 def name_validation(form, field):
@@ -21,8 +22,8 @@ def description_validation(form, field):
 
 def price_validation(form, field):
     price = field.data
-    if price <= 0:
-        raise ValidationError("Price must be more than $0.0")
+    if price <= 0 or price>=1000000:
+        raise ValidationError("Valid price must be within the range $0.00 and $1000000.00")
 
 def highlights_validation(form, field):
     hl = field.data
@@ -32,14 +33,14 @@ def highlights_validation(form, field):
 def imageURL_validation(form, field):
     img = field.data
     if not img[-3:] == 'jpg' and (not img[-3:] == 'png') and img[-4:] != 'jpeg' and img[-4:] != 'webp' and img[-3:] != 'gif' and img[-3:] != 'svg':
-    
+
         raise ValidationError("Input must be a valid Image Url")
 
 
 class ProductForm(FlaskForm):
     name = StringField("Product Name", validators= [DataRequired(), name_validation])
     description = StringField("Product Description", validators= [DataRequired(), description_validation])
-    price = FloatField("Price", validators=[DataRequired(), price_validation])
+    price = DecimalField("Price", validators=[DataRequired(), price_validation], places=2, rounding = ROUND_HALF_UP)
     category = StringField("Category", validators=[DataRequired()])
     highlight = StringField("Highlights", validators=[DataRequired(), highlights_validation])
     previewImage = StringField("Image URL", validators= [DataRequired(), imageURL_validation])

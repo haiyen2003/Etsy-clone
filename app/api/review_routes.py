@@ -5,13 +5,14 @@ from flask_login import current_user, login_user, logout_user, login_required
 from app.forms import ReviewForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
-
+now = datetime.now()
 
 review_routes = Blueprint('reviews', __name__)
 
 #get reivews based on productId
 @review_routes.route('/products/<int:id>')
 def get_product_reviews(id):
+  print('this is', id)
   product_reviews = Review.query.filter(Review.productId == id).all()
   return {'product_reviews': [review.to_dict() for review in product_reviews]}
 
@@ -45,8 +46,11 @@ def create_review(id):
     newreview = Review(
        review = data['review'],
        stars = data['stars'],
+       reviewImg = data['reviewImg'],
        productId = id,
-       userId = current_user.id
+       userId = current_user.id,
+       createdAt = now,
+       updatedAt = now
     )
     db.session.add(newreview)
     db.session.commit()
@@ -57,7 +61,7 @@ def create_review(id):
 #update a review
 @review_routes.route('/<int:reviewId>', methods=['PUT'])
 @login_required
-def update_product_review(productId, reviewId):
+def update_product_review(reviewId):
     form = ReviewForm()
     form['csrf_token'].data=request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -65,6 +69,7 @@ def update_product_review(productId, reviewId):
       if updatedreview:
          updatedreview.review = form.data['review']
          updatedreview.stars = form.data['stars']
+         updatedreview.reviewImg = form.data['reviewImg']
 
          db.session.commit()
          return updatedreview.to_dict()

@@ -58,7 +58,7 @@ const actionDeleteProduct = (id) => {
 
 // THUNKS
 export const thunkCreateProduct = (payload) => async dispatch => {
-    const response = await fetch('/api/products', {
+    const response = await fetch('/api/products/new', {
         method: 'POST',
         header: {'Content-Type': 'application/json'},
         body: JSON.stringify(payload)
@@ -108,6 +108,30 @@ export const thunkGetOneProduct = (id) => async dispatch => {
     }
 }
 
+export const thunkUpdateProduct = (payload) => async dispatch => {
+    const response = await fetch(`/api/products/${payload.id}`, {
+      method: "PUT",
+      header: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(actionUpdateProduct(data))
+        return data
+    }
+}
+
+export const thunkDeleteProduct = (id) => async dispatch => {
+    const response = await fetch(`/api/products/${id}`, {
+        method: 'DELETE'
+    })
+
+    if (response.ok) {
+        dispatch(actionDeleteProduct(id))
+    }
+}
+
 
 
 
@@ -139,6 +163,12 @@ const productReducer = (state = initialState, action) => {
          newState = {};
          newState[action.product.id] = action.product
          return newState
+        case updateProduct:
+            newState[action.product.id] = action.product
+            return newState
+        case deleteProduct:
+            delete newState[action.id]
+            return newState
       default:
         return state;
     }

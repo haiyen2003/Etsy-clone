@@ -73,13 +73,13 @@ def update_product(id):
 
     if form.validate_on_submit():
         edit_product = Product.query.get(id)
-        edit_product.name = form.data['name'],
-        edit_product.description = form.data['description'],
-        edit_product.price = form.data['price'],
-        edit_product.category = form.data['category'],
-        edit_product.highlight = form.data['highlight'],
-        edit_product.previewImage = form.data['previewImage'],
-        # edit_product.userId = current_user.id,
+        edit_product.name = form.data['name']
+        edit_product.description = form.data['description']
+        edit_product.price = form.data['price']
+        edit_product.category = form.data['category']
+        edit_product.highlight = form.data['highlight']
+        edit_product.previewImage = form.data['previewImage']
+        # edit_product.userId = current_user.id
         # edit_product.createdAt = now,
         edit_product.updatedAt = now
         # db.session.add(edit_product)
@@ -88,7 +88,7 @@ def update_product(id):
     return {"errors" : validation_errors_to_error_messages(form.errors)}, 400
 
 #delete a product
-@product_routes.route("/<int:id>/delete", methods=['DELETE'])
+@product_routes.route("/<int:id>", methods=['DELETE'])
 @login_required
 def delete_product(id):
 
