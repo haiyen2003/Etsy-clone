@@ -2,7 +2,7 @@ from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .products import seed_products, undo_products
 from .reviews import seed_reviews, undo_reviews
-from .cartItem import seed_carts, undo_carts
+from .carts import seed_carts, undo_carts
 
 
 # Creates a seed group to hold our commands

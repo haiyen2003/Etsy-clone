@@ -6,12 +6,20 @@ class Cart(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     userId= db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    # cartItemId = db.Column(db.Integer, db.ForeignKey('cartItems.id'))
+    productId = db.Column(db.Integer, db.ForeignKey('products.id'), nullable=False)
+    quantity = db.Column(db.Integer, nullable=False)
+    createAt = db.Column(db.DateTime, nullable=False)
+    updateAt = db.Column(db.DateTime, nullable=False)
 
-    user = db.relationship('User', back_populates='cart')
-    cartItems = db.relationship('CartItem', back_populates='cart', cascade = 'all, delete')
+    user = db.relationship('User', back_populates='carts', foreign_key=[userId])
+    product= db.relationship('Product', back_populates='carts', foreign_key=[productId])
 
-    def to_dict(self):
+    def _str_(self):
         return {
-         "userId": self.userId
+            "userId": self.userId,
+            "id": self.id,
+            "productId": self.productId,
+            "quantity": self.quantity,
+            "created at": self.createAt,
+            'Update at': self.updateAt
         }

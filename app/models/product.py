@@ -18,7 +18,7 @@ class Product(db.Model):
     previewImage= db.Column(db.String(255), nullable=False)
 
     reviews = db.relationship('Review', back_populates='product', cascade = 'all, delete')
-    # cart = db.relationship('Cart', back_populates='products')
+    cart = db.relationship('Cart', back_populates='product', cascade='all, delete')
     user = db.relationship('User', back_populates='products')
     # images = db.relationship('Image', back_populates='product', cascade = 'all, delete')
     # cartItem = db.relationship('CartItem', back_populates = 'products')

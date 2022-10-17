@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import Product, db, Cart, CartItem
+from app.models import Product, db, Cart
 from app.forms import ProductForm
 from app.api.auth_routes import validation_errors_to_error_messages
 from datetime import datetime
@@ -15,11 +15,9 @@ cart_routes = Blueprint('carts', __name__)
 def current_cart():
     currentUserId = current_user.id
     cart = Cart.query.filter(Cart.userId == currentUserId)
-    cartItems = CartItem.query.filter(CartItem.cartId == cart.id)
-    print(cartItems, '----- CART ITEMS')
-    return {'cart': [cartItem.to_dict() for cartItem in cart]}
+    return {'cart': [items._str_() for items in cart]}
 
-
+    # return {'cart': [cart.to_dict()]}
 # #create a product
 # @cart_routes.route('/new', methods=["POST"])
 # @login_required

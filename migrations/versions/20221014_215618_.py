@@ -35,19 +35,24 @@ def upgrade():
     op.create_table('carts',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=False),
+    sa.Column('productId', sa.Integer(), nullable=False),
+    sa.Column('quantity', sa.Integer(), nullable=False),
+    sa.Column('createAt', sa.DateTime(), nullable=False),
+    sa.Column('updateAt', sa.DateTime(), nullable=False),
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['productId'], ['products.id'],)
     sa.PrimaryKeyConstraint('id')
     )
 
-    op.create_table('cartItems',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('productId', sa.Integer(), nullable=False),
-    sa.Column('quantity', sa.Integer(), nullable=False),
-    sa.Column('cartId', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['cartId'], ['carts.id'], ),
-    sa.ForeignKeyConstraint(['productId'], ['products.id'], ),
-    sa.PrimaryKeyConstraint('id')
-    )
+    # op.create_table('cartItems',
+    # sa.Column('id', sa.Integer(), nullable=False),
+    # sa.Column('productId', sa.Integer(), nullable=False),
+    # sa.Column('quantity', sa.Integer(), nullable=False),
+    # sa.Column('cartId', sa.Integer(), nullable=False),
+    # sa.ForeignKeyConstraint(['cartId'], ['carts.id'], ),
+    # sa.ForeignKeyConstraint(['productId'], ['products.id'], ),
+    # sa.PrimaryKeyConstraint('id')
+    # )
 
     op.create_table('reviews',
     sa.Column('id', sa.Integer(), nullable=False),
