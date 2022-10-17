@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, session
 from app.models import  db, Product, Review, User
 from datetime import datetime, date
 from flask_login import current_user, login_user, logout_user, login_required
@@ -10,10 +10,19 @@ now = datetime.now()
 review_routes = Blueprint('reviews', __name__)
 
 #get reivews based on productId
-@review_routes.route('/products/<int:id>')
-def get_product_reviews(id):
-  print('this is', id)
+@review_routes.route('/products/<int:productId>')
+def get_product_reviews(productId):
+  # print('this is', id)
   product_reviews = Review.query.filter(Review.productId == id).all()
+  # product_reviews = Review.query.filter(Review.productId == productId).join(User).filter(Review.userId == User.id).all()
+  # for preview in product_reviews:
+
+  # product_reviews = db.session.query(User) \
+  #                   .filter(Review.userId == User.id) \
+  #                   .options(db.joinedload(Review.user)).all()
+                    # .filter(Review.productId == id).all()
+  # print("check product review", product_reviews)
+  # return product_reviews
   return {'product_reviews': [review.to_dict() for review in product_reviews]}
 
 #get reviews based on userId
