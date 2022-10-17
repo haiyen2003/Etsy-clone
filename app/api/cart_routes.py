@@ -9,7 +9,7 @@ now = datetime.now()
 
 cart_routes = Blueprint('carts', __name__)
 
-#get current user product
+#get current user products in cart
 @cart_routes.route("/current")
 @login_required
 def current_cart():
@@ -23,6 +23,7 @@ def current_cart():
         for item in cartItems:
             productInfo = item.product.to_dict()
             itemDict = item.to_dict()
+            print(itemDict)
             itemDict['product details'] = productInfo
             details.append(itemDict)
         # return {'cart': [items._str_() for items in cartItems]}
