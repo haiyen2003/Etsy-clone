@@ -7,6 +7,7 @@ search_routes = Blueprint('search', __name__)
 
 @search_routes.route("/")
 def search_product():
+    #not sure how to get the user's inpurt into the search input
     searchinput = None
 
     searchproducts = Product.query.filter(Product.name.like(f"%{searchinput}%")).all()
