@@ -188,11 +188,41 @@ function ProductDetailPage() {
               </div>
             </div>
             <div className="purchase_protect_div">
-              <i style={{color:"blue"}}className="fa-regular fa-handshake fa-2xl">&nbsp;</i>
-              <div className="purchase_protect_text"> <span style={{"fontWeight": "bold"}}>Artsy Purchase Protection:</span> Shop confidently on Artsy knowing if something goes wrong with an order, we've got your back for all eligible purchases </div>
+              <i
+                style={{ color: "blue" }}
+                className="fa-regular fa-handshake fa-2xl"
+              >
+                &nbsp;
+              </i>
+              <div className="purchase_protect_text">
+                {" "}
+                <span style={{ fontWeight: "bold" }}>
+                  Artsy Purchase Protection:
+                </span>{" "}
+                Shop confidently on Artsy knowing if something goes wrong with
+                an order, we've got your back for all eligible purchases{" "}
+              </div>
+            </div>
+            <div className="productdetail_text">Ships from U.S.A.</div>
+            <div className="productdetail_text">Meet your Seller</div>
+            <div>
+              <div className="meet_seller_div">
+                <i className="fa-regular fa-user fa-2xl"></i>
+                <div className="meet_seller_text">
+                <div>First and last name HERE</div>
+                <div>Owner of "username"</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+          <div className="more_from_seller_div">
+            <div>More from Seller</div>
+            <div>Display seller's products here?</div>
+          </div>
+          <div>
+            
+          </div>
       </div>
     );
 }
