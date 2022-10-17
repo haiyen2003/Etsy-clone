@@ -82,10 +82,30 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 0px 15px 40px 15px;
+
+}
+
+.border-Line {
+    border-bottom: 1px solid lightgrey;
+    width: 125px;
+}
+
+.shipping_info_icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 15px 15px 15px;
 }
 
 .date_string_text {
     font-size: 10pt;
+    font-weight: bold;
+}
+
+.shipping_text {
+    font-size: 8pt;
+    padding-top: 5px;
 }
 
 
@@ -93,10 +113,54 @@
     width: 600px;
 }
 
+.free_text {
+    font-size: 20pt;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.green_bubble_text {
+    border: 20px solid lightgreen;
+    border-radius: 10px;
+    background-color: lightgreen;
+    width: 340px;
+    margin-left: 15px;
+    margin-bottom: 25px;
+}
+
+.return_exchange_div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 15px;
+}
+
+.return_exchange_smalltext {
+    font-size: 10pt;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: grey;
+}
+
+.return_exchange_bigtext {
+    font-size: 20pt;
+}
+
+.purchase_protect_div {
+    display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 15px;
+}
+
+.purchase_protect_text {
+    font-size: 9pt;
+}
 
 .productdetail {
     display: flex;
     flex-direction: column;
     width: 350px;
 }
+
 

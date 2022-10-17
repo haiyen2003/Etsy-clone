@@ -108,19 +108,77 @@ function ProductDetailPage() {
               Shipping and return policies
             </div>
             <div className="productdetail_text">Estimated arrival</div>
-            <div className="shipping_info_detail">
-                <div>
+            <div className="shipping_info_icon">
+              <div>
                 <i className="fa-regular fa-hand"></i>
-            <div className="date_string_text">{`${today.toLocaleDateString(undefined, options)}`}</div>
-                </div>
-                <div>
-                    <i className="fa-regular fa-paper-plane"></i>
-            <div className="date_string_text">{`${nextday.toLocaleDateString(undefined, options)} - ${tomorrow.toLocaleDateString(undefined, dayoptions)}`}</div>
-                </div>
-                <div>
+              </div>
+              <div className="border-Line"></div>
+              <div>
+                <i className="fa-regular fa-paper-plane"></i>
+              </div>
+              <div className="border-Line"></div>
+              <div>
                 <i className="fa-solid fa-gifts"></i>
-            <div className="date_string_text">{`${week.toLocaleDateString(undefined, options)} - ${nextweek.toLocaleDateString(undefined, dayoptions)}`}</div>
+              </div>
+            </div>
+            <div className="shipping_info_detail">
+              <div>
+                <div className="date_string_text">{`${today.toLocaleDateString(
+                  undefined,
+                  options
+                )}`}</div>
+                <div className="shipping_text">Order placed</div>
+              </div>
+              <div>
+                <div className="date_string_text">{`${nextday.toLocaleDateString(
+                  undefined,
+                  options
+                )} - ${tomorrow.toLocaleDateString(
+                  undefined,
+                  dayoptions
+                )}`}</div>
+                <div className="shipping_text">Order ships</div>
+              </div>
+              <div>
+                <div className="date_string_text">{`${week.toLocaleDateString(
+                  undefined,
+                  options
+                )} - ${nextweek.toLocaleDateString(
+                  undefined,
+                  dayoptions
+                )}`}</div>
+                <div className="shipping_text">Delivered!</div>
+              </div>
+            </div>
+            <div className="productdetail_text">Cost to ship</div>
+            <div className="free_text">Free</div>
+            <div className="green_bubble_text">
+              Artsy offsets carbon emissions from shipping and packaging on this
+              purchase.
+            </div>
+            <div className="return_exchange_div">
+              <div>
+                <div className="return_exchange_smalltext">
+                  Returns & exchanges
                 </div>
+                <div className="return_exchange_bigtext">Accepted</div>
+                <div className="return_exchange_smalltext">
+                  Exceptions may apply
+                </div>
+              </div>
+              <div>
+                <div className="return_exchange_smalltext">
+                  Return & exchange window
+                </div>
+                <div className="return_exchange_bigtext">30 days</div>
+                <div className="return_exchange_smalltext">
+                  from item delivery
+                </div>
+              </div>
+            </div>
+            <div className="purchase_protect_div">
+              <i style={{color:"blue"}}className="fa-regular fa-handshake fa-2xl">&nbsp;</i>
+              <div className="purchase_protect_text"> <span style={{"fontWeight": "bold"}}>Artsy Purchase Protection:</span> Shop confidently on Artsy knowing if something goes wrong with an order, we've got your back for all eligible purchases </div>
             </div>
           </div>
         </div>
