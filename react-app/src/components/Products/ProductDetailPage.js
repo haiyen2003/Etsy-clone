@@ -18,8 +18,9 @@ function ProductDetailPage() {
     const test = Object.values(review)
     console.log(review)
     const wonder = test[0]
+    const reviewArray = Object.values(review)
     const reviewCount = Object.values(review).length
-    // console.log(reviewCount)
+    console.log("review array",reviewArray)
 
     const today = new Date()
     const tomorrow = new Date()
@@ -57,10 +58,19 @@ function ProductDetailPage() {
               alt="product"
             ></img>
             <div className="reviewdetail_div">
-              <div>{reviewCount} reviews</div>
+              {/* <div>{reviewCount} reviews</div>
               <div></div>
               <div>{wonder?.review}</div>
-              <div>{wonder?.createdAt}</div>
+              <div>{wonder?.createdAt}</div> */}
+              {reviewCount? reviewArray.map((review)=> (
+                <div  className="reviewspot__container" key={review.id}>
+                  {/* <div id='reviewowner'>{review.User ? review.User.firstName: 'Annoymous'}</div> */}
+                <div id='reviewdate'>{review.createdAt.slice(0, 10)}</div>
+                <div id="reviewcontent">{review.review}</div>
+                </div>
+              ))
+                : <div> NO Review</div>
+              }
             </div>
           </div>
           <div className="productdetail">
