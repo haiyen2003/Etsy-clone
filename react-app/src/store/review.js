@@ -67,7 +67,7 @@ export const thunkGetAllProductReview = (id) => async dispatch => {
     const response = await fetch(`/api/reviews/products/${id}`, {
       method: "GET",
     });
-    console.log(id)
+    // console.log(id)
 
     if (response.ok) {
         const data = await response.json()
