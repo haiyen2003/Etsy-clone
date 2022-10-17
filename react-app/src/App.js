@@ -14,30 +14,19 @@ import { authenticate } from './store/session';
 import {Modal} from './context/Modal';
 
 function App() {
-  const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-  const [showLogin, setShowLogin] = useState(false);
-  const [showSignup, setShowSignup] = useState(false);
-  const sessionUser = useSelector(state=>state.session.user);
-
+  const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    (async() => {
-      await dispatch(authenticate());
-      setLoaded(true);
-    })();
+    dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
-
-  if (!loaded) {
-    return null;
-  }
 
   return (
     <BrowserRouter>
 
-      <NavBar setShowLogin={setShowLogin} setShowSignup={setShowSignup} sessionUser={sessionUser}/>
+      <NavBar isLoaded={isLoaded}/>
 
 
-
+      {isLoaded && (
       <Switch>
         <Route path='/' exact={true} >
           <ProductList />
@@ -58,6 +47,7 @@ function App() {
           <User />
         </ProtectedRoute>
       </Switch>
+      )}
     </BrowserRouter>
   );
 }
