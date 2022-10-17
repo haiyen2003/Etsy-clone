@@ -1,6 +1,6 @@
 import React from "react";
-import { NavLink, Route, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetAllProduct } from "../../store/product";
 import './ProductList.css'
@@ -12,10 +12,10 @@ function ProductList() {
     const product = useSelector((state) => state.product)
     const allproducts = Object.values(product)
     const dispatch = useDispatch()
-    console.log('allproducts=', allproducts)
+    // console.log('allproducts=', allproducts)
 
-    const categoryproducts=[allproducts[9], allproducts[35], allproducts[2], allproducts[12], allproducts[25], allproducts[30]]
-    console.log('categoryproducts', categoryproducts);
+    // const categoryproducts=[allproducts[9], allproducts[35], allproducts[2], allproducts[12], allproducts[25], allproducts[30]]
+    // console.log('categoryproducts', categoryproducts);
     // console.log('previeimage', categoryproducts[0].previewImage)
     useEffect(() => {
         dispatch(thunkGetAllProduct())
