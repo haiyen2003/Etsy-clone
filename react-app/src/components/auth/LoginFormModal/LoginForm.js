@@ -39,15 +39,16 @@ const LoginForm = () => {
   return (
     <>
     <div className='register_btn'>Register</div>
-    <form onSubmit={onLogin}>
-      <h2>Sign In</h2>
+    <form onSubmit={onLogin} className='signin_container'>
+      <h2 className='signin_head'>Sign In</h2>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
       <div>
-        <label htmlFor='email'>Email address</label>
+        <label htmlFor='email' className='signin_label'>Email address</label>
+        <div></div>
         <input
           name='email address'
           type='text'
@@ -55,10 +56,13 @@ const LoginForm = () => {
           value={email}
           onChange={updateEmail}
           required={true}
+          className='signin_input'
         />
       </div>
+      <br></br>
       <div>
-        <label htmlFor='password'>Password</label>
+        <label htmlFor='password' className='signin_label'>Password</label>
+        <div></div>
         <input
           name='password'
           type='password'
@@ -66,9 +70,16 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
           require={true}
+          className='signin_input'
         />
+        <div>
+          <br></br>
         <button type='submit'>Login</button>
+        </div>
+        <br></br>
+        <div>
         <button type='submit' onClick={()=>{setCredential('demo@aa.io'); setPassword('password')}}>Demo User</button>
+        </div>
       </div>
     </form>
     </>
