@@ -7,7 +7,7 @@ search_routes = Blueprint('search', __name__)
 
 @search_routes.route("/")
 def search_product():
+    searchinput = None
 
-
-    searchproducts = Product.query.filter(Product.name.like("%input%")).all()
+    searchproducts = Product.query.filter(Product.name.like(f"%{searchinput}%")).all()
     return {'products': [product.to_dict() for product in searchproducts]}
