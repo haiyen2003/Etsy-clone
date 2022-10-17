@@ -1,8 +1,8 @@
 from .db import db
 
 
-class Cart(db.Model):
-    __tablename__ = 'carts'
+class CartItem(db.Model):
+    __tablename__ = 'cartItems'
 
     id = db.Column(db.Integer, primary_key=True)
     userId= db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
@@ -11,8 +11,8 @@ class Cart(db.Model):
     createAt = db.Column(db.DateTime, nullable=False)
     updateAt = db.Column(db.DateTime, nullable=False)
 
-    user = db.relationship('User', back_populates='carts', foreign_keys=[userId])
-    product= db.relationship('Product', back_populates='carts', foreign_keys=[productId])
+    user = db.relationship('User', back_populates='cartItems', foreign_keys=[userId])
+    product= db.relationship('Product', back_populates='cartItems', foreign_keys=[productId])
 
     def to_dict(self):
         return {

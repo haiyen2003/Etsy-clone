@@ -31,35 +31,10 @@ def current_cart():
     else:
         return {'message': 'Your cart is empty'}
 
-
-# #create a product
-# @cart_routes.route('/new', methods=["POST"])
-# @login_required
-# def add_product():
-#     form = ProductForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     if form.validate_on_submit():
-#         new_product = Product(
-#             name = form.data['name'],
-#             description = form.data['description'],
-#             price = form.data['price'],
-#             category = form.data['category'],
-#             highlight = form.data['highlight'],
-#             previewImage = form.data['previewImage'],
-#             userId = current_user.id,
-#             createdAt = now,
-#             updatedAt = now
-#         )
-
-#         db.session.add(new_product)
-#         db.session.commit()
-#         return new_product.to_dict()
-#     return {"errors" : validation_errors_to_error_messages(form.errors)}, 400
-
-# #update product
-# @cart_routes.route('/<int:id>/edit', methods=["PUT"])
-# @login_required
-# def update_product(id):
+ #update cart
+@cart_routes.route('/<int:id>', methods=["PUT"])
+@login_required
+def update_cart(id):
 #     print(id)
 #     form = ProductForm()
 #     form['csrf_token'].data = request.cookies['csrf_token']

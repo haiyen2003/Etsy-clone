@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import IntegerField
 from wtforms.validators import DataRequired, ValidationError
-from app.models import Cart
+from app.models import CartItem
 
 def quantiylen(form, field):
     quantity = field.data
@@ -10,4 +10,3 @@ def quantiylen(form, field):
 
 class CartForm(FlaskForm):
     quantity = IntegerField('quantity', validators=[DataRequired(), quantiylen])
-    

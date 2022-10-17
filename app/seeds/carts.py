@@ -1,26 +1,26 @@
-from app.models import db, User, Cart
+from app.models import db, User, CartItem
 from datetime import datetime, date
 
 now = date.today()
 
-def seed_carts():
+def seed_cartItems():
 
-    cart1 = Cart(userId = 4, productId=1, quantity=2, createAt=now, updateAt=now)
-    cart2 = Cart(userId=4, productId=2, quantity = 3, createAt = now, updateAt = now)
-    cart3 = Cart(userId=2, productId=3, quantity = 3, createAt = now, updateAt = now)
-    cart4 = Cart(userId=2, productId=4, quantity = 3, createAt = now, updateAt = now)
-    cart5 = Cart(userId=3, productId=5, quantity = 3, createAt = now, updateAt = now)
-    cart6 = Cart(userId=3, productId=6, quantity = 3, createAt = now, updateAt = now)
+    cartItem1 = CartItem(userId = 4, productId=1, quantity=2, createAt=now, updateAt=now)
+    cartItem2 = CartItem(userId=4, productId=2, quantity = 3, createAt = now, updateAt = now)
+    cartItem3 = CartItem(userId=2, productId=3, quantity = 3, createAt = now, updateAt = now)
+    cartItem4 = CartItem(userId=2, productId=4, quantity = 3, createAt = now, updateAt = now)
+    cartItem5 = CartItem(userId=3, productId=5, quantity = 3, createAt = now, updateAt = now)
+    cartItem6 = CartItem(userId=3, productId=6, quantity = 3, createAt = now, updateAt = now)
 
-    db.session.add(cart1)
-    db.session.add(cart2)
-    db.session.add(cart3)
-    db.session.add(cart4)
-    db.session.add(cart5)
-    db.session.add(cart6)
+    db.session.add(CartItem1)
+    db.session.add(CartItem2)
+    db.session.add(CartItem3)
+    db.session.add(CartItem4)
+    db.session.add(CartItem5)
+    db.session.add(CartItem6)
     db.session.commit()
 
-def undo_carts():
+def undo_cartItems():
     db.session.execute('TRUNCATE carts RESTART IDENTITY CASCADE;')
     # db.session.execute('DELETE FROM users WHERE id = 50;')
     db.session.commit()
