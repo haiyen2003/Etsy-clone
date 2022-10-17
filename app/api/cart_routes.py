@@ -52,42 +52,19 @@ def update_cart(id):
     else:
         return {'error': validation_errors_to_error_messages(form.errors) }, 400
 
-#     print(id)
-#     form = ProductForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     edit_product = Product.query.get(id)
-#     print(edit_product)
-#     if edit_product is None:
-#         return {"errors" : "Product couldn't be found"}, 404
-#     if edit_product.userId != current_user.id:
-#         return {"errors" : "You don't have the right to edit the product"}, 403
+#delete each item in cart
+@cart_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
 
-#     if form.validate_on_submit():
-#         edit_product = Product.query.get(id)
-#         edit_product.name = form.data['name'],
-#         edit_product.description = form.data['description'],
-#         edit_product.price = form.data['price'],
-#         edit_product.category = form.data['category'],
-#         edit_product.highlight = form.data['highlight'],
-#         edit_product.previewImage = form.data['previewImage'],
-#         # edit_product.userId = current_user.id,
-#         # edit_product.createdAt = now,
-#         edit_product.updatedAt = now
-#         # db.session.add(edit_product)
-#         db.session.commit()
-#         return edit_product.to_dict()
-#     return {"errors" : validation_errors_to_error_messages(form.errors)}, 400
+def delete_cart_item(id):
+    currentUserId = current_user.id
+    item = CartItem.query.get(id)
+    if item is None:
+        return {'message': 'Can not find this item in cart'}, 404
 
-# #delete a product
-# @cart_routes.route("/<int:id>/delete", methods=['DELETE'])
-# @login_required
-# def delete_product(id):
+    if not item.userId == current_user.id:
+        return {'message': 'Unauthorized'}, 403
 
-#     delete_product = Product.query.get(id)
-
-#     if delete_product.userId != current_user.id:
-#         return {"errors" : "You don't have the right to delete the product"}, 403
-
-#     db.session.delete(delete_product)
-#     db.session.commit()
-#     return ("Successfully deleted!")
+    db.session.delete(item)
+    db.session.commit()
+    return {'message': 'Item has been successfully removed from cart'}, 200
