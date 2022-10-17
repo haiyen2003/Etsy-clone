@@ -15,9 +15,7 @@ function ProductDetailPage() {
 
 
     const review = useSelector(state => state.review)
-    const test = Object.values(review)
     console.log(review)
-    const wonder = test[0]
     const reviewArray = Object.values(review)
     const reviewCount = Object.values(review).length
     console.log("review array",reviewArray)
@@ -58,16 +56,50 @@ function ProductDetailPage() {
               alt="product"
             ></img>
             <div className="reviewdetail_div">
+              <div className="review_main_div">
+                <div className="review_inner_line_div">
+                <div>
+                  <span style={{ fontSize: "25pt" }}>
+                    {reviewCount} reviews&nbsp;
+                  </span>
+                </div>
+                <div>
+                <i className="fa-solid fa-star"></i>
+                <i className="fa-solid fa-star"></i>
+                <i className="fa-solid fa-star"></i>
+                <i className="fa-solid fa-star"></i>
+                <i className="fa-regular fa-star"></i>
+                </div>
+                </div>
+                <div>Write a review component go here??</div>
+              </div>
               {/* <div>{reviewCount} reviews</div>
               <div></div>
               <div>{wonder?.review}</div>
               <div>{wonder?.createdAt}</div> */}
               {reviewCount ? (
                 reviewArray.map((review) => (
-                  <div className="reviewspot__container" key={review.id}>
+                  <div className="main_review_container" key={review.id}>
                     {/* <div id='reviewowner'>{review.User ? review.User.firstName: 'Annoymous'}</div> */}
-                    <div id="reviewdate">{review.createdAt.slice(0, 10)}</div>
-                    <div id="reviewcontent">{review.review}</div>
+                    <div className="review_container">
+                      <div className="review_stars_container">
+                        <div>{review.stars}&nbsp;</div>
+                        <i className="fa-solid fa-star"></i>
+                      </div>
+                      <div>
+                        <div className="review_container_text">
+                          {review.review}
+                        </div>
+                        <div></div>
+                      </div>
+                      <div className="review_user_profile">
+                        <i class="fa-regular fa-circle-user fa-2xl">&nbsp;</i>
+                        <div>USERNAME WILL GO HERE&nbsp;</div>
+                        <div id="reviewdate">
+                          {review.createdAt.slice(0, 10)}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 ))
               ) : (
@@ -223,9 +255,9 @@ function ProductDetailPage() {
           <div>Display seller's products here?</div>
         </div>
         <div className="group_info_div">
-            <div>
-          <div>Meet the developers</div>
-            </div>
+          <div>
+            <div>Meet the developers</div>
+          </div>
           <div>
             <div>Yen Nguyen</div>
             <div>
@@ -335,33 +367,33 @@ function ProductDetailPage() {
             </div>
           </div>
         </div>
-        <div >
-        <div className="test">
-        <div className="footer_main_div">
-          <div className="footer_text_div">
-            <i className="fa-solid fa-globe ">&nbsp;</i>
-            <div>United States</div>
-            <div>&nbsp;|&nbsp;</div>
-            <div>English(US)</div>
-            <div> &nbsp;| &nbsp;</div>
-            <div> $(USD)</div>
-          </div>
-          <div className="footer_text_div">
-            <div>&copy; 2022 Artsy, Inc.</div>
-            <div>&nbsp;|&nbsp;</div>
-            <a
-              className="more_info_text"
-              href="https://github.com/haiyen2003/Etsy-clone"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              For more info
-            </a>
-          </div>
+        <div>
+          <div className="test">
+            <div className="footer_main_div">
+              <div className="footer_text_div">
+                <i className="fa-solid fa-globe ">&nbsp;</i>
+                <div>United States</div>
+                <div>&nbsp;|&nbsp;</div>
+                <div>English(US)</div>
+                <div> &nbsp;| &nbsp;</div>
+                <div> $(USD)</div>
+              </div>
+              <div className="footer_text_div">
+                <div>&copy; 2022 Artsy, Inc.</div>
+                <div>&nbsp;|&nbsp;</div>
+                <a
+                  className="more_info_text"
+                  href="https://github.com/haiyen2003/Etsy-clone"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  For more info
+                </a>
+              </div>
             </div>
+          </div>
         </div>
-        </div>
-        </div>
+      </div>
     );
 }
 
