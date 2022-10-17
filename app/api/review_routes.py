@@ -10,8 +10,8 @@ now = datetime.now()
 review_routes = Blueprint('reviews', __name__)
 
 #get reivews based on productId
-@review_routes.route('/products/<int:productId>')
-def get_product_reviews(productId):
+@review_routes.route('/products/<int:id>')
+def get_product_reviews(id):
   # print('this is', id)
   product_reviews = Review.query.filter(Review.productId == id).all()
   # product_reviews = Review.query.filter(Review.productId == productId).join(User).filter(Review.userId == User.id).all()
