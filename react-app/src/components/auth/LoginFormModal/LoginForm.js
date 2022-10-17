@@ -4,7 +4,7 @@ import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../../store/session';
 import "./LoginForm.css"
 
-const LoginForm = () => {
+const LoginForm = ({setOpenLogin, setOpenSignup}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,6 +21,9 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
+    } else {
+      setOpenLogin(false)
+      history.push('/')
     }
   };
 
@@ -32,18 +35,24 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
+  const SignUpNewOne=e=>{
+    e.preventDefault();
+    setOpenLogin(false);
+    setOpenSignup(true);
+  }
+
   if (user) {
     return <Redirect to='/' />;
   }
 
   return (
     <>
-    <div className='register_btn'>Register</div>
+    <button className='register_btn' onClick={SignUpNewOne}>Register</button>
     <form onSubmit={onLogin} className='signin_container'>
       <h2 className='signin_head'>Sign In</h2>
       <div>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div key={ind} className='login_error'>{error}</div>
         ))}
       </div>
       <div>
@@ -74,11 +83,11 @@ const LoginForm = () => {
         />
         <div>
           <br></br>
-        <button type='submit'>Login</button>
+        <button className='signinform_btn' type='submit'>Sign in</button>
         </div>
         <br></br>
         <div>
-        <button type='submit' onClick={()=>{setCredential('demo@aa.io'); setPassword('password')}}>Demo User</button>
+        <button className='demouserbtn' type='submit' onClick={()=>{setCredential('demo@aa.io'); setPassword('password')}}>Demo User</button>
         </div>
       </div>
     </form>
