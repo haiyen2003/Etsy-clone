@@ -16,6 +16,7 @@ function ProductDetailPage() {
 
     const review = useSelector(state => state.review)
     const test = Object.values(review)
+    console.log(review)
     const wonder = test[0]
     const reviewCount = Object.values(review).length
     // console.log(reviewCount)
