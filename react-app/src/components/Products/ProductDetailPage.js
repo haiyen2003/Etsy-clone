@@ -1,8 +1,8 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Redirect, useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { thunkGetOneProduct } from "../../store/product";
+import { thunkGetCurrentProduct, thunkGetOneProduct } from "../../store/product";
 import './ProductDetailPage.css'
 import { thunkGetAllProductReview } from "../../store/review";
 
@@ -10,6 +10,7 @@ import { thunkGetAllProductReview } from "../../store/review";
 function ProductDetailPage() {
     const {id} = useParams()
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const product = useSelector(state => state.product[id])
 
@@ -44,7 +45,13 @@ function ProductDetailPage() {
     useEffect(() => {
         dispatch(thunkGetOneProduct(id))
         dispatch(thunkGetAllProductReview(id))
+        // dispatch(thunkGetCurrentProduct())
     },[dispatch, id])
+
+    const buyNow = () => {
+        alert(`Thank you for purchasing!`)
+        history.push('/')
+    }
 
     return (
       <div className="mainproduct_container">
@@ -58,18 +65,18 @@ function ProductDetailPage() {
             <div className="reviewdetail_div">
               <div className="review_main_div">
                 <div className="review_inner_line_div">
-                <div>
-                  <span style={{ fontSize: "25pt" }}>
-                    {reviewCount} reviews&nbsp;
-                  </span>
-                </div>
-                <div>
-                <i className="fa-solid fa-star"></i>
-                <i className="fa-solid fa-star"></i>
-                <i className="fa-solid fa-star"></i>
-                <i className="fa-solid fa-star"></i>
-                <i className="fa-regular fa-star"></i>
-                </div>
+                  <div>
+                    <span style={{ fontSize: "25pt" }}>
+                      {reviewCount} reviews&nbsp;
+                    </span>
+                  </div>
+                  <div>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-regular fa-star"></i>
+                  </div>
                 </div>
                 <div>Write a review component go here??</div>
               </div>
@@ -93,8 +100,12 @@ function ProductDetailPage() {
                         <div></div>
                       </div>
                       <div className="review_user_profile">
-                        <i class="fa-regular fa-circle-user fa-2xl">&nbsp;</i>
-                        <div>USERNAME WILL GO HERE&nbsp;</div>
+                        <i className="fa-regular fa-circle-user fa-2xl">
+                          &nbsp;
+                        </i>
+                        <div>
+                          {review.firstName}&nbsp;{review.lastName}&nbsp;
+                        </div>
                         <div id="reviewdate">
                           {review.createdAt.slice(0, 10)}
                         </div>
@@ -108,12 +119,14 @@ function ProductDetailPage() {
             </div>
           </div>
           <div className="productdetail">
-            <div>USERNAME WILL GO HERE</div>
+            <div className="productdetail_text">{product?.username}</div>
             <div className="productdetailname">{product?.name}</div>
             <div className="productdetailprice">{`$${product?.price}`}</div>
             <div>QUANTITY WILL GO HERE</div>
             <div style={{ padding: "5px" }}>
-              <button className="Buynow_button">Buy it now</button>
+              <button onClick={buyNow} className="Buynow_button">
+                Buy it now
+              </button>
             </div>
             <div style={{ padding: "5px" }}>
               <button className="Addtocart_button">Add to cart</button>
@@ -243,8 +256,10 @@ function ProductDetailPage() {
               <div className="meet_seller_div">
                 <i className="fa-regular fa-user fa-2xl"></i>
                 <div className="meet_seller_text">
-                  <div>First and last name HERE</div>
-                  <div>Owner of "username"</div>
+                  <div>
+                    &nbsp;{product?.firstname}&nbsp;{product?.lastname}
+                  </div>
+                  <div>&nbsp;{product?.username}</div>
                 </div>
               </div>
             </div>
@@ -252,7 +267,7 @@ function ProductDetailPage() {
         </div>
         <div className="more_from_seller_div">
           <div>More from Seller</div>
-          <div>Display seller's products here?</div>
+          <div>Display seller's products here? Discuss with team</div>
         </div>
         <div className="group_info_div">
           <div>

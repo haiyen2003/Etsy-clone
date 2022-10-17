@@ -84,8 +84,9 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0px 15px 40px 15px;
-
 }
+
+
 
 .border-Line {
     border-bottom: 1px solid lightgrey;
@@ -154,7 +155,7 @@
 .free_text {
     font-size: 25pt;
     padding: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .green_bubble_text {
@@ -171,6 +172,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin-left: 15px;
+    margin-bottom: 10px;
 }
 
 .return_exchange_smalltext {
@@ -199,7 +201,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
     padding: 15px;
 
 }
@@ -207,6 +208,7 @@
 .meet_seller_text {
     display: flex;
     flex-direction: column;
+    padding: 15px;
 }
 
 .more_from_seller_div {
