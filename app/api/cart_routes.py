@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import Product, db, CartItem
-from app.forms import ProductForm
+from app.forms import CartForm
 from app.api.auth_routes import validation_errors_to_error_messages
 from datetime import datetime
 
@@ -35,7 +35,23 @@ def current_cart():
 @cart_routes.route('/<int:id>', methods=["PUT"])
 @login_required
 def update_cart(id):
-    pass
+    form = CartForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    item = CartItem.query.get(id)
+    if item is None:
+        return {'message': ['item not found in cart']}, 404
+
+    if not item.userId == current_user.id
+        return {'message': 'Unauthorized'}, 403
+
+    if form.validate_on_submit():
+        item.updateAt = today
+        item.quantity = form.data['quantity']
+        db.session.commit()
+        return item.to_dict()
+    else:
+        return {'error': validation_errors_to_error_messages(form.errors) }, 400
+
 #     print(id)
 #     form = ProductForm()
 #     form['csrf_token'].data = request.cookies['csrf_token']
