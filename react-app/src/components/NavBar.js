@@ -1,15 +1,36 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import LoginFormModal from './auth/LoginFormModal';
 
 import "./NavBar.css"
+import { Modal } from '../context/Modal';
+import { useSelector } from 'react-redux';
 
-const NavBar = () => {
+const NavBar = ({isLoaded}) => {
+  const sessionUser = useSelector(state => state.session.user);
+  const [showModal, setShowModal] = useState(false)
+
+  let sessionLinks;
+  if (sessionUser) {
+    sessionLinks = (
+      <>
+        <ProfileButton user={sessionUser} />
+      </>
+    );
+  } else {
+    sessionLinks =(
+      <>
+        <LoginFormModal/>
+      </>
+    );
+  }
+
   return (
-    <nav id="header">
-      <div id="header__left">
+    <>
+      <nav id="header">
+        <div id="header__left">
 
           <NavLink to='/' exact={true} activeClassName='active'>
           <img
@@ -28,7 +49,7 @@ const NavBar = () => {
           {/* <NavLink to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink> */}
-          <LoginFormModal />
+          {isLoaded && sessionLinks}
         </div>
         <NavLink to='/cart' exact>
           <img
@@ -52,7 +73,8 @@ const NavBar = () => {
           <LogoutButton />
         </div> */}
 
-    </nav>
+      </nav>
+    </>
   );
 }
 
