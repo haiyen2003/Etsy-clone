@@ -1,8 +1,8 @@
 import React from "react";
-import { Redirect, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { thunkGetCurrentProduct, thunkGetOneProduct } from "../../store/product";
+import {  thunkGetOneProduct } from "../../store/product";
 import './ProductDetailPage.css'
 import { thunkGetAllProductReview } from "../../store/review";
 
@@ -16,10 +16,10 @@ function ProductDetailPage() {
 
 
     const review = useSelector(state => state.review)
-    console.log(review)
+    // console.log(review)
     const reviewArray = Object.values(review)
     const reviewCount = Object.values(review).length
-    console.log("review array",reviewArray)
+    // console.log("review array",reviewArray)
 
     const today = new Date()
     const tomorrow = new Date()

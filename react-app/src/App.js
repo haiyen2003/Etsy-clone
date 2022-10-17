@@ -6,7 +6,7 @@ import LoginForm from './components/auth/LoginFormModal/LoginForm';
 import SignUpForm from './components/auth/SignUpFormModal/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
+// import UsersList from './components/UsersList';
 import User from './components/User';
 import ProductList from './components/Products/ProductList';
 import ProductDetailPage from './components/Products/ProductDetailPage';

@@ -71,15 +71,17 @@ export const thunkCreateProduct = (payload) => async dispatch => {
 }
 
 export const thunkGetAllProduct = () => async dispatch => {
-    const response = await fetch('/api/products', {
+    const response = await fetch("/api/products/", {
       method: "GET",
       header: { "Content-Type": "application/json" },
     });
 
+    // console.log('getthunkallres', response)
+    // test
     if (response.ok) {
         const data = await response.json()
         dispatch(actionGetAllProduct(data))
-        //console.log('thunkGETALLPRODUCT', data)
+        // console.log('thunkGETALLPRODUCT', data)
     }
 }
 
