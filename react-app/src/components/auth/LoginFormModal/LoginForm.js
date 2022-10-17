@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { login } from '../../store/session';
+import { Redirect, useHistory } from 'react-router-dom';
+import { login } from '../../../store/session';
+import "./LoginForm.css"
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [credential, setCredential] =useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onLogin = async (e) => {
     e.preventDefault();
+    history.push('/');
+
+   setErrors([]);
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
@@ -31,34 +37,52 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
+    <>
+    <div className='register_btn'>Register</div>
+    <form onSubmit={onLogin} className='signin_container'>
+      <h2 className='signin_head'>Sign In</h2>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
       <div>
-        <label htmlFor='email'>Email</label>
+        <label htmlFor='email' className='signin_label'>Email address</label>
+        <div></div>
         <input
-          name='email'
+          name='email address'
           type='text'
-          placeholder='Email'
+          // placeholder='Email address'
           value={email}
           onChange={updateEmail}
+          required={true}
+          className='signin_input'
         />
       </div>
+      <br></br>
       <div>
-        <label htmlFor='password'>Password</label>
+        <label htmlFor='password' className='signin_label'>Password</label>
+        <div></div>
         <input
           name='password'
           type='password'
-          placeholder='Password'
+          // placeholder='Password'
           value={password}
           onChange={updatePassword}
+          require={true}
+          className='signin_input'
         />
+        <div>
+          <br></br>
         <button type='submit'>Login</button>
+        </div>
+        <br></br>
+        <div>
+        <button type='submit' onClick={()=>{setCredential('demo@aa.io'); setPassword('password')}}>Demo User</button>
+        </div>
       </div>
     </form>
+    </>
   );
 };
 
