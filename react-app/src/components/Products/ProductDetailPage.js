@@ -1,8 +1,8 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Redirect, useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { thunkGetOneProduct } from "../../store/product";
+import { thunkGetCurrentProduct, thunkGetOneProduct } from "../../store/product";
 import './ProductDetailPage.css'
 import { thunkGetAllProductReview } from "../../store/review";
 
@@ -10,14 +10,13 @@ import { thunkGetAllProductReview } from "../../store/review";
 function ProductDetailPage() {
     const {id} = useParams()
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const product = useSelector(state => state.product[id])
 
 
     const review = useSelector(state => state.review)
-    const test = Object.values(review)
     console.log(review)
-    const wonder = test[0]
     const reviewArray = Object.values(review)
     const reviewCount = Object.values(review).length
     console.log("review array",reviewArray)
@@ -46,7 +45,13 @@ function ProductDetailPage() {
     useEffect(() => {
         dispatch(thunkGetOneProduct(id))
         dispatch(thunkGetAllProductReview(id))
+        // dispatch(thunkGetCurrentProduct())
     },[dispatch, id])
+
+    const buyNow = () => {
+        alert(`Thank you for purchasing!`)
+        history.push('/')
+    }
 
     return (
       <div className="mainproduct_container">
@@ -58,28 +63,80 @@ function ProductDetailPage() {
               alt="product"
             ></img>
             <div className="reviewdetail_div">
+              <div className="review_main_div">
+                <div className="review_inner_line_div">
+                  <div>
+                    <span style={{ fontSize: "25pt" }}>
+                      {reviewCount} reviews&nbsp;
+                    </span>
+                  </div>
+                  <div>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-regular fa-star"></i>
+                  </div>
+                </div>
+                <div>Write a review component go here??</div>
+              </div>
               {/* <div>{reviewCount} reviews</div>
               <div></div>
               <div>{wonder?.review}</div>
               <div>{wonder?.createdAt}</div> */}
-              {reviewCount? reviewArray.map((review)=> (
-                <div  className="reviewspot__container" key={review.id}>
-                  {/* <div id='reviewowner'>{review.User ? review.User.firstName: 'Annoymous'}</div> */}
-                <div id='reviewdate'>{review.createdAt.slice(0, 10)}</div>
-                <div id="reviewcontent">{review.review}</div>
-                </div>
-              ))
-                : <div> NO Review</div>
-              }
+              {reviewCount ? (
+                reviewArray.map((review) => (
+                  <div className="main_review_container" key={review.id}>
+                    {/* <div id='reviewowner'>{review.User ? review.User.firstName: 'Annoymous'}</div> */}
+                    <div className="review_container">
+                      <div className="review_stars_container">
+                        <div>{review.stars}&nbsp;</div>
+                        <i className="fa-solid fa-star"></i>
+                      </div>
+                      <div>
+                        <div className="review_container_text">
+                          {review.review}
+                        </div>
+                        <div></div>
+                      </div>
+                      <div className="review_user_profile">
+                        <i className="fa-regular fa-circle-user fa-2xl">
+                          &nbsp;
+                        </i>
+                        <div>
+                          {review.firstName}&nbsp;{review.lastName}&nbsp;
+                        </div>
+                        <div id="reviewdate">
+                          {review.createdAt.slice(0, 10)}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div> No Reviews. Would you like to leave a review?</div>
+              )}
             </div>
           </div>
           <div className="productdetail">
-            <div>USERNAME WILL GO HERE</div>
+            <div className="product_username_follow_text">
+              <div className="productdetail_text">{product?.username}</div>
+              <div className="heart_follow_div">
+                <i className="fa-regular fa-heart"></i>
+                <div>&nbsp;Follow</div>
+              </div>
+            </div>
             <div className="productdetailname">{product?.name}</div>
             <div className="productdetailprice">{`$${product?.price}`}</div>
-            <div>QUANTITY WILL GO HERE</div>
+            <select className="select_quantity_main">
+              <option value="0">Quantity</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
             <div style={{ padding: "5px" }}>
-              <button className="Buynow_button">Buy it now</button>
+              <button onClick={buyNow} className="Buynow_button">
+                Buy it now
+              </button>
             </div>
             <div style={{ padding: "5px" }}>
               <button className="Addtocart_button">Add to cart</button>
@@ -204,25 +261,163 @@ function ProductDetailPage() {
               </div>
             </div>
             <div className="productdetail_text">Ships from U.S.A.</div>
-            <div className="productdetail_text">Meet your Seller</div>
+            <div className="productdetail_text">Meet the Seller</div>
             <div>
               <div className="meet_seller_div">
                 <i className="fa-regular fa-user fa-2xl"></i>
                 <div className="meet_seller_text">
-                <div>First and last name HERE</div>
-                <div>Owner of "username"</div>
+                  <div>
+                    &nbsp;{product?.firstname}&nbsp;{product?.lastname}
+                  </div>
+                  <div>&nbsp;{product?.username}</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-          <div className="more_from_seller_div">
-            <div>More from Seller</div>
-            <div>Display seller's products here?</div>
+        <div className="more_from_seller_div">
+          <div>More from Seller</div>
+          <div>Display seller's products here? Discuss with team</div>
+        </div>
+        <div className="group_info_div">
+          <div>
+            <div>Meet the developers</div>
           </div>
           <div>
-            
+            <div>Yen Nguyen</div>
+            <div>
+              <div>
+                <i className="fa-brands fa-linkedin">&nbsp;</i>
+                <a
+                  className="more_info_text"
+                  href="https://google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Linkedin
+                </a>
+              </div>
+              <div>
+                <i className="fa-brands fa-square-github">&nbsp;</i>
+                <a
+                  className="more_info_text"
+                  href="https://google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Github
+                </a>
+              </div>
+            </div>
           </div>
+          <div>
+            <div>Lyn Chen</div>
+            <div>
+              <div>
+                <i className="fa-brands fa-linkedin">&nbsp;</i>
+                <a
+                  className="more_info_text"
+                  href="https://google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Linkedin
+                </a>
+              </div>
+              <div>
+                <i className="fa-brands fa-square-github">&nbsp;</i>
+                <a
+                  className="more_info_text"
+                  href="https://google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Github
+                </a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>Jake Ye</div>
+            <div>
+              <div>
+                <i className="fa-brands fa-linkedin">&nbsp;</i>
+                <a
+                  className="more_info_text"
+                  href="https://google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Linkedin
+                </a>
+              </div>
+              <div>
+                <i className="fa-brands fa-square-github">&nbsp;</i>
+                <a
+                  className="more_info_text"
+                  href="https://google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Github
+                </a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>Kevin Kim</div>
+            <div>
+              <div>
+                <i className="fa-brands fa-linkedin">&nbsp;</i>
+                <a
+                  className="more_info_text"
+                  href="https://google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Linkedin
+                </a>
+              </div>
+              <div>
+                <i className="fa-brands fa-square-github">&nbsp;</i>
+                <a
+                  className="more_info_text"
+                  href="https://google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Github
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="test">
+            <div className="footer_main_div">
+              <div className="footer_text_div">
+                <i className="fa-solid fa-globe ">&nbsp;</i>
+                <div>United States</div>
+                <div>&nbsp;|&nbsp;</div>
+                <div>English(US)</div>
+                <div> &nbsp;| &nbsp;</div>
+                <div> $(USD)</div>
+              </div>
+              <div className="footer_text_div">
+                <div>&copy; 2022 Artsy, Inc.</div>
+                <div>&nbsp;|&nbsp;</div>
+                <a
+                  className="more_info_text"
+                  href="https://github.com/haiyen2003/Etsy-clone"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  For more info
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
 }

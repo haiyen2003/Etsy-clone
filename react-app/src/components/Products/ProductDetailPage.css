@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-top: 15px;
 }
 
 .productdetailimage {
@@ -24,6 +25,25 @@
     font-size: 26pt;
     font-weight: bold;
     padding: 15px;
+}
+
+.product_username_follow_text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 16pt;
+}
+
+.heart_follow_div {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    align-items: center;
+}
+
+.select_quantity_main {
+
+padding: 15px;
 }
 
 .Buynow_button {
@@ -83,8 +103,9 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0px 15px 40px 15px;
-
 }
+
+
 
 .border-Line {
     border-bottom: 1px solid lightgrey;
@@ -110,19 +131,56 @@
 
 
 .reviewdetail_div {
-    width: 600px;
+    width: 650px;
+}
+
+.review_main_div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 25px;
+}
+
+.review_inner_line_div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.review_stars_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.main_review_container {
+    padding: 15px;
+}
+
+.review_container_text {
+    padding-top: 5px;
+    font-size: 15pt;
+}
+
+.review_user_profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 15px;
+
 }
 
 .free_text {
-    font-size: 20pt;
+    font-size: 25pt;
     padding: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .green_bubble_text {
-    border: 20px solid lightgreen;
+    border: 20px solid rgb(225, 235, 228);
     border-radius: 10px;
-    background-color: lightgreen;
+    background-color: rgb(225, 235, 228);
     width: 340px;
     margin-left: 15px;
     margin-bottom: 25px;
@@ -133,6 +191,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin-left: 15px;
+    margin-bottom: 10px;
 }
 
 .return_exchange_smalltext {
@@ -161,7 +220,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
     padding: 15px;
 
 }
@@ -169,12 +227,12 @@
 .meet_seller_text {
     display: flex;
     flex-direction: column;
+    padding: 15px;
 }
 
 .more_from_seller_div {
     display: flex;
     flex-direction: column;
-    margin-left: 515px;
 }
 
 .productdetail {
@@ -183,4 +241,43 @@
     width: 350px;
 }
 
+.group_info_div {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+background-color: rgb(51, 71, 106);
+color: white;
+height: 150px;
+padding: 50px;
+}
 
+.footer_main_div {
+    display: flex;
+    justify-content: space-between;
+ 
+}
+
+.footer_text_div {
+    display: flex;
+    flex-direction: row;
+}
+
+.more_info_text {
+    text-decoration: none;
+    color: white;
+    outline: none;
+}
+
+
+
+.more_info_text:hover {
+    text-decoration: underline;
+}
+
+.test {
+    background-color: rgb(36, 37, 70);
+    justify-content: center;
+
+    padding: 25px;
+        color: white;
+}

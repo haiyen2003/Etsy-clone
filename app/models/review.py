@@ -1,5 +1,5 @@
 from .db import db
-from sqlalchemy.types  import DateTime, Date 
+from sqlalchemy.types  import DateTime, Date
 
 
 
@@ -28,6 +28,7 @@ class Review(db.Model):
             'reviewImg':self.reviewImg,
             'userId':self.userId,
             'createdAt':self.createdAt,
-            'updatedAt':self.updatedAt
-
+            'updatedAt':self.updatedAt,
+            'firstName': self.user.firstName if self.user else None,
+            'lastName': self.user.lastName if self.user else None
         }
