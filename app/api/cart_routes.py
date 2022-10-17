@@ -68,3 +68,21 @@ def delete_cart_item(id):
     db.session.delete(item)
     db.session.commit()
     return {'message': 'Item has been successfully removed from cart'}, 200
+
+
+@cart_routes.route('/current', methods=['DELETE'])
+@login_required
+
+def delete_cart():
+    currentUserId = current_user.id
+    cartItems = db.session.query(CartItem) \
+                            .filter(CartItem.userId == currentUserId) \
+                            .options(db.joinedload(CartItem.product)) \
+                            .all()
+    if len(cartItems) == 0 or not cartItems:
+        return {'message': 'Your cart is empty'}, 404
+
+    for item in cartItems:
+        db.session.delete(item)
+    db.session.commit()
+    return{'message': 'Cart is empty'}
