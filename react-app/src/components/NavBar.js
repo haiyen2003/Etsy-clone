@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import LoginFormModal from './auth/LoginFormModal';
-
 import "./NavBar.css"
 import { Modal } from '../context/Modal';
 import { useSelector } from 'react-redux';
+import ProfileButton from './ProfileButton';
 
 const NavBar = ({isLoaded}) => {
   const sessionUser = useSelector(state => state.session.user);

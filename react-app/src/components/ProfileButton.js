@@ -6,9 +6,14 @@ import LogoutButton from "./auth/LogoutButton";
 
 
 function ProfileButton({ user }) {
-    const history= useHistory()
-    const dispatch = useDispatch();
+
+    // const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
+
+    const openMenu = () => {
+        if (showMenu) return;
+        setShowMenu(true);
+      };
 
     useEffect(() => {
         if (!showMenu) return;
@@ -22,7 +27,32 @@ function ProfileButton({ user }) {
         return () => document.removeEventListener("click", closeMenu);
       }, [showMenu]);
 
-      
+      return(
+        <>
+            <div className="profile_button" onClick={openMenu}>
+                <i className="fas fa-user-circle fa-2x" />
+            </div>
+            {showMenu &&  (
+            <div className="profile-dropdown">
+
+            <div className="menu-item1">Hi, {user.firstName}</div>
+
+            <Link className="menu-item-link" to={`/spots/me`}>My Product Listings</Link>
+
+            {/* <Link className="menu-item-link" to={`/spots/create`}>Host an experience</Link> */}
+
+            <Link className="menu-item-link" to={`/reviews/me`}>My reviews</Link>
+
+            <div className="menu-item" >
+                <LogoutButton/>
+            </div>
+
+            </div>
+        )
+            }
+
+        </>
+      )
 
 }
 
