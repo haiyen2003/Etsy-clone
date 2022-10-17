@@ -50,10 +50,10 @@ const actionDeleteReview = (id) => {
 
 
 export const thunkCreateReview = (payload) => async dispatch => {
-    const response = await fetch(`/api/products/${payload.id}/reviews`, {
+    const response = await fetch(`/api/reviews/products/${payload.id}`, {
       method: "POST",
       header: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
     });
     if(response.ok) {
         const data = await response.json()
@@ -63,9 +63,12 @@ export const thunkCreateReview = (payload) => async dispatch => {
 }
 
 
-export const thunkGetAllProductReview = (productId) => async dispatch => {
-    const response = await fetch(`/api/products/${productId}/reviews`)
-    
+export const thunkGetAllProductReview = (id) => async dispatch => {
+    const response = await fetch(`/api/reviews/products/${id}`, {
+      method: "GET",
+    });
+    console.log(id)
+
     if (response.ok) {
         const data = await response.json()
         dispatch(actionGetAllProductReview(data))
@@ -121,7 +124,7 @@ const reviewReducer = (state = initialState, action) => {
             return newState
         case getAllProductReview:
             newState = {};
-            action.reviews.forEach((review) => {
+            action.reviews.product_reviews.forEach((review) => {
                 newState[review.id] = review;
             });
             return newState
