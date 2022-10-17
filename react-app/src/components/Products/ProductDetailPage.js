@@ -119,10 +119,20 @@ function ProductDetailPage() {
             </div>
           </div>
           <div className="productdetail">
-            <div className="productdetail_text">{product?.username}</div>
+            <div className="product_username_follow_text">
+              <div className="productdetail_text">{product?.username}</div>
+              <div className="heart_follow_div">
+                <i className="fa-regular fa-heart"></i>
+                <div>&nbsp;Follow</div>
+              </div>
+            </div>
             <div className="productdetailname">{product?.name}</div>
             <div className="productdetailprice">{`$${product?.price}`}</div>
-            <div>QUANTITY WILL GO HERE</div>
+            <select className="select_quantity_main">
+              <option value="0">Quantity</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
             <div style={{ padding: "5px" }}>
               <button onClick={buyNow} className="Buynow_button">
                 Buy it now

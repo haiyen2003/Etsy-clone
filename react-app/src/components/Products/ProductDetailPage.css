@@ -27,6 +27,25 @@
     padding: 15px;
 }
 
+.product_username_follow_text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 16pt;
+}
+
+.heart_follow_div {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    align-items: center;
+}
+
+.select_quantity_main {
+
+padding: 15px;
+}
+
 .Buynow_button {
     cursor: pointer;
     background-color: white;
