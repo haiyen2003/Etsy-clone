@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.fields import (
-    SelectField, SelectMultipleField, StringField, SubmitField, IntegerField, FloatField, DecimalField
+    SelectField, SelectMultipleField, TextAreaField, SubmitField, IntegerField, FloatField, DecimalField
 )
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import Product
@@ -39,7 +39,7 @@ def imageURL_validation(form, field):
 
 class ProductForm(FlaskForm):
     name = StringField("Product Name", validators= [DataRequired(), name_validation])
-    description = StringField("Product Description", validators= [DataRequired(), description_validation])
+    description = TextAreaField("Product Description", validators= [DataRequired(), description_validation])
     price = DecimalField("Price", validators=[DataRequired(), price_validation], places=2, rounding = ROUND_HALF_UP)
     category = StringField("Category", validators=[DataRequired()])
     highlight = StringField("Highlights", validators=[DataRequired(), highlights_validation])

@@ -12,6 +12,7 @@ import ProductList from './components/Products/ProductList';
 import ProductDetailPage from './components/Products/ProductDetailPage';
 import { authenticate } from './store/session';
 import {Modal} from './context/Modal';
+import ProductCreate from './components/Products/ProductCreate';
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,9 @@ function App() {
         </Route>
         <Route exact path='/products/:id'>
           <ProductDetailPage />
+        </Route>
+        <Route exact path='/seller'>
+          <ProductCreate />
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
