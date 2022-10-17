@@ -28,6 +28,7 @@ class Product(db.Model):
             'description': self.description,
             'price':self.price,
             'userId':self.userId,
+            'username': self.user.username if self.user else None,
             'category':self.category,
             'highlight':self.highlight,
             'createdAt':self.createdAt,
