@@ -19,6 +19,7 @@ import ArtCategory from './components/Categories/Art';
 import JewelryCategory from './components/Categories/Jewelry';
 import ClothingCategory from './components/Categories/Clothing';
 import WeddingCategory from './components/Categories/Wedding';
+import GiftCategory from './components/Categories/Gift';
 
 
 function App(){
@@ -60,6 +61,9 @@ function App(){
           </Route>
           <Route exact path="/wedding">
             <WeddingCategory />
+          </Route>
+          <Route exact path="/gift">
+            <GiftCategory />
           </Route>
           <Route exact path="/myproducts">
             <MyProductListings />
