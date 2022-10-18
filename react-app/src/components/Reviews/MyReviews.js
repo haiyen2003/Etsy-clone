@@ -4,6 +4,7 @@ import { NavLink, useHistory } from "react-router-dom"
 import { thunkGetCurrentReview } from "../../store/review"
 
 import './MyReviews.css'
+import ReviewDelete from "./ReviewDelete"
 
 
 
@@ -51,6 +52,8 @@ function MyReviews() {
                     <div className="my_review_starbox">
                     <div className="my_review_star_text">{`Your Review ${review.stars}`}</div>
                     <div className="my_review_review_text">{review.review}</div>
+                    <div>Edit Review</div>
+                    <div><ReviewDelete review={review}/></div>
                     </div>
                     </div>
                   </div>
