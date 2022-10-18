@@ -13,9 +13,13 @@ import ProductDetailPage from './components/Products/ProductDetailPage';
 import { authenticate } from './store/session';
 import {Modal} from './context/Modal';
 
-function App() {
+
+function App(){
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  // const [openLogin, setOpenLogin] = useState(false);
+  // const [openSignup, setOpenSignup] = useState(false);
+
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
