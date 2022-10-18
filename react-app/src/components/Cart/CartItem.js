@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateCount, removeItem } from '../../store/cart';
+import { deleteItemThunk, getCartThunk, addItemThunk, updateCartThunk } from '../../store/cart';
 
 function CartItem({ item }) {
     const dispatch = useDispatch();
-    const [count, setCount] = useState(item.count);
+    const [quantity, setQuantity] = useState(item.quantity);
 
     useEffect(() => {
-        setCount(item.count);
-    }, [item.count]);
+        setQuantity(item.quantity);
+    }, [item.quantity]);
 
     return (
         <li className="cart-item">
@@ -16,25 +16,25 @@ function CartItem({ item }) {
             <div className="cart-item-menu">
                 <input
                     type="number"
-                    value={count}
-                    onChange={(e) => setCount(e.target.value)}
-                    onBlur={() => dispatch(updateCount(item.id, Number(count)))}
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
+                    onBlur={() => dispatch(updateCartThunk(item.id, Number(quantity)))}
                 />
                 <button
                     className="cart-item-button"
-                    onClick={() => dispatch(updateCount(item.id, item.count + 1))}
+                    onClick={() => dispatch(updateCartThunk(item.id, item.quantity + 1))}
                 >
                     +
                 </button>
                 <button
                     className="cart-item-button"
-                    onClick={() => dispatch(updateCount(item.id, item.count - 1))}
+                    onClick={() => dispatch(updateCartThunk(item.id, item.quantity - 1))}
                 >
                     -
                 </button>
                 <button
                     className="cart-item-button"
-                    onClick={() => dispatch(removeItem(item.id))}
+                    onClick={() => dispatch(deleteItemThunk(item.id))}
                 >
                     Remove
                 </button>
