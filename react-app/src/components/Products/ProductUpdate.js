@@ -24,8 +24,8 @@ function ProductUpdate({product}) {
       errors.push("Please enter a description more than 20 characters");
     if (!price) errors.push("Please enter a valid price");
     if (!category?.length) errors.push("Please enter a category");
-    if (!highlight || highlight?.length < 10)
-      errors.push("Please enter a highlight more than 10 characters");
+    if (!highlight || highlight?.length < 5)
+      errors.push("Please enter a highlight more than 5 characters");
     if (
       (!previewImage.includes("jpg") &&
         !previewImage.includes("png") &&
@@ -62,75 +62,161 @@ function ProductUpdate({product}) {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        {validations.length > 0 && submit && (
-          <div>
-            <div>
-              {validations.map((error, i) => (
-                <div key={i}>{error}</div>
-              ))}
+    <div className="update_product_main">
+      <div className="update_product_div">
+        <form className="update_product_form" onSubmit={onSubmit}>
+          <div className="update_product_detailtext">
+            <div>Listing details</div>
+            <div className="update_product_small_text">
+              Tell the world all about your item and why they'll buy it.
             </div>
           </div>
-        )}
-        <div>
-          <label>Name</label>
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label>Description</label>
-          <input
-            type="text-area"
-            name="description"
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label>Price</label>
-          <input
-            type="number"
-            name="price"
-            value={price}
-            onChange={(event) => setPrice(event.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label>Category</label>
-          <input
-            type="text"
-            name="category"
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label>Highlight</label>
-          <input
-            type="text"
-            name="highlight"
-            value={highlight}
-            onChange={(event) => setHighlight(event.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label>Image</label>
-          <input
-            type="text"
-            name="previewImage"
-            value={previewImage}
-            onChange={(event) => setPreviewImage(event.target.value)}
-          ></input>
-        </div>
-        <button type="submit" disabled={validations.length > 0 && submit}>
-          Update Product
-        </button>
-      </form>
+          <div className="update_product_input">
+            <div className="update_product_text_box">
+              <div>Name</div>
+              <div className="update_product_small_text">
+                Include keywords that would attract buyers
+              </div>
+            </div>
+            <div>
+              <input
+                type="text"
+                name="name"
+                value={name}
+                className="update_product_input_inner"
+                onChange={(event) => setName(event.target.value)}
+              ></input>
+            </div>
+          </div>
+          <div className="update_product_input">
+            <div className="update_product_text_box">
+              <div>Description</div>
+              <div className="update_product_small_text">
+                Start with a brief summary that describes your product's
+                features.
+              </div>
+            </div>
+            <div>
+              <input
+                type="text-area"
+                name="description"
+                value={description}
+                className="update_product_input_inner_descript"
+                onChange={(event) => setDescription(event.target.value)}
+              ></input>
+            </div>
+          </div>
+          <div className="update_product_input">
+            <div className="update_product_text_box">
+              <div>Price</div>
+              <div className="update_product_small_text">
+                Remember to factor in labor, cost of material, etc. Shipping is
+                free to all customers.
+              </div>
+            </div>
+            <div>
+              <input
+                type="number"
+                name="price"
+                value={price}
+                className="update_product_input_inner"
+                onChange={(event) => setPrice(event.target.value)}
+              ></input>
+            </div>
+          </div>
+          <div className="update_product_input">
+            <div className="update_product_text_box">
+              <div>Category</div>
+              <div className="update_product_small_text">
+                Type a two word description to get category suggestions that
+                will help buyers find when they want.
+              </div>
+            </div>
+            <div>
+              <input
+                type="text"
+                name="category"
+                value={category}
+                placeholder="Art & Collectibles, Home & Living, Wedding & Party, etc."
+                className="update_product_input_inner"
+                onChange={(event) => setCategory(event.target.value)}
+              ></input>
+            </div>
+          </div>
+          <div className="update_product_input">
+            <div className="update_product_text_box">
+              <div>Highlight</div>
+              <div className="update_product_small_text">
+                One word that represents the best feature of the product.
+              </div>
+            </div>
+            <div>
+              <input
+                type="text"
+                name="highlight"
+                value={highlight}
+                className="update_product_input_inner"
+                onChange={(event) => setHighlight(event.target.value)}
+              ></input>
+            </div>
+          </div>
+          <div className="update_product_input">
+            <div className="update_product_text_box">
+              <div>Image</div>
+              <div className="update_product_small_text">
+                Add a url photo so buyers can see the product
+              </div>
+            </div>
+            <div>
+              <input
+                type="text"
+                name="previewImage"
+                value={previewImage}
+                className="update_product_input_inner"
+                onChange={(event) => setPreviewImage(event.target.value)}
+              ></input>
+            </div>
+          </div>
+          {validations.length > 0 && submit ? (
+            <div className="update_product_empty">
+              <div className="update_product_error">
+                {validations.map((error, i) => (
+                  <div key={i}>{error}</div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="update_product_empty"></div>
+          )}
+          <div className="update_product_footer">
+            <div className="update_product_footer2">
+              <div>
+                <button
+                  className="update_product_cancel"
+                  onClick={(event) => history.push("/")}
+                >
+                  Cancel
+                </button>
+              </div>
+              <div className="update_product_cancel_text">
+                <span className="update_product_cancel_bold">
+                  This listing isn't active yet.
+                </span>{" "}
+                It will be available to shoppers once you update your product.
+              </div>
+            </div>
+            <div className="update_product_rightside">
+              <button
+                className="update_product_button"
+                type="submit"
+                disabled={validations.length > 0 && submit}
+              >
+                Update a Product
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

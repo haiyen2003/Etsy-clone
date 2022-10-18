@@ -1,0 +1,120 @@
+.update_product_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.update_product_form {
+    border: 1px solid lightgrey;
+    width: 700px;
+    height: 860px;
+}
+
+.update_product_detailtext {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+}
+
+.update_product_input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.update_product_text_box {
+    width: 100px;
+}
+
+.update_product_small_text {
+    color: grey;
+    font-size: 8pt;
+    padding: 5px;
+}
+
+.update_product_input_inner_descript {
+    width: 500px;
+    height: 60px;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+.update_product_input_inner_descript:focus {
+    outline: 1px solid orange
+}
+
+.update_product_input_inner {
+    width: 500px;
+    height: 45px;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+.update_product_input_inner:focus {
+    outline: 1px solid orange;
+}
+
+
+.update_product_footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 20px;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.update_product_footer2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.update_product_rightside {
+    margin-right: 20px;
+}
+
+.update_product_cancel {
+    cursor: pointer;
+    background-color: white;
+
+    border-radius: 5px;
+    height: 35px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.update_product_cancel_text {
+    margin-left: 10px;
+    color: grey;
+}
+
+.update_product_cancel_bold {
+    font-weight: bold;
+    color: black;
+}
+
+.update_product_button {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    height: 35px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.update_product_error {
+    color: red;
+    text-align: center;
+}
+
+.update_product_empty {
+    height: 130px;
+    border-bottom: 1px solid lightgrey;
+}

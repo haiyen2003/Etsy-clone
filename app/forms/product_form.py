@@ -27,8 +27,8 @@ def price_validation(form, field):
 
 def highlights_validation(form, field):
     hl = field.data
-    if len(hl) < 10 or len(hl) > 100:
-        raise ValidationError("highlights must be more than 10 characters and less than 100 characters")
+    if len(hl) < 5 or len(hl) > 100:
+        raise ValidationError("highlights must be more than 5 characters and less than 100 characters")
 
 def imageURL_validation(form, field):
     img = field.data

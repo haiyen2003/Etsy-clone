@@ -199,7 +199,7 @@ function ProductCreate() {
                   <span className="create_product_cancel_bold">
                     This listing isn't active yet.
                   </span>{" "}
-                  It will be available to shoppers once you open your shop.
+                  It will be available to shoppers once you enlist your product.
                 </div>
               </div>
               <div className="create_product_rightside">
