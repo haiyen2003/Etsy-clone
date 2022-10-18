@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../../store/session';
 import "./LoginForm.css"
+import SignUpForm from '../SignUpFormModal/SignUpForm';
 
-const LoginForm = ({setOpenLogin, setOpenSignup}) => {
+const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,10 +22,7 @@ const LoginForm = ({setOpenLogin, setOpenSignup}) => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
-    } else {
-      setOpenLogin(false)
-      history.push('/')
-    }
+    } 
   };
 
   const updateEmail = (e) => {
@@ -35,11 +33,7 @@ const LoginForm = ({setOpenLogin, setOpenSignup}) => {
     setPassword(e.target.value);
   };
 
-  const SignUpNewOne=e=>{
-    e.preventDefault();
-    setOpenLogin(false);
-    setOpenSignup(true);
-  }
+
 
   if (user) {
     return <Redirect to='/' />;
@@ -47,7 +41,7 @@ const LoginForm = ({setOpenLogin, setOpenSignup}) => {
 
   return (
     <>
-    <button className='register_btn' onClick={SignUpNewOne}>Register</button>
+    <button className='register_btn' >Register</button>
     <form onSubmit={onLogin} className='signin_container'>
       <h2 className='signin_head'>Sign In</h2>
       <div>

@@ -52,12 +52,14 @@ const SignUpForm = () => {
   //   setRepeatPassword(e.target.value);
   // };
 
+  
+
   if (user) {
     return <Redirect to='/' />;
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form onSubmit={onSignUp} className='signin_container'>
       <h2>Create your account</h2>
       <div>
         {errors.map((error, ind) => (
@@ -114,7 +116,7 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div> */}
-      <button type='submit'>Register</button>
+      <button type='submit'>Sign Up</button>
     </form>
   );
 };
