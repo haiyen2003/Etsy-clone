@@ -7,6 +7,8 @@ import "./NavBar.css"
 import { Modal } from '../context/Modal';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import Searchbar from './SearchBar/Searchbar';
+
 
 const NavBar = ({isLoaded}) => {
   const sessionUser = useSelector(state => state.session.user);
@@ -42,7 +44,7 @@ const NavBar = ({isLoaded}) => {
       </div>
       <div id= "search_bar_container">
           <div id="search_bar">
-
+          <Searchbar />
           </div>
         </div>
         <div>
