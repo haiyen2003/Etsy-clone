@@ -64,4 +64,4 @@ function ArtCategory() {
     )
 }
 
-export default HomeLivingCategory
+export default ArtCategory

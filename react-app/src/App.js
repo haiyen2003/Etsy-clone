@@ -15,6 +15,7 @@ import {Modal} from './context/Modal';
 import ProductCreate from './components/Products/ProductCreate';
 import MyProductListings from './components/Products/MyProductListings';
 import HomeLivingCategory from './components/Categories/Home&living';
+import ArtCategory from './components/Categories/Art';
 
 
 function App(){
@@ -44,6 +45,9 @@ function App(){
           </Route>
           <Route exact path="/home&living">
             <HomeLivingCategory />
+          </Route>
+          <Route exact path="/arts">
+            <ArtCategory />
           </Route>
           <Route exact path="/myproducts">
             <MyProductListings />
