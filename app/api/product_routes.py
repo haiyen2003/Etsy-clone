@@ -124,7 +124,7 @@ def add_to_cart(id):
         if cartItem is None:
             item = CartItem(
                 userId = currentUserId,
-                productIt = id,
+                productId = id,
                 quantity = form.data["quantity"],
                 createAt = now,
                 updateAt = now
