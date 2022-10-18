@@ -36,6 +36,6 @@ class Product(db.Model):
             'highlight':self.highlight,
             'createdAt':self.createdAt,
             'updatedAt':self.updatedAt,
-            'previewImage':self.previewImage
-            
+            'previewImage':self.previewImage,
+            'reviews': [review.to_dict() for review in self.reviews]
         }
