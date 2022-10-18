@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import LoginFormModal from './auth/LoginFormModal';
+import SignUpFormModal from './auth/SignUpFormModal';
 import "./NavBar.css"
 import { Modal } from '../context/Modal';
 import { useSelector } from 'react-redux';
@@ -10,9 +11,12 @@ import ProfileButton from './ProfileButton';
 import Searchbar from './SearchBar/Searchbar';
 
 
+
 const NavBar = ({isLoaded}) => {
   const sessionUser = useSelector(state => state.session.user);
   const [showModal, setShowModal] = useState(false)
+  const [openLogin, setOpenLogin] = useState(false);
+  const [openSignup, setOpenSignup] = useState(false);
 
   let sessionLinks;
   if (sessionUser) {
@@ -24,7 +28,8 @@ const NavBar = ({isLoaded}) => {
   } else {
     sessionLinks =(
       <>
-        <LoginFormModal/>
+        <LoginFormModal setOpenLogin={setOpenLogin} setOpenSignup={setOpenSignup}/>
+        {/* <SignUpFormModal /> */}
       </>
     );
   }

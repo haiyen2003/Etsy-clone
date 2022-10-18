@@ -3,9 +3,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
 import "./SignUpForm.css"
+import "../LoginFormModal/LoginForm.css"
 
 
-const SignUpForm = () => {
+const SignUpForm = ({setOpenSignup, setOpenLogin, setShowModal}) => {
   const [errors, setErrors] = useState([]);
   // const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -27,6 +28,8 @@ const SignUpForm = () => {
     const data = await dispatch(signUp(email, firstName, lastName, password));
     if (data){
       setErrors(data)
+    } else{
+      setOpenSignup(false)
     }
   };
 
@@ -51,8 +54,13 @@ const SignUpForm = () => {
   // const updateRepeatPassword = (e) => {
   //   setRepeatPassword(e.target.value);
   // };
+    const closeSignup = e=>{
+      e.preventDefault();
+      setOpenSignup(false);
+      setOpenLogin(true);
+      setShowModal(true);
+    }
 
-  
 
   if (user) {
     return <Redirect to='/' />;
@@ -60,7 +68,7 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSignUp} className='signin_container'>
-      <h2>Create your account</h2>
+      <h2 className='signin_head'>Create your account</h2>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
@@ -117,6 +125,7 @@ const SignUpForm = () => {
         ></input>
       </div> */}
       <button type='submit'>Sign Up</button>
+      <button  type='submit' onClick={closeSignup}>Sign in</button>
     </form>
   );
 };

@@ -19,8 +19,8 @@ import MyProductListings from './components/Products/MyProductListings';
 function App(){
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  // const [openLogin, setOpenLogin] = useState(false);
-  // const [openSignup, setOpenSignup] = useState(false);
+  const [openLogin, setOpenLogin] = useState(false);
+  const [openSignup, setOpenSignup] = useState(false);
 
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
@@ -29,6 +29,8 @@ function App(){
   return (
     <BrowserRouter>
       <NavBar isLoaded={isLoaded} />
+
+      {/* <NavBar /> */}
 
       {isLoaded && (
         <Switch>
