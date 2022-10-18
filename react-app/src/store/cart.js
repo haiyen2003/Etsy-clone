@@ -21,7 +21,7 @@ export const addItem = (itemId) => {
 };
 
 export const updateItem = (itemId, quantity) => {
-    if (quantity < 1) return removeItem(itemId);
+    if (quantity < 1 || !quantity) return removeItem(itemId);
     return {
         type: UPDATE_COUNT,
         itemId,
@@ -133,6 +133,7 @@ export default function cartReducer(state = initialState, action) {
             action.items.cart_details.forEach(item => {
                 newState[item.id] = item
             });
+            console.log(action.items);
             return newState;
         }
 

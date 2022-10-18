@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {  thunkGetOneProduct } from "../../store/product";
 import './ProductDetailPage.css'
 import { thunkGetAllProductReview } from "../../store/review";
+import {addItemThunk} from '../../store/cart'
 
 
 function ProductDetailPage() {
@@ -45,12 +46,17 @@ function ProductDetailPage() {
     useEffect(() => {
         dispatch(thunkGetOneProduct(id))
         dispatch(thunkGetAllProductReview(id))
+        dispatch(addItemThunk(id))
         // dispatch(thunkGetCurrentProduct())
     },[dispatch, id])
 
     const buyNow = () => {
         alert(`Thank you for purchasing!`)
         history.push('/')
+    }
+
+    const addToCart = () => {
+      
     }
 
     return (
@@ -139,7 +145,7 @@ function ProductDetailPage() {
               </button>
             </div>
             <div style={{ padding: "5px" }}>
-              <button className="Addtocart_button">Add to cart</button>
+              <button onClick={addToCart} className="Addtocart_button">Add to cart</button>
             </div>
             <div className="descriptiondetail_cart">
               <i className="fa-solid fa-cart-shopping fa-2xl"></i>

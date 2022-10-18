@@ -25,9 +25,6 @@ function App(){
   // const [openSignup, setOpenSignup] = useState(false);
 
   useEffect(() => {
-    (async () => {
-
-    })
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
@@ -40,7 +37,7 @@ function App(){
           <Route path="/" exact={true}>
             <ProductList />
           </Route>
-          <Route exact path="/current/cart">
+          <Route exact path="/cart">
             <Cart />
           </Route>
           <Route exact path="/products/:id">

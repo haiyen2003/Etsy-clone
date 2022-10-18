@@ -6,8 +6,9 @@ import './Cart.css';
 function Cart() {
   const dispatch = useDispatch();
   const cartItems = useSelector(getCartThunk);
+  const items = Object.values(cartItems);
 
-  if (!cartItems || !cartItems.length) return (
+  if (!items || !items.length) return (
     <div className="cart">
       No items in the cart. Start selecting items to purchase.
     </div>
@@ -17,7 +18,7 @@ function Cart() {
     e.preventDefault();
     window.alert(
       "Purchased the following:\n" +
-      `${cartItems.map(item => `${item.quantity} of ${item.name}`).join('\n')}`
+      `${items.map(item => `${item.quantity} of ${item.name}`).join('\n')}`
     );
     dispatch(deleteCartThunk());
   }
@@ -25,7 +26,7 @@ function Cart() {
   return (
     <div className="cart">
       <ul>
-        {cartItems.map(item => <CartItem key={item.id} item={item}/>)}
+        {items.map(item => <CartItem key={item.id} item={item}/>)}
       </ul>
       <hr />
       <form onSubmit={onSubmit}>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteItemThunk, getCartThunk, addItemThunk, updateCartThunk } from '../../store/cart';
+import { deleteItemThunk, updateCartThunk } from '../../store/cart';
 
 function CartItem({ item }) {
     const dispatch = useDispatch();
