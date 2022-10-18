@@ -14,6 +14,7 @@ import { authenticate } from './store/session';
 import {Modal} from './context/Modal';
 import ProductCreate from './components/Products/ProductCreate';
 import MyProductListings from './components/Products/MyProductListings';
+import HomeLivingCategory from './components/Categories/Home&living';
 
 
 function App(){
@@ -40,6 +41,9 @@ function App(){
           </Route>
           <Route exact path="/seller">
             <ProductCreate />
+          </Route>
+          <Route exact path="/home&living">
+            <HomeLivingCategory />
           </Route>
           <Route exact path="/myproducts">
             <MyProductListings />
