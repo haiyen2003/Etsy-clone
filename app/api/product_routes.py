@@ -24,13 +24,15 @@ def product(id):
     if product is None:
         return {'message': "No such product"}
 
-    new_product = product
-    if len(new_product['reviews']) >0:
-        avg= sum(d['stars'] for d in new_product['reviews'])/ len(new_product['reviews'])
-        # new_product.update ({"rating": f"{avg}"});
-        new_product["rating"] = avg
-        return new_product.to_dict();
-
+    # new_product = product
+    # print("before start:", new_product.reviews)
+    # if len(new_product.reviews) >0:
+    #     avg= sum(d.stars for d in new_product.reviews)/ len(new_product.reviews)
+    #     # new_product.update ({"rating": f"{avg}"});
+    #     new_product.to_dict()['rating'] = avg
+    #     print("after new_product:", new_product.rating)
+    #     return new_product.to_dict();
+    # else:
     return product.to_dict()
 
 #get current user product
