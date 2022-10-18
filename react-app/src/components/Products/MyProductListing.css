@@ -1,0 +1,41 @@
+.my_product_listing_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+}
+
+.my_product_listing_box {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.my_product_listing_innerbox {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    width: 1000px;
+    padding: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.my_product_listing_nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.my_product_listing_name {
+    padding: 5px;
+    width: 200px;
+    text-align: center;
+}
+
+.my_product_listing_img {
+    width: 250px;
+    height: 250px;
+    object-fit: fill;
+}
