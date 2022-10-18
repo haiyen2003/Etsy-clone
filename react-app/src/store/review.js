@@ -77,7 +77,7 @@ export const thunkGetAllProductReview = (id) => async dispatch => {
 
 
 export const thunkGetCurrentReview = () => async dispatch => {
-    const response = await fetch('/api/reviews')
+    const response = await fetch('/api/reviews/')
 
     if (response.ok) {
         const data = await response.json()
@@ -130,7 +130,7 @@ const reviewReducer = (state = initialState, action) => {
             return newState
         case getCurrentReview:
             newState = {};
-            action.reviews.forEach((review) => {
+            action.reviews.user_reviews.forEach((review) => {
                 newState[review.id] = review;
             });
             return newState
