@@ -62,11 +62,11 @@ def add_product():
 @product_routes.route('/<int:id>/edit', methods=["PUT"])
 @login_required
 def update_product(id):
-    print(id)
+    # print(id)
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     edit_product = Product.query.get(id)
-    print(edit_product)
+    # print(edit_product)
     if edit_product is None:
         return {"errors" : "Product couldn't be found"}, 404
     if edit_product.userId != current_user.id:

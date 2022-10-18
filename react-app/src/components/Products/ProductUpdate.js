@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch} from "react-redux";
 import { useHistory } from "react-router-dom";
-import { thunkUpdateProduct } from "../../store/product";
+import { thunkGetOneProduct, thunkUpdateProduct } from "../../store/product";
 import "./ProductUpdate.css";
 
 function ProductUpdate({product}) {
@@ -50,10 +50,14 @@ function ProductUpdate({product}) {
       previewImage,
     };
 
-    let createdProduct = await dispatch(thunkUpdateProduct(payload));
+    let updatedProduct = await dispatch(thunkUpdateProduct(payload));
 
-    if (createdProduct) {
-      history.push(`/products/${createdProduct.id}`);
+    // console.log(updatedProduct)
+
+    //   await dispatch(thunkGetOneProduct(payload.id))
+    
+    if (updatedProduct) {
+      history.push(`/products/${updatedProduct.id}`);
     }
   };
 
