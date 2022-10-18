@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import { useDispatch } from 'react-redux';
 import { NavLink, Link, useHistory } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
-
+import "./NavBar.css"
 
 
 function ProfileButton({ user }) {
