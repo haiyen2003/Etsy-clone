@@ -20,7 +20,7 @@ export const addItem = (itemId) => {
     };
 };
 
-export const updateCount = (itemId, quantity) => {
+export const updateItem = (itemId, quantity) => {
     if (quantity < 1) return removeItem(itemId);
     return {
         type: UPDATE_COUNT,
@@ -42,9 +42,9 @@ export const reset = () => {
     };
 };
 
-export const getCartThunk = () => async dispatch =>{
+export const getCartThunk = () => async dispatch => {
     const res = await fetch('/api/cartItems/current');
-    if (res.ok){
+    if (res.ok) {
         const items = await res.json();
         dispatch(getCart(items))
         return items;
@@ -55,15 +55,76 @@ export const addItemThunk = (id, quantity) => async dispatch => {
     const res = await fetch(`/api/products/${id}/cart`, {
         method: 'POST',
         headers: {
-            'Content-Type' : 'application/json'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(quantity)
     })
+
+    if (res.ok) {
+        const item = await res.json();
+        dispatch(addItem(item))
+        return item;
+    }
+    else {
+        const response = await res.json()
+        return response.errors
+    }
+}
+
+export const updateCartThunk = (id, quantity) => async dispatch => {
+    const res = await fetch(`/api/cartItems/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ quantity })
+    });
+
+    if (res.ok) {
+        const item = await res.json()
+        dispatch(updateItem(id, quantity))
+        return item;
+    }
+    else {
+        const response = await res.json()
+        return response.errors
+    }
+}
+
+export const deleteItemThunk = (id) => async dispatch => {
+    const res = await fetch(`/api/cartItems/${id}`, {
+        method: 'DELETE',
+    });
+
+    if (res.ok) {
+        const removedItem = await res.json()
+        dispatch(removeItem(id))
+        return removedItem;
+    }
+    else {
+        const response = await res.json()
+        return response.errors
+    }
+}
+
+export const deleteCartThunk = () => async dispatch => {
+    const res = await fetch(`/api/cartItems/current`, {
+        method: 'DELETE',
+    });
+
+    if (res.ok) {
+        const removedCart = await res.json()
+        dispatch(reset())
+        return removedCart;
+    }
+    else {
+        const response = await res.json()
+        return response.errors
+    }
 }
 
 
-
-export default function cartReducer(state = initialState, action) {
+export default function cartReducer(state = {}, action) {
     switch (action.type) {
         case ADD_ITEM:
             return {
