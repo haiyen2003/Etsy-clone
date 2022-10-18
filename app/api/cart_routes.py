@@ -7,7 +7,7 @@ from datetime import datetime
 
 now = datetime.now()
 
-cart_routes = Blueprint('carts', __name__)
+cart_routes = Blueprint('cartitems', __name__)
 
 #get current user products in cart
 @cart_routes.route("/current")
