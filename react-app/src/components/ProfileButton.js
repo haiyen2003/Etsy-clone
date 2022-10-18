@@ -37,7 +37,7 @@ function ProfileButton({ user }) {
 
             <div className="menu-item1">Hi, {user.firstName}</div>
 
-            <Link className="menu-item-link" to={`/spots/me`}>My Product Listings</Link>
+            <Link className="menu-item-link" to={`/myproducts`}>My Product Listings</Link>
 
             {/* <Link className="menu-item-link" to={`/spots/create`}>Host an experience</Link> */}
 

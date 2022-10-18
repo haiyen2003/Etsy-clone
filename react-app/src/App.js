@@ -13,6 +13,7 @@ import ProductDetailPage from './components/Products/ProductDetailPage';
 import { authenticate } from './store/session';
 import {Modal} from './context/Modal';
 import ProductCreate from './components/Products/ProductCreate';
+import MyProductListings from './components/Products/MyProductListings';
 
 function App() {
   const dispatch = useDispatch();
@@ -23,34 +24,35 @@ function App() {
 
   return (
     <BrowserRouter>
-
-      <NavBar isLoaded={isLoaded}/>
-
+      <NavBar isLoaded={isLoaded} />
 
       {isLoaded && (
-      <Switch>
-        <Route path='/' exact={true} >
-          <ProductList />
-        </Route>
-        <Route exact path='/products/:id'>
-          <ProductDetailPage />
-        </Route>
-        <Route exact path='/seller'>
-          <ProductCreate />
-        </Route>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
-        {/* <ProtectedRoute path='/users' exact={true} >
+        <Switch>
+          <Route path="/" exact={true}>
+            <ProductList />
+          </Route>
+          <Route exact path="/products/:id">
+            <ProductDetailPage />
+          </Route>
+          <Route exact path="/seller">
+            <ProductCreate />
+          </Route>
+          <Route exact path="/myproducts">
+            <MyProductListings />
+          </Route>
+          <Route path="/login" exact={true}>
+            <LoginForm />
+          </Route>
+          <Route path="/sign-up" exact={true}>
+            <SignUpForm />
+          </Route>
+          {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute> */}
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-      </Switch>
+          <ProtectedRoute path="/users/:userId" exact={true}>
+            <User />
+          </ProtectedRoute>
+        </Switch>
       )}
     </BrowserRouter>
   );
