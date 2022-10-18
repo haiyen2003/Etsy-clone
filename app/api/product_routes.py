@@ -137,5 +137,5 @@ def add_to_cart(id):
             cartItem.quantity = form.data["quantity"]
             cartItem.updateAt = now
             db.session.commit()
-            response = cartItem.to_dict()
+            # response = cartItem.to_dict()
             return cartItem.to_dict()
