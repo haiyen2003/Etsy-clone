@@ -28,11 +28,7 @@ class Review(db.Model):
             'reviewImg':self.reviewImg,
             'userId':self.userId,
             'createdAt':self.createdAt,
-<<<<<<< HEAD
             'updatedAt':self.updatedAt,
             'firstName': self.user.firstName if self.user else None,
             'lastName': self.user.lastName if self.user else None
-=======
-            'updatedAt':self.updatedAt
->>>>>>> test-Yen-cart
         }
