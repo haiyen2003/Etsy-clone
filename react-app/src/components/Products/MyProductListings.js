@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { thunkGetCurrentProduct } from "../../store/product";
 import { NavLink } from "react-router-dom";
 import ProductUpdate from "./ProductUpdate";
+import ProductDelete from "./ProductDelete";
 
 
 function MyProductListings() {
@@ -38,6 +39,7 @@ function MyProductListings() {
                         <div>{product.name}</div>
                         <div>
                             <ProductUpdate product={product}/>
+                            <ProductDelete product={product}/>
                         </div>
                     </div>
                 ))}
