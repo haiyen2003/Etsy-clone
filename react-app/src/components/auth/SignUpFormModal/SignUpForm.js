@@ -3,11 +3,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
 import "./SignUpForm.css"
+import "../LoginFormModal/LoginForm.css"
 
 
-const SignUpForm = () => {
+const SignUpForm = ({setOpenSignup, setOpenLogin, setShowModal}) => {
   const [errors, setErrors] = useState([]);
-  // const [username, setUsername] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] =useState('');
   const [lastName, setLastName] =useState('');
@@ -24,15 +25,17 @@ const SignUpForm = () => {
     //     setErrors(data)
     //   }
     // }
-    const data = await dispatch(signUp(email, firstName, lastName, password));
+    const data = await dispatch(signUp(email, username, firstName, lastName, password));
     if (data){
       setErrors(data)
+    } else{
+      setOpenSignup(false)
     }
   };
 
-  // const updateUsername = (e) => {
-  //   setUsername(e.target.value);
-  // };
+  const updateUsername = (e) => {
+    setUsername(e.target.value);
+  };
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -51,8 +54,13 @@ const SignUpForm = () => {
   // const updateRepeatPassword = (e) => {
   //   setRepeatPassword(e.target.value);
   // };
+    const closeSignup = e=>{
+      e.preventDefault();
+      setOpenSignup(false);
+      setOpenLogin(true);
+      setShowModal(true);
+    }
 
-  
 
   if (user) {
     return <Redirect to='/' />;
@@ -60,52 +68,77 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSignUp} className='signin_container'>
-      <h2>Create your account</h2>
+      <h2 className='signin_head'>Create your account</h2>
       <div>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div key={ind} className='login_error'>{error}</div>
         ))}
       </div>
 
       <div>
-        <label>Email address</label>
+        <label htmlFor='email' className='signin_label'>Email address</label>
+        <div></div>
         <input
           type='text'
-          name='email'
+          name='email address'
           onChange={updateEmail}
           value={email}
-        ></input>
+          className='signin_input'
+          required={true}
+        />
       </div>
+      <br></br>
 
       <div>
-        <label>First name</label>
+        <label htmlFor='username' className='signin_label'>Username</label>
+        <input
+          type='text'
+          name='username'
+          onChange={updateUsername}
+          value={username}
+          required={true}
+          className='signin_input'
+        ></input>
+      </div>
+       <br></br>
+
+      <div>
+        <label htmlFor='firstName' className='signin_label'>First name</label>
         <input
           type='text'
           name='firstName'
           onChange={updatefirstName}
           value={firstName}
+          required={true}
+          className='signin_input'
         ></input>
       </div>
+       <br></br>
 
       <div>
-        <label>Last name</label>
+        <label htmlFor='lastName' className='signin_label'>Last name</label>
         <input
           type='text'
           name='lastName'
           onChange={updatelastName}
           value={lastName}
+          required={true}
+          className='signin_input'
         ></input>
       </div>
-
+       <br></br>
       <div>
-        <label>Password</label>
+        <label htmlFor='password' className='signin_label' >Password</label>
         <input
           type='password'
           name='password'
           onChange={updatePassword}
           value={password}
+          required={true}
+          className='signin_input'
         ></input>
       </div>
+      <br></br>
       {/* <div>
         <label>Repeat Password</label>
         <input
@@ -116,7 +149,8 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div> */}
-      <button type='submit'>Sign Up</button>
+      <button className='demouserbtn' type='submit'>Sign Up</button>
+      <button  className='demouserbtn' type='submit' onClick={closeSignup}>Sign in</button>
     </form>
   );
 };

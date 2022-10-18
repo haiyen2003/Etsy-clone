@@ -25,8 +25,8 @@ import GiftCategory from './components/Categories/Gift';
 function App(){
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  // const [openLogin, setOpenLogin] = useState(false);
-  // const [openSignup, setOpenSignup] = useState(false);
+  const [openLogin, setOpenLogin] = useState(false);
+  const [openSignup, setOpenSignup] = useState(false);
 
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
@@ -35,6 +35,8 @@ function App(){
   return (
     <BrowserRouter>
       <NavBar isLoaded={isLoaded} />
+
+      {/* <NavBar /> */}
 
       {isLoaded && (
         <Switch>
