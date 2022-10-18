@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../../store/session';
 import "./LoginForm.css"
+import SignUpForm from '../SignUpFormModal/SignUpForm';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -21,7 +22,7 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
-    }
+    } 
   };
 
   const updateEmail = (e) => {
@@ -32,18 +33,20 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
+
+
   if (user) {
     return <Redirect to='/' />;
   }
 
   return (
     <>
-    <div className='register_btn'>Register</div>
+    <button className='register_btn' >Register</button>
     <form onSubmit={onLogin} className='signin_container'>
       <h2 className='signin_head'>Sign In</h2>
       <div>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div key={ind} className='login_error'>{error}</div>
         ))}
       </div>
       <div>
@@ -74,11 +77,11 @@ const LoginForm = () => {
         />
         <div>
           <br></br>
-        <button type='submit'>Login</button>
+        <button className='signinform_btn' type='submit'>Sign in</button>
         </div>
         <br></br>
         <div>
-        <button type='submit' onClick={()=>{setCredential('demo@aa.io'); setPassword('password')}}>Demo User</button>
+        <button className='demouserbtn' type='submit' onClick={()=>{setCredential('demo@aa.io'); setPassword('password')}}>Demo User</button>
         </div>
       </div>
     </form>
