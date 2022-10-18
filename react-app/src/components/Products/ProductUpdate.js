@@ -66,7 +66,7 @@ function ProductUpdate({product}) {
       <div className="update_product_div">
         <form className="update_product_form" onSubmit={onSubmit}>
           <div className="update_product_detailtext">
-            <div>Listing details</div>
+            <div> Update Listing details</div>
             <div className="update_product_small_text">
               Tell the world all about your item and why they'll buy it.
             </div>
