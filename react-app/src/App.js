@@ -17,6 +17,7 @@ import MyProductListings from './components/Products/MyProductListings';
 import HomeLivingCategory from './components/Categories/Home&living';
 import ArtCategory from './components/Categories/Art';
 import JewelryCategory from './components/Categories/Jewelry';
+import ClothingCategory from './components/Categories/Clothing';
 
 
 function App(){
@@ -52,6 +53,9 @@ function App(){
           </Route>
           <Route exact path="/jewelry">
             <JewelryCategory />
+          </Route>
+          <Route exact path="/clothing">
+            <ClothingCategory />
           </Route>
           <Route exact path="/myproducts">
             <MyProductListings />
