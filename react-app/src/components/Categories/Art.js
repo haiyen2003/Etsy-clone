@@ -7,7 +7,7 @@ import { thunkGetAllProduct } from "../../store/product";
 
 
 
-function HomeLivingCategory() {
+function ArtCategory() {
 
     const product = useSelector((state) => state.product)
     const allproducts = Object.values(product)
@@ -21,7 +21,7 @@ function HomeLivingCategory() {
     //     }
     //     return homeproducts
     //
-    let categoryproducts = allproducts.filter(product => product?.category == "Home & Living")
+    let categoryproducts = allproducts.filter(product => product?.category == "Art & Collectibles")
     // console.log("after loop", homeproducts)
     // homecategoryproducts = allproducts.filter()
     useEffect(() => {
