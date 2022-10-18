@@ -3,7 +3,7 @@
 const createReview = '/review/createReview'
 const getAllProductReview = '/review/getAllProductReview'
 const getCurrentReview = '/review/getCurrentReview'
-const editReview = '/review/editReview'
+const updateReview = '/review/updateReview'
 const deleteReview = '/review/deleteReview'
 
 
@@ -31,9 +31,9 @@ const actionGetCurrentReview = (reviews) => {
     }
 }
 
-const actionEditReview = (review) => {
+const actionUpdateReview = (review) => {
     return {
-        type: editReview,
+        type: updateReview,
         review
     }
 }
@@ -86,16 +86,17 @@ export const thunkGetCurrentReview = () => async dispatch => {
 }
 
 
-export const thunkEditReview = (payload) => async dispatch => {
-    const response = await fetch(`/api/reviews/${payload.reviewId}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+export const thunkUpdateReview = (payload) => async dispatch => {
+    const response = await fetch(`/api/reviews/${payload.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
     });
+    console.log(payload)
 
     if (response.ok) {
         const data = await response.json()
-        dispatch(actionEditReview(data))
+        dispatch(actionUpdateReview(data))
         return data
     }
 }
@@ -134,7 +135,7 @@ const reviewReducer = (state = initialState, action) => {
                 newState[review.id] = review;
             });
             return newState
-        case editReview:
+        case updateReview:
             newState[action.review.id] = action.review
             return newState
         case deleteReview:
