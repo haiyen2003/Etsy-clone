@@ -13,10 +13,10 @@ def search_product():
     searchproducts = Product.query.filter(Product.name.ilike(f"%{searchinput}%")).all()
     return {'products': [product.to_dict() for product in searchproducts]}
 
-@search_routes.route("/onsale")
-def search_onsale_product():
+@search_routes.route("/wedding")
+def search_wedding_product():
 
-    searchproducts = Product.query.filter(Product.category == "On Sale").all()
+    searchproducts = Product.query.filter(Product.category == "Wedding & Party").all()
     return {'products': [product.to_dict() for product in searchproducts]}
 
 @search_routes.route("/home&living")
@@ -44,12 +44,6 @@ def search_clothes_product():
     searchproducts = Product.query.filter(Product.category == "Clothing & Shoes").all()
     return {'products': [product.to_dict() for product in searchproducts]}
 
-
-@search_routes.route("/decor")
-def search_decor_product():
-
-    searchproducts = Product.query.filter(Product.category == "Home Decor").all()
-    return {'products': [product.to_dict() for product in searchproducts]}
 
 @search_routes.route("/gift")
 def search_gift_product():
