@@ -123,39 +123,41 @@ export const deleteCartThunk = () => async dispatch => {
     }
 }
 
+const initialState = {}
 
-export default function cartReducer(state = {}, action) {
+export default function cartReducer(state = initialState, action) {
+    let newState = { ...state }
     switch (action.type) {
-        case ADD_ITEM:
-            return {
-                ...state,
-                items: {
-                    ...state.items,
-                    [action.itemId]: {
-                        id: action.itemId,
-                        count: 1,
-                    },
-                },
-                order: [...state.order, action.itemId],
-            };
-        case UPDATE_COUNT:
-            return {
-                ...state,
-                items: {
-                    ...state.items,
-                    [action.itemId]: {
-                        ...state[action.itemId],
-                        count: action.count,
-                    },
-                },
-            };
-        case REMOVE_ITEM:
+        case GET_CART: {
+            const newState = {};
+            action.items.cart_details.forEach(item => {
+                newState[item.id] = item
+            });
+            return newState;
+        }
+
+        case ADD_ITEM: {
+            const newState = { ...state }
+            newState[action.itemId.id] = action.itemId
+            return newState
+        }
+
+        case UPDATE_COUNT: {
+            const newState = { ...state }
+            newState[action.id].quantity = action.quantity
+            return newState
+        }
+
+        case REMOVE_ITEM: {
             const newState = { ...state, items: { ...state.items } };
             delete newState.items[action.itemId];
-            newState.order = newState.order.filter(id => id !== action.itemId);
+            // newState.order = newState.order.filter(id => id !== action.itemId);
             return newState;
-        case RESET:
+        }
+
+        case RESET: {
             return initialState;
+        }
         default:
             return state;
     }
