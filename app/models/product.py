@@ -17,9 +17,10 @@ class Product(db.Model):
     updatedAt = db.Column(db.DateTime, nullable=False)
     previewImage= db.Column(db.String(1000), nullable=False)
     reviews = db.relationship('Review', back_populates='product', cascade = 'all, delete')
-    cart = db.relationship('Cart', back_populates='products')
+    cartItems = db.relationship('CartItem', back_populates='product', cascade='all, delete')
     user = db.relationship('User', back_populates='products')
     # images = db.relationship('Image', back_populates='product', cascade = 'all, delete')
+    # cartItem = db.relationship('CartItem', back_populates = 'products')
 
     def to_dict(self):
         return {

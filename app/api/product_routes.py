@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import Product, db, User
-from app.forms import ProductForm
+from app.models import Product, db, CartItem
+from app.forms import ProductForm, CartForm
 from app.api.auth_routes import validation_errors_to_error_messages
 from datetime import datetime
 
@@ -101,3 +101,41 @@ def delete_product(id):
     db.session.delete(delete_product)
     db.session.commit()
     return ("Successfully deleted!")
+
+
+# add a product with productId to cart
+
+@product_routes.route("/<int:id>/cart", methods=['POST'])
+@login_required
+def add_to_cart(id):
+    currentUserId = current_user.id
+    item = Product.query.get(id)
+    if item is None:
+        return {'message': 'item not found'}, 404
+
+
+    cartItem = db.session.query(CartItem) \
+                            .filter(CartItem.userId == currentUserId) \
+                            .filter(CartItem.productId == id) \
+                            .first()
+
+    form = CartForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        if cartItem is None:
+            item = CartItem(
+                userId = currentUserId,
+                productId = id,
+                quantity = form.data["quantity"],
+                createAt = now,
+                updateAt = now
+            )
+            db.session.add(item)
+            db.session.commit()
+            return item.to_dict()
+        else:
+            cartItem.quantity = form.data["quantity"]
+            cartItem.updateAt = now
+            db.session.commit()
+            response = cartItem.to_dict()
+            return cartItem.to_dict()

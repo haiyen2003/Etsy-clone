@@ -44,3 +44,4 @@ class ProductForm(FlaskForm):
     category = StringField("Category", validators=[DataRequired()])
     highlight = StringField("Highlights", validators=[DataRequired(), highlights_validation])
     previewImage = StringField("Image URL", validators= [DataRequired(), imageURL_validation])
+    submit = SubmitField("Submit")

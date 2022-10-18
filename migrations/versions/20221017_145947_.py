@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: e158a1e77207
-Revises: 
+Revises:
 Create Date: 2022-10-17 14:59:47.646941
 
 """
@@ -43,13 +43,15 @@ def upgrade():
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    op.create_table('carts',
+    op.create_table('cartItems',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=False),
     sa.Column('productId', sa.Integer(), nullable=False),
     sa.Column('quantity', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['productId'], ['products.id'], ),
+    sa.Column('createAt', sa.DateTime(), nullable=False),
+    sa.Column('updateAt', sa.DateTime(), nullable=False),
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['productId'], ['products.id'],),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('images',
@@ -80,6 +82,7 @@ def downgrade():
     op.drop_table('reviews')
     op.drop_table('images')
     op.drop_table('carts')
+    op.drop_table('cartItems')
     op.drop_table('products')
     op.drop_table('users')
     # ### end Alembic commands ###
