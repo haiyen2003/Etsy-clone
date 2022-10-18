@@ -137,4 +137,4 @@ def add_to_cart(id):
             cartItem.updateAt = now
             db.session.commit()
             response = cartItem.to_dict()
-            return response['Product detail'] = cartItem.to_dict()
+            return cartItem.to_dict()
