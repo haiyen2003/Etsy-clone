@@ -1,9 +1,17 @@
+const GET_CART = 'cart/GET_ITEM';
 const ADD_ITEM = 'cart/ADD_ITEM';
-const REMOVE_ITEM = 'cart/REMOVE_ITEM';
 const UPDATE_COUNT = 'cart/UPDATE_COUNT';
+const REMOVE_ITEM = 'cart/REMOVE_ITEM';
 const RESET = 'cart/RESET';
 
 /* ----- ACTIONS ------ */
+
+export const getCart = (items) => {
+    return {
+        type: GET_CART,
+        items
+    }
+}
 
 export const addItem = (itemId) => {
     return {
@@ -12,12 +20,12 @@ export const addItem = (itemId) => {
     };
 };
 
-export const updateCount = (itemId, count) => {
-    if (count < 1) return removeItem(itemId);
+export const updateCount = (itemId, quantity) => {
+    if (quantity < 1) return removeItem(itemId);
     return {
         type: UPDATE_COUNT,
         itemId,
-        count
+        quantity
     };
 };
 
@@ -34,27 +42,26 @@ export const reset = () => {
     };
 };
 
-/* ------ SELECTORS ------ */
+export const getCartThunk = () => async dispatch =>{
+    const res = await fetch('/api/cartItems/current');
+    if (res.ok){
+        const items = await res.json();
+        dispatch(getCart(items))
+        return items;
+    }
+}
 
-export const getAllCartItems = ({ cart, produce }) => {
-    return Object.values(cart.order).map((id) => {
-        return {
-            ...cart.items[id],
-            ...produce[id],
-        };
-    });
-};
+export const addItemThunk = (id, quantity) => async dispatch => {
+    const res = await fetch(`/api/products/${id}/cart`, {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(quantity)
+    })
+}
 
-export const getCartItemById = (id) => (state) => state.cart.items[id];
 
-export const getCartOrder = (state) => state.cart.order;
-
-/* ------ REDUCER ------ */
-
-const initialState = {
-    items: {},
-    order: []
-};
 
 export default function cartReducer(state = initialState, action) {
     switch (action.type) {
