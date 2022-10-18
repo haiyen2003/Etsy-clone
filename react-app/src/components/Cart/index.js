@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllCartItems, reset } from '../../store/cart';
+import { getAllCartItems, reset } from '../../store/cartItem';
 import CartItem from './CartItem.js';
 import './Cart.css';
 

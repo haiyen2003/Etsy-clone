@@ -14,15 +14,20 @@ import { authenticate } from './store/session';
 import {Modal} from './context/Modal';
 import ProductCreate from './components/Products/ProductCreate';
 import MyProductListings from './components/Products/MyProductListings';
+import Cart from './components/Cart'
 
 
 function App(){
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isCartLoaded, setCardLoaded] = useState(false)
   // const [openLogin, setOpenLogin] = useState(false);
   // const [openSignup, setOpenSignup] = useState(false);
 
   useEffect(() => {
+    (async () => {
+
+    })
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
@@ -34,6 +39,9 @@ function App(){
         <Switch>
           <Route path="/" exact={true}>
             <ProductList />
+          </Route>
+          <Route exact path="/current/cart">
+            <Cart />
           </Route>
           <Route exact path="/products/:id">
             <ProductDetailPage />

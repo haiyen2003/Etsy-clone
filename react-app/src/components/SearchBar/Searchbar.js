@@ -22,10 +22,8 @@ function Searchbar(){
       ){
         str.push(product)
       }
-
     }
     return str;
-
   }
 
   useEffect(() =>{
@@ -63,7 +61,6 @@ function Searchbar(){
       <NavLink to={`/products/${product.id}`} className='product_navlink' onClick={()=>setSearchWord("")}>
       <div className='product_info'>
         <div style={{ fontweight: '700' }}>{product.name}</div>
-
       </div>
       </NavLink>
     ))
@@ -75,10 +72,7 @@ function Searchbar(){
      <div>
       <h2>We couldn't find any results for "{searchWord}"</h2>
      </div>
-
     )
-
-
    }
 
   </>
