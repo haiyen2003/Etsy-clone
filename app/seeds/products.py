@@ -235,7 +235,7 @@ def seed_products():
         highlight = "Materials",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
+        previewImage= "https://i.etsystatic.com/33772097/c/2250/1788/0/0/il/4f09db/4176414065/il_340x270.4176414065_grtr.jpg"
     )
     product22 = Product(
         name= "Meth joke coffee mug. Coffee because meth is illegal.",
@@ -425,15 +425,15 @@ def seed_products():
         previewImage= "https://images.pexels.com/photos/3811836/pexels-photo-3811836.jpeg"
     )
     product39 = Product(
-        name= "Black Large Wall Clock, Real Mirror Clock ,Black colored numerals on a Silver colored mirror",
-        description= "Our products are produced from real mirror.You should not choose models made with plexi mirror and mirror effect.Pay attention to this detail before ordering.",
-        price= 120,
+        name= "Mother of Pearl Initial Necklace, Gold Initial Necklace, chain Necklace, special gift mom, gift for her, Gift for girlfriend, Birthday Gift",
+        description= "Pearl Initial Necklace, Gold Initial Necklace, chain Necklace, special gift mom, gift for her, Gift for girlfriend, Birthday Gift for her",
+        price= 19.80,
         userId = 7,
-        category= "Home & Living",
+        category= "Jewelry & Accessories",
         highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
+        previewImage= "https://i.etsystatic.com/32823812/r/il/612a0c/3521058787/il_794xN.3521058787_87cx.jpg"
     )
     product40 = Product(
         name= "Nice handmade gift for friends and families for any home decoration.",
@@ -488,7 +488,7 @@ def seed_products():
         highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
+        previewImage= "https://i.etsystatic.com/17897041/r/il/3a7107/3423406202/il_340x270.3423406202_1019.jpg"
     )
     product45 = Product(
         name= "Nice gift for those who love to cook and have a nice looking cutting board.",
