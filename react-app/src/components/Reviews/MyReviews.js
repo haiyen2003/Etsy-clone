@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useHistory } from "react-router-dom"
 import { thunkGetCurrentReview } from "../../store/review"
+import { FaStar } from "react-icons/fa"
 
 import './MyReviews.css'
 import ReviewDelete from "./ReviewDelete"
@@ -36,40 +37,62 @@ function MyReviews() {
       <div className="my_review_listing_div">
         <div className="my_review_listing_box">
           {myReviewsArr.map((review, i) => (
-              <div key={i}>
-                <div className="my_review_listing_innerbox">
-                  <div className="my_review_listing_nav">
-                    <div className="my_review_left">
-                      <NavLink to={`/products/${review.productId}`}>
-                        <img
-                          src={review.productImg}
-                          alt="review"
-                          className="my_review_listing_img"
-                        ></img>
-                      </NavLink>
-                      <div className="my_review_delete_div">
-                        <ReviewDelete review={review} />
-                      </div>
+            <div key={i}>
+              <div className="my_review_listing_innerbox">
+                <div className="my_review_listing_nav">
+                  <div className="my_review_left">
+                    <NavLink to={`/products/${review.productId}`}>
+                      <img
+                        src={review.productImg}
+                        alt="review"
+                        className="my_review_listing_img"
+                      ></img>
+                    </NavLink>
+                    <div className="my_review_delete_div">
+                      <ReviewDelete review={review} />
                     </div>
-                    <div className="my_review_main_text">
-                      <div className="my_review_listing_name">
-                        {review.productname}
+                  </div>
+                  <div className="my_review_main_text">
+                    <div className="my_review_listing_name">
+                      {review.productname}
+                    </div>
+                    <div className="my_review_category_text">{`Category: ${review.productcategory}`}</div>
+                    <div className="my_review_starbox">
+                      <div style={{ display: "flex", alignItems: 'center' }}>
+                        <div className="my_review_star_text">{`Your Review`}</div>
+                        {["star1", "star2", "sta3r", "star4", "star5"].map(
+                          (star, index) => {
+                            let starValue = index + 1;
+                            return (
+                              <div>
+
+                                <label>
+                                  <FaStar
+                                    color={
+                                      review.stars >= starValue
+                                        ? "black"
+                                        : "lightgrey"
+                                    }
+                                    size={25}
+                                  />
+                                </label>
+                              </div>
+                            );
+                          }
+                        )}
                       </div>
-                      <div className="my_review_category_text">{`Category: ${review.productcategory}`}</div>
-                      <div className="my_review_starbox">
-                        <div className="my_review_star_text">{`Your Review ${review.stars}`}</div>
-                        <div className="my_review_review_text">
-                          {review.review}
-                        </div>
-                        <div>
-                          <ReviewUpdateModal review={review} />
-                        </div>
+                      <div className="my_review_review_text">
+                        {review.review}
+                      </div>
+                      <div style={{"margin-top": "10px"}}>
+                        <ReviewUpdateModal review={review} />
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
+          ))}
         </div>
       </div>
     );

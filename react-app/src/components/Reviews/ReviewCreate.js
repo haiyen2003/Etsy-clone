@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {FaStar} from 'react-icons/fa'
 import { useHistory, useParams } from "react-router-dom";
 
@@ -12,6 +12,9 @@ function ReviewCreate({ setShowModal, review }) {
   const dispatch = useDispatch();
   const {id} = useParams()
   const history = useHistory()
+
+  const user = useSelector(state => state.session.user)
+  // console.log(user)
 
 
 
@@ -181,7 +184,7 @@ function ReviewCreate({ setShowModal, review }) {
             <i className="fa-regular fa-face-grin-wide fa-2xl"></i>
             <div className="create_review_reviewby_text">
               <div>Reviewed by</div>
-              <div>{review.firstName}</div>
+              <div>{user?.firstName}</div>
             </div>
           </div>
           {validations.length > 0 && submit ? (
