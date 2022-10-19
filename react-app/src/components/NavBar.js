@@ -58,12 +58,10 @@ const NavBar = ({isLoaded}) => {
           </NavLink> */}
           {isLoaded && sessionLinks}
         </div>
-        <NavLink to='/cart' exact>
-          <img
-            id = "shopping_cart_icon"
-            src = "https://www.nicepng.com/png/detail/253-2534370_png-file-shopping-cart-line-icon.png"
-            alt = "logo"
-          />
+        <NavLink to='/cart' exact className='shoppingcart'>
+
+          <i className="fa-solid fa-cart-arrow-down fa-xl" ></i>
+
 
         </NavLink>
         {/* <div>

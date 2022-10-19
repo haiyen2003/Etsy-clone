@@ -44,16 +44,19 @@ function Searchbar(){
 
   return(
    <>
-   <div>
-   <i className="fa-solid fa-magnifying-glass"></i>
+   <div className='searchbar'>
+
    <input
       type = 'text'
       className='searchinput'
       placeholder='Search for anything'
       onChange={(e)=>setSearchWord(e.target.value)}
       value={searchWord}
-
    />
+   <div type="submit" className='search_btn'>
+    <i className="fa-solid fa-magnifying-glass fa-lg "></i>
+   </div>
+
    </div>
 
    {(showDropdown && searchResult.length > 0 ) && (

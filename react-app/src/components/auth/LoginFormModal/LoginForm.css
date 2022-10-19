@@ -81,27 +81,30 @@
 
 .login_error{
   display: flex;
-  text-align: start;
+  /* text-align: start; */
   justify-content: start;
   align-items: flex-start;
   line-height: 5px;
   height: 5px;
-  height: fit-content;
+  /* height: fit-content; */
   width: max-content;
   color: #FF385C;
   margin-bottom: 20px;
   /* margin-left: -200px; */
   font-family: Graphik Webfont, Arial, sans-serif;
+  word-wrap:break-word;
   }
 
   .homepage_loginbtn{
   background-color: white;
   border: none;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   font-family: Graphik Webfont, Arial, sans-serif;
   border-radius:6px;
-  margin-right:-16px;
+  /* margin-right:-20px; */
+  position:relative;
+  top:15px;
   }
   .homepage_loginbtn:hover{
     background-color: rgb(248, 244, 244);

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    height: 8vh;
+    height: 106px;
     width: 100%;
     border-bottom: solid 1px rgb(209, 207, 207, 0.5)
 }
@@ -21,23 +21,23 @@
     margin-left: 14vh
 }
 
-#search_bar_container{
+/* #search_bar_container{
     width:50%;
 
-}
+} */
 
-#search_bar{
+/* #search_bar{
     border: solid 1px #222222;
     margin-top: 1%;
     width:95%;
     height: 70%;
     border-radius: 20px;
-}
+} */
 
-#shopping_cart_icon{
-    width : 3em;
-    height: 3em
-}
+/* .shopping_cart_icon{
+  margin-top:20px;
+
+} */
 
 .profile_button{
     display: flex;
