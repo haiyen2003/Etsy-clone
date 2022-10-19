@@ -44,7 +44,7 @@ export const reset = () => {
 
 export const getCartThunk = () => async dispatch => {
     const res = await fetch('/api/cartItems/current')
-    console.log(res, '-----RES')
+
     if (res.ok) {
         const items = await res.json();
         dispatch(getCart(items))
@@ -61,6 +61,7 @@ export const addItemThunk = (id, quantity) => async dispatch => {
         body: JSON.stringify(quantity)
     })
 
+    console.log(res, '===== RES')
     if (res.ok) {
         const item = await res.json();
         dispatch(addItem(item))
