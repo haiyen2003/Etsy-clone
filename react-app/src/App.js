@@ -15,6 +15,7 @@ import {Modal} from './context/Modal';
 import ProductCreate from './components/Products/ProductCreate';
 import MyProductListings from './components/Products/MyProductListings';
 import Cart from './components/Cart'
+import OrderCompleted from './components/Cart/OrderCompleted';
 
 
 function App(){
@@ -40,6 +41,9 @@ function App(){
           <Route exact path="/cart">
             <Cart />
           </Route>
+          <Route exact path="/order-completed">
+            <OrderCompleted />
+            </Route>
           <Route exact path="/products/:id">
             <ProductDetailPage />
           </Route>

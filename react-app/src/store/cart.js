@@ -113,7 +113,6 @@ export const deleteCartThunk = () => async dispatch => {
     const res = await fetch(`/api/cartItems/current`, {
         method: 'DELETE',
     });
-
     if (res.ok) {
         const removedCart = await res.json()
         dispatch(reset())
@@ -132,7 +131,6 @@ export default function cartReducer(state = initialState, action) {
     switch (action.type) {
         case GET_CART: {
             const newState = {};
-            console.log(action.items.cart, ' ---- ACTION ITEMS')
             action.items.cart.forEach(item => {
                 newState[item.id] = item
             });

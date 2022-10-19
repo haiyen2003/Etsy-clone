@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { getCartThunk, deleteCartThunk } from '../../store/cart';
+import { useHistory } from "react-router-dom"
 import { useEffect } from 'react';
 import CartItem from './CartItem';
 import './Cart.css';
@@ -9,7 +10,7 @@ function Cart() {
   useEffect(() => {dispatch(getCartThunk())}, [dispatch])
   const cartItems = useSelector(state => state.cart);
   const items = Object.values(cartItems);
-  console.log(cartItems, 'CART ITEMS')
+  const history = useHistory();
 
   if (!items || !items.length) return (
     <div className="cart">
@@ -24,6 +25,7 @@ function Cart() {
       `${items.map(item => `${item.quantity} of ${item.name}`).join('\n')}`
     );
     dispatch(deleteCartThunk());
+    history.push(`/order-completed`);
   }
 
   return (

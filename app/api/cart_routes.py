@@ -81,8 +81,8 @@ def delete_cart():
     if len(cartItems) == 0 or not cartItems:
         return {'message': 'Your cart is empty'}, 404
 
-    if not item.userId == current_user.id:
-        return {'message': 'Unauthorized'}, 403
+    # if not item.userId == current_user.id:
+    #     return {'message': 'Unauthorized'}, 403
 
     for item in cartItems:
         db.session.delete(item)
