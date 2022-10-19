@@ -28,13 +28,14 @@ function MyReviews() {
     const myReviews = useSelector(state => state.review)
     const myReviewsArr = Object.values(myReviews)
 
+    console.log(myReviews, 'this')
+
 
 
     return (
       <div className="my_review_listing_div">
         <div className="my_review_listing_box">
-          {myReviews &&
-            myReviewsArr.map((review, i) => (
+          {myReviewsArr.map((review, i) => (
               <div key={i}>
                 <div className="my_review_listing_innerbox">
                   <div className="my_review_listing_nav">

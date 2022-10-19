@@ -28,7 +28,7 @@ function MyProductListings() {
 
   return (
     <div className="my_product_listing_div">
-      <h1>{`${user.firstName}'s Shop`}</h1>
+      <h1>{`${user?.firstName}'s Shop`}</h1>
       <div className="my_product_listing_box">
         {currentProductArr.map((product, i) => (
           <div  key={i}>

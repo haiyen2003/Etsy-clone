@@ -14,7 +14,7 @@ function ProductList() {
     const dispatch = useDispatch()
 
     const user = useSelector((state) => state.session)
-    console.log('check main page user', user.user)
+    // console.log('check main page user', user.user)
     // console.log('allproducts=', allproducts)
 
     // const categoryproducts=[allproducts[9], allproducts[35], allproducts[2], allproducts[12], allproducts[25], allproducts[30]]
