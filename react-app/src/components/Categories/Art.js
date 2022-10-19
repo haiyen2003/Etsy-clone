@@ -36,9 +36,7 @@ function ArtCategory() {
             <div className='background-band'></div>
 
 
-            <div className='product_header'>
-                Popular gifts right now
-            </div>
+
 
             <div className='all_products_container'>
 
