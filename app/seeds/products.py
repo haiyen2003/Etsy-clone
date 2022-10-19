@@ -480,26 +480,26 @@ def seed_products():
         previewImage= "https://images.pexels.com/photos/7175390/pexels-photo-7175390.jpeg"
     )
     product44 = Product(
-        name= "Recycled cloth shirts that have customized prints.",
-        description= "Customers can choose what kind of print they want depending on the size. Please donate any material to process more shirts.",
-        price= 30,
+        name= "10mm Cuban Chain Anklet, Curb Chain Anklet, Gold Chain Anklet, Thick Chain Anklet, Chunky Chain Anklet, Statement Anklet, Trendy Jewelry",
+        description= "These gorgeous chain anklets are made of gold plated stainless steel or stainless steel so it will not tarnish. The anklets are the perfect accessory for the summer. The anklets can be worn on it's own or could easily be layered. Wear this to any occasion and be ready to shine!",
+        price= 24.30,
         userId = 9,
-        category= "Home & Living",
+        category= "Jewelry & Accessories",
         highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://i.etsystatic.com/17897041/r/il/3a7107/3423406202/il_340x270.3423406202_1019.jpg"
+        previewImage= "https://i.etsystatic.com/15210578/r/il/d82c36/2510781962/il_794xN.2510781962_rq9b.jpg"
     )
     product45 = Product(
-        name= "Nice gift for those who love to cook and have a nice looking cutting board.",
-        description= "Our products are produced from fallen redwood trees. Burnt to a nice finish. A nice gift all around.",
-        price= 120,
+        name= "14k Solid Gold Name Necklace, Dainty Name Necklace, Personalized Gift For Her, Nameplate Necklace, Girls and Mom Name Necklace",
+        description= "Custom Jewelry will be the best gift on the special day for your love one, Personalized name jewelry is very popular nowadays. This is a stunning and special jewelry. Compared with others, it can bring back memories.",
+        price= 45.00,
         userId = 8,
-        category= "Home & Living",
+        category= "Jewelry & Accessories",
         highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://images.pexels.com/photos/1087909/pexels-photo-1087909.jpeg"
+        previewImage= "https://i.etsystatic.com/37849618/r/il/72e839/4242552707/il_340x270.4242552707_cvym.jpg"
     )
 
     db.session.add(product01)
