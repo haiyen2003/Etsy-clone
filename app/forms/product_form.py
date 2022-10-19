@@ -42,6 +42,6 @@ class ProductForm(FlaskForm):
     description = TextAreaField("Product Description", validators= [DataRequired(), description_validation])
     price = DecimalField("Price", validators=[DataRequired(), price_validation], places=2, rounding = ROUND_HALF_UP)
     category = StringField("Category", validators=[DataRequired()])
-    highlight = StringField("Highlights", validators=[DataRequired(), highlights_validation])
+    highlight = StringField("Highlight", validators=[DataRequired(), highlights_validation])
     previewImage = StringField("Image URL", validators= [DataRequired(), imageURL_validation])
     submit = SubmitField("Submit")
