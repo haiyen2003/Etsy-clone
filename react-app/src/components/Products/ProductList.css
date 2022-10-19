@@ -130,7 +130,7 @@
   .product_header{
     margin-left:-1040px;
 
-    justify-content: start;
+    justify-content: flex-start;
    /* justify-items:center; */
    display:flex;
     font-family: Cambria;

@@ -14,12 +14,14 @@ import { authenticate } from './store/session';
 import {Modal} from './context/Modal';
 import ProductCreate from './components/Products/ProductCreate';
 import MyProductListings from './components/Products/MyProductListings';
+import MyReviews from './components/Reviews/MyReviews';
 import HomeLivingCategory from './components/Categories/Home&living';
 import ArtCategory from './components/Categories/Art';
 import GiftCategory from './components/Categories/Gift';
 import ClothingCategory from './components/Categories/Clothing';
 import WeddingCategory from './components/Categories/Wedding';
 import JewelryCategory from './components/Categories/Jewelry';
+
 
 
 function App(){
@@ -70,6 +72,11 @@ function App(){
           <Route exact path="/myproducts">
             <MyProductListings />
           </Route>
+
+          <Route exact path="/myreviews">
+            <MyReviews />
+          </Route>
+
           <Route path="/login" exact={true}>
             <LoginForm />
           </Route>

@@ -10,8 +10,8 @@ function ReviewDelete({review}) {
 
     const onClick = async (event) => {
         await dispatch(thunkDeleteReview(review.id))
-        alert('Review deleted')
-        history.push('/')
+        
+        history.push('/myreviews')
     }
 
     return (
