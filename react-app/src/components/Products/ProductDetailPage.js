@@ -15,12 +15,13 @@ function ProductDetailPage() {
 
     const product = useSelector(state => state.product[id])
     const user = useSelector(state => state.session.user)
-
+    // const productArr = Object.values(product);
     const review = useSelector(state => state.review)
     // console.log(review)
     const reviewArray = Object.values(review)
     const reviewCount = Object.values(review).length
     // console.log("review array",reviewArray)
+
 
     const today = new Date()
     const tomorrow = new Date()
@@ -53,7 +54,10 @@ function ProductDetailPage() {
         alert(`Thank you for purchasing!`)
         history.push('/')
     }
-
+    console.log('product.userId-----', product,  'user.id-----', user.id)
+    console.log('product.reviews-----', product?.reviews)
+    const filteredreviewid =reviewArray.filter((item) =>item?.userId===user.id)
+    console.log('filterereviewid------------', filteredreviewid);
     return (
       <div className="mainproduct_container">
         <div className="productcontainer">
@@ -79,8 +83,9 @@ function ProductDetailPage() {
                     <i className="fa-regular fa-star"></i>
                   </div>
                 </div>
-                {!user ? (
-                  <div>Log in to write a review</div>
+
+                {(!user ||  product?.userId === user.id || filteredreviewid.length) ? (
+                  <div></div>
                 ) : (
                   <div>
                     <ReviewCreateModal review={review} />

@@ -24,6 +24,7 @@ function ProductCreate() {
         if (name.length < 5) errors.push('Please enter a name')
         if (!description.length || description.length < 20) errors.push('Please enter a description more than 20 characters')
         if (!price) errors.push('Please enter a valid price')
+
         if (!category.length) errors.push('Please enter a category')
         if (!highlight.length || !highlight.length < 10) errors.push('Please enter a highlight more than 10 characters')
         if (
@@ -32,7 +33,8 @@ function ProductCreate() {
             !previewImage.includes("jpeg") &&
             !previewImage.includes("svg")) ||
           (!previewImage.includes("https") && !previewImage.includes("http"))
-        ) 
+        )
+
           errors.push("Please enter a valid url image");
         setValidations(errors)
     }, [name, description, price, category, highlight, previewImage])
@@ -84,6 +86,7 @@ function ProductCreate() {
                   value={name}
                   className="create_product_input_inner"
                   onChange={(event) => setName(event.target.value)}
+                  required
                 ></input>
               </div>
             </div>
@@ -102,6 +105,7 @@ function ProductCreate() {
                   value={description}
                   className="create_product_input_inner_descript"
                   onChange={(event) => setDescription(event.target.value)}
+                  required
                 ></input>
               </div>
             </div>
@@ -120,6 +124,8 @@ function ProductCreate() {
                   value={price}
                   className="create_product_input_inner"
                   onChange={(event) => setPrice(event.target.value)}
+                  required
+                  min='1'
                 ></input>
               </div>
             </div>
@@ -139,6 +145,7 @@ function ProductCreate() {
                   placeholder="Art & Collectibles, Home & Living, Wedding & Party, etc."
                   className="create_product_input_inner"
                   onChange={(event) => setCategory(event.target.value)}
+                  required
                 ></input>
               </div>
             </div>
@@ -156,6 +163,7 @@ function ProductCreate() {
                   value={highlight}
                   className="create_product_input_inner"
                   onChange={(event) => setHighlight(event.target.value)}
+                  required
                 ></input>
               </div>
             </div>
@@ -173,6 +181,7 @@ function ProductCreate() {
                   value={previewImage}
                   className="create_product_input_inner"
                   onChange={(event) => setPreviewImage(event.target.value)}
+                  required
                 ></input>
               </div>
             </div>
