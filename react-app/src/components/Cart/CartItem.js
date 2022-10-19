@@ -7,9 +7,10 @@ function CartItem({ item }) {
     const [quantity, setQuantity] = useState(item.quantity);
 
     useEffect(() => {
-        setQuantity(item.quantity);
+        setQuantity(item.quantity)
     }, [item.quantity]);
 
+    useEffect(() => {dispatch(updateCartThunk())}, [dispatch])
     return (
         <li className="cart-item">
             <div className="cart-item-header">{item.name}</div>
@@ -22,7 +23,7 @@ function CartItem({ item }) {
                 />
                 <button
                     className="cart-item-button"
-                    onClick={() => dispatch(updateCartThunk(item.id, item.quantity + 1))}
+                    onClick={e => setQuantity(e.target.value)}
                 >
                     +
                 </button>
