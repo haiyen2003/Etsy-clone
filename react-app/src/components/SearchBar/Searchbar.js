@@ -65,7 +65,7 @@ function Searchbar(){
 
       <NavLink to={`/products/${product.id}`} className='product_navlink' onClick={()=>setSearchWord("")}>
       <div className='product_info'>
-        <div style={{ fontweight: '300' }}>{product.name.slice(0,80)}</div>
+        <div style={{ fontweight: '300' }}>{product.name.slice(0,30)}</div>
 
       </div>
       </NavLink>
