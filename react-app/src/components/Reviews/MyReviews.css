@@ -67,6 +67,15 @@
 
 .my_review_review_text {
     color: lightgrey;
-    padding: 15px;
+    margin-left: 5px;
+}
 
+.my_review_left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.my_review_delete_div {
+    padding: 10px;
 }

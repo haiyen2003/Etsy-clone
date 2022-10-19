@@ -10,7 +10,7 @@ function ReviewUpdateModal({review}) {
   
   return (
     <>
-      <button className="" onClick={() => setShowModal(true)}>
+      <button className="update_review_modal_button" onClick={() => setShowModal(true)}>
         Edit Review
       </button>
 

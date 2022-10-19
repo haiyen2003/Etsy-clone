@@ -38,24 +38,32 @@ function MyReviews() {
               <div key={i}>
                 <div className="my_review_listing_innerbox">
                   <div className="my_review_listing_nav">
-                    <div>
-                    <NavLink to={`/products/${review.productId}`}>
-                      <img
-                        src={review.productImg}
-                        alt="review"
-                        className="my_review_listing_img"
-                      ></img>
-                    </NavLink>
+                    <div className="my_review_left">
+                      <NavLink to={`/products/${review.productId}`}>
+                        <img
+                          src={review.productImg}
+                          alt="review"
+                          className="my_review_listing_img"
+                        ></img>
+                      </NavLink>
+                      <div className="my_review_delete_div">
+                        <ReviewDelete review={review} />
+                      </div>
                     </div>
                     <div className="my_review_main_text">
-                    <div className="my_review_listing_name">{review.productname}</div>
-                    <div className="my_review_category_text">{`Category: ${review.productcategory}`}</div>
-                    <div className="my_review_starbox">
-                    <div className="my_review_star_text">{`Your Review ${review.stars}`}</div>
-                    <div className="my_review_review_text">{review.review}</div>
-                    <div><ReviewUpdateModal review={review}/></div>
-                    <div><ReviewDelete review={review}/></div>
-                    </div>
+                      <div className="my_review_listing_name">
+                        {review.productname}
+                      </div>
+                      <div className="my_review_category_text">{`Category: ${review.productcategory}`}</div>
+                      <div className="my_review_starbox">
+                        <div className="my_review_star_text">{`Your Review ${review.stars}`}</div>
+                        <div className="my_review_review_text">
+                          {review.review}
+                        </div>
+                        <div>
+                          <ReviewUpdateModal review={review} />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

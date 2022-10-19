@@ -106,3 +106,14 @@ cursor: pointer;
     font-weight: bold;
     border-radius: 10px;
 }
+
+.update_review_modal_button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.update_review_modal_button:hover {
+    background: none;
+    text-decoration: underline;
+}

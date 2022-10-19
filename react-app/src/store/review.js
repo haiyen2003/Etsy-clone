@@ -92,7 +92,7 @@ export const thunkUpdateReview = (payload) => async dispatch => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
     });
-    console.log(payload)
+    // console.log(payload)
 
     if (response.ok) {
         const data = await response.json()
