@@ -56,7 +56,7 @@ function ProductDetailPage() {
 
   const addToCart = async () => {
     await dispatch(addItemThunk(id, { quantity }));
-    await dispatch(getCartThunk());
+    // await dispatch(getCartThunk());
   }
 
   return (

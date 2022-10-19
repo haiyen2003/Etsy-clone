@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteItemThunk, updateCartThunk } from '../../store/cart';
+import { deleteItemThunk, updateCartThunk} from '../../store/cart';
 
 function CartItem({ item }) {
     const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(item.quantity);
+
 
     useEffect(() => {
         setQuantity(item.quantity)
@@ -13,7 +14,7 @@ function CartItem({ item }) {
     useEffect(() => {dispatch(updateCartThunk())}, [dispatch])
     return (
         <li className="cart-item">
-            <div className="cart-item-header">{item.name}</div>
+            <div className="cart-item-header">{item.cart}</div>
             <div className="cart-item-menu">
                 <input
                     type="number"
@@ -35,7 +36,7 @@ function CartItem({ item }) {
                 </button>
                 <button
                     className="cart-item-button"
-                    onClick={() => dispatch(deleteItemThunk(item.id))}
+                    onClick={async () => await dispatch(deleteItemThunk(item.id))}
                 >
                     Remove
                 </button>
