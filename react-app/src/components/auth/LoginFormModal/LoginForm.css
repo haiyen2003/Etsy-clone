@@ -91,7 +91,7 @@
   color: #FF385C;
   margin-bottom: 20px;
   /* margin-left: -200px; */
-  font-family: sans-serif;
+  font-family: Graphik Webfont, Arial, sans-serif;
   }
 
   .homepage_loginbtn{
@@ -99,8 +99,7 @@
   border: none;
   font-size: 16px;
   font-weight: 500;
-  font-family: Circular, -apple-system, "system-ui", Roboto, Helvetica Neue,
-  sans-serif;
+  font-family: Graphik Webfont, Arial, sans-serif;
   border-radius:6px;
   margin-right:-16px;
   }
