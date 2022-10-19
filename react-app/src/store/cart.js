@@ -135,8 +135,6 @@ export default function cartReducer(state = initialState, action) {
             action.items.cart.map(item => {
                 newState[item.id] = item
             });
-            //newState[action.items] = action.items
-            console.log(action.items, 'THIS IS ACTION ITEM IN GET_CART')
             return newState;
         }
 

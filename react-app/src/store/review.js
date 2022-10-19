@@ -9,7 +9,6 @@ const deleteReview = '/review/deleteReview'
 
 // ACTION CREATORS
 
-
 const actionCreateReview = (review) => {
     return {
         type: createReview,
@@ -111,8 +110,6 @@ export const thunkDeleteReview = (id) => async dispatch => {
 }
 
 const initialState = {}
-
-
 const reviewReducer = (state = initialState, action) => {
     let newState = {...state}
     switch (action.type) {
@@ -140,7 +137,6 @@ const reviewReducer = (state = initialState, action) => {
         default:
             return state
     }
-
 }
 
 

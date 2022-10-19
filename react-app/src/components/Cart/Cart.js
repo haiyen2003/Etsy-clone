@@ -11,8 +11,9 @@ function Cart() {
   const cartItems = useSelector(state => state.cart);
   const items = Object.values(cartItems);
   const history = useHistory();
+ 
   useEffect(() => {dispatch(getCartThunk())}, [dispatch, items.length])
-
+  useEffect(() => {dispatch(updateCartThunk())}, [dispatch])
   if (!items || !items.length) return (
     <div className="cart">
       No items in the cart. Start selecting items to purchase.
@@ -29,12 +30,6 @@ function Cart() {
     history.push(`/order-completed`);
   }
 
-  const handleDelete = async item => {
-    const thisDelete = await dispatch(deleteItemThunk(item));
-    await dispatch(getCartThunk());
-    history.push(`/cart`);
-}
-
   return (
     <div className="cart">
       <div className = "cart-top-div">
@@ -45,15 +40,15 @@ function Cart() {
       <div className = "cart-middle-div">
         <div className = "cart-left-div">
         <div>
+        <ul>
         {
-          items.map(item => ( item &&
+          items.map(item => (
             <div className = 'cart-product-detail'>
               <img className='cart-image' src={item.product_details?.previewImage}></img>
               <div className= 'cart-product-name'>{item.product_details?.name}</div>
               <div className='cart-product-price'>${item.product_details?.price}</div>
               <div className ='cart-product-highlight'>{item.product_details?.highlight}</div>
-              <button
-                    className="cart-item-button"
+              <button className="cart-item-button"
                      onClick={async () => await dispatch(deleteItemThunk(item.id))}
                 >
                     Remove
@@ -61,29 +56,12 @@ function Cart() {
               </div>)
             )
         }
+        </ul>
       </div>
-          <div className = "cart-product-detail">
-            <div className = "cart-product-image">
-            </div>
-          </div>
         </div>
       </div>
-      <div>
-      <div>
-        {/* {
-          items.map(item => (
-            <div className = 'cart-product-detail'>
-              <div>{item.product_details?.name}</div>
-              </div>)
-            )
-        } */}
-      </div>
-      </div>
-      {/* <ul>
-        {items.map(item => <CartItem key={item.id} item={item} />)}
-      </ul> */}
       <ul>
-
+        {items.map(item => <CartItem key={item.id} item={item} />)}
       </ul>
       <hr />
       <form onSubmit={onSubmit}>

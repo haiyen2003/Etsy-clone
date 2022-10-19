@@ -5,8 +5,6 @@ import { deleteItemThunk, updateCartThunk} from '../../store/cart';
 function CartItem({ item }) {
     const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(item.quantity);
-
-
     useEffect(() => {
         setQuantity(item.quantity)
     }, [item.quantity]);
