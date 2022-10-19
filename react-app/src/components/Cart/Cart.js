@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { getCartThunk, deleteCartThunk } from '../../store/cart';
+import { getCartThunk, deleteCartThunk, deleteItemThunk, updateCartThunk } from '../../store/cart';
 import { useHistory } from "react-router-dom"
 import { useEffect } from 'react';
 import CartItem from './CartItem';
@@ -44,7 +44,15 @@ function Cart() {
           items.map(item => (
             <div className = 'cart-product-detail'>
               <img className='cart-image' src={item.product_details.previewImage}></img>
-              <div>{item.product_details.name}</div>
+              <div className= 'cart-product-name'>{item.product_details.name}</div>
+              <div className='cart-product-price'>${item.product_details.price}</div>
+              <div className ='cart-product-highlight'>{item.product_details.highlight}</div>
+              <button
+                    className="cart-item-button"
+                    onClick={async () => await dispatch(deleteItemThunk(item.id))}
+                >
+                    Remove
+                </button>
               </div>)
             )
         }

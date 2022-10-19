@@ -34,12 +34,12 @@ function CartItem({ item }) {
                 >
                     -
                 </button>
-                <button
+                {/* <button
                     className="cart-item-button"
                     onClick={async () => await dispatch(deleteItemThunk(item.id))}
                 >
                     Remove
-                </button>
+                </button> */}
             </div>
         </li>
     );
