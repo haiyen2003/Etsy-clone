@@ -36,12 +36,15 @@ def imageURL_validation(form, field):
 
         raise ValidationError("Input must be a valid Image Url")
 
+Categories_Choices = ["Home & Living", "Art & Collectibles", "Clothing & Shoes", "Jewelry & Accessories", "Wedding & Party", "Personalized Gifts"]
+
+Hightlight_Choices = []
 
 class ProductForm(FlaskForm):
     name = StringField("Product Name", validators= [DataRequired(), name_validation])
     description = TextAreaField("Product Description", validators= [DataRequired(), description_validation])
     price = DecimalField("Price", validators=[DataRequired(), price_validation], places=2, rounding = ROUND_HALF_UP)
-    category = StringField("Category", validators=[DataRequired()])
+    category = SelectField("Category", choices = Categories_Choices, validators=[DataRequired()])
     highlight = StringField("Highlights", validators=[DataRequired(), highlights_validation])
     previewImage = StringField("Image URL", validators= [DataRequired(), imageURL_validation])
     submit = SubmitField("Submit")

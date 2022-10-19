@@ -34,7 +34,7 @@ def seed_products():
         price= 150,
         userId = 2,
         category= "Clothing & Shoes",
-        highlight = "Materials: Primary fiber: Alpaca; Secondary fiber: Polyamide",
+        highlight = "Materials",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/10304510/r/il/f7568b/2230955130/il_1588xN.2230955130_6yrs.jpg"
@@ -45,7 +45,7 @@ def seed_products():
         price= 200,
         userId = 3,
         category= "Clothing & Shoes",
-        highlight = "Handmade",
+        highlight = "Materials",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/32226150/r/il/3018e8/3921909534/il_1588xN.3921909534_k49c.jpg"
@@ -56,7 +56,7 @@ def seed_products():
         price= 300,
         userId = 4,
         category= "Clothing & Shoes",
-        highlight = "Handmade",
+        highlight = "Materials",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/18889371/r/il/4ed750/3040943685/il_1588xN.3040943685_894g.jpg"
@@ -298,7 +298,7 @@ def seed_products():
         price= 19.99,
         userId = 1,
         category= "Wedding & Party",
-        highlight = "Can be personalized",
+        highlight = "Made to Order",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/14466987/r/il/40ede1/2584790379/il_794xN.2584790379_pwyg.jpg"
@@ -309,7 +309,7 @@ def seed_products():
         price= 93.60,
         userId = 2,
         category= "Wedding & Party",
-        highlight = "Can be personalized",
+        highlight = "Made to Order",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/12896129/r/il/928fc4/1380024725/il_794xN.1380024725_2yrf.jpg"
@@ -353,7 +353,7 @@ def seed_products():
         price= 50,
         userId =1,
         category= "Personalized Gifts",
-        highlight = "Handmade Item",
+        highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://images.pexels.com/photos/860009/pexels-photo-860009.jpeg"
@@ -364,7 +364,7 @@ def seed_products():
         price= 70,
         userId = 2,
         category= "Personalized Gifts",
-        highlight = "Handmade Item",
+        highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://images.pexels.com/photos/965981/pexels-photo-965981.jpeg"
@@ -397,7 +397,7 @@ def seed_products():
         price= 90,
         userId =5,
         category= "Home & Living",
-        highlight = "Fall Finds",
+        highlight = "Materials",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://images.pexels.com/photos/6850482/pexels-photo-6850482.jpeg"
