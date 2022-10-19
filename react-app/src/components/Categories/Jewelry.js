@@ -33,7 +33,7 @@ function JewelryCategory() {
     return (
         <div className='splash-container'>
 
-            <div className='background-band'></div>
+            
 
 
 
