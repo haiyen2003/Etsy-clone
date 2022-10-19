@@ -110,9 +110,6 @@ export const thunkDeleteReview = (id) => async dispatch => {
     }
 }
 
-
-
-
 const initialState = {}
 
 
@@ -149,7 +146,3 @@ const reviewReducer = (state = initialState, action) => {
 
 
 export default reviewReducer
-
-
-
-

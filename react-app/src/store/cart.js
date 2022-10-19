@@ -44,11 +44,14 @@ export const reset = () => {
 
 export const getCartThunk = () => async dispatch => {
     const res = await fetch('/api/cartItems/current')
-
     if (res.ok) {
         const items = await res.json();
         dispatch(getCart(items))
         return items;
+    }
+    else {
+        const response = await res.json()
+        return response.errors
     }
 }
 
@@ -99,8 +102,7 @@ export const deleteItemThunk = (id) => async dispatch => {
 
     if (res.ok) {
         const removedItem = await res.json()
-        dispatch(removeItem(id))
-        return removedItem;
+        dispatch(removeItem(removedItem))
     }
     else {
         const response = await res.json()
@@ -114,8 +116,8 @@ export const deleteCartThunk = () => async dispatch => {
     });
     if (res.ok) {
         const removedCart = await res.json()
-        dispatch(reset())
-        return removedCart;
+        dispatch(reset(removedCart))
+        // return removedCart;
     }
     else {
         const response = await res.json()
@@ -129,28 +131,29 @@ export default function cartReducer(state = initialState, action) {
     let newState = { ...state }
     switch (action.type) {
         case GET_CART: {
-            const newState = {};
-            action.items.cart.forEach(item => {
+            newState = {};
+            action.items.cart.map(item => {
                 newState[item.id] = item
             });
-
+            //newState[action.items] = action.items
+            console.log(action.items, 'THIS IS ACTION ITEM IN GET_CART')
             return newState;
         }
 
         case ADD_ITEM: {
-            const newState = { ...state }
+            newState = { ...state }
             newState[action.itemId.id] = action.itemId
             return newState
         }
 
         case UPDATE_COUNT: {
-            const newState = { ...state }
+            newState = { ...state }
             newState[action.quantity] = action.quantity
             return newState
         }
 
         case REMOVE_ITEM: {
-            const newState = { ...state, items: { ...state.items } };
+            newState = { ...state, items: { ...state.items } };
             delete newState.items[action.itemId];
             // newState.order = newState.order.filter(id => id !== action.itemId);
             return newState;

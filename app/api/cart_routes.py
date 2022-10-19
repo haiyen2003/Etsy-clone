@@ -29,8 +29,8 @@ def current_cart():
         # return {'cart': [items._str_() for items in cartItems]}
         return {'cart': details}
     else:
-        return {'message': 'Your cart is empty'}
-
+        # return {'message': 'Your cart is empty'}
+        return {'cart': []}
  #update cart
 @cart_routes.route('/<int:id>', methods=["PUT"])
 @login_required
@@ -39,7 +39,7 @@ def update_cart(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     item = CartItem.query.get(id)
     if item is None:
-        return {'message': ['item not found in cart']}, 404
+        return {[]}, 404
 
     if not item.userId == current_user.id:
         return {'message': 'Unauthorized'}, 403
@@ -60,14 +60,14 @@ def delete_cart_item(id):
     currentUserId = current_user.id
     item = CartItem.query.get(id)
     if item is None:
-        return {'message': 'Can not find this item in cart'}, 404
+        return {'message': ['Can not find this item']}
 
     if not item.userId == current_user.id:
         return {'message': 'Unauthorized'}, 403
 
     db.session.delete(item)
     db.session.commit()
-    return {'message': 'Item has been successfully removed from cart'}, 200
+    return {'list': 'Cart is empty'}
 
 #delete entire cart
 @cart_routes.route('/current', methods=['DELETE'])
@@ -79,7 +79,7 @@ def delete_cart():
                             .options(db.joinedload(CartItem.product)) \
                             .all()
     if len(cartItems) == 0 or not cartItems:
-        return {'message': 'Your cart is empty'}, 404
+        return {'message': ['Cart is empty']}
 
     # if not item.userId == current_user.id:
     #     return {'message': 'Unauthorized'}, 403
