@@ -50,11 +50,12 @@ const actionDeleteReview = (id) => {
 
 
 export const thunkCreateReview = (payload) => async dispatch => {
-    const response = await fetch(`/api/reviews/products/${payload.id}`, {
+    const response = await fetch(`/api/reviews/products/${payload.productId}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(payload)
     });
+
     if(response.ok) {
         const data = await response.json()
         dispatch(actionCreateReview(data))

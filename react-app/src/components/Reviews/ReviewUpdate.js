@@ -21,7 +21,7 @@ function ReviewUpdate({review, setShowModal}) {
     useEffect(() => {
         const errors = []
         if (updatedStar <= 0 || updatedStar > 5) errors.push('Stars must be greater than 0 and less than 5')
-        if (updatedReview.length < 20) errors.push('Please add a review more than 20 characters long')
+        if (updatedReview?.length < 20) errors.push('Please add a review more than 20 characters long')
         // if (
         //   (!updatedReviewImg?.includes("jpg") &&
         //     !updatedReviewImg?.includes("png") &&
@@ -51,7 +51,7 @@ function ReviewUpdate({review, setShowModal}) {
         };
 
         let updatedRevew = await dispatch(thunkUpdateReview(payload))
-
+          
         if (updatedRevew) {
             history.push(`/products/${payload.productId}`)
         }
@@ -118,17 +118,19 @@ function ReviewUpdate({review, setShowModal}) {
             ) : (
               <div className="update_review_empty"></div>
             )}
-              <div>
-                <button type="submit" className="update_review_post">Post Your Review</button>
-              </div>
-          </form>
-            <div className="update_review_buttons">
-              <div>
-                <button onClick={onClick} className="update_review_cancel">
-                  Cancel
-                </button>
-              </div>
+          <div className="update_review_buttons">
+            <div>
+              <button onClick={onClick} className="update_review_cancel">
+                Cancel
+              </button>
             </div>
+            <div>
+              <button type="submit" className="update_review_post">
+                Post Your Review
+              </button>
+            </div>
+          </div>
+          </form>
         </div>
       </div>
     );
