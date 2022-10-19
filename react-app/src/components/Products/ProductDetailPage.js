@@ -6,6 +6,7 @@ import {  thunkGetOneProduct } from "../../store/product";
 import './ProductDetailPage.css'
 import { thunkGetAllProductReview } from "../../store/review";
 import ReviewCreateModal from "../Reviews/ReviewCreateModal";
+import {FaStar} from 'react-icons/fa'
 
 
 function ProductDetailPage() {
@@ -71,12 +72,25 @@ function ProductDetailPage() {
                       {reviewCount} reviews&nbsp;
                     </span>
                   </div>
-                  <div>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-regular fa-star"></i>
+                  <div style={{ display: "flex" }}>
+                    {["star1", "star2", "star3", "star4", "star5"].map(
+                      (star, index) => {
+                        return (
+                          <div>
+                            <label>
+                              <FaStar
+                                color={
+                                  reviewArray.length / 3 > index
+                                    ? "black"
+                                    : "lightgrey"
+                                }
+                                size={20}
+                              />
+                            </label>
+                          </div>
+                        );
+                      }
+                    )}
                   </div>
                 </div>
                 {!user ? (
@@ -97,8 +111,24 @@ function ProductDetailPage() {
                     {/* <div id='reviewowner'>{review.User ? review.User.firstName: 'Annoymous'}</div> */}
                     <div className="review_container">
                       <div className="review_stars_container">
-                        <div>{review.stars}&nbsp;</div>
-                        <i className="fa-solid fa-star"></i>
+                        {["star1", "star2", "star3", "star4", "star5"].map(
+                          (star, index) => {
+                            return (
+                              <div>
+                                <label>
+                                  <FaStar
+                                    color={
+                                      review.stars > index
+                                        ? "black"
+                                        : "lightgrey"
+                                    }
+                                    size={20}
+                                  />
+                                </label>
+                              </div>
+                            );
+                          }
+                        )}
                       </div>
                       <div>
                         <div className="review_container_text">
