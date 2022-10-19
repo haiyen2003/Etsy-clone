@@ -3,6 +3,7 @@ import { getCartThunk, deleteCartThunk } from '../../store/cart';
 import { useHistory } from "react-router-dom"
 import { useEffect } from 'react';
 import CartItem from './CartItem';
+import { Link, NavLink } from 'react-router-dom';
 import './Cart.css';
 
 function Cart() {
@@ -31,9 +32,43 @@ function Cart() {
 
   return (
     <div className="cart">
-      <div>You have {items.length} in your cart</div>
+      <div className = "cart-top-div">
+        <div className = "cart-item-num">You have {items.length} in your cart</div>
+        <div className = "cart-keep-shopping"><NavLink className="cart-home-link " to={`/`}>Keep Shopping</NavLink></div>
+        </div>
+
+      <div className = "cart-middle-div">
+        <div className = "cart-left-div">
+        <div>
+        {
+          items.map(item => (
+            <div className = 'cart-product-detail'>
+              <img className='cart-image' src={item.product_details.previewImage}></img>
+              <div>{item.product_details.name}</div>
+              </div>)
+            )
+        }
+      </div>
+          <div className = "cart-product-detail">
+            <div className = "cart-product-image">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+      <div>
+        {
+          items.map(item => (
+            <div className = 'cart-product-detail'>
+              <div>{item.product_details.name}</div>
+              </div>)
+            )
+        }
+      </div>
+      </div>
       <ul>
-        {items.map(item => <CartItem key={item.id} item={item}/>)}
+        {items.map(item => <CartItem key={item.id} item={item} />)}
       </ul>
       <ul>
 

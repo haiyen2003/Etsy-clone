@@ -47,7 +47,6 @@ export const getCartThunk = () => async dispatch => {
 
     if (res.ok) {
         const items = await res.json();
-        console.log(items, '========= ITEMS')
         dispatch(getCart(items))
         return items;
     }
@@ -62,7 +61,6 @@ export const addItemThunk = (id, quantity) => async dispatch => {
         body: JSON.stringify(quantity)
     })
 
-    console.log(res, '===== RES')
     if (res.ok) {
         const item = await res.json();
         dispatch(addItem(item))

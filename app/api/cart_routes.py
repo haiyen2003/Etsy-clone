@@ -24,7 +24,7 @@ def current_cart():
             productInfo = item.product.to_dict()
             itemDict = item.to_dict()
             print(itemDict)
-            itemDict['product details'] = productInfo
+            itemDict['product_details'] = productInfo
             details.append(itemDict)
         # return {'cart': [items._str_() for items in cartItems]}
         return {'cart': details}
