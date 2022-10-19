@@ -7,8 +7,6 @@ const getOneProduct = '/product/getOneProduct'
 const updateProduct = '/product/updateProduct'
 const deleteProduct = '/product/deleteProduct'
 
-
-
 // ACTION CREATORS
 
 const actionCreateProduct = (product) => {
@@ -142,7 +140,6 @@ export const thunkDeleteProduct = (id) => async dispatch => {
 
 
 const initialState = {}
-
 
 const productReducer = (state = initialState, action) => {
     let newState = {...state}
