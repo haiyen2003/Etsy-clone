@@ -501,6 +501,72 @@ def seed_products():
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/37849618/r/il/72e839/4242552707/il_340x270.4242552707_cvym.jpg"
     )
+    product46 = Product(
+        name= "Contemporary Simple Wedding Band",
+        description= "Contemporary wedding band. A simple, statement band, perfect to wear alone or in a stack of rings",
+        price= 74.70,
+        userId = 8,
+        category= "Wedding & Party",
+        highlight = "Made to Order",
+        createdAt= now,
+        updatedAt= now,
+        previewImage= "https://i.etsystatic.com/5906330/c/1156/918/182/232/il/d553b6/1143509502/il_340x270.1143509502_mrva.jpg"
+    )
+    product47 = Product(
+        name= "Welcome Baby Name Banner ∙ Baby Shower Banner ∙ Nursery Room ∙ Baby's Name ∙ Personalized Name ∙ Gender Reveal ∙ Baby Names ∙ Name Reveal",
+        description= "This Banner is created with BLACK Cardstock Letters and features Hearts (in your choice of colors). Letters measure approx 4.5 inches in height by 3.5 inches wide",
+        price= 13.97,
+        userId = 7,
+        category= "Wedding & Party",
+        highlight = "Made to Order",
+        createdAt= now,
+        updatedAt= now,
+        previewImage= "https://i.etsystatic.com/8221505/r/il/a6c42a/2423137272/il_794xN.2423137272_f3l3.jpg"
+    )
+    product48 = Product(
+        name= "Cheers to 60 Years Banner, 60th Birthday Party, 60th Anniversary, 60th Birthday Sign, 60th Birthday Decor, Glitter Banner, 60th Party Banner",
+        description= "Celebrate a 60th birthday or 60th Anniversary with a little sparkle! A great addition to any birthday party, gift idea, or retirement party!",
+        price= 10.26,
+        userId = 6,
+        category= "Wedding & Party",
+        highlight = "Made to Order",
+        createdAt= now,
+        updatedAt= now,
+        previewImage= "https://i.etsystatic.com/37849618/r/il/72e839/4242552707/il_340x270.4242552707_cvym.jpg"
+    )
+    product49 = Product(
+        name= "Wedding Dress Bridal Shower Decorations-Bridal Shower Gift-Mr & Mrs Bridal Shower Centerpiece-Wedding Shower decor-Bridal Shower Favors.",
+        description= "This Bride makes a great gift as well as table centerpieces for your Bridal Shower! Your beautiful Bride is made of all towels. We added tulle to make it look more like a wedding dress. Then we added a bridal bouquet that you can use as a toss bouquet!!",
+        price= 49.95,
+        userId = 5,
+        category= "Wedding & Party",
+        highlight = "Made to Order",
+        createdAt= now,
+        updatedAt= now,
+        previewImage= "https://i.etsystatic.com/9272834/r/il/63d77e/749877056/il_794xN.749877056_n94r.jpg"
+    )
+    product50 = Product(
+        name= "Custom Jordan 4 Retro Metallic Purple Custom Gift OG AJ4 Sneakers, Custom Shoes, Basketball Shoes",
+        description= "The Air Jordan IV 'Tech White' features a white leather upper; Jumpman logo on the heel and tongue; and a classic cement texture on the midsole and eyelets. This new colorway refreshes the AJ4 and breathes new life into the classic AJ4 silhouette, while the original shoe box exudes a touch of classicism.",
+        price= 140.00,
+        userId = 9,
+        category= "Clothing & Shoes",
+        highlight = "Handmade",
+        createdAt= now,
+        updatedAt= now,
+        previewImage= "https://i.etsystatic.com/6162675/r/il/c3f52c/4252550158/il_794xN.4252550158_3puc.jpg"
+    )
+    product51 = Product(
+        name= "Baby shoes for girls – Baby barefoot sandals with pom poms make cute summer gift for toddler girl. Genuine leather shoes handmade in Greece",
+        description= "Get ready and start exploring the world with your little kid, making sure she feels comfortable and stylish!!!",
+        price= 61.00,
+        userId = 3,
+        category= "Clothing & Shoes",
+        highlight = "Handmade",
+        createdAt= now,
+        updatedAt= now,
+        previewImage= "https://i.etsystatic.com/12035891/r/il/c6e7c0/3830985051/il_794xN.3830985051_syvo.jpg"
+    )
 
     db.session.add(product01)
     db.session.add(product02)
@@ -547,6 +613,12 @@ def seed_products():
     db.session.add(product43)
     db.session.add(product44)
     db.session.add(product45)
+    db.session.add(product46)
+    db.session.add(product47)
+    db.session.add(product48)
+    db.session.add(product49)
+    db.session.add(product50)
+    db.session.add(product51)
 
     db.session.commit()
 
