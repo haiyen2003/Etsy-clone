@@ -44,25 +44,28 @@ function Searchbar(){
 
   return(
    <>
-   <div>
-   <i className="fa-solid fa-magnifying-glass"></i>
+   <div className='searchbar'>
+
    <input
       type = 'text'
       className='searchinput'
       placeholder='Search for anything'
       onChange={(e)=>setSearchWord(e.target.value)}
       value={searchWord}
-
    />
+   <div type="submit" className='search_btn'>
+    <i className="fa-solid fa-magnifying-glass fa-lg "></i>
+   </div>
+
    </div>
 
    {(showDropdown && searchResult.length > 0 ) && (
-    <div>
+    <div className='search_dropdown'>
     { searchResult.map((product)=>(
 
       <NavLink to={`/products/${product.id}`} className='product_navlink' onClick={()=>setSearchWord("")}>
       <div className='product_info'>
-        <div style={{ fontweight: '700' }}>{product.name}</div>
+        <div style={{ fontweight: '300' }}>{product.name.slice(0,80)}</div>
 
       </div>
       </NavLink>
@@ -72,7 +75,7 @@ function Searchbar(){
    )}
 
    {(showDropdown && !searchResult.length) && (
-     <div>
+     <div className='search_dropdown'>
       <h2>We couldn't find any results for "{searchWord}"</h2>
      </div>
 

@@ -29,12 +29,16 @@ def validate_email(form, field):
     email = field.data
     if '@' not in email:
         raise ValidationError("Invalid email address")
+def password_length(form, field):
+    password = field.data
+    if len(password) < 6:
+        raise ValidationError("Password must be more than 6 characters")
 
 class SignUpForm(FlaskForm):
     username = StringField(
-        'username', validators=[DataRequired(), username_exists])
+        'username', validators=[DataRequired(), username_exists, username_length])
     #email = StringField('email', validators=[DataRequired(), user_exists, Email(message="Please enter valid email")])
     email = StringField('email', validators=[DataRequired(), user_exists, validate_email])
-    password = StringField('password', validators=[DataRequired()])
+    password = StringField('password', validators=[DataRequired(), password_length])
     firstName = StringField('firstName', validators=[DataRequired()])
     lastName = StringField('lastName', validators=[DataRequired()])
