@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import '../Products/ProductList.css'
+import './Category_page.css'
 import { thunkGetAllProduct } from "../../store/product";
 
 
@@ -33,7 +33,7 @@ function HomeLivingCategory() {
     return (
         <div className='splash-container'>
 
-    
+
 
 
 
