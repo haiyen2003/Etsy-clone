@@ -14,7 +14,7 @@ function ProductList() {
     const dispatch = useDispatch()
     // console.log('allproducts=', allproducts)
 
-    const categoryproducts=[allproducts[9], allproducts[35], allproducts[2], allproducts[12], allproducts[25], allproducts[30]]
+    // const categoryproducts=[allproducts[9], allproducts[35], allproducts[2], allproducts[12], allproducts[25], allproducts[30]]
     // console.log('categoryproducts', categoryproducts);
     // console.log('previeimage', categoryproducts[0].previewImage)
     useEffect(() => {
@@ -29,7 +29,7 @@ function ProductList() {
             <div className='background-band'></div>
 
             <div className='categoryproducts'>
-                {
+                {/* {
                    categoryproducts?.map((product) =>(
                       <div  className='categorydiv' key={product?.id}>
                         <img k className='product_category_image' src={product?.previewImage} alt="product"></img>
@@ -38,8 +38,61 @@ function ProductList() {
                       </div>
                     ))
 
-                }
+                } */}
+                <NavLink to='/home&living' className='product_navlink'>
+                    <img src={product.previewImage} alt="product" className='productlist_image'></img>
 
+                    <div className='product_info'>
+                        <div style={{ fontweight: '700' }}>Home & Living</div>
+
+                    </div>
+
+                </NavLink>
+                <NavLink to='/arts' className='product_navlink'>
+                    <img src={product.previewImage} alt="product" className='productlist_image'></img>
+
+                    <div className='product_info'>
+                        <div style={{ fontweight: '700' }}>Arts & Collectibles</div>
+
+                    </div>
+
+                </NavLink>
+                <NavLink to='/jewelry' className='product_navlink'>
+                    <img src={product.previewImage} alt="product" className='productlist_image'></img>
+
+                    <div className='product_info'>
+                        <div style={{ fontweight: '700' }}>Jewelry & Accessories</div>
+
+                    </div>
+
+                </NavLink>
+                <NavLink to='/wedding' className='product_navlink'>
+                    <img src={product.previewImage} alt="product" className='productlist_image'></img>
+
+                    <div className='product_info'>
+                        <div style={{ fontweight: '700' }}>Wedding & Party</div>
+
+                    </div>
+
+                </NavLink>
+                <NavLink to='/clothing' className='product_navlink'>
+                    <img src={product.previewImage} alt="product" className='productlist_image'></img>
+
+                    <div className='product_info'>
+                        <div style={{ fontweight: '700' }}>Clothing & Shoes</div>
+
+                    </div>
+
+                </NavLink>
+                <NavLink to='/gift' className='product_navlink'>
+                    <img src={product.previewImage} alt="product" className='productlist_image'></img>
+
+                    <div className='product_info'>
+                        <div style={{ fontweight: '700' }}>Personalized Gift</div>
+
+                    </div>
+
+                </NavLink>
             </div>
 
             <div className='product_header'>
