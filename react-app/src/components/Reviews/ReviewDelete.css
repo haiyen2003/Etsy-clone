@@ -1,0 +1,9 @@
+.review_delete_button {
+    cursor: pointer;
+        background-color: black;
+        color: white;
+        border-radius: 5px;
+        height: 35px;
+        width: 150px;
+        font-weight: bold;
+}

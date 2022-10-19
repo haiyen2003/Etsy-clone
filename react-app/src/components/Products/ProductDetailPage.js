@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {  thunkGetOneProduct } from "../../store/product";
 import './ProductDetailPage.css'
 import { thunkGetAllProductReview } from "../../store/review";
+import ReviewCreateModal from "../Reviews/ReviewCreateModal";
 
 
 function ProductDetailPage() {
@@ -13,7 +14,7 @@ function ProductDetailPage() {
     const history = useHistory()
 
     const product = useSelector(state => state.product[id])
-
+    const user = useSelector(state => state.session.user)
 
     const review = useSelector(state => state.review)
     // console.log(review)
@@ -78,7 +79,13 @@ function ProductDetailPage() {
                     <i className="fa-regular fa-star"></i>
                   </div>
                 </div>
-                <div>Write a review component go here??</div>
+                {!user ? (
+                  <div>Log in to write a review</div>
+                ) : (
+                  <div>
+                    <ReviewCreateModal review={review} />
+                  </div>
+                )}
               </div>
               {/* <div>{reviewCount} reviews</div>
               <div></div>

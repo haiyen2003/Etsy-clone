@@ -14,7 +14,7 @@ function MyProductListings() {
     const history = useHistory()
 
     const user = useSelector(state => state.session.user)
-    console.log(user)
+    // console.log(user)
 
     useEffect(() => {
         dispatch(thunkGetCurrentProduct())

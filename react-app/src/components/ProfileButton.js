@@ -39,9 +39,9 @@ function ProfileButton({ user }) {
 
             <Link className="menu-item-link" to={`/myproducts`}>My Product Listings</Link>
 
-            {/* <Link className="menu-item-link" to={`/spots/create`}>Host an experience</Link> */}
+            <NavLink className='menu-item-link' to={'/seller'}>Create a listing</NavLink>  
 
-            <Link className="menu-item-link" to={`/reviews/me`}>My reviews</Link>
+            <Link className="menu-item-link" to={`/myreviews`}>My reviews</Link>
 
             <div className="menu-item" >
                 <LogoutButton/>

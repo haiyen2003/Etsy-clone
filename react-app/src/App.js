@@ -14,12 +14,6 @@ import { authenticate } from './store/session';
 import {Modal} from './context/Modal';
 import ProductCreate from './components/Products/ProductCreate';
 import MyProductListings from './components/Products/MyProductListings';
-import HomeLivingCategory from './components/Categories/Home&living';
-import ArtCategory from './components/Categories/Art';
-import JewelryCategory from './components/Categories/Jewelry';
-import ClothingCategory from './components/Categories/Clothing';
-import WeddingCategory from './components/Categories/Wedding';
-import GiftCategory from './components/Categories/Gift';
 
 
 function App(){
@@ -48,24 +42,6 @@ function App(){
           </Route>
           <Route exact path="/seller">
             <ProductCreate />
-          </Route>
-          <Route exact path="/home&living">
-            <HomeLivingCategory />
-          </Route>
-          <Route exact path="/arts">
-            <ArtCategory />
-          </Route>
-          <Route exact path="/jewelry">
-            <JewelryCategory />
-          </Route>
-          <Route exact path="/clothing">
-            <ClothingCategory />
-          </Route>
-          <Route exact path="/wedding">
-            <WeddingCategory />
-          </Route>
-          <Route exact path="/gift">
-            <GiftCategory />
           </Route>
           <Route exact path="/myproducts">
             <MyProductListings />
