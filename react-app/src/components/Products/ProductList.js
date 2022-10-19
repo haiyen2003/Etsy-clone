@@ -27,9 +27,10 @@ function ProductList() {
 
 
     return (
+        <>
+            { user.user ? <div id = "welcome_msg"><h1 >Welcome back, {user.user? user.user.firstName: 'Annoymous'}!</h1></div> :
+            <div id = "welcome_msg"><h1 id = "welcome_msg">Fresh finds fit for cozy season.</h1></div>}
         <div className='splash-container'>
-            { user.user ? <div id = "welcome_msg">Welcome, {user.user? user.user.firstName: 'Annoymous'}</div> :
-            <div id = "welcome_msg">Fresh finds fit for cozy season.</div>}
 
             <div className='background-band'></div>
 
@@ -130,7 +131,7 @@ function ProductList() {
 
             </div>
         </div>
-
+        </>
     )
 }
 
