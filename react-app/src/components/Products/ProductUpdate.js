@@ -61,6 +61,10 @@ function ProductUpdate({product}) {
     }
   };
 
+  let Categories_Choices = ["Home & Living", "Art & Collectibles", "Clothing & Shoes", "Jewelry & Accessories", "Wedding & Party", "Personalized Gifts"]
+
+  let Hightlight_Choices = ["Materials", "Handmade", "Made to Order"]
+
   return (
     <div className="update_product_main">
       <div className="update_product_div">
