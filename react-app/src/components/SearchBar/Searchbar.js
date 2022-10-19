@@ -63,9 +63,14 @@ function Searchbar(){
     <div className='search_dropdown'>
     { searchResult.map((product)=>(
 
-      <NavLink to={`/products/${product.id}`} className='product_navlink' onClick={()=>setSearchWord("")}>
-      <div className='product_info'>
-        <div style={{ fontweight: '300' }}>{product.name.slice(0,30)}</div>
+      <NavLink to={`/products/${product.id}`} className='search_dropdown_navlink' onClick={()=>setSearchWord("")}>
+      <div className='search_dropdown_info'>
+
+      <div className='dropdown_image_container'>
+      <img src={product.previewImage} alt="product" className='search_dropdown_img'/>
+      </div>
+
+        <div className='search_dropdown_text' >{product.name.slice(0,270)}</div>
 
       </div>
       </NavLink>
