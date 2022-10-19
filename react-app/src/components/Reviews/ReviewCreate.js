@@ -13,7 +13,7 @@ function ReviewCreate({ setShowModal, review }) {
   const {id} = useParams()
   const history = useHistory()
 
- 
+
 
 
   const [createdStar, setCreatedStar] = useState('');
@@ -21,6 +21,7 @@ function ReviewCreate({ setShowModal, review }) {
   // const [createdReviewImg, setcreatedReviewImg] = useState(review.reviewImg)
   const [submit, setSubmit] = useState(false);
   const [validations, setValidations] = useState(false);
+  const [stars, setStars] = useState(0);
 
 
 
@@ -72,6 +73,7 @@ function ReviewCreate({ setShowModal, review }) {
       <div className="create_review_div">
         <form className="create_review_form" onSubmit={onSubmit}>
           <div className="create_review_header">My review</div>
+
           <div>
             <input
               type="number"
@@ -81,6 +83,53 @@ function ReviewCreate({ setShowModal, review }) {
               onChange={(event) => setCreatedStar(event.target.value)}
             ></input>
           </div>
+
+         <div>
+          <input
+
+            type='checkbox'
+            name='stars'
+            value={1}
+            checked={+stars >=1 ? true: false}
+            onChange={(e)=>setStars(e.target.value)}
+            className='star_click'
+            id='s1'
+
+
+          />
+          <label htmlFor='s1'><i className="fas fa-thin fa-star" ></i></label>
+          <input
+
+            type='checkbox'
+            name='stars'
+            value={2}
+            checked={+stars >=2 ? true: false}
+            onChange={(e)=>setStars(e.target.value)}
+            className='star_click'
+            id='s2'
+
+
+          />
+          <label htmlFor='s2'><i className="fas fa-thin fa-star" ></i></label>
+
+
+          {/* <input
+             type='checkbox'
+
+
+
+
+          /> */}
+
+          {/* <label><i className="fas fa-solid fa-star" id='s2'></i></label>
+          <label><i className="fas fa-solid fa-star" id='s3'></i></label>
+          <label><i className="fas fa-solid fa-star" id='s4'></i></label>
+          <label><i className="fas fa-solid fa-star" id='s5'></i></label> */}
+
+         </div>
+
+
+
           <div>
             <div className="create_review_feedback">
               Help others by sharing your feedback
@@ -97,6 +146,7 @@ function ReviewCreate({ setShowModal, review }) {
               onChange={(event) => setCreatedReview(event.target.value)}
             ></textarea>
           </div>
+
           {/* <div>
               <div className="create_review_photo">
                 Add a photo{" "}
@@ -110,6 +160,7 @@ function ReviewCreate({ setShowModal, review }) {
                 onChange={(event) => setcreatedReviewImg(event.target.value)}
               ></input>
             </div> */}
+
           <div className="create_review_profile_div">
             <i className="fa-regular fa-face-grin-wide fa-2xl"></i>
             <div className="create_review_reviewby_text">

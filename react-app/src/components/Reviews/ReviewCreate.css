@@ -116,3 +116,10 @@
     background: none;
     text-decoration: underline;
 }
+
+.star_click{
+    display:none;
+}
+.star_click:checked~label{
+    color:grey;
+}
