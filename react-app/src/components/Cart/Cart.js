@@ -1,12 +1,15 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { getCartThunk, deleteCartThunk } from '../../store/cart';
+import { useEffect } from 'react';
 import CartItem from './CartItem';
 import './Cart.css';
 
 function Cart() {
   const dispatch = useDispatch();
-  const cartItems = useSelector(getCartThunk);
+  useEffect(() => {dispatch(getCartThunk())}, [dispatch])
+  const cartItems = useSelector(state => state.cart);
   const items = Object.values(cartItems);
+  console.log(cartItems, 'CART ITEMS')
 
   if (!items || !items.length) return (
     <div className="cart">

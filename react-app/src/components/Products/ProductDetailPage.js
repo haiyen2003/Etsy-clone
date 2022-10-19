@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {  thunkGetOneProduct } from "../../store/product";
 import './ProductDetailPage.css'
 import { thunkGetAllProductReview } from "../../store/review";
-import {addItemThunk} from '../../store/cart'
+import {addItemThunk, getCartThunk} from '../../store/cart'
 
 
 function ProductDetailPage() {
@@ -46,7 +46,6 @@ function ProductDetailPage() {
     useEffect(() => {
         dispatch(thunkGetOneProduct(id))
         dispatch(thunkGetAllProductReview(id))
-        dispatch(addItemThunk(id))
         // dispatch(thunkGetCurrentProduct())
     },[dispatch, id])
 
@@ -55,9 +54,11 @@ function ProductDetailPage() {
         history.push('/')
     }
 
-    const addToCart = () => {
-      
-    }
+    const addToCart = async () => {
+      await dispatch(addItemThunk(id));
+      await dispatch(getCartThunk());
+      history.push('/cart');
+  }
 
     return (
       <div className="mainproduct_container">

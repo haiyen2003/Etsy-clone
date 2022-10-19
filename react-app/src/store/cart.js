@@ -43,7 +43,8 @@ export const reset = () => {
 };
 
 export const getCartThunk = () => async dispatch => {
-    const res = await fetch('/api/cartItems/current');
+    const res = await fetch('/api/cartItems/current')
+    console.log(res, '-----RES')
     if (res.ok) {
         const items = await res.json();
         dispatch(getCart(items))
@@ -130,10 +131,11 @@ export default function cartReducer(state = initialState, action) {
     switch (action.type) {
         case GET_CART: {
             const newState = {};
-            action.items.cart_details.forEach(item => {
+            console.log(action.items.cart, ' ---- ACTION ITEMS')
+            action.items.cart.forEach(item => {
                 newState[item.id] = item
             });
-            console.log(action.items);
+
             return newState;
         }
 
