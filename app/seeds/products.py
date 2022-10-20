@@ -34,7 +34,7 @@ def seed_products():
         price= 150,
         userId = 2,
         category= "Clothing & Shoes",
-        highlight = "Materials",
+        highlight = "Materials: Primary fiber: Alpaca; Secondary fiber: Polyamide",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/10304510/r/il/f7568b/2230955130/il_1588xN.2230955130_6yrs.jpg"
@@ -45,7 +45,7 @@ def seed_products():
         price= 200,
         userId = 3,
         category= "Clothing & Shoes",
-        highlight = "Materials",
+        highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/32226150/r/il/3018e8/3921909534/il_1588xN.3921909534_k49c.jpg"
@@ -56,7 +56,7 @@ def seed_products():
         price= 300,
         userId = 4,
         category= "Clothing & Shoes",
-        highlight = "Materials",
+        highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/18889371/r/il/4ed750/3040943685/il_1588xN.3040943685_894g.jpg"
@@ -209,7 +209,7 @@ def seed_products():
         description= "This is for a set of 4 prints of a Botanical Floral illustration that has been hand painted and were found in an Antique natural history text book. The original has been digitally enhanced and are printed on heavy matte photo paper.",
         price= 38.00,
         userId = 3,
-        category= "Personalized Gifts",
+        category= "Home & Living",
         highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
@@ -220,7 +220,7 @@ def seed_products():
         description= "This set of Nintendo Switch Joy-Con controllers features a custom painted Nintendo theme. Comes with matching colored wrist straps.",
         price= 204.95,
         userId = 4,
-        category= "Personalized Gifts",
+        category= "Toys & Entertainment",
         highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
@@ -231,11 +231,11 @@ def seed_products():
         description= "Drive with Style and choose handmade covers from shop 'BeutySteeringWheel'. :)",
         price= 25.59,
         userId = 5,
-        category= "Personalized Gifts",
+        category= "Toys & Entertainment",
         highlight = "Materials",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://i.etsystatic.com/33772097/c/2250/1788/0/0/il/4f09db/4176414065/il_340x270.4176414065_grtr.jpg"
+        previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
     )
     product22 = Product(
         name= "Meth joke coffee mug. Coffee because meth is illegal.",
@@ -298,7 +298,7 @@ def seed_products():
         price= 19.99,
         userId = 1,
         category= "Wedding & Party",
-        highlight = "Made to Order",
+        highlight = "Can be personalized",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/14466987/r/il/40ede1/2584790379/il_794xN.2584790379_pwyg.jpg"
@@ -309,7 +309,7 @@ def seed_products():
         price= 93.60,
         userId = 2,
         category= "Wedding & Party",
-        highlight = "Made to Order",
+        highlight = "Can be personalized",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/12896129/r/il/928fc4/1380024725/il_794xN.1380024725_2yrf.jpg"
@@ -353,7 +353,7 @@ def seed_products():
         price= 50,
         userId =1,
         category= "Personalized Gifts",
-        highlight = "Handmade",
+        highlight = "Handmade Item",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://images.pexels.com/photos/860009/pexels-photo-860009.jpeg"
@@ -364,7 +364,7 @@ def seed_products():
         price= 70,
         userId = 2,
         category= "Personalized Gifts",
-        highlight = "Handmade",
+        highlight = "Handmade Item",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://images.pexels.com/photos/965981/pexels-photo-965981.jpeg"
@@ -397,7 +397,7 @@ def seed_products():
         price= 90,
         userId =5,
         category= "Home & Living",
-        highlight = "Materials",
+        highlight = "Fall Finds",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://images.pexels.com/photos/6850482/pexels-photo-6850482.jpeg"
@@ -425,15 +425,15 @@ def seed_products():
         previewImage= "https://images.pexels.com/photos/3811836/pexels-photo-3811836.jpeg"
     )
     product39 = Product(
-        name= "Mother of Pearl Initial Necklace, Gold Initial Necklace, chain Necklace, special gift mom, gift for her, Gift for girlfriend, Birthday Gift",
-        description= "Pearl Initial Necklace, Gold Initial Necklace, chain Necklace, special gift mom, gift for her, Gift for girlfriend, Birthday Gift for her",
-        price= 19.80,
+        name= "Black Large Wall Clock, Real Mirror Clock ,Black colored numerals on a Silver colored mirror",
+        description= "Our products are produced from real mirror.You should not choose models made with plexi mirror and mirror effect.Pay attention to this detail before ordering.",
+        price= 120,
         userId = 7,
-        category= "Jewelry & Accessories",
+        category= "Home & Living",
         highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://i.etsystatic.com/32823812/r/il/612a0c/3521058787/il_794xN.3521058787_87cx.jpg"
+        previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
     )
     product40 = Product(
         name= "Nice handmade gift for friends and families for any home decoration.",
@@ -480,92 +480,26 @@ def seed_products():
         previewImage= "https://images.pexels.com/photos/7175390/pexels-photo-7175390.jpeg"
     )
     product44 = Product(
-        name= "10mm Cuban Chain Anklet, Curb Chain Anklet, Gold Chain Anklet, Thick Chain Anklet, Chunky Chain Anklet, Statement Anklet, Trendy Jewelry",
-        description= "These gorgeous chain anklets are made of gold plated stainless steel or stainless steel so it will not tarnish. The anklets are the perfect accessory for the summer. The anklets can be worn on it's own or could easily be layered. Wear this to any occasion and be ready to shine!",
-        price= 24.30,
+        name= "Recycled cloth shirts that have customized prints.",
+        description= "Customers can choose what kind of print they want depending on the size. Please donate any material to process more shirts.",
+        price= 30,
         userId = 9,
-        category= "Jewelry & Accessories",
+        category= "Home & Living",
         highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://i.etsystatic.com/15210578/r/il/d82c36/2510781962/il_794xN.2510781962_rq9b.jpg"
+        previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
     )
     product45 = Product(
-        name= "14k Solid Gold Name Necklace, Dainty Name Necklace, Personalized Gift For Her, Nameplate Necklace, Girls and Mom Name Necklace",
-        description= "Custom Jewelry will be the best gift on the special day for your love one, Personalized name jewelry is very popular nowadays. This is a stunning and special jewelry. Compared with others, it can bring back memories.",
-        price= 45.00,
+        name= "Nice gift for those who love to cook and have a nice looking cutting board.",
+        description= "Our products are produced from fallen redwood trees. Burnt to a nice finish. A nice gift all around.",
+        price= 120,
         userId = 8,
-        category= "Jewelry & Accessories",
+        category= "Home & Living",
         highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://i.etsystatic.com/37849618/r/il/72e839/4242552707/il_340x270.4242552707_cvym.jpg"
-    )
-    product46 = Product(
-        name= "Contemporary Simple Wedding Band",
-        description= "Contemporary wedding band. A simple, statement band, perfect to wear alone or in a stack of rings",
-        price= 74.70,
-        userId = 8,
-        category= "Wedding & Party",
-        highlight = "Made to Order",
-        createdAt= now,
-        updatedAt= now,
-        previewImage= "https://i.etsystatic.com/5906330/c/1156/918/182/232/il/d553b6/1143509502/il_340x270.1143509502_mrva.jpg"
-    )
-    product47 = Product(
-        name= "Welcome Baby Name Banner ∙ Baby Shower Banner ∙ Nursery Room ∙ Baby's Name ∙ Personalized Name ∙ Gender Reveal ∙ Baby Names ∙ Name Reveal",
-        description= "This Banner is created with BLACK Cardstock Letters and features Hearts (in your choice of colors). Letters measure approx 4.5 inches in height by 3.5 inches wide",
-        price= 13.97,
-        userId = 7,
-        category= "Wedding & Party",
-        highlight = "Made to Order",
-        createdAt= now,
-        updatedAt= now,
-        previewImage= "https://i.etsystatic.com/8221505/r/il/a6c42a/2423137272/il_794xN.2423137272_f3l3.jpg"
-    )
-    product48 = Product(
-        name= "Cheers to 60 Years Banner, 60th Birthday Party, 60th Anniversary, 60th Birthday Sign, 60th Birthday Decor, Glitter Banner, 60th Party Banner",
-        description= "Celebrate a 60th birthday or 60th Anniversary with a little sparkle! A great addition to any birthday party, gift idea, or retirement party!",
-        price= 10.26,
-        userId = 6,
-        category= "Wedding & Party",
-        highlight = "Made to Order",
-        createdAt= now,
-        updatedAt= now,
-        previewImage= "https://i.etsystatic.com/37849618/r/il/72e839/4242552707/il_340x270.4242552707_cvym.jpg"
-    )
-    product49 = Product(
-        name= "Wedding Dress Bridal Shower Decorations-Bridal Shower Gift-Mr & Mrs Bridal Shower Centerpiece-Wedding Shower decor-Bridal Shower Favors.",
-        description= "This Bride makes a great gift as well as table centerpieces for your Bridal Shower! Your beautiful Bride is made of all towels. We added tulle to make it look more like a wedding dress. Then we added a bridal bouquet that you can use as a toss bouquet!!",
-        price= 49.95,
-        userId = 5,
-        category= "Wedding & Party",
-        highlight = "Made to Order",
-        createdAt= now,
-        updatedAt= now,
-        previewImage= "https://i.etsystatic.com/9272834/r/il/63d77e/749877056/il_794xN.749877056_n94r.jpg"
-    )
-    product50 = Product(
-        name= "Custom Jordan 4 Retro Metallic Purple Custom Gift OG AJ4 Sneakers, Custom Shoes, Basketball Shoes",
-        description= "The Air Jordan IV 'Tech White' features a white leather upper; Jumpman logo on the heel and tongue; and a classic cement texture on the midsole and eyelets. This new colorway refreshes the AJ4 and breathes new life into the classic AJ4 silhouette, while the original shoe box exudes a touch of classicism.",
-        price= 140.00,
-        userId = 9,
-        category= "Clothing & Shoes",
-        highlight = "Handmade",
-        createdAt= now,
-        updatedAt= now,
-        previewImage= "https://i.etsystatic.com/6162675/r/il/c3f52c/4252550158/il_794xN.4252550158_3puc.jpg"
-    )
-    product51 = Product(
-        name= "Baby shoes for girls – Baby barefoot sandals with pom poms make cute summer gift for toddler girl. Genuine leather shoes handmade in Greece",
-        description= "Get ready and start exploring the world with your little kid, making sure she feels comfortable and stylish!!!",
-        price= 61.00,
-        userId = 3,
-        category= "Clothing & Shoes",
-        highlight = "Handmade",
-        createdAt= now,
-        updatedAt= now,
-        previewImage= "https://i.etsystatic.com/12035891/r/il/c6e7c0/3830985051/il_794xN.3830985051_syvo.jpg"
+        previewImage= "https://images.pexels.com/photos/1087909/pexels-photo-1087909.jpeg"
     )
 
     db.session.add(product01)
@@ -613,12 +547,6 @@ def seed_products():
     db.session.add(product43)
     db.session.add(product44)
     db.session.add(product45)
-    db.session.add(product46)
-    db.session.add(product47)
-    db.session.add(product48)
-    db.session.add(product49)
-    db.session.add(product50)
-    db.session.add(product51)
 
     db.session.commit()
 
