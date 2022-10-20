@@ -17,9 +17,18 @@ class Product(db.Model):
     updatedAt = db.Column(db.DateTime, nullable=False)
     previewImage= db.Column(db.String(1000), nullable=False)
     reviews = db.relationship('Review', back_populates='product', cascade = 'all, delete')
-    cart = db.relationship('Cart', back_populates='products')
+    cartItems = db.relationship('CartItem', back_populates='product', cascade='all, delete')
     user = db.relationship('User', back_populates='products')
     # images = db.relationship('Image', back_populates='product', cascade = 'all, delete')
+    # cartItem = db.relationship('CartItem', back_populates = 'products')
+
+    def get_avgstars(self):
+        if len(self.reviews)>0:
+            avg=sum(d.stars for d in self.reviews)/ len(self.reviews)
+            return avg
+        else:
+            return 0.00
+
 
     def to_dict(self):
         return {
@@ -35,5 +44,7 @@ class Product(db.Model):
             'highlight':self.highlight,
             'createdAt':self.createdAt,
             'updatedAt':self.updatedAt,
-            'previewImage':self.previewImage
+            'previewImage':self.previewImage,
+            'reviews': [review.to_dict() for review in self.reviews],
+            'avgstars': self.get_avgstars()
         }

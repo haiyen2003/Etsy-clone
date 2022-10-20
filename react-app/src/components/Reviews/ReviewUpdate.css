@@ -1,0 +1,119 @@
+.update_review_main {
+    width: 400px;
+    height: 600px;
+}
+
+.update_review_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 25px;
+    height: 600px;
+}
+
+.update_review_header {
+    font-weight: bold;
+    font-size: 15pt;
+}
+
+.update_review_form {
+
+    display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    height: 600px;
+}
+
+.update_review_feedback {
+    font-size: 12pt;
+}
+
+.update_review_question {
+    font-size: 9pt;
+    color: grey;
+    padding: 3px;
+    margin-bottom: 5px;
+}
+
+.update_review_input_inner {
+    width: 350px;
+    height: 40px;
+}
+
+.update_review_input_inner_reviews {
+    width: 350px;
+    height: 70px;
+    resize: none;
+        overflow-y: auto;  
+}
+
+.update_review_photo {
+    font-weight: bold;
+}
+
+.update_review_optional {
+    color: grey;
+    font-weight:lighter;
+}
+
+.update_review_profile_div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.update_review_reviewby_text {
+    margin-left: 10px;
+    font-size: 10pt;
+}
+
+
+.update_review_error {
+    color: red;
+    text-align: center;
+}
+
+.update_review_empty {
+    height: 50px;
+
+}
+
+.update_review_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.update_review_cancel {
+cursor: pointer;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    height: 35px;
+    width: 130px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.update_review_post {
+cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    height: 35px;
+    width: 130px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.update_review_modal_button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.update_review_modal_button:hover {
+    background: none;
+    text-decoration: underline;
+}

@@ -1,0 +1,121 @@
+
+.create_product_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.create_product_form {
+    border: 1px solid lightgrey;
+    width: 1000px;
+    height: 900px;
+}
+
+.create_product_detailtext {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+}
+
+.create_product_input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.create_product_text_box {
+    width: 100px;
+}
+
+.create_product_small_text {
+    color: grey;
+    font-size: 8pt;
+    padding: 5px;
+}
+
+.create_product_input_inner_descript{
+        width: 850px;
+            height: 60px;
+                border-radius: 5px;
+    border: 1px solid grey;
+    resize: none;
+}
+
+.create_product_input_inner_descript:focus {
+    outline: 1px solid orange
+}
+
+.create_product_input_inner {
+    width: 850px;
+    height: 45px;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+.create_product_input_inner:focus {
+    outline: 1px solid orange;
+}
+
+
+.create_product_footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.create_product_footer2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.create_product_rightside {
+
+}
+
+.create_product_cancel {
+    cursor: pointer;
+        background-color: white;
+
+        border-radius: 5px;
+        height: 35px;
+        width: 100%;
+        font-weight: bold;
+}
+
+.create_product_cancel_text {
+    margin-left: 10px;
+    color: grey;
+}
+
+.create_product_cancel_bold {
+    font-weight: bold;
+    color: black;
+}
+
+.create_product_button {
+    cursor: pointer;
+        background-color: black;
+        color: white;
+        border-radius: 5px;
+        height: 35px;
+        width: 100%;
+        font-weight: bold;
+}
+
+.create_product_error {
+    color: red;
+    text-align: center;
+}
+
+.create_product_empty {
+    height: 130px;
+    border-bottom: 1px solid lightgrey;
+}

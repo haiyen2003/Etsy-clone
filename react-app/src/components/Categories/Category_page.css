@@ -1,0 +1,231 @@
+.splash-container{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  /* .top-container{
+    width:100%;
+    height: 700px;
+    display:flex;
+    flex-direction:column;
+  } */
+  #welcome_msg{
+    background-color: #F8EBE6;
+    height: 40px;
+    margin-top: -10px;
+  }
+
+  #welcome_msg h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 36px;
+    color: #222222;
+    font-style: normal;
+    margin: 0;
+    margin-top: 10px;
+  }
+
+  .background-band{
+    margin-top:-69px;
+
+    width:100%;
+    height:130px;
+    background-color:#F8EBE6;
+    position:relative;
+    top:70px;
+
+  }
+
+  .categoryproducts{
+    margin-left:240px;
+    margin-right:240px;
+    display: flex;
+    justify-content: space-around;
+    justify-items:space-around;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nonwrap;
+    column-gap:60px;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    top:-10px;
+
+  }
+
+  .category_link{
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .category_img{
+    width:100px;
+    height: 100px;
+    border-radius: 500px;
+  }
+
+
+  .category_name{
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    color: #595959;
+    text-align: center;
+
+  }
+  .categorydiv{
+   height:auto;
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .productdiv{
+    height:auto;
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    }
+  .product_category_name{
+   font-weight:600;
+
+  }
+  .product_category_image{
+    width:115px;
+    height:115px;
+    border-radius:50%;
+    object-fit:fill;
+    border:1px solid rgb(200, 200,200);
+  }
+  .all_products_container{
+    /* margin-top:330px; */
+    margin-left:40px;
+    margin-right:40px;
+
+    justify-content: center;
+    justify-items:center;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    column-gap:10px;
+    row-gap:20px;
+    position:relative;
+    top:70px;
+  }
+
+    .product_header{
+      margin-left:-1040px;
+
+      justify-content: start;
+     /* justify-items:center; */
+     display:flex;
+
+      font-weight:700;
+      font-size:28px;
+      color:black;
+      /* margin-bottom:200px; */
+      position:relative;
+      top:60px;
+    }
+  .productlist_image{
+    height:200px;
+    width: 250px;
+    border-radius: 12px;
+    display:flex;
+    object-fit:cover;
+    display:flex;
+    justify-content:center;
+    padding:2px;
+
+  }
+  .product_info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top:10px;
+    font-size: 16;
+    width:250px;
+    font-weight:700px;
+
+  }
+  .product_navlink{
+    text-decoration: none;
+    display:grid;
+    justify-self:center;
+    align-items:center;
+    padding:5px;
+    color:black;
+  }
+
+.category-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.category_products_container{
+    margin-left:40px;
+    margin-right:40px;
+
+    font-family: Cambria;
+    justify-content: center;
+    justify-items:center;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    column-gap:10px;
+    row-gap:20px;
+    position:relative;
+    top:70px;
+}
+
+.category_product{
+  height:auto;
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+}
+
+.category_product_navlink{
+  text-decoration: none;
+    display:grid;
+    justify-self:center;
+    align-items:center;
+    padding:5px;
+    color:black;
+}
+
+.category_product_image{
+  height:200px;
+    width: 250px;
+    border-radius: 12px;
+    display:flex;
+    object-fit:cover;
+    display:flex;
+    justify-content:center;
+    padding:2px;
+}
+
+.category_productinfo{
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top:10px;
+    font-size: 16;
+    font-family:sans-serif;
+    width:250px;
+    font-weight:700px;
+}
+
+.category-container-header{
+  margin-left:5em;
+}

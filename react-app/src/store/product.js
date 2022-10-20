@@ -7,8 +7,6 @@ const getOneProduct = '/product/getOneProduct'
 const updateProduct = '/product/updateProduct'
 const deleteProduct = '/product/deleteProduct'
 
-
-
 // ACTION CREATORS
 
 const actionCreateProduct = (product) => {
@@ -54,13 +52,11 @@ const actionDeleteProduct = (id) => {
 }
 
 
-
-
 // THUNKS
 export const thunkCreateProduct = (payload) => async dispatch => {
     const response = await fetch('/api/products/new', {
         method: 'POST',
-        header: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(payload)
     })
     if (response.ok) {
@@ -73,7 +69,7 @@ export const thunkCreateProduct = (payload) => async dispatch => {
 export const thunkGetAllProduct = () => async dispatch => {
     const response = await fetch("/api/products/", {
       method: "GET",
-      header: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" },
     });
 
     // console.log('getthunkallres', response)
@@ -89,7 +85,7 @@ export const thunkGetAllProduct = () => async dispatch => {
 export const thunkGetCurrentProduct = () => async dispatch => {
     const response = await fetch('/api/products/current', {
         method: "GET",
-        header: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json" },
     })
 
     if (response.ok) {
@@ -101,7 +97,7 @@ export const thunkGetCurrentProduct = () => async dispatch => {
 export const thunkGetOneProduct = (id) => async dispatch => {
     const response = await fetch(`/api/products/${id}`, {
       method: "GET",
-      header: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
@@ -111,11 +107,14 @@ export const thunkGetOneProduct = (id) => async dispatch => {
 }
 
 export const thunkUpdateProduct = (payload) => async dispatch => {
-    const response = await fetch(`/api/products/${payload.id}`, {
+    const response = await fetch(`/api/products/${payload.id}/edit`, {
       method: "PUT",
-      header: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
+    console.log('response', response)
+    console.log('payload', payload)
+    console.log('thunk', payload.id)
 
     if (response.ok) {
         const data = await response.json()
@@ -135,17 +134,13 @@ export const thunkDeleteProduct = (id) => async dispatch => {
 }
 
 
-
-
-
-
 const initialState = {}
-
 
 const productReducer = (state = initialState, action) => {
     let newState = {...state}
     switch (action.type) {
       case createProduct:
+        
         newState[action.product.id] = action.product;
         return newState;
       case getAllProduct:
@@ -175,9 +170,5 @@ const productReducer = (state = initialState, action) => {
         return state;
     }
 }
-
-
-
-
 
 export default productReducer
