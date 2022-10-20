@@ -6,7 +6,9 @@ import {  thunkGetOneProduct } from "../../store/product";
 import './ProductDetailPage.css'
 import { thunkGetAllProductReview } from "../../store/review";
 import ReviewCreateModal from "../Reviews/ReviewCreateModal";
+import {Rating} from 'react-simple-star-rating'
 import {FaStar} from 'react-icons/fa'
+
 
 
 function ProductDetailPage() {
@@ -18,10 +20,11 @@ function ProductDetailPage() {
     const user = useSelector(state => state.session.user)
 
     const review = useSelector(state => state.review)
-    // console.log(review)
+ 
     const reviewArray = Object.values(review)
     const reviewCount = Object.values(review).length
-    // console.log("review array",reviewArray)
+
+  
 
     const today = new Date()
     const tomorrow = new Date()
@@ -80,7 +83,7 @@ function ProductDetailPage() {
                             <label>
                               <FaStar
                                 color={
-                                  reviewArray.length / 3 > index
+                                  reviewArray.length > index
                                     ? "black"
                                     : "lightgrey"
                                 }

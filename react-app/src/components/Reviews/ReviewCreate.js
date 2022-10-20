@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {FaStar} from 'react-icons/fa'
+import { Rating } from 'react-simple-star-rating'
 import { useHistory, useParams } from "react-router-dom";
 
 import { thunkCreateReview } from "../../store/review";
@@ -25,7 +26,9 @@ function ReviewCreate({ setShowModal, review }) {
   const [submit, setSubmit] = useState(false);
   const [validations, setValidations] = useState(false);
 
-
+const starsClick = (rate) => {
+  setCreatedStar(rate);
+};
 
 
   useEffect(() => {
@@ -87,8 +90,8 @@ function ReviewCreate({ setShowModal, review }) {
             ></input>
           </div> */}
 
-          <div style={{display: 'flex'}}>
-            {["star1", "star2", "sta3r", "star4", "star5"].map((star, index) => {
+          <div style={{ display: "flex" }}>
+            {/* {["star1", "star2", "star3", "star4", "star5"].map((star, index) => {
               let starValue = index + 1;
               return (
                 <div>
@@ -104,7 +107,16 @@ function ReviewCreate({ setShowModal, review }) {
                   </label>
                 </div>
               );
-            })}
+            })} */}
+            <Rating
+              onClick={starsClick}
+              allowHover={false}
+              size={25}
+              fillColor={"black"}
+              emptyColor={"lightgrey"}
+              initialValue={createdStar}
+              ratingValue={createdStar}
+            />
           </div>
 
           <div>

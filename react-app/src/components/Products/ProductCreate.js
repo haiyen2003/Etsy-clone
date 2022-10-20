@@ -16,7 +16,7 @@ function ProductCreate() {
     const [category, setCategory] = useState('')
     const [highlight, setHighlight] = useState('')
     const [previewImage, setPreviewImage] = useState('')
-    const [submit, setSubmit] = useState(false)
+    // const [submit, setSubmit] = useState(false)
     const [validations, setValidations] = useState([])
 
     useEffect(() => {
@@ -24,8 +24,8 @@ function ProductCreate() {
         if (name.length < 5) errors.push('Please enter a name')
         if (!description.length || description.length < 20) errors.push('Please enter a description more than 20 characters')
         if (!price) errors.push('Please enter a valid price')
-        if (!category.length) errors.push('Please enter a category')
-        if (!highlight.length || !highlight.length < 10) errors.push('Please enter a highlight more than 10 characters')
+        // if (!category.length) errors.push('Please enter a category')
+        // if (!highlight.length || !highlight.length < 10) errors.push('Please enter a highlight more than 10 characters')
         if (
           (!previewImage.includes("jpg") &&
             !previewImage.includes("png") &&
@@ -35,13 +35,24 @@ function ProductCreate() {
         ) 
           errors.push("Please enter a valid url image");
         setValidations(errors)
-    }, [name, description, price, category, highlight, previewImage])
+    }, [name, description, price, previewImage])
 
+
+      let Categories_Choices = [
+        "Home & Living",
+        "Art & Collectibles",
+        "Clothing & Shoes",
+        "Jewelry & Accessories",
+        "Wedding & Party",
+        "Personalized Gifts",
+      ];
+
+      let Hightlight_Choices = ["Materials", "Handmade", "Made to Order"];
 
 
     const onSubmit = async (event) => {
         event.preventDefault()
-        setSubmit(!submit)
+        // setSubmit(!submit)
         const payload = {
             name,
             description,
@@ -132,14 +143,29 @@ function ProductCreate() {
                 </div>
               </div>
               <div>
-                <input
+                {/* <input
                   type="text"
                   name="category"
                   value={category}
                   placeholder="Art & Collectibles, Home & Living, Wedding & Party, etc."
                   className="create_product_input_inner"
                   onChange={(event) => setCategory(event.target.value)}
-                ></input>
+                ></input> */}
+                <select
+                  required
+                  name="category"
+                  value={category}
+                  onChange={(event) => setCategory(event.target.value)}
+                >
+                  <option value="" disabled>
+                    Select a category
+                  </option>
+                  {Categories_Choices.map((category) => (
+                    <option key={category} value={category}>
+                      {category}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
             <div className="create_product_input">
@@ -150,13 +176,28 @@ function ProductCreate() {
                 </div>
               </div>
               <div>
-                <input
+                {/* <input
                   type="text"
                   name="highlight"
                   value={highlight}
                   className="create_product_input_inner"
                   onChange={(event) => setHighlight(event.target.value)}
-                ></input>
+                ></input> */}
+                <select
+                  required
+                  name="highlight"
+                  value={highlight}
+                  onChange={(event) => setHighlight(event.target.value)}
+                >
+                  <option value="" disabled>
+                    Select a highlight
+                  </option>
+                  {Hightlight_Choices.map((highlight) => (
+                    <option key={highlight} value={highlight}>
+                      {highlight}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
             <div className="create_product_input">
@@ -176,7 +217,7 @@ function ProductCreate() {
                 ></input>
               </div>
             </div>
-            {validations.length > 0 && submit ? (
+            {validations.length > 0 ? (
               <div className="create_product_empty">
                 <div className="create_product_error">
                   {validations.map((error, i) => (
@@ -184,7 +225,9 @@ function ProductCreate() {
                   ))}
                 </div>
               </div>
-            ) : (<div className="create_product_empty"></div>)}
+            ) : (
+              <div className="create_product_empty"></div>
+            )}
             <div className="create_product_footer">
               <div className="create_product_footer2">
                 <div>
@@ -206,7 +249,7 @@ function ProductCreate() {
                 <button
                   className="create_product_button"
                   type="submit"
-                  disabled={validations.length > 0 && submit}
+                  disabled={validations.length > 0}
                 >
                   Create Product
                 </button>

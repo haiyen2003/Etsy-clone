@@ -60,16 +60,15 @@ function MyReviews() {
                     <div className="my_review_starbox">
                       <div style={{ display: "flex", alignItems: 'center' }}>
                         <div className="my_review_star_text">{`Your Review`}</div>
-                        {["star1", "star2", "sta3r", "star4", "star5"].map(
+                        {["star1", "star2", "star3", "star4", "star5"].map(
                           (star, index) => {
-                            let starValue = index + 1;
                             return (
                               <div>
 
                                 <label>
                                   <FaStar
                                     color={
-                                      review.stars >= starValue
+                                      review.stars > index
                                         ? "black"
                                         : "lightgrey"
                                     }

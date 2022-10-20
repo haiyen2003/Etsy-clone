@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { useDispatch} from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { useHistory } from "react-router-dom";
-import { thunkGetOneProduct, thunkUpdateProduct } from "../../store/product";
+import { thunkGetCurrentProduct, thunkGetOneProduct, thunkUpdateProduct } from "../../store/product";
 import "./ProductUpdate.css";
 
-function ProductUpdate({product}) {
+function ProductUpdate() {
   const history = useHistory();
   const dispatch = useDispatch();
+
+  const product = useSelector(state => state.product)
 
   const [name, setName] = useState(product.name);
   const [description, setDescription] = useState(product.description);
@@ -23,19 +25,19 @@ function ProductUpdate({product}) {
     if (!description || description?.length < 20)
       errors.push("Please enter a description more than 20 characters");
     if (!price) errors.push("Please enter a valid price");
-    if (!category?.length) errors.push("Please enter a category");
-    if (!highlight || highlight?.length < 5)
-      errors.push("Please enter a highlight more than 5 characters");
+    // if (!category?.length) errors.push("Please enter a category");
+    // if (!highlight || highlight?.length < 5)
+    //   errors.push("Please enter a highlight more than 5 characters");
     if (
-      (!previewImage.includes("jpg") &&
-        !previewImage.includes("png") &&
-        !previewImage.includes("jpeg") &&
-        !previewImage.includes("svg")) ||
-      (!previewImage.includes("https") && !previewImage.includes("http"))
+      (!previewImage?.includes("jpg") &&
+        !previewImage?.includes("png") &&
+        !previewImage?.includes("jpeg") &&
+        !previewImage?.includes("svg")) ||
+      (!previewImage?.includes("https") && !previewImage?.includes("http"))
     )
       errors.push("Please enter a valid url image");
     setValidations(errors);
-  }, [name, description, price, category, highlight, previewImage]);
+  }, [name, description, price, previewImage]);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -50,16 +52,29 @@ function ProductUpdate({product}) {
       previewImage,
     };
 
-    let updatedProduct = await dispatch(thunkUpdateProduct(payload));
+    // let updatedProduct = 
+    await dispatch(thunkUpdateProduct(payload));
 
     // console.log(updatedProduct)
 
-    //   await dispatch(thunkGetOneProduct(payload.id))
+      // await dispatch(thunkGetOneProduct(payload.id))
+      await dispatch(thunkGetCurrentProduct())
     
-    if (updatedProduct) {
-      history.push(`/products/${updatedProduct.id}`);
-    }
+    // if (updatedProduct) {
+    //   history.push(`/products/${updatedProduct.id}`);
+    // }
   };
+
+  let Categories_Choices = [
+    "Home & Living",
+    "Art & Collectibles",
+    "Clothing & Shoes",
+    "Jewelry & Accessories",
+    "Wedding & Party",
+    "Personalized Gifts",
+  ];
+
+  let Hightlight_Choices = ["Materials", "Handmade", "Made to Order"];
 
   return (
     <div className="update_product_main">
@@ -133,14 +148,29 @@ function ProductUpdate({product}) {
               </div>
             </div>
             <div>
-              <input
+              {/* <input
                 type="text"
                 name="category"
                 value={category}
                 placeholder="Art & Collectibles, Home & Living, Wedding & Party, etc."
                 className="update_product_input_inner"
                 onChange={(event) => setCategory(event.target.value)}
-              ></input>
+              ></input> */}
+              <select
+                required
+                name="category"
+                value={category}
+                onChange={(event) => setCategory(event.target.value)}
+              >
+                <option value="" disabled>
+                  Select a category
+                </option>
+                {Categories_Choices.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
           <div className="update_product_input">
@@ -151,13 +181,28 @@ function ProductUpdate({product}) {
               </div>
             </div>
             <div>
-              <input
+              {/* <input
                 type="text"
                 name="highlight"
                 value={highlight}
                 className="update_product_input_inner"
                 onChange={(event) => setHighlight(event.target.value)}
-              ></input>
+              ></input> */}
+              <select
+                required
+                name="highlight"
+                value={highlight}
+                onChange={(event) => setHighlight(event.target.value)}
+              >
+                <option value="" disabled>
+                  Select a highlight
+                </option>
+                {Hightlight_Choices.map((highlight) => (
+                  <option key={highlight} value={highlight}>
+                    {highlight}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
           <div className="update_product_input">

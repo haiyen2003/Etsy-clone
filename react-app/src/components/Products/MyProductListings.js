@@ -44,7 +44,7 @@ function MyProductListings() {
             <div className="my_product_listing_name">{product.name}</div>
             </div>
             <div>
-              <ProductUpdate product={product} />
+              <ProductUpdate />
               <ProductDelete product={product} />
             </div>
           </div>
