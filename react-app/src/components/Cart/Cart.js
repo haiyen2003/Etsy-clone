@@ -16,7 +16,7 @@ function Cart() {
   useEffect(() => { dispatch(getCartThunk()) }, [dispatch, items.length])
   // useEffect(() => { dispatch(updateCartThunk()) }, [dispatch])
   if (!items || !items.length) return (
-    <div className="cart">
+    <div className="cart-empty">
       No items in the cart. Start selecting items to purchase.
     </div>
   );

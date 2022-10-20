@@ -1,7 +1,7 @@
 function OrderCompleted() {
 
     return(
-        <div>Your order has been completed!</div>
+        <div className="cart-order-completed">Your order has been completed!</div>
     )
 }
 
