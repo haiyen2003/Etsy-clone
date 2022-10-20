@@ -38,10 +38,9 @@ def imageURL_validation(form, field):
 
 
 class ProductForm(FlaskForm):
-    name = StringField("Product Name", validators= [DataRequired(), name_validation])
-    description = TextAreaField("Product Description", validators= [DataRequired(), description_validation])
-    price = DecimalField("Price", validators=[DataRequired(), price_validation], places=2, rounding = ROUND_HALF_UP)
-    category = StringField("Category", validators=[DataRequired()])
-    highlight = StringField("Highlights", validators=[DataRequired(), highlights_validation])
-    previewImage = StringField("Image URL", validators= [DataRequired(), imageURL_validation])
-    submit = SubmitField("Submit")
+    name = StringField("name", validators= [DataRequired(), name_validation])
+    description = TextAreaField("description", validators= [DataRequired(), description_validation])
+    price = DecimalField("price", validators=[DataRequired(), price_validation], places=2, rounding = ROUND_HALF_UP)
+    category = StringField("category", validators=[DataRequired()])
+    highlight = StringField("highlight", validators=[DataRequired(), highlights_validation])
+    previewImage = StringField("previewImage", validators= [DataRequired(), imageURL_validation])

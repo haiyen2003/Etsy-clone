@@ -145,6 +145,7 @@ const productReducer = (state = initialState, action) => {
     let newState = {...state}
     switch (action.type) {
       case createProduct:
+        
         newState[action.product.id] = action.product;
         return newState;
       case getAllProduct:
