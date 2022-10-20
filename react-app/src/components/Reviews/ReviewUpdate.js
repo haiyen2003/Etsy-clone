@@ -23,6 +23,8 @@ function ReviewUpdate({review, setShowModal}) {
       setUpdatedStar(rate / 20)
     }
 
+    // console.log(setUpdatedStar, )
+
     useEffect(() => {
         const errors = []
         if (updatedStar <= 0 || updatedStar > 5) errors.push('Stars must be greater than 0 and less than 5')
