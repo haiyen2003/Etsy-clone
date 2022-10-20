@@ -39,7 +39,7 @@ function ClothingCategory() {
 
 
             <div className='all_products_container'>
-
+            <h1>Find something you love in Clothing & Shoes</h1>
                 {categoryproducts && categoryproducts?.map((product) => (
                 <div calssName= 'productdiv' key={product.id}>
 

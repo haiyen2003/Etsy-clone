@@ -33,13 +33,8 @@ function GiftCategory() {
     return (
         <div className='splash-container'>
 
-
-
-
-
-
             <div className='all_products_container'>
-
+            <h1>Find something you love in Personalized Gifts</h1>
                 {categoryproducts && categoryproducts?.map((product) => (
                 <div calssName= 'productdiv' key={product.id}>
 
