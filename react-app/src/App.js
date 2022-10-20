@@ -24,6 +24,7 @@ import JewelryCategory from './components/Categories/Jewelry';
 
 
 
+
 function App(){
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -44,6 +45,9 @@ function App(){
         <Switch>
           <Route path="/" exact={true}>
             <ProductList />
+          </Route>
+          <Route exact path='/myreviews'>
+            <MyReviews />
           </Route>
           <Route exact path="/products/:id">
             <ProductDetailPage />

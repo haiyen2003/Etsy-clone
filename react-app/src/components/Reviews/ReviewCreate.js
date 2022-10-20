@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { thunkGetCurrentProduct } from "../../store/product";
+import { useDispatch, useSelector } from "react-redux";
+import {FaStar} from 'react-icons/fa'
+import { Rating } from 'react-simple-star-rating'
 import { useHistory, useParams } from "react-router-dom";
 
 import { thunkCreateReview } from "../../store/review";
@@ -13,6 +14,9 @@ function ReviewCreate({ setShowModal, review }) {
   const {id} = useParams()
   const history = useHistory()
 
+  const user = useSelector(state => state.session.user)
+  // console.log(user)
+
 
 
 
@@ -21,8 +25,10 @@ function ReviewCreate({ setShowModal, review }) {
   // const [createdReviewImg, setcreatedReviewImg] = useState(review.reviewImg)
   const [submit, setSubmit] = useState(false);
   const [validations, setValidations] = useState(false);
-  const [stars, setStars] = useState(0);
 
+const starsClick = (rate) => {
+  setCreatedStar(rate);
+};
 
 
   useEffect(() => {
@@ -74,7 +80,7 @@ function ReviewCreate({ setShowModal, review }) {
         <form className="create_review_form" onSubmit={onSubmit}>
           <div className="create_review_header">My review</div>
 
-          <div>
+          {/* <div>
             <input
               type="number"
               name="stars"
@@ -82,10 +88,39 @@ function ReviewCreate({ setShowModal, review }) {
               className="create_review_input_inner"
               onChange={(event) => setCreatedStar(event.target.value)}
             ></input>
+          </div> */}
+
+          <div style={{ display: "flex" }}>
+            {/* {["star1", "star2", "star3", "star4", "star5"].map((star, index) => {
+              let starValue = index + 1;
+              return (
+                <div>
+                  <label style={{ cursor: "pointer" }}>
+                    <input
+                      style={{ display: "none" }}
+                      type="radio"
+                      name="star"
+                      value={starValue}
+                      onClick={() => setCreatedStar(starValue)}
+                    ></input>
+                    <FaStar color={createdStar >= starValue ? "black" : "lightgrey"} size={25} />
+                  </label>
+                </div>
+              );
+            })} */}
+            <Rating
+              onClick={starsClick}
+              allowHover={false}
+              size={25}
+              fillColor={"black"}
+              emptyColor={"lightgrey"}
+              initialValue={createdStar}
+              ratingValue={createdStar}
+            />
           </div>
 
-         <div>
-          <input
+          <div>
+            {/* <input
 
             type='checkbox'
             name='stars'
@@ -110,10 +145,9 @@ function ReviewCreate({ setShowModal, review }) {
 
 
           />
-          <label htmlFor='s2'><i className="fas fa-thin fa-star" ></i></label>
+          <label htmlFor='s2'><i className="fas fa-thin fa-star" ></i></label> */}
 
-
-          {/* <input
+            {/* <input
              type='checkbox'
 
 
@@ -121,14 +155,11 @@ function ReviewCreate({ setShowModal, review }) {
 
           /> */}
 
-          {/* <label><i className="fas fa-solid fa-star" id='s2'></i></label>
+            {/* <label><i className="fas fa-solid fa-star" id='s2'></i></label>
           <label><i className="fas fa-solid fa-star" id='s3'></i></label>
           <label><i className="fas fa-solid fa-star" id='s4'></i></label>
           <label><i className="fas fa-solid fa-star" id='s5'></i></label> */}
-
-         </div>
-
-
+          </div>
 
           <div>
             <div className="create_review_feedback">
@@ -165,7 +196,7 @@ function ReviewCreate({ setShowModal, review }) {
             <i className="fa-regular fa-face-grin-wide fa-2xl"></i>
             <div className="create_review_reviewby_text">
               <div>Reviewed by</div>
-              <div>{review.firstName}</div>
+              <div>{user?.firstName}</div>
             </div>
           </div>
           {validations.length > 0 && submit ? (
@@ -179,22 +210,22 @@ function ReviewCreate({ setShowModal, review }) {
           ) : (
             <div className="create_review_empty"></div>
           )}
-        <div className="create_review_buttons">
-          <div>
-            <button onClick={onClick} className="create_review_cancel">
-              Cancel
-            </button>
+          <div className="create_review_buttons">
+            <div>
+              <button onClick={onClick} className="create_review_cancel">
+                Cancel
+              </button>
+            </div>
+            <div>
+              <button
+                disabled={validations.length > 0 && submit}
+                type="submit"
+                className="create_review_post"
+              >
+                Create Your Review
+              </button>
+            </div>
           </div>
-          <div>
-            <button
-              disabled={validations.length > 0 && submit}
-              type="submit"
-              className="create_review_post"
-            >
-              Create Your Review
-            </button>
-          </div>
-        </div>
         </form>
       </div>
     </div>

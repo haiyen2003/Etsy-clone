@@ -6,6 +6,9 @@ import {  thunkGetOneProduct } from "../../store/product";
 import './ProductDetailPage.css'
 import { thunkGetAllProductReview } from "../../store/review";
 import ReviewCreateModal from "../Reviews/ReviewCreateModal";
+import {Rating} from 'react-simple-star-rating'
+import {FaStar} from 'react-icons/fa'
+
 
 
 function ProductDetailPage() {
@@ -17,10 +20,11 @@ function ProductDetailPage() {
     const user = useSelector(state => state.session.user)
     // const productArr = Object.values(product);
     const review = useSelector(state => state.review)
-    // console.log(review)
+ 
     const reviewArray = Object.values(review)
     const reviewCount = Object.values(review).length
-    // console.log("review array",reviewArray)
+
+  
 
 
     const today = new Date()
@@ -75,12 +79,25 @@ function ProductDetailPage() {
                       {reviewCount} reviews&nbsp;
                     </span>
                   </div>
-                  <div>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-regular fa-star"></i>
+                  <div style={{ display: "flex" }}>
+                    {["star1", "star2", "star3", "star4", "star5"].map(
+                      (star, index) => {
+                        return (
+                          <div>
+                            <label>
+                              <FaStar
+                                color={
+                                  reviewArray.length > index
+                                    ? "black"
+                                    : "lightgrey"
+                                }
+                                size={20}
+                              />
+                            </label>
+                          </div>
+                        );
+                      }
+                    )}
                   </div>
                 </div>
 
@@ -102,8 +119,24 @@ function ProductDetailPage() {
                     {/* <div id='reviewowner'>{review.User ? review.User.firstName: 'Annoymous'}</div> */}
                     <div className="review_container">
                       <div className="review_stars_container">
-                        <div>{review.stars}&nbsp;</div>
-                        <i className="fa-solid fa-star"></i>
+                        {["star1", "star2", "star3", "star4", "star5"].map(
+                          (star, index) => {
+                            return (
+                              <div>
+                                <label>
+                                  <FaStar
+                                    color={
+                                      review.stars > index
+                                        ? "black"
+                                        : "lightgrey"
+                                    }
+                                    size={20}
+                                  />
+                                </label>
+                              </div>
+                            );
+                          }
+                        )}
                       </div>
                       <div>
                         <div className="review_container_text">

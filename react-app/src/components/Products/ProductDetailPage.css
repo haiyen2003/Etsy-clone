@@ -161,6 +161,8 @@ padding: 15px;
 .review_container_text {
     padding-top: 5px;
     font-size: 15pt;
+    word-break: break-all;
+        white-space: pre-wrap;
 }
 
 .review_user_profile {

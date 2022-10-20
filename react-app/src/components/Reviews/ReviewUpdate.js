@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { thunkUpdateReview } from '../../store/review'
+import {Rating} from 'react-simple-star-rating'
 
 
 
@@ -17,6 +18,10 @@ function ReviewUpdate({review, setShowModal}) {
     // const [updatedReviewImg, setUpdatedReviewImg] = useState(review.reviewImg)
     const [submit, setSubmit] = useState(false)
     const [validations, setValidations] = useState(false)
+
+    const starsClick = (rate) => {
+      setUpdatedStar(rate)
+    }
 
     useEffect(() => {
         const errors = []
@@ -62,7 +67,7 @@ function ReviewUpdate({review, setShowModal}) {
         <div className="update_review_div">
           <form className="update_review_form" onSubmit={onSubmit}>
             <div className="update_review_header">My review</div>
-            <div>
+            {/* <div>
               <input
                 type="number"
                 name="stars"
@@ -70,6 +75,41 @@ function ReviewUpdate({review, setShowModal}) {
                 className="update_review_input_inner"
                 onChange={(event) => setUpdatedStar(event.target.value)}
               ></input>
+            </div> */}
+            <div style={{ display: "flex" }}>
+              {/* {["star1", "star2", "star3", "star4", "star5"].map(
+                (star, index) => {
+                  let starValue = index + 1;
+                  return (
+                    <div>
+                      <label style={{ cursor: "pointer" }}>
+                        <input
+                          style={{ display: "none" }}
+                          type="radio"
+                          name="star"
+                          value={starValue}
+                          onClick={() => setUpdatedStar(starValue)}
+                        ></input>
+                        <FaStar
+                          color={
+                            updatedStar >= starValue ? "black" : "lightgrey"
+                          }
+                          size={25}
+                        />
+                      </label>
+                    </div>
+                  );
+                }
+              )} */}
+              <Rating 
+                onClick={starsClick}
+                allowHover={false}
+                size={25}
+                fillColor={"black"}
+                emptyColor={"lightgrey"}
+                initialValue={updatedStar}
+                ratingValue={updatedStar}
+              />
             </div>
             <div>
               <div className="update_review_feedback">
@@ -118,18 +158,18 @@ function ReviewUpdate({review, setShowModal}) {
             ) : (
               <div className="update_review_empty"></div>
             )}
-          <div className="update_review_buttons">
-            <div>
-              <button onClick={onClick} className="update_review_cancel">
-                Cancel
-              </button>
+            <div className="update_review_buttons">
+              <div>
+                <button onClick={onClick} className="update_review_cancel">
+                  Cancel
+                </button>
+              </div>
+              <div>
+                <button type="submit" className="update_review_post">
+                  Post Your Review
+                </button>
+              </div>
             </div>
-            <div>
-              <button type="submit" className="update_review_post">
-                Post Your Review
-              </button>
-            </div>
-          </div>
           </form>
         </div>
       </div>

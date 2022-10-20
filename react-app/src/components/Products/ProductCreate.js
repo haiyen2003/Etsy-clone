@@ -16,7 +16,7 @@ function ProductCreate() {
     const [category, setCategory] = useState('')
     const [highlight, setHighlight] = useState('')
     const [previewImage, setPreviewImage] = useState('')
-    // const [submit, setSubmit] = useState(false)
+    // // const [submit, setSubmit] = useState(false)
     const [validations, setValidations] = useState([])
 
     useEffect(() => {
@@ -35,13 +35,24 @@ function ProductCreate() {
         )
           errors.push("Please enter a valid url image");
         setValidations(errors)
-    }, [name, description, price, category, highlight, previewImage])
+    }, [name, description, price, previewImage])
 
+
+      // let Categories_Choices = [
+      //   "Home & Living",
+      //   "Art & Collectibles",
+      //   "Clothing & Shoes",
+      //   "Jewelry & Accessories",
+      //   "Wedding & Party",
+      //   "Personalized Gifts",
+      // ];
+
+      // let Highlight_Choices = ["Materials", "Handmade", "Made to Order"];
 
 
     const onSubmit = async (event) => {
         event.preventDefault()
-        // setSubmit(!submit)
+        // // setSubmit(!submit)
         const payload = {
             name,
             description,
@@ -61,7 +72,7 @@ function ProductCreate() {
 
     let Categories_Choices = ["Home & Living", "Art & Collectibles", "Clothing & Shoes", "Jewelry & Accessories", "Wedding & Party", "Personalized Gifts"]
 
-    let Hightlight_Choices = ["Materials", "Handmade", "Made to Order"]
+    let Highlight_Choices = ["Materials", "Handmade", "Made to Order"]
 
 
     return (
@@ -142,7 +153,7 @@ function ProductCreate() {
                 </div>
               </div>
               <div>
-                <select
+                {/* <select
                 required
                 name="category"
                 value={category}
@@ -161,6 +172,21 @@ function ProductCreate() {
                   className="create_product_input_inner"
                   onChange={(event) => setCategory(event.target.value)}
                 ></input> */}
+                <select
+                  required
+                  name="category"
+                  value={category}
+                  onChange={(event) => setCategory(event.target.value)}
+                >
+                  <option value="" disabled>
+                    Select a category
+                  </option>
+                  {Categories_Choices.map((category) => (
+                    <option key={category} value={category}>
+                      {category}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
             <div className="create_product_input">
@@ -178,17 +204,32 @@ function ProductCreate() {
                 onChange={(event) => setHighlight(event.target.value)}
                 >
                   <option value='' disabled>Select a highlight</option>
-                  {Hightlight_Choices.map((highlight)=> <option key= {highlight} value={highlight}>
+                  {Highlight_Choices.map((highlight)=> <option key= {highlight} value={highlight}>
                   {highlight}
                   </option>)}
                 </select>
-                {/* <input
+                {/* {/* <input
                   type="text"
                   name="highlight"
                   value={highlight}
                   className="create_product_input_inner"
                   onChange={(event) => setHighlight(event.target.value)}
                 ></input> */}
+                {/* <select
+                  required
+                  name="highlight"
+                  value={highlight}
+                  onChange={(event) => setHighlight(event.target.value)}
+                >
+                  <option value="" disabled>
+                    Select a highlight
+                  </option>
+                  {Highlight_Choices.map((highlight) => (
+                    <option key={highlight} value={highlight}>
+                      {highlight}
+                    </option>
+                  ))}
+                </select> */}
               </div>
             </div>
             <div className="create_product_input">
@@ -219,7 +260,9 @@ function ProductCreate() {
                   ))}
                 </div>
               </div>
-            ) : (<div className="create_product_empty"></div>)}
+            ) : (
+              <div className="create_product_empty"></div>
+            )}
             <div className="create_product_footer">
               <div className="create_product_footer2">
                 <div>
@@ -242,7 +285,7 @@ function ProductCreate() {
                   className="create_product_button"
                   type="submit"
                   disabled={validations.length > 0
-                    // && submit
+                    //
                   }
                 >
                   Create Product

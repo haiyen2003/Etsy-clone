@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { useDispatch} from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { useHistory } from "react-router-dom";
-import { thunkGetOneProduct, thunkUpdateProduct } from "../../store/product";
+import { thunkGetCurrentProduct, thunkGetOneProduct, thunkUpdateProduct } from "../../store/product";
 import "./ProductUpdate.css";
 
-function ProductUpdate({product}) {
+function ProductUpdate() {
   const history = useHistory();
   const dispatch = useDispatch();
+
+  const product = useSelector(state => state.product)
 
   const [name, setName] = useState(product.name);
   const [description, setDescription] = useState(product.description);
@@ -27,15 +29,15 @@ function ProductUpdate({product}) {
     // if (!highlight || highlight?.length < 5)
       // errors.push("Please enter a highlight more than 5 characters");
     if (
-      (!previewImage.includes("jpg") &&
-        !previewImage.includes("png") &&
-        !previewImage.includes("jpeg") &&
-        !previewImage.includes("svg")) ||
-      (!previewImage.includes("https") && !previewImage.includes("http"))
+      (!previewImage?.includes("jpg") &&
+        !previewImage?.includes("png") &&
+        !previewImage?.includes("jpeg") &&
+        !previewImage?.includes("svg")) ||
+      (!previewImage?.includes("https") && !previewImage?.includes("http"))
     )
       errors.push("Please enter a valid url image");
     setValidations(errors);
-  }, [name, description, price, category, highlight, previewImage]);
+  }, [name, description, price, previewImage]);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -50,7 +52,8 @@ function ProductUpdate({product}) {
       previewImage,
     };
 
-    let updatedProduct = await dispatch(thunkUpdateProduct(payload));
+     let updatedProduct =
+    await dispatch(thunkUpdateProduct(payload));
 
     // console.log(updatedProduct)
 

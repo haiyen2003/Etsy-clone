@@ -38,13 +38,14 @@ def imageURL_validation(form, field):
 
 Categories_Choices = ["Home & Living", "Art & Collectibles", "Clothing & Shoes", "Jewelry & Accessories", "Wedding & Party", "Personalized Gifts"]
 
-Hightlight_Choices = ["Materials", "Handmade", "Made to Order"]
+Highlight_Choices = ["Materials", "Handmade", "Made to Order"]
+
 
 class ProductForm(FlaskForm):
     name = StringField("Product Name", validators= [DataRequired(), name_validation])
     description = TextAreaField("Product Description", validators= [DataRequired(), description_validation])
     price = DecimalField("Price", validators=[DataRequired(), price_validation], places=2, rounding = ROUND_HALF_UP)
-    category = SelectField("Category", choices = Categories_Choices, validators=[DataRequired()])
-    highlight = SelectField("Highlight", choices = Hightlight_Choices, validators=[DataRequired(), highlights_validation])
+    category = SelectField("Category",choices = Categories_Choices, validators=[DataRequired()])
+    highlight = SelectField("Highlights", choices = Highlight_Choices, validators=[DataRequired()])
     previewImage = StringField("Image URL", validators= [DataRequired(), imageURL_validation])
     submit = SubmitField("Submit")
