@@ -51,7 +51,7 @@ function Cart() {
   return (
     <div className="cart">
       <div className="cart-top-div">
-        <div className="cart-item-num">You have {items.length} in your cart</div>
+        <div className="cart-item-num">You have {items.length} items in your cart</div>
         <div className="cart-keep-shopping"><button className="cart-home-link" to={`/`}>Keep Shopping</button></div>
       </div>
 

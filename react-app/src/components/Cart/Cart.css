@@ -186,3 +186,11 @@
     justify-content: center;
     padding: 40px 40px 40px 40px;
 }
+.cart-total-price{
+    font-size: 20px;
+    box-shadow: 0 0 5px rgb(0 0 0 / 15%);
+    padding: 0px 10px 0px 10px;
+}
+.cart-product-highlight{
+    padding: 0px 10px 0px 10px;
+}
