@@ -60,7 +60,7 @@
 .cart-left-div {
     display: flex;
     flex-direction: column;
-    width: 700px;
+    width: 800px;
 }
 
 .cart-left-container {
@@ -160,4 +160,10 @@
     width: 300px;
     height: 150px;
     padding: 10px 10px 10px 10px;
+}
+.cart-right-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
 }
