@@ -27,8 +27,10 @@ function ReviewCreate({ setShowModal, review }) {
   const [validations, setValidations] = useState(false);
 
 const starsClick = (rate) => {
-  setCreatedStar(rate);
+  setCreatedStar(rate / 20);
 };
+
+// console.log(createdStar, "this star")
 
 
   useEffect(() => {

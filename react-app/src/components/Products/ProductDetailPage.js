@@ -241,10 +241,10 @@ const realAvgStar = Math.round(sum / reviewCount);
         <div className="productdetail">
           <div className="product_username_follow_text">
             <div className="productdetail_text">{product?.username}</div>
-            <div className="heart_follow_div">
+            {/* <div className="heart_follow_div">
               <i className="fa-regular fa-heart"></i>
               <div>&nbsp;Follow</div>
-            </div>
+            </div> */}
           </div>
           <div className="productdetailname">{product?.name}</div>
           <div className="productdetailprice">{`$${product?.price}`}</div>
@@ -393,10 +393,10 @@ const realAvgStar = Math.round(sum / reviewCount);
           </div>
         </div>
       </div>
-      <div className="more_from_seller_div">
+      {/* <div className="more_from_seller_div">
         <div>More from Seller</div>
         <div>Display seller's products here? Discuss with team</div>
-      </div>
+      </div> */}
       <div className="group_info_div">
         <div>
           <div>Meet the developers</div>
