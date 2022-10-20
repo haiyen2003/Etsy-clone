@@ -52,8 +52,6 @@ const actionDeleteProduct = (id) => {
 }
 
 
-
-
 // THUNKS
 export const thunkCreateProduct = (payload) => async dispatch => {
     const response = await fetch('/api/products/new', {
@@ -135,16 +133,13 @@ export const thunkDeleteProduct = (id) => async dispatch => {
 }
 
 
-
-
-
-
 const initialState = {}
 
 const productReducer = (state = initialState, action) => {
     let newState = {...state}
     switch (action.type) {
       case createProduct:
+        
         newState[action.product.id] = action.product;
         return newState;
       case getAllProduct:
@@ -174,9 +169,5 @@ const productReducer = (state = initialState, action) => {
         return state;
     }
 }
-
-
-
-
 
 export default productReducer

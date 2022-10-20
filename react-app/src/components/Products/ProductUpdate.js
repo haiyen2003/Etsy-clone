@@ -52,7 +52,7 @@ function ProductUpdate() {
       previewImage,
     };
 
-    // let updatedProduct = 
+     let updatedProduct =
     await dispatch(thunkUpdateProduct(payload));
 
     // console.log(updatedProduct)

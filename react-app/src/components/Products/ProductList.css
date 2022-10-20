@@ -39,7 +39,6 @@
   background-color:#F8EBE6;
   position:relative;
   top:70px;
-
 }
 
 .categoryproducts{
@@ -130,7 +129,7 @@
   .product_header{
     margin-left:-1040px;
 
-    justify-content: start;
+    justify-content: flex-start;
    /* justify-items:center; */
    display:flex;
     font-family: Cambria;
@@ -163,7 +162,6 @@
   font-family:sans-serif;
   width:250px;
   font-weight:700px;
-
 }
 .product_navlink{
   text-decoration: none;
