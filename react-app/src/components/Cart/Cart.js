@@ -38,7 +38,7 @@ function Cart() {
     if (items) {
       let total = [];
       for (let i = 0; i < items.length; i++) {
-        let t = items[i].quantity * items[i].product_details.price
+        let t = items[i]?.quantity * items[i]?.product_details?.price
         total.push(t);
       }
       return total.reduce((accumulator, i) => {
@@ -52,7 +52,6 @@ function Cart() {
       <div className="cart-top-div">
         <div className="cart-item-num">You have {sum} in your cart</div>
         <div className="cart-keep-shopping"><NavLink className="cart-home-link" to={`/`}>Keep Shopping</NavLink></div>
-
       </div>
 
       <div className="cart-middle-div">

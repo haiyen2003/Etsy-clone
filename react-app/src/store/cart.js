@@ -132,6 +132,7 @@ export default function cartReducer(state = initialState, action) {
     switch (action.type) {
         case GET_CART: {
             newState = {};
+            console.log(newState, " ===== New State", action)
             action.items.cart.map(item => {
                 newState[item.id] = item
             });
