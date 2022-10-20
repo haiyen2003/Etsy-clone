@@ -11,6 +11,7 @@ function Cart() {
   const cartItems = useSelector(state => state.cart);
   const items = Object.values(cartItems);
   const history = useHistory();
+  console.log(items, 'THIS IS ITEMS ======')
 
   useEffect(() => { dispatch(getCartThunk()) }, [dispatch, items.length])
   // useEffect(() => { dispatch(updateCartThunk()) }, [dispatch])
@@ -50,8 +51,8 @@ function Cart() {
   return (
     <div className="cart">
       <div className="cart-top-div">
-        <div className="cart-item-num">You have {sum} in your cart</div>
-        <div className="cart-keep-shopping"><NavLink className="cart-home-link" to={`/`}>Keep Shopping</NavLink></div>
+        <div className="cart-item-num">You have {items.length} in your cart</div>
+        <div className="cart-keep-shopping"><button className="cart-home-link" to={`/`}>Keep Shopping</button></div>
       </div>
 
       <div className="cart-middle-div">
@@ -82,13 +83,15 @@ function Cart() {
           }
         </div>
         <div className="cart-right-div">
+          <div className = "cart-purchase-container">
           <div className="cart-item-total">
-            <div className='cart-total'>Items Total</div>
-            <div className='cart-total-price'>$ {totalPrice()}</div>
+            <div className='cart-total'>Items Total &nbsp; </div>
+            <div className='cart-total-price'> ${totalPrice()}</div>
           </div>
           <form onSubmit={onSubmit}>
             <button className='cart-purchase-button' type="submit">Purchase</button>
           </form>
+        </div>
         </div>
       </div>
     </div>
