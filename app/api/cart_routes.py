@@ -39,13 +39,14 @@ def update_cart(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     item = CartItem.query.get(id)
     if item is None:
-        return {[]}, 404
+        return {'cart': []}, 404
 
     if not item.userId == current_user.id:
         return {'message': 'Unauthorized'}, 403
 
     if form.validate_on_submit():
         item.updateAt = now
+        item.id = id
         item.quantity = form.data['quantity']
         db.session.commit()
         return item.to_dict()

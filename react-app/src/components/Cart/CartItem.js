@@ -20,12 +20,12 @@ function CartItem({ item }) {
                     onChange={(e) => setQuantity(e.target.value)}
                     onBlur={() => dispatch(updateCartThunk(item.id, Number(quantity)))}
                 />
-                {/* <button
+                <button
                     className="cart-item-button"
-                    onClick={e => setQuantity(e.target.value)}
+                    onClick={() => dispatch(updateCartThunk(item.id, item.quantity + 1))}
                 >
                     +
-                </button> */}
+                </button>
                 <button
                     className="cart-item-button"
                     onClick={() => dispatch(updateCartThunk(item.id, item.quantity - 1))}
