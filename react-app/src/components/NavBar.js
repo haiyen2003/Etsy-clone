@@ -58,7 +58,8 @@ const NavBar = ({isLoaded}) => {
           </NavLink> */}
           {isLoaded && sessionLinks}
         </div>
-        <a classname='nav-cart-item'><div className = 'cart-badge'>{items.length}</div>
+        <a><div className = 'cart-badge'>{items.length}</div>
+
         <NavLink to='/cart' exact>
           <img
             id = "shopping_cart_icon"

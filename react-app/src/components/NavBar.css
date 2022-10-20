@@ -132,3 +132,15 @@
 .menu-item:hover{
     background-color: rgb(245, 243, 243, 0.7);
 }
+
+.cart-badge {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background-color: orange;
+    border-radius: 40px;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+}
+
