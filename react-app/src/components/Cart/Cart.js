@@ -69,7 +69,7 @@ function Cart() {
 
                 </div>
                 <div className='cart-right-container'>
-                  <div className='cart-total-price'>$ {item?.product_details?.price * item?.quantity}</div>
+                  <div className='cart-total-price'>$ {(item?.product_details?.price * item?.quantity).toFixed(2)}</div>
                   <div className='cart-product-highlight'>{item.product_details?.highlight}</div>
                   <button className="cart-item-button"
                     onClick={async () => await dispatch(deleteItemThunk(item.id))}

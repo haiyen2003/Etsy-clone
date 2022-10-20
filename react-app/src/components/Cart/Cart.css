@@ -72,8 +72,7 @@
 .cart-each-item {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    padding: 20px 0px 20px 0px;
+    padding: 20px 0px 20px 30px;
     border-bottom: 0.5px solid rgba(34, 34, 34, .2);
 }
 
@@ -160,12 +159,14 @@
     width: 300px;
     height: 150px;
     padding: 10px 10px 10px 10px;
+    object-fit: contain
 }
 .cart-right-container{
     display:flex;
     flex-direction: column;
     justify-content: top;
     align-items: center;
+    width: 200px;
 }
 
 .cart-order-completed{
