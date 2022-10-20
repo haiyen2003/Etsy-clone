@@ -32,13 +32,13 @@
 }
 
 .background-band{
-  margin-top:-69px;
+  /* margin-top:-69px; */
 
   width:100%;
-  height:130px;
+  height:135px;
   background-color:#F8EBE6;
   position:relative;
-  top:70px;
+  top:68px;
 }
 
 .categoryproducts{
@@ -129,11 +129,12 @@
   .product_header{
 
 
-    /* justify-content: flex-start; */
+
    /* justify-items:center; */
     display:flex;
 
-    margin-right:-100px;
+    margin-left:40px;
+    margin-right:249px;
     font-weight:700;
     font-size:28px;
     color:black;
