@@ -1,12 +1,22 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, cloneElement} from 'react';
 import {NavLink} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import './searchbar.css';
 import { thunkGetAllProduct } from "../../store/product";
+import {thunkgetSearch} from '../../store/search';
 
 function Searchbar(){
   const product = useSelector((state) => state.product)
   const products = Object.values(product);
+
+  // let productcopy = [];
+  // for ( item in products){
+  //   const newitem ={...item}
+  //   productcopy.push(newitem)
+  // }
+
+  // const product = useSelector((state) =>state.search)
+  // const products = Object.values(product);
   const [searchWord, setSearchWord] =useState('');
   const [showDropdown, setShowDropdown] = useState(false);
   const[searchResult, setSearchResult] =useState([]);
@@ -23,8 +33,11 @@ function Searchbar(){
         str.push(product)
       }
     }
+    console.log(str);
     return str;
   }
+  const resultstore = results;
+  console.log(resultstore);
 
   useEffect(() =>{
     if(searchWord.length){
@@ -37,8 +50,11 @@ function Searchbar(){
   }, [searchWord])
 
   useEffect(()=>{
-    dispatch(thunkGetAllProduct ())
+    dispatch(thunkGetAllProduct())
   }, [dispatch]);
+  useEffect(()=>{
+    console.log('prodcuts----------', products)
+  },[product])
 
   return(
    <>

@@ -5,13 +5,11 @@ from app.api.auth_routes import validation_errors_to_error_messages
 
 search_routes = Blueprint('search', __name__)
 
-@search_routes.route("/")
-def search_product():
+@search_routes.route('/<word>/')
+def search_product(word):
     #not sure how to get the user's inpurt into the search input
-    searchinput = None
-
-    searchproducts = Product.query.filter(Product.name.ilike(f"%{searchinput}%")).all()
-    return {'products': [product.to_dict() for product in searchproducts]}
+    allproducts= Product.query.filter(Product.name.ilike("%word%")).all()
+    return {'allproducts':[allproducts.to_dict()]}
 
 @search_routes.route("/wedding")
 def search_wedding_product():

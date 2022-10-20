@@ -8,6 +8,7 @@ import { thunkGetAllProductReview } from "../../store/review";
 import ReviewCreateModal from "../Reviews/ReviewCreateModal";
 import { Rating } from 'react-simple-star-rating'
 import { FaStar } from 'react-icons/fa'
+import { thunkGetAllProduct } from "../../store/product";
 
 import { addItemThunk, getCartThunk } from '../../store/cart'
 
@@ -53,13 +54,16 @@ function ProductDetailPage() {
     dispatch(thunkGetOneProduct(id));
     dispatch(thunkGetAllProductReview(id));
     dispatch(addItemThunk(id));
+    dispatch(thunkGetAllProduct());
   }, [dispatch, id]);
+
+
 
   const buyNow = () => {
     alert(`Thank you for purchasing!`);
     history.push("/");
   };
-  console.log("product.userId-----", product, "user.id-----", user.id);
+  // console.log("product.userId-----", product, "user.id-----", user.id);
   console.log("product.reviews-----", product?.reviews);
   const filteredreviewid = reviewArray.filter(
     (item) => item?.userId === user.id
