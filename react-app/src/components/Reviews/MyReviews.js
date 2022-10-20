@@ -18,7 +18,6 @@ function MyReviews() {
     const currentUser = useSelector(state => state.session.user)
 
     if (!currentUser) {
-        alert('Please log in first')
         history.push('/')
     }
 
@@ -29,7 +28,7 @@ function MyReviews() {
     const myReviews = useSelector(state => state.review)
     const myReviewsArr = Object.values(myReviews)
 
-    console.log(myReviews, 'this')
+    // console.log(myReviewsArr, 'this') 
 
 
 
@@ -58,32 +57,58 @@ function MyReviews() {
                     </div>
                     <div className="my_review_category_text">{`Category: ${review.productcategory}`}</div>
                     <div className="my_review_starbox">
-                      <div style={{ display: "flex", alignItems: 'center' }}>
+                      <div style={{ display: "flex", alignItems: "center" }}>
                         <div className="my_review_star_text">{`Your Review`}</div>
-                        {["star1", "star2", "star3", "star4", "star5"].map(
-                          (star, index) => {
-                            return (
-                              <div>
-
-                                <label>
-                                  <FaStar
-                                    color={
-                                      review.stars > index
-                                        ? "black"
-                                        : "lightgrey"
-                                    }
-                                    size={25}
-                                  />
-                                </label>
-                              </div>
-                            );
-                          }
+                        {review.stars === 1 && (
+                          <div>
+                            <FaStar size={20} color="black" />
+                            <FaStar size={20} color="lightgrey" />
+                            <FaStar size={20} color="lightgrey" />
+                            <FaStar size={20} color="lightgrey" />
+                            <FaStar size={20} color="lightgrey" />
+                          </div>
+                        )}
+                        {review.stars === 2 && (
+                          <div>
+                            <FaStar size={20} color="black" />
+                            <FaStar size={20} color="black" />
+                            <FaStar size={20} color="lightgrey" />
+                            <FaStar size={20} color="lightgrey" />
+                            <FaStar size={20} color="lightgrey" />
+                          </div>
+                        )}
+                        {review.stars === 3 && (
+                          <div>
+                            <FaStar size={20} color="black" />
+                            <FaStar size={20} color="black" />
+                            <FaStar size={20} color="black" />
+                            <FaStar size={20} color="lightgrey" />
+                            <FaStar size={20} color="lightgrey" />
+                          </div>
+                        )}
+                        {review.stars === 4 && (
+                          <div>
+                            <FaStar size={20} color="black" />
+                            <FaStar size={20} color="black" />
+                            <FaStar size={20} color="black" />
+                            <FaStar size={20} color="black" />
+                            <FaStar size={20} color="lightgrey" />
+                          </div>
+                        )}
+                        {review.stars === 5 && (
+                          <div>
+                            <FaStar size={20} color="black" />
+                            <FaStar size={20} color="black" />
+                            <FaStar size={20} color="black" />
+                            <FaStar size={20} color="black" />
+                            <FaStar size={20} color="black" />
+                          </div>
                         )}
                       </div>
                       <div className="my_review_review_text">
                         {review.review}
                       </div>
-                      <div style={{"margin-top": "10px"}}>
+                      <div style={{ "margin-top": "10px" }}>
                         <ReviewUpdateModal review={review} />
                       </div>
                     </div>

@@ -227,7 +227,7 @@ function ProductUpdate() {
               <div>
                 <button
                   className="update_product_cancel"
-                  onClick={(event) => history.push("/")}
+                  onClick={(event) => history.push("/myproducts")}
                 >
                   Cancel
                 </button>
