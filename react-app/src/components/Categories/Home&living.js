@@ -32,8 +32,9 @@ function HomeLivingCategory() {
 
     return (
         <div className='category-container'>
-
-                <h1>Find something you love in Home & Living</h1>
+                <div>
+                    <h1 className="category-container-header">Find something you love in Home & Living</h1>
+                </div>
                 <div className='category_products_container'>
                 {categoryproducts && categoryproducts?.map((product) => (
                 <div calssName= 'category_product' key={product.id}>
