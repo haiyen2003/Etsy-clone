@@ -1,45 +1,54 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateCount, removeItem } from '../../store/cart';
+import { deleteItemThunk, updateCartThunk } from '../../store/cart';
 
 function CartItem({ item }) {
     const dispatch = useDispatch();
-    const [count, setCount] = useState(item.count);
-
+    const [quantity, setQuantity] = useState(item.quantity);
     useEffect(() => {
-        setCount(item.count);
-    }, [item.count]);
+        setQuantity(item.quantity)
+    }, [item.quantity]);
 
+    useEffect(() => { dispatch(updateCartThunk()) }, [dispatch])
     return (
-        <li className="cart-item">
-            <div className="cart-item-header">{item.name}</div>
+        <div className="cart-item">
+            <div className="cart-item-header">{item.cart}</div>
             <div className="cart-item-menu">
-                <input
+               
+                {/* <input
                     type="number"
-                    value={count}
-                    onChange={(e) => setCount(e.target.value)}
-                    onBlur={() => dispatch(updateCount(item.id, Number(count)))}
-                />
-                <button
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
+                    onBlur={() => dispatch(updateCartThunk(Number(item.id), Number(quantity)))}
+                /> */}
+                <select
+                    className='cart-dropdown-quantity'
+                    value={quantity}
+                    onChange={e => {setQuantity(e.target.value);
+                    }}
+                    onBlur={() => dispatch(updateCartThunk(Number(item.id), Number(quantity)))}
+                >
+                    <option className='dropdown-option' value={1}>1</option>
+                    <option className='dropdown-option' value={2}>2</option>
+                    <option className='dropdown-option' value={3}>3</option>
+                    <option className='dropdown-option' value={4}>4</option>
+                    <option className='dropdown-option' value={5}>5</option>
+                    <option className='dropdown-option' value={6}>6</option>
+                </select>
+                {/* <button
                     className="cart-item-button"
-                    onClick={() => dispatch(updateCount(item.id, item.count + 1))}
+                    onClick={() => dispatch(updateCartThunk(Number(item.id), Number(item.quantity) + 1))}
                 >
                     +
                 </button>
                 <button
                     className="cart-item-button"
-                    onClick={() => dispatch(updateCount(item.id, item.count - 1))}
+                    onClick={() => dispatch(updateCartThunk(Number(item.id), Number(item.quantity) - 1))}
                 >
                     -
-                </button>
-                <button
-                    className="cart-item-button"
-                    onClick={() => dispatch(removeItem(item.id))}
-                >
-                    Remove
-                </button>
+                </button> */}
             </div>
-        </li>
+        </div>
     );
 }
 

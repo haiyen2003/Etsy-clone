@@ -1,38 +1,99 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllCartItems, reset } from '../../store/cart';
-import CartItem from './CartItem.js';
+import { getCartThunk, deleteCartThunk, deleteItemThunk, updateCartThunk, addItemThunk } from '../../store/cart';
+import { useHistory } from "react-router-dom"
+import { useEffect, useState } from 'react';
+import CartItem from './CartItem';
+import { Link, NavLink } from 'react-router-dom';
 import './Cart.css';
 
 function Cart() {
-    const dispatch = useDispatch();
-    const cartItems = useSelector(getAllCartItems);
+  const dispatch = useDispatch();
+  const cartItems = useSelector(state => state.cart);
+  const items = Object.values(cartItems);
+  const history = useHistory();
 
-    if (!cartItems || !cartItems.length) return (
-        <div className="cart">
-            No items in the cart. Start selecting items to purchase.
-        </div>
+  useEffect(() => { dispatch(getCartThunk()) }, [dispatch, items.length])
+  useEffect(() => { dispatch(updateCartThunk()) }, [dispatch])
+  if (!items || !items.length) return (
+    <div className="cart">
+      No items in the cart. Start selecting items to purchase.
+    </div>
+  );
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    window.alert(
+      "Purchased the following:\n" +
+      `${items.map(item => `${item.quantity} of ${item.product_details.name}`).join('\n')}`
     );
+    dispatch(deleteCartThunk());
+    history.push(`/order-completed`);
+  }
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        window.alert(
-            "Purchased the following:\n" +
-            `${cartItems.map(item => `${item.count} of ${item.name}`).join('\n')}`
-        );
-        dispatch(reset());
+  const sum = items.reduce((accumulator, object) => {
+    return accumulator + object.quantity;
+  }, 0);
+
+  function totalPrice() {
+    if (items) {
+      let total = [];
+      for (let i = 0; i < items.length; i++) {
+        let t = items[i].quantity * items[i].product_details.price
+        total.push(t);
+      }
+      return total.reduce((accumulator, i) => {
+        return accumulator + i;
+      }, 0)
     }
+  }
 
-    return (
-        <div className="cart">
-            <ul>
-                {cartItems.map(item => <CartItem key={item.id} item={item} />)}
-            </ul>
-            <hr />
-            <form onSubmit={onSubmit}>
-                <button type="submit">Purchase</button>
-            </form>
+  return (
+    <div className="cart">
+      <div className="cart-top-div">
+        <div className="cart-item-num">You have {sum} in your cart</div>
+        <div className="cart-keep-shopping"><NavLink className="cart-home-link" to={`/`}>Keep Shopping</NavLink></div>
+
+      </div>
+
+      <div className="cart-middle-div">
+        <div className="cart-left-div">
+          {
+            items.map(item => (
+              <div className='cart-each-item'>
+                <div className='cart-left-container'>
+                  <div className="cart-image-container">
+                    <img className='cart-image' src={item?.product_details?.previewImage}></img></div>
+
+                  <div className='cart-product-name'><NavLink className = 'product-link' to={`/products/${item.product_details.id}`}> {item?.product_details?.name}</NavLink></div>
+                  <CartItem key={item.id} item={item} />
+
+                </div>
+                <div className='cart-right-container'>
+                  <div className='cart-total-price'>$ {item?.product_details?.price * item?.quantity}</div>
+                  <div className='cart-product-highlight'>{item.product_details?.highlight}</div>
+                  <button className="cart-item-button"
+                    onClick={async () => await dispatch(deleteItemThunk(item.id))}
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            )
+            )
+          }
         </div>
-    )
+        <div className="cart-right-div">
+          <div className="cart-item-total">
+            <div className='cart-total'>Items Total</div>
+            <div className='cart-total-price'>$ </div>
+          </div>
+          <form onSubmit={onSubmit}>
+            <button className='cart-purchase-button' type="submit">Purchase</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default Cart;

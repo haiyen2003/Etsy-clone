@@ -20,6 +20,8 @@ import GiftCategory from './components/Categories/Gift';
 import ClothingCategory from './components/Categories/Clothing';
 import WeddingCategory from './components/Categories/Wedding';
 import JewelryCategory from './components/Categories/Jewelry';
+import Cart from './components/Cart'
+import OrderCompleted from './components/Cart/OrderCompleted';
 
 
 function App(){
@@ -27,6 +29,9 @@ function App(){
   const [isLoaded, setIsLoaded] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const [openSignup, setOpenSignup] = useState(false);
+  const [isCartLoaded, setCardLoaded] = useState(false)
+  // const [openLogin, setOpenLogin] = useState(false);
+  // const [openSignup, setOpenSignup] = useState(false);
 
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
@@ -43,6 +48,12 @@ function App(){
           <Route path="/" exact={true}>
             <ProductList />
           </Route>
+          <Route exact path="/cart">
+            <Cart />
+          </Route>
+          <Route exact path="/order-completed">
+            <OrderCompleted />
+            </Route>
           <Route exact path="/products/:id">
             <ProductDetailPage />
           </Route>
