@@ -39,3 +39,32 @@
     height: 250px;
     object-fit: fill;
 }
+
+.my_product_listing_desbox {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    width: 15em;
+
+}
+
+.my_product_listing_description {
+    width:20em;
+    word-wrap:break-word;
+}
+
+.my_product_listing_category{
+    margin-top: 20px;
+}
+
+#my_product_listing_btn_container{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#userproducteditbtn{
+    text-decoration: none;
+    
+}

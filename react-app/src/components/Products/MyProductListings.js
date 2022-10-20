@@ -28,7 +28,7 @@ function MyProductListings() {
 
   return (
     <div className="my_product_listing_div">
-      <h1>{`${user.firstName}'s Shop`}</h1>
+      <h1>{`${user?.firstName}'s Shop`}</h1>
       <div className="my_product_listing_box">
         {currentProductArr.map((product, i) => (
           <div  key={i}>
@@ -43,13 +43,13 @@ function MyProductListings() {
               </NavLink>
             <div className="my_product_listing_name">{product?.name}</div>
             </div>
-            <div>
-              <div className="my_product_listing_name">{product?.description}</div>
-              <div className="my_product_listing_name">{product?.category}</div>
-              <div className="my_product_listing_name">{product?.highlight}</div>
+            <div className = "my_product_listing_desbox">
+              <div className="my_product_listing_description">{product?.description}</div>
+              <div className="my_product_listing_category">Category: {product?.category}</div>
+              <div className="my_product_listing_category">Highlight: {product?.highlight}</div>
             </div>
 
-            <div>
+            <div id= "my_product_listing_btn_container">
             <Link id="userproducteditbtn" to={`/products/${product?.id}/edit`}>
                       Edit
             </Link>
