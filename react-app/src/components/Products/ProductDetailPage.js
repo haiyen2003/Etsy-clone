@@ -30,6 +30,14 @@ function ProductDetailPage() {
   // console.log("review array",reviewCount)
 
   
+const avgStar = reviewArray.map((review) => review.stars);
+let sum = 0;
+avgStar.forEach((review) => {
+  sum += review;
+});
+
+const realAvgStar = Math.round(sum / reviewCount);
+console.log(realAvgStar, 'realavgstar')
 
 
   const today = new Date();
@@ -90,8 +98,53 @@ function ProductDetailPage() {
                     {reviewCount} reviews&nbsp;
                   </span>
                 </div>
-                 
-
+                <div style={{ display: "flex"}}>
+                  {realAvgStar === 1 && (
+                    <div >
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="lightgrey" />
+                      <FaStar size={20} color="lightgrey" />
+                      <FaStar size={20} color="lightgrey" />
+                      <FaStar size={20} color="lightgrey" />
+                    </div>
+                  )}
+                  {realAvgStar === 2 && (
+                    <div>
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="lightgrey" />
+                      <FaStar size={20} color="lightgrey" />
+                      <FaStar size={20} color="lightgrey" />
+                    </div>
+                  )}
+                  {realAvgStar === 3 && (
+                    <div>
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="lightgrey" />
+                      <FaStar size={20} color="lightgrey" />
+                    </div>
+                  )}
+                  {realAvgStar === 4 && (
+                    <div>
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="lightgrey" />
+                    </div>
+                  )}
+                  {realAvgStar === 5 && (
+                    <div>
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                    </div>
+                  )}
+                </div>
               </div>
 
               {!user ||
@@ -114,49 +167,49 @@ function ProductDetailPage() {
                   {/* <div id='reviewowner'>{review.User ? review.User.firstName: 'Annoymous'}</div> */}
                   <div className="review_container">
                     <div className="review_stars_container">
-                      {review.stars <= 1 && (
+                      {review.stars === 1 && (
                         <div>
-                          <FaStar color="black" />
-                          <FaStar color="lightgrey" />
-                          <FaStar color="lightgrey" />
-                          <FaStar color="lightgrey" />
-                          <FaStar color="lightgrey" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="lightgrey" />
+                          <FaStar size={20} color="lightgrey" />
+                          <FaStar size={20} color="lightgrey" />
+                          <FaStar size={20} color="lightgrey" />
                         </div>
                       )}
-                      {review.stars <= 2 && (
+                      {review.stars === 2 && (
                         <div>
-                          <FaStar color="black" />
-                          <FaStar color="black" />
-                          <FaStar color="lightgrey" />
-                          <FaStar color="lightgrey" />
-                          <FaStar color="lightgrey" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="lightgrey" />
+                          <FaStar size={20} color="lightgrey" />
+                          <FaStar size={20} color="lightgrey" />
                         </div>
                       )}
-                      {review.stars <= 3 && (
+                      {review.stars === 3 && (
                         <div>
-                          <FaStar color="black" />
-                          <FaStar color="black" />
-                          <FaStar color="black" />
-                          <FaStar color="lightgrey" />
-                          <FaStar color="lightgrey" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="lightgrey" />
+                          <FaStar size={20} color="lightgrey" />
                         </div>
                       )}
-                      {review.stars <= 4 && (
+                      {review.stars === 4 && (
                         <div>
-                          <FaStar color="black" />
-                          <FaStar color="black" />
-                          <FaStar color="black" />
-                          <FaStar color="black" />
-                          <FaStar color="lightgrey" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="lightgrey" />
                         </div>
                       )}
-                      {review.stars >= 5 && (
+                      {review.stars === 5 && (
                         <div>
-                          <FaStar color="black" />
-                          <FaStar color="black" />
-                          <FaStar color="black" />
-                          <FaStar color="black" />
-                          <FaStar color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
                         </div>
                       )}
                     </div>
