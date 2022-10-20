@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import { useDispatch } from 'react-redux';
 import { NavLink, Link, useHistory } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
-
+import "./NavBar.css"
 
 
 function ProfileButton({ user }) {
@@ -37,11 +37,11 @@ function ProfileButton({ user }) {
 
             <div className="menu-item1">Hi, {user.firstName}</div>
 
-            <Link className="menu-item-link" to={`/spots/me`}>My Product Listings</Link>
+            <Link  className="menu-item-link" to={`/myproducts`}>My Product Listings</Link>
 
-            {/* <Link className="menu-item-link" to={`/spots/create`}>Host an experience</Link> */}
+            <NavLink className='menu-item-link' to={'/seller'}>Create a listing</NavLink>  
 
-            <Link className="menu-item-link" to={`/reviews/me`}>My reviews</Link>
+            <Link className="menu-item-link" to={`/myreviews`}>My reviews</Link>
 
             <div className="menu-item" >
                 <LogoutButton/>

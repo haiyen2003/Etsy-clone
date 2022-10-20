@@ -3,12 +3,11 @@
 const createReview = '/review/createReview'
 const getAllProductReview = '/review/getAllProductReview'
 const getCurrentReview = '/review/getCurrentReview'
-const editReview = '/review/editReview'
+const updateReview = '/review/updateReview'
 const deleteReview = '/review/deleteReview'
 
 
 // ACTION CREATORS
-
 
 const actionCreateReview = (review) => {
     return {
@@ -31,9 +30,9 @@ const actionGetCurrentReview = (reviews) => {
     }
 }
 
-const actionEditReview = (review) => {
+const actionUpdateReview = (review) => {
     return {
-        type: editReview,
+        type: updateReview,
         review
     }
 }
@@ -50,11 +49,12 @@ const actionDeleteReview = (id) => {
 
 
 export const thunkCreateReview = (payload) => async dispatch => {
-    const response = await fetch(`/api/reviews/products/${payload.id}`, {
+    const response = await fetch(`/api/reviews/products/${payload.productId}`, {
       method: "POST",
-      header: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
     });
+
     if(response.ok) {
         const data = await response.json()
         dispatch(actionCreateReview(data))
@@ -77,7 +77,7 @@ export const thunkGetAllProductReview = (id) => async dispatch => {
 
 
 export const thunkGetCurrentReview = () => async dispatch => {
-    const response = await fetch('/api/reviews')
+    const response = await fetch('/api/reviews/')
 
     if (response.ok) {
         const data = await response.json()
@@ -86,16 +86,17 @@ export const thunkGetCurrentReview = () => async dispatch => {
 }
 
 
-export const thunkEditReview = (payload) => async dispatch => {
-    const response = await fetch(`/api/reviews/${payload.reviewId}`, {
-      method: "PUT",
-      header: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+export const thunkUpdateReview = (payload) => async dispatch => {
+    const response = await fetch(`/api/reviews/${payload.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
     });
+    // console.log(payload)
 
     if (response.ok) {
         const data = await response.json()
-        dispatch(actionEditReview(data))
+        dispatch(actionUpdateReview(data))
         return data
     }
 }
@@ -110,12 +111,7 @@ export const thunkDeleteReview = (id) => async dispatch => {
     }
 }
 
-
-
-
 const initialState = {}
-
-
 const reviewReducer = (state = initialState, action) => {
     let newState = {...state}
     switch (action.type) {
@@ -130,11 +126,11 @@ const reviewReducer = (state = initialState, action) => {
             return newState
         case getCurrentReview:
             newState = {};
-            action.reviews.forEach((review) => {
+            action.reviews.user_reviews.forEach((review) => {
                 newState[review.id] = review;
             });
             return newState
-        case editReview:
+        case updateReview:
             newState[action.review.id] = action.review
             return newState
         case deleteReview:
@@ -143,13 +139,8 @@ const reviewReducer = (state = initialState, action) => {
         default:
             return state
     }
-
 }
 
 
 
 export default reviewReducer
-
-
-
-
