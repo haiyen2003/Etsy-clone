@@ -16,7 +16,7 @@ function Cart() {
   useEffect(() => { dispatch(getCartThunk()) }, [dispatch, items.length])
   // useEffect(() => { dispatch(updateCartThunk()) }, [dispatch])
   if (!items || !items.length) return (
-    <div className="cart">
+    <div className="cart-empty">
       No items in the cart. Start selecting items to purchase.
     </div>
   );
@@ -51,7 +51,7 @@ function Cart() {
   return (
     <div className="cart">
       <div className="cart-top-div">
-        <div className="cart-item-num">You have {items.length} in your cart</div>
+        <div className="cart-item-num">You have {items.length} items in your cart</div>
         <div className="cart-keep-shopping"><button className="cart-home-link" to={`/`}>Keep Shopping</button></div>
       </div>
 
@@ -69,7 +69,7 @@ function Cart() {
 
                 </div>
                 <div className='cart-right-container'>
-                  <div className='cart-total-price'>$ {item?.product_details?.price * item?.quantity}</div>
+                  <div className='cart-total-price'>$ {(item?.product_details?.price * item?.quantity).toFixed(2)}</div>
                   <div className='cart-product-highlight'>{item.product_details?.highlight}</div>
                   <button className="cart-item-button"
                     onClick={async () => await dispatch(deleteItemThunk(item.id))}
