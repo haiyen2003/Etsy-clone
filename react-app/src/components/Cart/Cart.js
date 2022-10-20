@@ -34,7 +34,18 @@ function Cart() {
     return accumulator + object.quantity;
   }, 0);
 
- 
+  function totalPrice() {
+    if (items) {
+      let total = [];
+      for (let i = 0; i < items.length; i++) {
+        let t = items[i].quantity * items[i].product_details.price
+        total.push(t);
+      }
+      return total.reduce((accumulator, i) => {
+        return accumulator + i;
+      }, 0)
+    }
+  }
 
   return (
     <div className="cart">
@@ -51,14 +62,14 @@ function Cart() {
               <div className='cart-each-item'>
                 <div className='cart-left-container'>
                   <div className="cart-image-container">
-                    <img className='cart-image' src={item.product_details?.previewImage}></img></div>
+                    <img className='cart-image' src={item?.product_details?.previewImage}></img></div>
+
+                  <div className='cart-product-name'>{item?.product_details?.name}</div>
                   <CartItem key={item.id} item={item} />
-                  <div className='cart-product-name'>{item.product_details?.name}</div>
 
                 </div>
                 <div className='cart-right-container'>
-                  <div className='cart-product-price'>${item.product_details?.price}</div>
-                  <div className='cart-total-price'>$ THIS IS TOTAL PRICE {item?.product_details?.price * item?.quantity}</div>
+                  <div className='cart-total-price'>$ {item?.product_details?.price * item?.quantity}</div>
                   <div className='cart-product-highlight'>{item.product_details?.highlight}</div>
                   <button className="cart-item-button"
                     onClick={async () => await dispatch(deleteItemThunk(item.id))}
@@ -72,12 +83,12 @@ function Cart() {
           }
         </div>
         <div className="cart-right-div">
-          <div className = "cart-item-total">
+          <div className="cart-item-total">
             <div className='cart-total'>Items Total</div>
-            <div className='cart-total-price'></div>
+            <div className='cart-total-price'>$ </div>
           </div>
           <form onSubmit={onSubmit}>
-            <button className = 'cart-purchase-button' type="submit">Purchase</button>
+            <button className='cart-purchase-button' type="submit">Purchase</button>
           </form>
         </div>
       </div>

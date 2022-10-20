@@ -11,10 +11,10 @@ function CartItem({ item }) {
 
     useEffect(() => { dispatch(updateCartThunk()) }, [dispatch])
     return (
-        <li className="cart-item">
+        <div className="cart-item">
             <div className="cart-item-header">{item.cart}</div>
             <div className="cart-item-menu">
-                <div className="cart-item-quantity">{item.quantity}</div>
+               
                 {/* <input
                     type="number"
                     value={quantity}
@@ -48,7 +48,7 @@ function CartItem({ item }) {
                     -
                 </button> */}
             </div>
-        </li>
+        </div>
     );
 }
 
