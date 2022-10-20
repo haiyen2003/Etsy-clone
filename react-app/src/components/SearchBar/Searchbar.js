@@ -22,10 +22,8 @@ function Searchbar(){
       ){
         str.push(product)
       }
-
     }
     return str;
-
   }
 
   useEffect(() =>{
@@ -83,10 +81,7 @@ function Searchbar(){
      <div className='search_dropdown'>
       <h2>We couldn't find any results for "{searchWord}"</h2>
      </div>
-
     )
-
-
    }
 
   </>
