@@ -1,18 +1,23 @@
 
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import LoginFormModal from './auth/LoginFormModal';
 import "./NavBar.css"
 import { Modal } from '../context/Modal';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import Searchbar from './SearchBar/Searchbar';
+import { getCartThunk } from '../store/cart';
 
 
 const NavBar = ({isLoaded}) => {
   const sessionUser = useSelector(state => state.session.user);
   const [showModal, setShowModal] = useState(false)
+  const dispatch = useDispatch();
+  const cartItems = useSelector(state => state.cart);
+  const items = Object.values(cartItems);
+  useEffect(() => { dispatch(getCartThunk()) }, [dispatch, items.length])
 
   let sessionLinks;
   if (sessionUser) {
@@ -53,14 +58,15 @@ const NavBar = ({isLoaded}) => {
           </NavLink> */}
           {isLoaded && sessionLinks}
         </div>
+        <a classname='nav-cart-item'><div className = 'cart-badge'>{items.length}</div>
         <NavLink to='/cart' exact>
           <img
             id = "shopping_cart_icon"
             src = "https://www.nicepng.com/png/detail/253-2534370_png-file-shopping-cart-line-icon.png"
             alt = "logo"
           />
-
         </NavLink>
+        </a>
         {/* <div>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign In
