@@ -13,7 +13,7 @@ function Cart() {
   const history = useHistory();
 
   useEffect(() => { dispatch(getCartThunk()) }, [dispatch, items.length])
-  useEffect(() => { dispatch(updateCartThunk()) }, [dispatch])
+  // useEffect(() => { dispatch(updateCartThunk()) }, [dispatch])
   if (!items || !items.length) return (
     <div className="cart">
       No items in the cart. Start selecting items to purchase.
@@ -58,7 +58,7 @@ function Cart() {
       <div className="cart-middle-div">
         <div className="cart-left-div">
           {
-            items.map(item => (
+            items && items.map(item => (
               <div className='cart-each-item'>
                 <div className='cart-left-container'>
                   <div className="cart-image-container">
@@ -85,7 +85,7 @@ function Cart() {
         <div className="cart-right-div">
           <div className="cart-item-total">
             <div className='cart-total'>Items Total</div>
-            <div className='cart-total-price'>$ </div>
+            <div className='cart-total-price'>$ {totalPrice()}</div>
           </div>
           <form onSubmit={onSubmit}>
             <button className='cart-purchase-button' type="submit">Purchase</button>

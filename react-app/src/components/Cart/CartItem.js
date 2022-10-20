@@ -9,12 +9,16 @@ function CartItem({ item }) {
         setQuantity(item.quantity)
     }, [item.quantity]);
 
-    useEffect(() => { dispatch(updateCartThunk()) }, [dispatch])
+    const handleChange = (e) => {
+        setQuantity(e.target.value);
+        dispatch(updateCartThunk(Number(item.id), Number(quantity)))
+    }
+    // useEffect(() => { dispatch(updateCartThunk()) }, [dispatch])
     return (
         <div className="cart-item">
             <div className="cart-item-header">{item.cart}</div>
             <div className="cart-item-menu">
-               
+
                 {/* <input
                     type="number"
                     value={quantity}
@@ -24,9 +28,8 @@ function CartItem({ item }) {
                 <select
                     className='cart-dropdown-quantity'
                     value={quantity}
-                    onChange={e => {setQuantity(e.target.value);
-                    }}
-                    onBlur={() => dispatch(updateCartThunk(Number(item.id), Number(quantity)))}
+                    onChange={handleChange}
+                // onBlur={() => dispatch(updateCartThunk(Number(item.id), Number(quantity)))}
                 >
                     <option className='dropdown-option' value={1}>1</option>
                     <option className='dropdown-option' value={2}>2</option>
