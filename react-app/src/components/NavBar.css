@@ -27,7 +27,7 @@
     text-decoration: none;
     color: orange;
     font-size: 30pt;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Roboto Serif';
 }
 
 /* #search_bar_container{
@@ -94,6 +94,9 @@
     text-align: left;
     width: 100%;
     font-weight: 600;
+    cursor: pointer;
+
+
 }
 
 .menu-item-button a{
@@ -113,8 +116,7 @@
     font-size: 14px;
     font-weight: 600;
     background: white;
-
-
+    cursor: pointer;
 }
 
 .menu-item1{
@@ -123,17 +125,17 @@
     /* cursor: pointer; */
     font-size: 16px;
     font-weight: 600;
-
+    
 }
 
 .menu-item-link{
     text-decoration: none;
-    text-align: left;
     line-height: 34px;
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
     color: black;
+    padding: 5px;
 }
 
 .menu-item a{

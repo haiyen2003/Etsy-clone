@@ -25,6 +25,15 @@
     padding: 10px;
 }
 
+.update_product_select {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+
+
 .update_product_text_box {
     width: 100px;
 }

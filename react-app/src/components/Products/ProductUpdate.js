@@ -134,7 +134,7 @@ function ProductUpdate() {
               ></input>
             </div>
           </div>
-          <div className="update_product_input">
+          <div className="update_product_select">
             <div className="update_product_text_box">
               <div>Category</div>
               <div className="update_product_small_text">
@@ -143,17 +143,22 @@ function ProductUpdate() {
               </div>
             </div>
             <div>
-            <select
+              <select
                 required
                 name="category"
                 value={category}
                 onChange={(event) => setCategory(event.target.value)}
-                >
-                  <option value='' disabled>Select a category</option>
-                  {Categories_Choices.map((category)=> <option key= {category} value={category}>
-                  {category}
-                  </option>)}
-                </select>
+                className="update_product_input_inner"
+              >
+                <option value="" disabled>
+                  Select a category
+                </option>
+                {Categories_Choices.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
               {/* <input
                 type="text"
                 name="category"
@@ -164,7 +169,7 @@ function ProductUpdate() {
               ></input> */}
             </div>
           </div>
-          <div className="update_product_input">
+          <div className="update_product_select">
             <div className="update_product_text_box">
               <div>Highlight</div>
               <div className="update_product_small_text">
@@ -172,17 +177,22 @@ function ProductUpdate() {
               </div>
             </div>
             <div>
-            <select
+              <select
                 required
                 name="highlight"
                 value={highlight}
                 onChange={(event) => setHighlight(event.target.value)}
-                >
-                  <option value='' disabled>Select a highlight</option>
-                  {Hightlight_Choices.map((highlight)=> <option key= {highlight} value={highlight}>
-                  {highlight}
-                  </option>)}
-                </select>
+                className="update_product_input_inner"
+              >
+                <option value="" disabled>
+                  Select a highlight
+                </option>
+                {Hightlight_Choices.map((highlight) => (
+                  <option key={highlight} value={highlight}>
+                    {highlight}
+                  </option>
+                ))}
+              </select>
               {/* <input
                 type="text"
                 name="highlight"
@@ -209,9 +219,8 @@ function ProductUpdate() {
               ></input>
             </div>
           </div>
-          {validations.length > 0
-          // && submit
-           ? (
+          {validations.length > 0 ? (
+            // && submit
             <div className="update_product_empty">
               <div className="update_product_error">
                 {validations.map((error, i) => (
@@ -243,7 +252,8 @@ function ProductUpdate() {
               <button
                 className="update_product_button"
                 type="submit"
-                disabled={validations.length > 0
+                disabled={
+                  validations.length > 0
                   // && submit
                 }
               >
