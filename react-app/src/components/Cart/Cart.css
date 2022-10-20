@@ -111,11 +111,12 @@
 }
 
 .cart-dropdown-quantity {
-    width: 40px;
+    width: 60px;
+    height: 60px;
     border-color: rgba(34, 34, 34, 0.1);
-    padding: 3px;
     border-radius: 3px;
     font-size: 16px;
+    padding: 5px;
 }
 
 .cart-item-button {
