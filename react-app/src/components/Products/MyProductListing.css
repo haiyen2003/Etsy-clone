@@ -58,6 +58,7 @@
 }
 
 #my_product_listing_btn_container{
+    margin-right: 20px;
     margin-top: 30px;
     display: flex;
     flex-direction: column;
@@ -65,6 +66,18 @@
 }
 
 #userproducteditbtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     text-decoration: none;
-    
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    height: 35px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 13px;
+    font-weight: 700;
 }

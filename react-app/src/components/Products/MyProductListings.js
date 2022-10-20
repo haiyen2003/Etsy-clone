@@ -51,7 +51,7 @@ function MyProductListings() {
 
             <div id= "my_product_listing_btn_container">
             <Link id="userproducteditbtn" to={`/products/${product?.id}/edit`}>
-                      Edit
+                      Edit Product
             </Link>
               <ProductDelete product={product} />
             </div>
