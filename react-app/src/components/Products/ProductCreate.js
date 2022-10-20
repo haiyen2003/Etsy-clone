@@ -23,7 +23,7 @@ function ProductCreate() {
         const errors = []
         if (name.length < 5) errors.push('Please enter a valid name')
         if (!description.length || description.length < 20) errors.push('Please enter a description more than 20 characters')
-        if (!price) errors.push('Please enter a valid price')
+        if (!price || price>1000000) errors.push('Please enter a valid price')
         // if (!category.length) errors.push('Please enter a category')
         // if (!highlight.length || !highlight.length < 10) errors.push('Please enter a highlight more than 10 characters')
         if (
@@ -124,6 +124,9 @@ function ProductCreate() {
                   value={price}
                   className="create_product_input_inner"
                   onChange={(event) => setPrice(event.target.value)}
+                  min="1"
+                  max="1000000"
+
                 ></input>
               </div>
             </div>

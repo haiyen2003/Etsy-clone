@@ -14,7 +14,7 @@ function ProductUpdate({product}) {
   const [category, setCategory] = useState(product.category);
   const [highlight, setHighlight] = useState(product.highlight);
   const [previewImage, setPreviewImage] = useState(product.previewImage);
-  const [submit, setSubmit] = useState(false);
+  // const [submit, setSubmit] = useState(false);
   const [validations, setValidations] = useState([]);
 
   useEffect(() => {
@@ -22,10 +22,10 @@ function ProductUpdate({product}) {
     if (name?.length < 5) errors.push("Please enter a valid name");
     if (!description || description?.length < 20)
       errors.push("Please enter a description more than 20 characters");
-    if (!price) errors.push("Please enter a valid price");
+    if (!price || price>1000000) errors.push("Please enter a valid price");
     // if (!category?.length) errors.push("Please enter a category");
     // if (!highlight || highlight?.length < 5)
-      errors.push("Please enter a highlight more than 5 characters");
+      // errors.push("Please enter a highlight more than 5 characters");
     if (
       (!previewImage.includes("jpg") &&
         !previewImage.includes("png") &&
@@ -39,7 +39,7 @@ function ProductUpdate({product}) {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    setSubmit(!submit);
+    // setSubmit(!submit);
     const payload = {
       id: product.id,
       name,
@@ -123,6 +123,8 @@ function ProductUpdate({product}) {
                 type="number"
                 name="price"
                 value={price}
+                min="1"
+                max="1000000"
                 className="update_product_input_inner"
                 onChange={(event) => setPrice(event.target.value)}
               ></input>
@@ -203,7 +205,9 @@ function ProductUpdate({product}) {
               ></input>
             </div>
           </div>
-          {validations.length > 0 && submit ? (
+          {validations.length > 0
+          // && submit
+           ? (
             <div className="update_product_empty">
               <div className="update_product_error">
                 {validations.map((error, i) => (
@@ -235,7 +239,9 @@ function ProductUpdate({product}) {
               <button
                 className="update_product_button"
                 type="submit"
-                disabled={validations.length > 0 && submit}
+                disabled={validations.length > 0
+                  // && submit
+                }
               >
                 Update a Product
               </button>
