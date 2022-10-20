@@ -8,6 +8,7 @@ import { thunkGetAllProductReview } from "../../store/review";
 import ReviewCreateModal from "../Reviews/ReviewCreateModal";
 import { Rating } from 'react-simple-star-rating'
 import { FaStar } from 'react-icons/fa'
+import { thunkGetAllProduct } from "../../store/product";
 
 import { addItemThunk, getCartThunk } from '../../store/cart'
 
@@ -65,7 +66,10 @@ const realAvgStar = Math.round(sum / reviewCount);
     dispatch(thunkGetOneProduct(id));
     dispatch(thunkGetAllProductReview(id));
     dispatch(addItemThunk(id));
+    dispatch(thunkGetAllProduct());
   }, [dispatch, id]);
+
+
 
   const buyNow = () => {
     alert(`Thank you for purchasing!`);
