@@ -146,3 +146,9 @@
     padding: 20px 20px 20px 20px;
     font-size: 20px;
 }
+.cart-product-name{
+    display:flex;
+    width: 300px;
+    height: 150px;
+    padding: 10px 10px 10px 10px;
+}
