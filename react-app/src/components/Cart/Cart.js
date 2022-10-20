@@ -83,13 +83,15 @@ function Cart() {
           }
         </div>
         <div className="cart-right-div">
+          <div className = "cart-purchase-container">
           <div className="cart-item-total">
-            <div className='cart-total'>Items Total</div>
-            <div className='cart-total-price'>$ {totalPrice()}</div>
+            <div className='cart-total'>Items Total &nbsp; </div>
+            <div className='cart-total-price'> ${totalPrice()}</div>
           </div>
           <form onSubmit={onSubmit}>
             <button className='cart-purchase-button' type="submit">Purchase</button>
           </form>
+        </div>
         </div>
       </div>
     </div>
