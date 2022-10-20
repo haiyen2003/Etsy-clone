@@ -8,7 +8,7 @@
 .update_product_form {
     border: 1px solid lightgrey;
     width: 700px;
-    height: 860px;
+    height: 900px;
 }
 
 .update_product_detailtext {
@@ -25,6 +25,15 @@
     padding: 10px;
 }
 
+.update_product_select {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+
+
 .update_product_text_box {
     width: 100px;
 }
@@ -40,6 +49,7 @@
     height: 60px;
     border-radius: 5px;
     border: 1px solid grey;
+    resize: none;
 }
 
 .update_product_input_inner_descript:focus {
@@ -62,7 +72,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 20px;
     align-items: center;
     padding: 10px;
 
@@ -75,9 +84,9 @@
     align-items: center;
 }
 
-.update_product_rightside {
-    margin-right: 20px;
-}
+/* .update_product_rightside {
+
+} */
 
 .update_product_cancel {
     cursor: pointer;

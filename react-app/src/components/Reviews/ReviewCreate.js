@@ -91,23 +91,6 @@ const starsClick = (rate) => {
           </div> */}
 
           <div style={{ display: "flex" }}>
-            {/* {["star1", "star2", "star3", "star4", "star5"].map((star, index) => {
-              let starValue = index + 1;
-              return (
-                <div>
-                  <label style={{ cursor: "pointer" }}>
-                    <input
-                      style={{ display: "none" }}
-                      type="radio"
-                      name="star"
-                      value={starValue}
-                      onClick={() => setCreatedStar(starValue)}
-                    ></input>
-                    <FaStar color={createdStar >= starValue ? "black" : "lightgrey"} size={25} />
-                  </label>
-                </div>
-              );
-            })} */}
             <Rating
               onClick={starsClick}
               allowHover={false}

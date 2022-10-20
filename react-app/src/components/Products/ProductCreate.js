@@ -65,8 +65,8 @@ function ProductCreate() {
         let createdProduct = await dispatch(thunkCreateProduct(payload))
 
         if (createdProduct) {
-            // history.push(`/products/${createdProduct.id}`)
-            history.push('/myproducts')
+            history.push(`/products/${createdProduct.id}`)
+            // history.push('/myproducts')
         }
     }
 
@@ -113,14 +113,14 @@ function ProductCreate() {
                 </div>
               </div>
               <div>
-                <input
+                <textarea
                   type="text-area"
                   name="description"
                   value={description}
                   className="create_product_input_inner_descript"
                   onChange={(event) => setDescription(event.target.value)}
                   required
-                ></input>
+                ></textarea>
               </div>
             </div>
             <div className="create_product_input">
@@ -140,7 +140,6 @@ function ProductCreate() {
                   onChange={(event) => setPrice(event.target.value)}
                   min="1"
                   max="1000000"
-
                 ></input>
               </div>
             </div>
@@ -153,17 +152,6 @@ function ProductCreate() {
                 </div>
               </div>
               <div>
-                {/* <select
-                required
-                name="category"
-                value={category}
-                onChange={(event) => setCategory(event.target.value)}
-                >
-                  <option value='' disabled>Select a category</option>
-                  {Categories_Choices.map((category)=> <option key= {category} value={category}>
-                  {category}
-                  </option>)}
-                </select>
                 {/* <input
                   type="text"
                   name="category"
@@ -177,6 +165,7 @@ function ProductCreate() {
                   name="category"
                   value={category}
                   onChange={(event) => setCategory(event.target.value)}
+                  className="create_product_input_inner"
                 >
                   <option value="" disabled>
                     Select a category
@@ -197,29 +186,12 @@ function ProductCreate() {
                 </div>
               </div>
               <div>
-              <select
-                required
-                name="highlight"
-                value={highlight}
-                onChange={(event) => setHighlight(event.target.value)}
-                >
-                  <option value='' disabled>Select a highlight</option>
-                  {Highlight_Choices.map((highlight)=> <option key= {highlight} value={highlight}>
-                  {highlight}
-                  </option>)}
-                </select>
-                {/* {/* <input
-                  type="text"
-                  name="highlight"
-                  value={highlight}
-                  className="create_product_input_inner"
-                  onChange={(event) => setHighlight(event.target.value)}
-                ></input> */}
-                {/* <select
+                <select
                   required
                   name="highlight"
                   value={highlight}
                   onChange={(event) => setHighlight(event.target.value)}
+                  className="create_product_input_inner"
                 >
                   <option value="" disabled>
                     Select a highlight
@@ -229,7 +201,14 @@ function ProductCreate() {
                       {highlight}
                     </option>
                   ))}
-                </select> */}
+                </select>
+                {/* {/* <input
+                  type="text"
+                  name="highlight"
+                  value={highlight}
+                  className="create_product_input_inner"
+                  onChange={(event) => setHighlight(event.target.value)}
+                ></input> */}
               </div>
             </div>
             <div className="create_product_input">
@@ -250,9 +229,7 @@ function ProductCreate() {
                 ></input>
               </div>
             </div>
-            {validations.length > 0
-            // && submit
-            ? (
+            {validations.length > 0 ? (
               <div className="create_product_empty">
                 <div className="create_product_error">
                   {validations.map((error, i) => (
@@ -284,9 +261,7 @@ function ProductCreate() {
                 <button
                   className="create_product_button"
                   type="submit"
-                  disabled={validations.length > 0
-                    //
-                  }
+                  disabled={validations.length > 0}
                 >
                   Create Product
                 </button>

@@ -58,7 +58,9 @@ function ReviewUpdate({review, setShowModal}) {
         let updatedRevew = await dispatch(thunkUpdateReview(payload))
           
         if (updatedRevew) {
-            history.push(`/products/${payload.productId}`)
+            // history.push(`/products/${payload.productId}`)
+            setShowModal(false)
+            history.push('/myreviews')
         }
     }
 
@@ -77,30 +79,6 @@ function ReviewUpdate({review, setShowModal}) {
               ></input>
             </div> */}
             <div style={{ display: "flex" }}>
-              {/* {["star1", "star2", "star3", "star4", "star5"].map(
-                (star, index) => {
-                  let starValue = index + 1;
-                  return (
-                    <div>
-                      <label style={{ cursor: "pointer" }}>
-                        <input
-                          style={{ display: "none" }}
-                          type="radio"
-                          name="star"
-                          value={starValue}
-                          onClick={() => setUpdatedStar(starValue)}
-                        ></input>
-                        <FaStar
-                          color={
-                            updatedStar >= starValue ? "black" : "lightgrey"
-                          }
-                          size={25}
-                        />
-                      </label>
-                    </div>
-                  );
-                }
-              )} */}
               <Rating 
                 onClick={starsClick}
                 allowHover={false}

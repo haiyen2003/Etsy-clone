@@ -27,31 +27,29 @@ function ArtCategory() {
     useEffect(() => {
         dispatch(thunkGetAllProduct())
     }, [dispatch])
-        // dispatch(thunkGetAllProduct());
+    // dispatch(thunkGetAllProduct());
 
 
     return (
-        <div className='splash-container'>
-
-
-
-
-            <div className='all_products_container'>
-
+        <div className='category-container'>
+            <div>
+                <h1 className="category-container-header">Find something you love in Art & Collectibles</h1>
+            </div>
+            <div className='category_products_container'>
                 {categoryproducts && categoryproducts?.map((product) => (
-                <div calssName= 'productdiv' key={product.id}>
+                    <div calssName='category_product' key={product.id}>
 
-                    <NavLink to={`/products/${product.id}`} className='product_navlink'>
-                    <img src={product.previewImage} alt="product" className='productlist_image'></img>
+                        <NavLink to={`/products/${product.id}`} className='category_product_navlink'>
+                            <img src={product.previewImage} alt="product" className='category_product_image'></img>
 
-                    <div className='product_info'>
-                        <div style={{ fontweight: '700' }}>{product.name}</div>
+                            <div className='category_productinfo'>
+                                <div style={{ fontweight: '700' }}>{product.name}</div>
+
+                            </div>
+                            <div className='category_productinfo'>${product.price}</div>
+                        </NavLink>
 
                     </div>
-                    <div className='product_info'>${product.price}</div>
-                    </NavLink>
-
-                </div>
                 ))}
 
             </div>

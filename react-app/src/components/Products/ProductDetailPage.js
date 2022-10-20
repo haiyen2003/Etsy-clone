@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { thunkGetOneProduct } from "../../store/product";
+import  { thunkGetOneProduct } from "../../store/product";
 import './ProductDetailPage.css'
 import { thunkGetAllProductReview } from "../../store/review";
 import ReviewCreateModal from "../Reviews/ReviewCreateModal";
@@ -24,10 +24,22 @@ function ProductDetailPage() {
   // const productArr = Object.values(product);
   const review = useSelector((state) => state.review);
 
+  // console.log('pr', productArr)
   const reviewArray = Object.values(review);
   const reviewCount = Object.values(review).length;
 
-  // console.log("review array",reviewArray)
+  // console.log("review array",reviewCount)
+
+  
+const avgStar = reviewArray.map((review) => review.stars);
+let sum = 0;
+avgStar.forEach((review) => {
+  sum += review;
+});
+
+const realAvgStar = Math.round(sum / reviewCount);
+// console.log(realAvgStar, 'realavgstar')
+
 
   const today = new Date();
   const tomorrow = new Date();
@@ -64,15 +76,15 @@ function ProductDetailPage() {
     history.push("/");
   };
   // console.log("product.userId-----", product, "user.id-----", user.id);
-  console.log("product.reviews-----", product?.reviews);
+  // console.log("product.reviews-----", product?.reviews);
   const filteredreviewid = reviewArray.filter(
-    (item) => item?.userId === user.id
+    (item) => item?.userId === user?.id
   );
 
   const addToCart = async () => {
     await dispatch(addItemThunk(id, { quantity }));
   };
-  console.log("filterereviewid------------", filteredreviewid);
+  // console.log("filterereviewid------------", filteredreviewid);
   return (
     <div className="mainproduct_container">
       <div className="productcontainer">
@@ -91,23 +103,50 @@ function ProductDetailPage() {
                   </span>
                 </div>
                 <div style={{ display: "flex" }}>
-                  {["star1", "star2", "star3", "star4", "star5"].map(
-                    (star, index) => {
-                      return (
-                        <div>
-                          <label>
-                            <FaStar
-                              color={
-                                reviewArray.length > index
-                                  ? "black"
-                                  : "lightgrey"
-                              }
-                              size={20}
-                            />
-                          </label>
-                        </div>
-                      );
-                    }
+                  {realAvgStar === 1 && (
+                    <div>
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="lightgrey" />
+                      <FaStar size={20} color="lightgrey" />
+                      <FaStar size={20} color="lightgrey" />
+                      <FaStar size={20} color="lightgrey" />
+                    </div>
+                  )}
+                  {realAvgStar === 2 && (
+                    <div>
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="lightgrey" />
+                      <FaStar size={20} color="lightgrey" />
+                      <FaStar size={20} color="lightgrey" />
+                    </div>
+                  )}
+                  {realAvgStar === 3 && (
+                    <div>
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="lightgrey" />
+                      <FaStar size={20} color="lightgrey" />
+                    </div>
+                  )}
+                  {realAvgStar === 4 && (
+                    <div>
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="lightgrey" />
+                    </div>
+                  )}
+                  {realAvgStar === 5 && (
+                    <div>
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                      <FaStar size={20} color="black" />
+                    </div>
                   )}
                 </div>
               </div>
@@ -132,21 +171,50 @@ function ProductDetailPage() {
                   {/* <div id='reviewowner'>{review.User ? review.User.firstName: 'Annoymous'}</div> */}
                   <div className="review_container">
                     <div className="review_stars_container">
-                      {["star1", "star2", "star3", "star4", "star5"].map(
-                        (star, index) => {
-                          return (
-                            <div>
-                              <label>
-                                <FaStar
-                                  color={
-                                    review.stars > index ? "black" : "lightgrey"
-                                  }
-                                  size={20}
-                                />
-                              </label>
-                            </div>
-                          );
-                        }
+                      {review.stars === 1 && (
+                        <div>
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="lightgrey" />
+                          <FaStar size={20} color="lightgrey" />
+                          <FaStar size={20} color="lightgrey" />
+                          <FaStar size={20} color="lightgrey" />
+                        </div>
+                      )}
+                      {review.stars === 2 && (
+                        <div>
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="lightgrey" />
+                          <FaStar size={20} color="lightgrey" />
+                          <FaStar size={20} color="lightgrey" />
+                        </div>
+                      )}
+                      {review.stars === 3 && (
+                        <div>
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="lightgrey" />
+                          <FaStar size={20} color="lightgrey" />
+                        </div>
+                      )}
+                      {review.stars === 4 && (
+                        <div>
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="lightgrey" />
+                        </div>
+                      )}
+                      {review.stars === 5 && (
+                        <div>
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                          <FaStar size={20} color="black" />
+                        </div>
                       )}
                     </div>
                     <div>
@@ -340,7 +408,7 @@ function ProductDetailPage() {
               <i className="fa-brands fa-linkedin">&nbsp;</i>
               <a
                 className="more_info_text"
-                href="https://google.com"
+                href="https://www.linkedin.com/in/nguyen-yen-dsgn/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -351,7 +419,7 @@ function ProductDetailPage() {
               <i className="fa-brands fa-square-github">&nbsp;</i>
               <a
                 className="more_info_text"
-                href="https://google.com"
+                href="https://github.com/haiyen2003"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -367,7 +435,7 @@ function ProductDetailPage() {
               <i className="fa-brands fa-linkedin">&nbsp;</i>
               <a
                 className="more_info_text"
-                href="https://google.com"
+                href="https://www.linkedin.com/in/lyn-chen-385ab5b6/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -378,7 +446,7 @@ function ProductDetailPage() {
               <i className="fa-brands fa-square-github">&nbsp;</i>
               <a
                 className="more_info_text"
-                href="https://google.com"
+                href="https://github.com/linyangofmay"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -394,7 +462,7 @@ function ProductDetailPage() {
               <i className="fa-brands fa-linkedin">&nbsp;</i>
               <a
                 className="more_info_text"
-                href="https://google.com"
+                href="https://www.linkedin.com/in/jake-ye-a2365250/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -405,7 +473,7 @@ function ProductDetailPage() {
               <i className="fa-brands fa-square-github">&nbsp;</i>
               <a
                 className="more_info_text"
-                href="https://google.com"
+                href="https://github.com/jakeye25"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -421,7 +489,7 @@ function ProductDetailPage() {
               <i className="fa-brands fa-linkedin">&nbsp;</i>
               <a
                 className="more_info_text"
-                href="https://google.com"
+                href="https://www.linkedin.com/in/kevin-kim-a88429150"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -432,7 +500,7 @@ function ProductDetailPage() {
               <i className="fa-brands fa-square-github">&nbsp;</i>
               <a
                 className="more_info_text"
-                href="https://google.com"
+                href="https://github.com/kevykim"
                 target="_blank"
                 rel="noopener noreferrer"
               >

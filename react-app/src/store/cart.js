@@ -146,7 +146,8 @@ export default function cartReducer(state = initialState, action) {
 
         case UPDATE_COUNT: {
             newState = { ...state }
-            newState[action.quantity] = action.quantity
+            const currentItem = newState[action.itemId]
+            newState[action.itemId] = {...currentItem, quantity:action.quantity}
             return newState
         }
 

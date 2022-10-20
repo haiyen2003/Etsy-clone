@@ -27,11 +27,12 @@ function LoginFormModal() {
     setOpenLogin(true)
   }
   return (
-    <>
+      <div className='sign_in_button_div'>
+
 
       {user ? <button>Log out</button>
       :<button className='homepage_loginbtn' onClick={() => setShowModal(true)} >Sign In</button>
-      }
+    }
 
 
       {showModal &&
@@ -46,12 +47,13 @@ function LoginFormModal() {
           setOpenSignup={setOpenSignup}
           setShowModal={setShowModal}
           setOpenLogin={setOpenLogin}
-        />}
+          />}
 
         </Modal>
       )}
 
-    </>
+    
+      </div>
   );
 }
 

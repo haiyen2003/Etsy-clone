@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
-import { useHistory } from "react-router-dom";
-import { thunkGetCurrentProduct, thunkGetOneProduct, thunkUpdateProduct } from "../../store/product";
+import { useHistory, useParams } from "react-router-dom";
+import { thunkGetOneProduct, thunkUpdateProduct } from "../../store/product";
 import "./ProductUpdate.css";
 
 function ProductUpdate() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const product = useSelector(state => state.product)
+  let product = useSelector(state => Object.values(state.product))
+  const {id} = useParams()
+  console.log("editporductid", id)
+  let editProduct= product.find(ele => ele.id == id)
+  console.log("editporduct", editProduct)
 
-  const [name, setName] = useState(product.name);
-  const [description, setDescription] = useState(product.description);
-  const [price, setPrice] = useState(product.price);
-  const [category, setCategory] = useState(product.category);
-  const [highlight, setHighlight] = useState(product.highlight);
-  const [previewImage, setPreviewImage] = useState(product.previewImage);
+  const [name, setName] = useState(editProduct.name);
+  const [description, setDescription] = useState(editProduct.description);
+  const [price, setPrice] = useState(editProduct.price);
+  const [category, setCategory] = useState(editProduct.category);
+  const [highlight, setHighlight] = useState(editProduct.highlight);
+  const [previewImage, setPreviewImage] = useState(editProduct.previewImage);
   // const [submit, setSubmit] = useState(false);
   const [validations, setValidations] = useState([]);
 
@@ -43,7 +47,7 @@ function ProductUpdate() {
     event.preventDefault();
     // setSubmit(!submit);
     const payload = {
-      id: product.id,
+      id: id,
       name,
       description,
       price,
@@ -60,8 +64,8 @@ function ProductUpdate() {
     //   await dispatch(thunkGetOneProduct(payload.id))
 
     if (updatedProduct) {
-      // history.push(`/products/${updatedProduct.id}`);
-      history.push('/myproducts')
+      history.push(`/products/${updatedProduct.id}`);
+      // history.push('/myproducts')
     }
   };
 
@@ -105,13 +109,13 @@ function ProductUpdate() {
               </div>
             </div>
             <div>
-              <input
+              <textarea
                 type="text-area"
                 name="description"
                 value={description}
                 className="update_product_input_inner_descript"
                 onChange={(event) => setDescription(event.target.value)}
-              ></input>
+              ></textarea>
             </div>
           </div>
           <div className="update_product_input">
@@ -134,7 +138,7 @@ function ProductUpdate() {
               ></input>
             </div>
           </div>
-          <div className="update_product_input">
+          <div className="update_product_select">
             <div className="update_product_text_box">
               <div>Category</div>
               <div className="update_product_small_text">
@@ -143,17 +147,22 @@ function ProductUpdate() {
               </div>
             </div>
             <div>
-            <select
+              <select
                 required
                 name="category"
                 value={category}
                 onChange={(event) => setCategory(event.target.value)}
-                >
-                  <option value='' disabled>Select a category</option>
-                  {Categories_Choices.map((category)=> <option key= {category} value={category}>
-                  {category}
-                  </option>)}
-                </select>
+                className="update_product_input_inner"
+              >
+                <option value="" disabled>
+                  Select a category
+                </option>
+                {Categories_Choices.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
               {/* <input
                 type="text"
                 name="category"
@@ -164,7 +173,7 @@ function ProductUpdate() {
               ></input> */}
             </div>
           </div>
-          <div className="update_product_input">
+          <div className="update_product_select">
             <div className="update_product_text_box">
               <div>Highlight</div>
               <div className="update_product_small_text">
@@ -172,17 +181,22 @@ function ProductUpdate() {
               </div>
             </div>
             <div>
-            <select
+              <select
                 required
                 name="highlight"
                 value={highlight}
                 onChange={(event) => setHighlight(event.target.value)}
-                >
-                  <option value='' disabled>Select a highlight</option>
-                  {Hightlight_Choices.map((highlight)=> <option key= {highlight} value={highlight}>
-                  {highlight}
-                  </option>)}
-                </select>
+                className="update_product_input_inner"
+              >
+                <option value="" disabled>
+                  Select a highlight
+                </option>
+                {Hightlight_Choices.map((highlight) => (
+                  <option key={highlight} value={highlight}>
+                    {highlight}
+                  </option>
+                ))}
+              </select>
               {/* <input
                 type="text"
                 name="highlight"
@@ -209,9 +223,8 @@ function ProductUpdate() {
               ></input>
             </div>
           </div>
-          {validations.length > 0
-          // && submit
-           ? (
+          {validations.length > 0 ? (
+            // && submit
             <div className="update_product_empty">
               <div className="update_product_error">
                 {validations.map((error, i) => (
@@ -227,7 +240,7 @@ function ProductUpdate() {
               <div>
                 <button
                   className="update_product_cancel"
-                  onClick={(event) => history.push("/")}
+                  onClick={(event) => history.push("/myproducts")}
                 >
                   Cancel
                 </button>
@@ -243,7 +256,8 @@ function ProductUpdate() {
               <button
                 className="update_product_button"
                 type="submit"
-                disabled={validations.length > 0
+                disabled={
+                  validations.length > 0
                   // && submit
                 }
               >

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    height: 106px;
+    height: 100px;
     width: 100%;
     border-bottom: solid 1px rgb(209, 207, 207, 0.5)
 }
@@ -11,6 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
 }
 
 #header__icon{
@@ -19,6 +20,14 @@
     float: left;
     /* margin-top:1.5vh; */
     margin-left: 14vh
+}
+
+.nav_artsy_logo {
+    /* border: 1px solid green; */
+    text-decoration: none;
+    color: orange;
+    font-size: 30pt;
+    font-family: 'Roboto Serif';
 }
 
 /* #search_bar_container{
@@ -34,18 +43,23 @@
     border-radius: 20px;
 } */
 
-/* .shopping_cart_icon{
-  margin-top:20px;
+.profile_button_div {
+    display: flex;
+    align-items: center;
+}
 
-} */
+.shoppingcart {
+    display: flex;
+    align-items: center;
+}
 
 .profile_button{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 80px;
-    padding: 5px 5px 5px 15px;
+    height: 50px;
     border: 1px solid rgba(109, 106, 106, 0.3);
     border-radius: 20px;
     position: relative;
@@ -76,15 +90,18 @@
 .menu-item-button{
     margin: 0;
     border: none;
-    background-color: none;
+    background: none;
     text-align: left;
     width: 100%;
+    font-weight: 600;
+    cursor: pointer;
+
+
 }
 
 .menu-item-button a{
 
     text-decoration: none;
-    background-color: none;
     line-height: 34px;
     cursor: pointer;
     font-size: 14px;
@@ -98,7 +115,8 @@
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
-
+    background: white;
+    cursor: pointer;
 }
 
 .menu-item1{
@@ -107,16 +125,17 @@
     /* cursor: pointer; */
     font-size: 16px;
     font-weight: 600;
-
+    
 }
 
 .menu-item-link{
     text-decoration: none;
-    text-align: left;
     line-height: 34px;
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
+    color: black;
+    padding: 5px;
 }
 
 .menu-item a{
@@ -132,3 +151,15 @@
 .menu-item:hover{
     background-color: rgb(245, 243, 243, 0.7);
 }
+
+.cart-badge {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background-color: orange;
+    border-radius: 40px;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+}
+

@@ -7,7 +7,7 @@ from datetime import datetime
 
 now = datetime.now()
 
-cart_routes = Blueprint('cartitems', __name__)
+cart_routes = Blueprint('carts', __name__)
 
 #get current user products in cart
 @cart_routes.route("/current")
@@ -87,6 +87,5 @@ def delete_cart():
 
     for item in cartItems:
         db.session.delete(item)
-
     db.session.commit()
     return{'message': 'Cart is empty'}, 200

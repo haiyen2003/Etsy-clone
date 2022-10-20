@@ -10,8 +10,7 @@ function ProductDelete({product}) {
 
     const onClick = async (event) => {
         await dispatch(thunkDeleteProduct(product.id))
-        alert('Sucessfully deleted.')
-        history.push('/')
+        history.push('/myproducts')
     }
 
     return (
