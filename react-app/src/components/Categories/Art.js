@@ -39,7 +39,7 @@ function ArtCategory() {
             <div className='all_products_container'>
 
                 {categoryproducts && categoryproducts?.map((product) => (
-                <div className= 'productdiv' key={product.id}>
+                <div  key={product.id}>
 
                     <NavLink to={`/products/${product.id}`} className='product_navlink'>
                     <img src={product.previewImage} alt="product" className='productlist_image'></img>
