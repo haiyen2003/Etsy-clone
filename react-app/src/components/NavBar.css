@@ -56,10 +56,10 @@
 .profile_button{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 80px;
-    padding: 5px 5px 5px 15px;
+    height: 50px;
     border: 1px solid rgba(109, 106, 106, 0.3);
     border-radius: 20px;
     position: relative;

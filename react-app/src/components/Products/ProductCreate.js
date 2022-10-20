@@ -113,14 +113,14 @@ function ProductCreate() {
                 </div>
               </div>
               <div>
-                <input
+                <textarea
                   type="text-area"
                   name="description"
                   value={description}
                   className="create_product_input_inner_descript"
                   onChange={(event) => setDescription(event.target.value)}
                   required
-                ></input>
+                ></textarea>
               </div>
             </div>
             <div className="create_product_input">

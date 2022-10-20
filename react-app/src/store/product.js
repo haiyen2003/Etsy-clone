@@ -107,7 +107,7 @@ export const thunkGetOneProduct = (id) => async dispatch => {
 }
 
 export const thunkUpdateProduct = (payload) => async dispatch => {
-    const response = await fetch(`/api/products/${payload["id"]}/edit`, {
+    const response = await fetch(`/api/products/${payload.id}/edit`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),

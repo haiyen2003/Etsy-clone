@@ -59,6 +59,7 @@ function ReviewUpdate({review, setShowModal}) {
           
         if (updatedRevew) {
             // history.push(`/products/${payload.productId}`)
+            setShowModal(false)
             history.push('/myreviews')
         }
     }

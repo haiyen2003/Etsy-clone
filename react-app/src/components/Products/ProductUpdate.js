@@ -105,13 +105,13 @@ function ProductUpdate() {
               </div>
             </div>
             <div>
-              <input
+              <textarea
                 type="text-area"
                 name="description"
                 value={description}
                 className="update_product_input_inner_descript"
                 onChange={(event) => setDescription(event.target.value)}
-              ></input>
+              ></textarea>
             </div>
           </div>
           <div className="update_product_input">
