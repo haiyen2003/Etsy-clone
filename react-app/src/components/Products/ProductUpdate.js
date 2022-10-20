@@ -14,18 +14,18 @@ function ProductUpdate({product}) {
   const [category, setCategory] = useState(product.category);
   const [highlight, setHighlight] = useState(product.highlight);
   const [previewImage, setPreviewImage] = useState(product.previewImage);
-  const [submit, setSubmit] = useState(false);
+  // const [submit, setSubmit] = useState(false);
   const [validations, setValidations] = useState([]);
 
   useEffect(() => {
     const errors = [];
-    if (name?.length < 5) errors.push("Please enter a name");
+    if (name?.length < 5) errors.push("Please enter a valid name");
     if (!description || description?.length < 20)
       errors.push("Please enter a description more than 20 characters");
-    if (!price) errors.push("Please enter a valid price");
-    if (!category?.length) errors.push("Please enter a category");
-    if (!highlight || highlight?.length < 5)
-      errors.push("Please enter a highlight more than 5 characters");
+    if (!price || price>1000000) errors.push("Please enter a valid price");
+    // if (!category?.length) errors.push("Please enter a category");
+    // if (!highlight || highlight?.length < 5)
+      // errors.push("Please enter a highlight more than 5 characters");
     if (
       (!previewImage.includes("jpg") &&
         !previewImage.includes("png") &&
@@ -39,7 +39,7 @@ function ProductUpdate({product}) {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    setSubmit(!submit);
+    // setSubmit(!submit);
     const payload = {
       id: product.id,
       name,
@@ -55,11 +55,16 @@ function ProductUpdate({product}) {
     // console.log(updatedProduct)
 
     //   await dispatch(thunkGetOneProduct(payload.id))
-    
+
     if (updatedProduct) {
-      history.push(`/products/${updatedProduct.id}`);
+      // history.push(`/products/${updatedProduct.id}`);
+      history.push('/myproducts')
     }
   };
+
+  let Categories_Choices = ["Home & Living", "Art & Collectibles", "Clothing & Shoes", "Jewelry & Accessories", "Wedding & Party", "Personalized Gifts"]
+
+  let Hightlight_Choices = ["Materials", "Handmade", "Made to Order"]
 
   return (
     <div className="update_product_main">
@@ -119,6 +124,8 @@ function ProductUpdate({product}) {
                 type="number"
                 name="price"
                 value={price}
+                min="1"
+                max="1000000"
                 className="update_product_input_inner"
                 onChange={(event) => setPrice(event.target.value)}
               ></input>
@@ -133,14 +140,25 @@ function ProductUpdate({product}) {
               </div>
             </div>
             <div>
-              <input
+            <select
+                required
+                name="category"
+                value={category}
+                onChange={(event) => setCategory(event.target.value)}
+                >
+                  <option value='' disabled>Select a category</option>
+                  {Categories_Choices.map((category)=> <option key= {category} value={category}>
+                  {category}
+                  </option>)}
+                </select>
+              {/* <input
                 type="text"
                 name="category"
                 value={category}
                 placeholder="Art & Collectibles, Home & Living, Wedding & Party, etc."
                 className="update_product_input_inner"
                 onChange={(event) => setCategory(event.target.value)}
-              ></input>
+              ></input> */}
             </div>
           </div>
           <div className="update_product_input">
@@ -151,13 +169,24 @@ function ProductUpdate({product}) {
               </div>
             </div>
             <div>
-              <input
+            <select
+                required
+                name="highlight"
+                value={highlight}
+                onChange={(event) => setHighlight(event.target.value)}
+                >
+                  <option value='' disabled>Select a highlight</option>
+                  {Hightlight_Choices.map((highlight)=> <option key= {highlight} value={highlight}>
+                  {highlight}
+                  </option>)}
+                </select>
+              {/* <input
                 type="text"
                 name="highlight"
                 value={highlight}
                 className="update_product_input_inner"
                 onChange={(event) => setHighlight(event.target.value)}
-              ></input>
+              ></input> */}
             </div>
           </div>
           <div className="update_product_input">
@@ -177,7 +206,9 @@ function ProductUpdate({product}) {
               ></input>
             </div>
           </div>
-          {validations.length > 0 && submit ? (
+          {validations.length > 0
+          // && submit
+           ? (
             <div className="update_product_empty">
               <div className="update_product_error">
                 {validations.map((error, i) => (
@@ -209,7 +240,9 @@ function ProductUpdate({product}) {
               <button
                 className="update_product_button"
                 type="submit"
-                disabled={validations.length > 0 && submit}
+                disabled={validations.length > 0
+                  // && submit
+                }
               >
                 Update a Product
               </button>
