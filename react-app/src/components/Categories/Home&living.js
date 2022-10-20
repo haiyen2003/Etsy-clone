@@ -32,19 +32,20 @@ function HomeLivingCategory() {
 
     return (
         <div className='category-container'>
-            <div className='all_products_container'>
+
                 <h1>Find something you love in Home & Living</h1>
+                <div className='category_products_container'>
                 {categoryproducts && categoryproducts?.map((product) => (
-                <div calssName= 'productdiv' key={product.id}>
+                <div calssName= 'category_product' key={product.id}>
 
-                    <NavLink to={`/products/${product.id}`} className='product_navlink'>
-                    <img src={product.previewImage} alt="product" className='productlist_image'></img>
+                    <NavLink to={`/products/${product.id}`} className='category_product_navlink'>
+                    <img src={product.previewImage} alt="product" className='category_product_image'></img>
 
-                    <div className='product_info'>
+                    <div className='category_productinfo'>
                         <div style={{ fontweight: '700' }}>{product.name}</div>
 
                     </div>
-                    <div className='product_info'>${product.price}</div>
+                    <div className='category_productinfo'>${product.price}</div>
                     </NavLink>
 
                 </div>
