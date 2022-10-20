@@ -32,8 +32,9 @@ function WeddingCategory() {
 
     return (
         <div className='splash-container'>
+            <h1>Find something you love in Wedding & Party</h1>
             <div className='all_products_container'>
-                <h1>Find something you love in Wedding & Party</h1>
+
                 {categoryproducts && categoryproducts?.map((product) => (
                 <div calssName= 'productdiv' key={product.id}>
 

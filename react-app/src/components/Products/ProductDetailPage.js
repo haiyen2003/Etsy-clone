@@ -134,7 +134,7 @@ function ProductDetailPage() {
               </div>
             </div>
             <div className="productdetailname">{product?.name}</div>
-            <div className="productdetailprice">{`$${product?.price}`}</div>
+            <div className="productdetailprice">{`$${new Intl.NumberFormat().format(product?.price)}`}</div>
             <select className="select_quantity_main">
               <option value="0">Quantity</option>
               <option value="1">1</option>

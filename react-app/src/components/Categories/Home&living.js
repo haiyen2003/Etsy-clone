@@ -31,7 +31,7 @@ function HomeLivingCategory() {
 
 
     return (
-        <div className='splash-container'>
+        <div className='category-container'>
             <div className='all_products_container'>
                 <h1>Find something you love in Home & Living</h1>
                 {categoryproducts && categoryproducts?.map((product) => (
