@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { thunkGetOneProduct } from "../../store/product";
+import  { thunkGetOneProduct } from "../../store/product";
 import './ProductDetailPage.css'
 import { thunkGetAllProductReview } from "../../store/review";
 import ReviewCreateModal from "../Reviews/ReviewCreateModal";
@@ -23,10 +23,14 @@ function ProductDetailPage() {
   // const productArr = Object.values(product);
   const review = useSelector((state) => state.review);
 
+  // console.log('pr', productArr)
   const reviewArray = Object.values(review);
   const reviewCount = Object.values(review).length;
 
-  // console.log("review array",reviewArray)
+  // console.log("review array",reviewCount)
+
+  
+
 
   const today = new Date();
   const tomorrow = new Date();
@@ -59,8 +63,8 @@ function ProductDetailPage() {
     alert(`Thank you for purchasing!`);
     history.push("/");
   };
-  console.log("product.userId-----", product, "user.id-----", user.id);
-  console.log("product.reviews-----", product?.reviews);
+  // console.log("product.userId-----", product, "user.id-----", user.id);
+  // console.log("product.reviews-----", product?.reviews);
   const filteredreviewid = reviewArray.filter(
     (item) => item?.userId === user.id
   );
@@ -68,7 +72,7 @@ function ProductDetailPage() {
   const addToCart = async () => {
     await dispatch(addItemThunk(id, { quantity }));
   };
-  console.log("filterereviewid------------", filteredreviewid);
+  // console.log("filterereviewid------------", filteredreviewid);
   return (
     <div className="mainproduct_container">
       <div className="productcontainer">
@@ -86,26 +90,8 @@ function ProductDetailPage() {
                     {reviewCount} reviews&nbsp;
                   </span>
                 </div>
-                <div style={{ display: "flex" }}>
-                  {["star1", "star2", "star3", "star4", "star5"].map(
-                    (star, index) => {
-                      return (
-                        <div>
-                          <label>
-                            <FaStar
-                              color={
-                                reviewArray.length > index
-                                  ? "black"
-                                  : "lightgrey"
-                              }
-                              size={20}
-                            />
-                          </label>
-                        </div>
-                      );
-                    }
-                  )}
-                </div>
+                 
+
               </div>
 
               {!user ||
@@ -128,21 +114,50 @@ function ProductDetailPage() {
                   {/* <div id='reviewowner'>{review.User ? review.User.firstName: 'Annoymous'}</div> */}
                   <div className="review_container">
                     <div className="review_stars_container">
-                      {["star1", "star2", "star3", "star4", "star5"].map(
-                        (star, index) => {
-                          return (
-                            <div>
-                              <label>
-                                <FaStar
-                                  color={
-                                    review.stars > index ? "black" : "lightgrey"
-                                  }
-                                  size={20}
-                                />
-                              </label>
-                            </div>
-                          );
-                        }
+                      {review.stars <= 1 && (
+                        <div>
+                          <FaStar color="black" />
+                          <FaStar color="lightgrey" />
+                          <FaStar color="lightgrey" />
+                          <FaStar color="lightgrey" />
+                          <FaStar color="lightgrey" />
+                        </div>
+                      )}
+                      {review.stars <= 2 && (
+                        <div>
+                          <FaStar color="black" />
+                          <FaStar color="black" />
+                          <FaStar color="lightgrey" />
+                          <FaStar color="lightgrey" />
+                          <FaStar color="lightgrey" />
+                        </div>
+                      )}
+                      {review.stars <= 3 && (
+                        <div>
+                          <FaStar color="black" />
+                          <FaStar color="black" />
+                          <FaStar color="black" />
+                          <FaStar color="lightgrey" />
+                          <FaStar color="lightgrey" />
+                        </div>
+                      )}
+                      {review.stars <= 4 && (
+                        <div>
+                          <FaStar color="black" />
+                          <FaStar color="black" />
+                          <FaStar color="black" />
+                          <FaStar color="black" />
+                          <FaStar color="lightgrey" />
+                        </div>
+                      )}
+                      {review.stars >= 5 && (
+                        <div>
+                          <FaStar color="black" />
+                          <FaStar color="black" />
+                          <FaStar color="black" />
+                          <FaStar color="black" />
+                          <FaStar color="black" />
+                        </div>
                       )}
                     </div>
                     <div>
