@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { thunkGetCurrentProduct } from "../../store/product";
 import { NavLink } from "react-router-dom";
 import ProductUpdate from "./ProductUpdate";
@@ -15,15 +15,15 @@ function MyProductListings() {
 
     const user = useSelector(state => state.session.user)
     // console.log(user)
+    const currentProduct = useSelector(state => state.product)
+    // console.log('current', currentProduct)
+    const currentProductArr = Object.values(currentProduct)
+    console.log('product in my product listing', currentProductArr)
 
     useEffect(() => {
         dispatch(thunkGetCurrentProduct())
     }, [dispatch])
 
-    const currentProduct = useSelector(state => state.product)
-    // console.log('current', currentProduct)
-    const currentProductArr = Object.values(currentProduct)
-    console.log('product in my product listing', currentProductArr)
     if (!user) history.push('/')
 
   return (
@@ -41,10 +41,18 @@ function MyProductListings() {
                   className="my_product_listing_img"
                 ></img>
               </NavLink>
-            <div className="my_product_listing_name">{product.name}</div>
+            <div className="my_product_listing_name">{product?.name}</div>
             </div>
-            <div>
-              <ProductUpdate />
+            <div className = "my_product_listing_desbox">
+              <div className="my_product_listing_description">{product?.description}</div>
+              <div className="my_product_listing_category">Category: {product?.category}</div>
+              <div className="my_product_listing_category">Highlight: {product?.highlight}</div>
+            </div>
+
+            <div id= "my_product_listing_btn_container">
+            <Link id="userproducteditbtn" to={`/products/${product?.id}/edit`}>
+                      Edit Product
+            </Link>
               <ProductDelete product={product} />
             </div>
           </div>

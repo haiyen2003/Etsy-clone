@@ -25,6 +25,7 @@ import Cart from './components/Cart'
 import OrderCompleted from './components/Cart/OrderCompleted';
 
 
+import ProductUpdate from './components/Products/ProductUpdate';
 
 
 function App(){
@@ -83,6 +84,9 @@ function App(){
           </Route>
           <Route exact path="/jewelry">
             <JewelryCategory />
+          </Route>
+          <Route path= "/products/:id/edit" exact>
+            <ProductUpdate/>
           </Route>
           <Route exact path="/myproducts">
             <MyProductListings />

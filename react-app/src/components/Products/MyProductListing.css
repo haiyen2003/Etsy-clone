@@ -39,3 +39,45 @@
     height: 250px;
     object-fit: fill;
 }
+
+.my_product_listing_desbox {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    width: 15em;
+
+}
+
+.my_product_listing_description {
+    width:20em;
+    word-wrap:break-word;
+}
+
+.my_product_listing_category{
+    margin-top: 20px;
+}
+
+#my_product_listing_btn_container{
+    margin-right: 20px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#userproducteditbtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    height: 35px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 13px;
+    font-weight: 700;
+}

@@ -65,8 +65,8 @@ function ProductCreate() {
         let createdProduct = await dispatch(thunkCreateProduct(payload))
 
         if (createdProduct) {
-            // history.push(`/products/${createdProduct.id}`)
-            history.push('/myproducts')
+            history.push(`/products/${createdProduct.id}`)
+            // history.push('/myproducts')
         }
     }
 
