@@ -64,7 +64,7 @@ function Cart() {
                   <div className="cart-image-container">
                     <img className='cart-image' src={item?.product_details?.previewImage}></img></div>
 
-                  <div className='cart-product-name'>{item?.product_details?.name}</div>
+                  <div className='cart-product-name'><NavLink className = 'product-link' to={`/products/${item.product_details.id}`}> {item?.product_details?.name}</NavLink></div>
                   <CartItem key={item.id} item={item} />
 
                 </div>

@@ -38,6 +38,7 @@
 .cart-right-div{
     display: flex;
     flex-direction: column;
+    justify-content: start;
     width: 400px;
     padding: 10px 10px 10px 10px;
 }
@@ -74,4 +75,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+.product-link{
+    text-decoration: none;
+    font-size: 20px;
+    color: black
 }
