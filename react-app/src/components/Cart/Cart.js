@@ -12,8 +12,8 @@ function Cart() {
   const items = Object.values(cartItems);
   const history = useHistory();
 
-  useEffect(() => {dispatch(getCartThunk())}, [dispatch, items.length])
-  useEffect(() => {dispatch(updateCartThunk())}, [dispatch])
+  useEffect(() => { dispatch(getCartThunk()) }, [dispatch, items.length])
+  useEffect(() => { dispatch(updateCartThunk()) }, [dispatch])
   if (!items || !items.length) return (
     <div className="cart">
       No items in the cart. Start selecting items to purchase.
@@ -34,47 +34,53 @@ function Cart() {
     return accumulator + object.quantity;
   }, 0);
 
-  console.log(sum, "======SUM")
+ 
+
   return (
     <div className="cart">
-      <div className = "cart-top-div">
-        <div className = "cart-item-num">You have {sum} in your cart</div>
-        <div className = "cart-keep-shopping"><NavLink className="cart-home-link " to={`/`}>Keep Shopping</NavLink></div>
+      <div className="cart-top-div">
+        <div className="cart-item-num">You have {sum} in your cart</div>
+        <div className="cart-keep-shopping"><NavLink className="cart-home-link" to={`/`}>Keep Shopping</NavLink></div>
 
-        </div>
+      </div>
 
-      <div className = "cart-middle-div">
-        <div className = "cart-left-div">
-        <div>
-        <ul>
-        {
-          items.map(item => (
-            <div className = 'cart-product-detail'>
-              <img className='cart-image' src={item.product_details?.previewImage}></img>
-              <CartItem key={item.id} item={item} />
-              <div className= 'cart-product-name'>{item.product_details?.name}</div>
-              <div className='cart-product-price'>${item.product_details?.price}</div>
-              <div className = 'cart-total-price'>$ THIS IS TOTAL PRICE {item?.product_details?.price * item?.quantity }</div>
-              <div className ='cart-product-highlight'>{item.product_details?.highlight}</div>
-              <button className="cart-item-button"
-                     onClick={async () => await dispatch(deleteItemThunk(item.id))}
-                >
+      <div className="cart-middle-div">
+        <div className="cart-left-div">
+          {
+            items.map(item => (
+              <div className='cart-each-item'>
+                <div className='cart-left-container'>
+                  <div className="cart-image-container">
+                    <img className='cart-image' src={item.product_details?.previewImage}></img></div>
+                  <CartItem key={item.id} item={item} />
+                  <div className='cart-product-name'>{item.product_details?.name}</div>
+
+                </div>
+                <div className='cart-right-container'>
+                  <div className='cart-product-price'>${item.product_details?.price}</div>
+                  <div className='cart-total-price'>$ THIS IS TOTAL PRICE {item?.product_details?.price * item?.quantity}</div>
+                  <div className='cart-product-highlight'>{item.product_details?.highlight}</div>
+                  <button className="cart-item-button"
+                    onClick={async () => await dispatch(deleteItemThunk(item.id))}
+                  >
                     Remove
-                </button>
-              </div>)
+                  </button>
+                </div>
+              </div>
             )
-        }
-        </ul>
-      </div>
+            )
+          }
+        </div>
+        <div className="cart-right-div">
+          <div className = "cart-item-total">
+            <div className='cart-total'>Items Total</div>
+            <div className='cart-total-price'></div>
+          </div>
+          <form onSubmit={onSubmit}>
+            <button className = 'cart-purchase-button' type="submit">Purchase</button>
+          </form>
         </div>
       </div>
-      {/* <ul>
-        {items.map(item => <CartItem key={item.id} item={item} />)}
-      </ul> */}
-      <hr />
-      <form onSubmit={onSubmit}>
-        <button type="submit">Purchase</button>
-      </form>
     </div>
   )
 }
