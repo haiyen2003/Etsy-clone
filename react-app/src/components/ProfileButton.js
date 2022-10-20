@@ -37,7 +37,7 @@ function ProfileButton({ user }) {
 
             <div className="menu-item1">Hi, {user.firstName}</div>
 
-            <Link className="menu-item-link" to={`/myproducts`}>My Product Listings</Link>
+            <Link  className="menu-item-link" to={`/myproducts`}>My Product Listings</Link>
 
             <NavLink className='menu-item-link' to={'/seller'}>Create a listing</NavLink>  
 

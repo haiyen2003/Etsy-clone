@@ -21,9 +21,10 @@ const NavBar = ({isLoaded}) => {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <>
+      <div className='profile_button_div'>
         <ProfileButton user={sessionUser} />
-      </>
+
+      </div>
     );
   } else {
     sessionLinks =(
@@ -38,31 +39,27 @@ const NavBar = ({isLoaded}) => {
     <>
       <nav id="header">
         <div id="header__left">
-
-          <NavLink to='/' exact={true} activeClassName='active'>
-          <img
-            id = "header__icon"
-            src = "https://bushelandpecks.com/wp-content/uploads/2017/03/etsy-logo.png"
-            alt='logo'
-            />
+          <NavLink
+            style={{ textDecoration: "none" }}
+            to="/"
+            exact={true}
+          >
+            <div className="nav_artsy_logo">Artsy</div>
           </NavLink>
-      </div>
-      <div id= "search_bar_container">
+        </div>
+        <div id="search_bar_container">
           <div id="search_bar">
-          <Searchbar />
+            <Searchbar />
           </div>
         </div>
-        <div>
+        <div className='profile_button_div'>
           {/* <NavLink to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink> */}
           {isLoaded && sessionLinks}
         </div>
-        <NavLink to='/cart' exact className='shoppingcart'>
-
-          <i className="fa-solid fa-cart-arrow-down fa-xl" ></i>
-
-
+        <NavLink to="/cart" exact className="shoppingcart">
+          <i className="fa-solid fa-cart-arrow-down fa-xl"></i>
         </NavLink>
         {/* <div>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
@@ -77,7 +74,6 @@ const NavBar = ({isLoaded}) => {
         {/* <div>
           <LogoutButton />
         </div> */}
-
       </nav>
     </>
   );
