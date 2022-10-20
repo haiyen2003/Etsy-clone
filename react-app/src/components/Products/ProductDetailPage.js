@@ -37,7 +37,7 @@ avgStar.forEach((review) => {
 });
 
 const realAvgStar = Math.round(sum / reviewCount);
-console.log(realAvgStar, 'realavgstar')
+// console.log(realAvgStar, 'realavgstar')
 
 
   const today = new Date();
