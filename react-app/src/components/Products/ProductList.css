@@ -44,7 +44,6 @@
 .categoryproducts{
   margin-left:240px;
   margin-right:240px;
-  font-family: Arial, Helvetica, sans-serif ;
   display: flex;
   justify-content: space-around;
   justify-items:space-around;
@@ -87,7 +86,6 @@
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  font-family: Cambria;
 }
 .productdiv{
   height:auto;
@@ -97,10 +95,8 @@
   justify-content:center;
   }
 .product_category_name{
-  font-family: Cambria;
  font-weight:600;
 
-  font-family:sans-serif
 }
 .product_category_image{
   width:115px;
@@ -114,7 +110,6 @@
   margin-left:40px;
   margin-right:40px;
 
-  font-family: Cambria;
   justify-content: center;
   justify-items:center;
   display:flex;
@@ -132,12 +127,10 @@
     justify-content: flex-start;
    /* justify-items:center; */
    display:flex;
-    font-family: Cambria;
 
     font-weight:700;
     font-size:28px;
     color:black;
-    font-family:Arial, Helvetica, sans-serif;
     /* margin-bottom:200px; */
     position:relative;
     top:60px;
@@ -159,7 +152,6 @@
   justify-content: space-between;
   padding-top:10px;
   font-size: 16;
-  font-family:sans-serif;
   width:250px;
   font-weight:700px;
 }
