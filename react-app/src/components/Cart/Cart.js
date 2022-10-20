@@ -13,7 +13,7 @@ function Cart() {
   const history = useHistory();
 
   useEffect(() => { dispatch(getCartThunk()) }, [dispatch, items.length])
-  useEffect(() => { dispatch(updateCartThunk()) }, [dispatch])
+  // useEffect(() => { dispatch(updateCartThunk()) }, [dispatch])
   if (!items || !items.length) return (
     <div className="cart">
       No items in the cart. Start selecting items to purchase.
@@ -38,7 +38,7 @@ function Cart() {
     if (items) {
       let total = [];
       for (let i = 0; i < items.length; i++) {
-        let t = items[i].quantity * items[i].product_details.price
+        let t = items[i]?.quantity * items[i]?.product_details?.price
         total.push(t);
       }
       return total.reduce((accumulator, i) => {
@@ -52,19 +52,18 @@ function Cart() {
       <div className="cart-top-div">
         <div className="cart-item-num">You have {sum} in your cart</div>
         <div className="cart-keep-shopping"><NavLink className="cart-home-link" to={`/`}>Keep Shopping</NavLink></div>
-
       </div>
 
       <div className="cart-middle-div">
         <div className="cart-left-div">
           {
-            items.map(item => (
+            items && items.map(item => (
               <div className='cart-each-item'>
                 <div className='cart-left-container'>
                   <div className="cart-image-container">
                     <img className='cart-image' src={item?.product_details?.previewImage}></img></div>
 
-                  <div className='cart-product-name'><NavLink className = 'product-link' to={`/products/${item.product_details.id}`}> {item?.product_details?.name}</NavLink></div>
+                  <div className='cart-product-name'><NavLink className = 'product-link' to={`/products/${item?.product_details?.id}`}> {item?.product_details?.name}</NavLink></div>
                   <CartItem key={item.id} item={item} />
 
                 </div>
@@ -85,7 +84,7 @@ function Cart() {
         <div className="cart-right-div">
           <div className="cart-item-total">
             <div className='cart-total'>Items Total</div>
-            <div className='cart-total-price'>$ </div>
+            <div className='cart-total-price'>$ {totalPrice()}</div>
           </div>
           <form onSubmit={onSubmit}>
             <button className='cart-purchase-button' type="submit">Purchase</button>

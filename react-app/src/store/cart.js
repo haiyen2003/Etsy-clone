@@ -132,6 +132,7 @@ export default function cartReducer(state = initialState, action) {
     switch (action.type) {
         case GET_CART: {
             newState = {};
+            console.log(newState, " ===== New State", action)
             action.items.cart.map(item => {
                 newState[item.id] = item
             });
@@ -146,7 +147,9 @@ export default function cartReducer(state = initialState, action) {
 
         case UPDATE_COUNT: {
             newState = { ...state }
-            newState[action.quantity] = action.quantity
+            console.log(newState, " ===== New State", action)
+            const currentItem = newState[action.itemId]
+            newState[action.itemId] = {...currentItem, quantity:action.quantity}
             return newState
         }
 
