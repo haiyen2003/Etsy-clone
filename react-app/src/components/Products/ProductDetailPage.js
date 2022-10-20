@@ -102,9 +102,9 @@ const realAvgStar = Math.round(sum / reviewCount);
                     {reviewCount} reviews&nbsp;
                   </span>
                 </div>
-                <div style={{ display: "flex"}}>
+                <div style={{ display: "flex" }}>
                   {realAvgStar === 1 && (
-                    <div >
+                    <div>
                       <FaStar size={20} color="black" />
                       <FaStar size={20} color="lightgrey" />
                       <FaStar size={20} color="lightgrey" />
@@ -408,7 +408,7 @@ const realAvgStar = Math.round(sum / reviewCount);
               <i className="fa-brands fa-linkedin">&nbsp;</i>
               <a
                 className="more_info_text"
-                href="https://google.com"
+                href="https://www.linkedin.com/in/nguyen-yen-dsgn/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -419,7 +419,7 @@ const realAvgStar = Math.round(sum / reviewCount);
               <i className="fa-brands fa-square-github">&nbsp;</i>
               <a
                 className="more_info_text"
-                href="https://google.com"
+                href="https://github.com/haiyen2003"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -435,7 +435,7 @@ const realAvgStar = Math.round(sum / reviewCount);
               <i className="fa-brands fa-linkedin">&nbsp;</i>
               <a
                 className="more_info_text"
-                href="https://google.com"
+                href="https://www.linkedin.com/in/lyn-chen-385ab5b6/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -446,7 +446,7 @@ const realAvgStar = Math.round(sum / reviewCount);
               <i className="fa-brands fa-square-github">&nbsp;</i>
               <a
                 className="more_info_text"
-                href="https://google.com"
+                href="https://github.com/linyangofmay"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -462,7 +462,7 @@ const realAvgStar = Math.round(sum / reviewCount);
               <i className="fa-brands fa-linkedin">&nbsp;</i>
               <a
                 className="more_info_text"
-                href="https://google.com"
+                href="https://www.linkedin.com/in/jake-ye-a2365250/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -473,7 +473,7 @@ const realAvgStar = Math.round(sum / reviewCount);
               <i className="fa-brands fa-square-github">&nbsp;</i>
               <a
                 className="more_info_text"
-                href="https://google.com"
+                href="https://github.com/jakeye25"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -489,7 +489,7 @@ const realAvgStar = Math.round(sum / reviewCount);
               <i className="fa-brands fa-linkedin">&nbsp;</i>
               <a
                 className="more_info_text"
-                href="https://google.com"
+                href="https://www.linkedin.com/in/kevin-kim-a88429150"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -500,7 +500,7 @@ const realAvgStar = Math.round(sum / reviewCount);
               <i className="fa-brands fa-square-github">&nbsp;</i>
               <a
                 className="more_info_text"
-                href="https://google.com"
+                href="https://github.com/kevykim"
                 target="_blank"
                 rel="noopener noreferrer"
               >
