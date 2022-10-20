@@ -74,7 +74,7 @@ console.log(realAvgStar, 'realavgstar')
   // console.log("product.userId-----", product, "user.id-----", user.id);
   // console.log("product.reviews-----", product?.reviews);
   const filteredreviewid = reviewArray.filter(
-    (item) => item?.userId === user.id
+    (item) => item?.userId === user?.id
   );
 
   const addToCart = async () => {
