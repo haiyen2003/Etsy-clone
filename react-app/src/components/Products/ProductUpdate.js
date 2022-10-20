@@ -1,19 +1,25 @@
 import { useEffect, useState } from "react";
-import { useDispatch} from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector} from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
 import { thunkGetOneProduct, thunkUpdateProduct } from "../../store/product";
 import "./ProductUpdate.css";
 
-function ProductUpdate({product}) {
+function ProductUpdate() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const [name, setName] = useState(product.name);
-  const [description, setDescription] = useState(product.description);
-  const [price, setPrice] = useState(product.price);
-  const [category, setCategory] = useState(product.category);
-  const [highlight, setHighlight] = useState(product.highlight);
-  const [previewImage, setPreviewImage] = useState(product.previewImage);
+  let product = useSelector(state => Object.values(state.product))
+  const {id} = useParams()
+  console.log("editporductid", id)
+  let editProduct= product.find(ele => ele.id == id)
+  console.log("editporduct", editProduct)
+
+  const [name, setName] = useState(editProduct.name);
+  const [description, setDescription] = useState(editProduct.description);
+  const [price, setPrice] = useState(editProduct.price);
+  const [category, setCategory] = useState(editProduct.category);
+  const [highlight, setHighlight] = useState(editProduct.highlight);
+  const [previewImage, setPreviewImage] = useState(editProduct.previewImage);
   // const [submit, setSubmit] = useState(false);
   const [validations, setValidations] = useState([]);
 
@@ -41,7 +47,7 @@ function ProductUpdate({product}) {
     event.preventDefault();
     // setSubmit(!submit);
     const payload = {
-      id: product.id,
+      id: id,
       name,
       description,
       price,

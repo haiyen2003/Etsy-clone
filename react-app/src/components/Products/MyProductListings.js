@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { thunkGetCurrentProduct } from "../../store/product";
 import { NavLink } from "react-router-dom";
 import ProductUpdate from "./ProductUpdate";
@@ -41,10 +41,18 @@ function MyProductListings() {
                   className="my_product_listing_img"
                 ></img>
               </NavLink>
-            <div className="my_product_listing_name">{product.name}</div>
+            <div className="my_product_listing_name">{product?.name}</div>
             </div>
             <div>
-              <ProductUpdate product={product} />
+              <div className="my_product_listing_name">{product?.description}</div>
+              <div className="my_product_listing_name">{product?.category}</div>
+              <div className="my_product_listing_name">{product?.highlight}</div>
+            </div>
+
+            <div>
+            <Link id="userproducteditbtn" to={`/products/${product?.id}/edit`}>
+                      Edit
+            </Link>
               <ProductDelete product={product} />
             </div>
           </div>

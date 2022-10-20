@@ -20,6 +20,7 @@ import GiftCategory from './components/Categories/Gift';
 import ClothingCategory from './components/Categories/Clothing';
 import WeddingCategory from './components/Categories/Wedding';
 import JewelryCategory from './components/Categories/Jewelry';
+import ProductUpdate from './components/Products/ProductUpdate';
 
 
 function App(){
@@ -66,6 +67,9 @@ function App(){
           </Route>
           <Route exact path="/jewelry">
             <JewelryCategory />
+          </Route>
+          <Route path= "/products/:id/edit" exact>
+            <ProductUpdate/>
           </Route>
           <Route exact path="/myproducts">
             <MyProductListings />
