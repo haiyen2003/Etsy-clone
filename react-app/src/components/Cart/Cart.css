@@ -104,6 +104,9 @@
     font-size: 20px;
     color: black
 }
+.product-link:hover{
+text-decoration: underline;
+}
 
 .cart-dropdown-quantity {
     width: 40px;
