@@ -11,7 +11,7 @@ function Cart() {
   const cartItems = useSelector(state => state.cart);
   const items = Object.values(cartItems);
   const history = useHistory();
- 
+
   useEffect(() => {dispatch(getCartThunk())}, [dispatch, items.length])
   useEffect(() => {dispatch(updateCartThunk())}, [dispatch])
   if (!items || !items.length) return (
@@ -24,7 +24,7 @@ function Cart() {
     e.preventDefault();
     window.alert(
       "Purchased the following:\n" +
-      `${items.map(item => `${item.quantity} of ${item.name}`).join('\n')}`
+      `${items.map(item => `${item.quantity} of ${item.product_details.name}`).join('\n')}`
     );
     dispatch(deleteCartThunk());
     history.push(`/order-completed`);
@@ -45,6 +45,7 @@ function Cart() {
           items.map(item => (
             <div className = 'cart-product-detail'>
               <img className='cart-image' src={item.product_details?.previewImage}></img>
+              <CartItem key={item.id} item={item} />
               <div className= 'cart-product-name'>{item.product_details?.name}</div>
               <div className='cart-product-price'>${item.product_details?.price}</div>
               <div className ='cart-product-highlight'>{item.product_details?.highlight}</div>
@@ -60,9 +61,9 @@ function Cart() {
       </div>
         </div>
       </div>
-      <ul>
+      {/* <ul>
         {items.map(item => <CartItem key={item.id} item={item} />)}
-      </ul>
+      </ul> */}
       <hr />
       <form onSubmit={onSubmit}>
         <button type="submit">Purchase</button>
