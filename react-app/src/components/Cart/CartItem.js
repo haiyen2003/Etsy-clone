@@ -10,26 +10,20 @@ function CartItem({ item }) {
     }, [item.quantity]);
 
     const handleChange = (e) => {
-        setQuantity(e.target.value);
         dispatch(updateCartThunk(Number(item.id), Number(quantity)))
+        setQuantity(e.target.value)
     }
-    // useEffect(() => { dispatch(updateCartThunk()) }, [dispatch])
+    // useEffect(() => { dispatch(updateCartThunk()) }, [dispatch]) don't put useEffect when you don't use it
     return (
         <div className="cart-item">
             <div className="cart-item-header">{item.cart}</div>
             <div className="cart-item-menu">
 
-                {/* <input
-                    type="number"
-                    value={quantity}
-                    onChange={(e) => setQuantity(e.target.value)}
-                    onBlur={() => dispatch(updateCartThunk(Number(item.id), Number(quantity)))}
-                /> */}
                 <select
                     className='cart-dropdown-quantity'
                     value={quantity}
-                    onChange={handleChange}
-                // onBlur={() => dispatch(updateCartThunk(Number(item.id), Number(quantity)))}
+                    onChange={(e)=> setQuantity(e.target.value)}
+                    onBlur={()=>  dispatch(updateCartThunk(Number(item.id), Number(quantity)))}
                 >
                     <option className='dropdown-option' value={1}>1</option>
                     <option className='dropdown-option' value={2}>2</option>
@@ -38,18 +32,6 @@ function CartItem({ item }) {
                     <option className='dropdown-option' value={5}>5</option>
                     <option className='dropdown-option' value={6}>6</option>
                 </select>
-                {/* <button
-                    className="cart-item-button"
-                    onClick={() => dispatch(updateCartThunk(Number(item.id), Number(item.quantity) + 1))}
-                >
-                    +
-                </button>
-                <button
-                    className="cart-item-button"
-                    onClick={() => dispatch(updateCartThunk(Number(item.id), Number(item.quantity) - 1))}
-                >
-                    -
-                </button> */}
             </div>
         </div>
     );
