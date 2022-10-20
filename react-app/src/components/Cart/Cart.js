@@ -29,12 +29,29 @@ function Cart() {
     dispatch(deleteCartThunk());
     history.push(`/order-completed`);
   }
+  const totalPrice = (items) => {
+    let total = 0;
+    for (let item of items){
+      let ind = Number(item.quantity)*Number(item.product_details.price)
+      total += ind
+    }
+    return total;
+  }
+  console.log(totalPrice, "======= totalPrice")
+   console.log(items, " ===== items")
+   console.log(items[0].quantity, " ====== items[0]");
 
+  const sum = items.reduce((accumulator, object) => {
+    return accumulator + object.quantity;
+  }, 0);
+
+  console.log(sum, "======SUM")
   return (
     <div className="cart">
       <div className = "cart-top-div">
-        <div className = "cart-item-num">You have {items.length} in your cart</div>
+        <div className = "cart-item-num">You have {sum} in your cart</div>
         <div className = "cart-keep-shopping"><NavLink className="cart-home-link " to={`/`}>Keep Shopping</NavLink></div>
+
         </div>
 
       <div className = "cart-middle-div">
@@ -48,6 +65,7 @@ function Cart() {
               <CartItem key={item.id} item={item} />
               <div className= 'cart-product-name'>{item.product_details?.name}</div>
               <div className='cart-product-price'>${item.product_details?.price}</div>
+              <div className = 'cart-total-price'>$ THIS IS TOTAL PRICE {item?.product_details?.price * item?.quantity }</div>
               <div className ='cart-product-highlight'>{item.product_details?.highlight}</div>
               <button className="cart-item-button"
                      onClick={async () => await dispatch(deleteItemThunk(item.id))}
