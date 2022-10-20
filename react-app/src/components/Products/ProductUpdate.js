@@ -57,7 +57,8 @@ function ProductUpdate({product}) {
     //   await dispatch(thunkGetOneProduct(payload.id))
 
     if (updatedProduct) {
-      history.push(`/products/${updatedProduct.id}`);
+      // history.push(`/products/${updatedProduct.id}`);
+      history.push('/myproducts')
     }
   };
 

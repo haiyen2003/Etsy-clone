@@ -23,7 +23,7 @@ function MyProductListings() {
     const currentProduct = useSelector(state => state.product)
     // console.log('current', currentProduct)
     const currentProductArr = Object.values(currentProduct)
-
+    console.log('product in my product listing', currentProductArr)
     if (!user) history.push('/')
 
   return (
