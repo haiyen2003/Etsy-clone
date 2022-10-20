@@ -20,6 +20,14 @@ function ProductList() {
     // const categoryproducts=[allproducts[9], allproducts[35], allproducts[2], allproducts[12], allproducts[25], allproducts[30]]
     // console.log('categoryproducts', categoryproducts);
     // console.log('previeimage', categoryproducts[0].previewImage)
+    const renderProductAbout =(text)=>{
+        const segments= text.split(" ");
+        if (segments.length <8){
+            return segments.join(" ");
+        } else {
+            return `${segments.slice(0,7).join(" ")}...`
+        }
+    }
     useEffect(() => {
         dispatch(thunkGetAllProduct())
     }, [dispatch])
@@ -120,7 +128,7 @@ function ProductList() {
                     <img src={product.previewImage} alt="product" className='productlist_image'></img>
 
                     <div className='product_info'>
-                        <div style={{ fontweight: '700' }}>{product.name}</div>
+                        <div style={{ fontweight: '700' }}>{renderProductAbout(product.name)}</div>
 
                     </div>
                     <div className='product_info'>${product.price}</div>
