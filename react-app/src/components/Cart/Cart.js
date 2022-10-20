@@ -29,17 +29,6 @@ function Cart() {
     dispatch(deleteCartThunk());
     history.push(`/order-completed`);
   }
-  const totalPrice = (items) => {
-    let total = 0;
-    for (let item of items){
-      let ind = Number(item.quantity)*Number(item.product_details.price)
-      total += ind
-    }
-    return total;
-  }
-  console.log(totalPrice, "======= totalPrice")
-   console.log(items, " ===== items")
-   console.log(items[0].quantity, " ====== items[0]");
 
   const sum = items.reduce((accumulator, object) => {
     return accumulator + object.quantity;
