@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import CartItem from './CartItem';
 import { Link, NavLink } from 'react-router-dom';
 import './Cart.css';
+import { thunkGetAllProduct } from '../../store/product';
 
 function Cart() {
   const dispatch = useDispatch();
@@ -13,7 +14,11 @@ function Cart() {
   const history = useHistory();
   console.log(items, 'THIS IS ITEMS ======')
 
-  useEffect(() => { dispatch(getCartThunk()) }, [dispatch, items.length])
+  useEffect(() => {
+    dispatch(getCartThunk())
+    dispatch(thunkGetAllProduct())
+
+   }, [dispatch, items.length])
   // useEffect(() => { dispatch(updateCartThunk()) }, [dispatch])
   if (!items || !items.length) return (
     <div className="cart-empty">

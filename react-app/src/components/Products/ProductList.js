@@ -129,7 +129,9 @@ function ProductList() {
             </NavLink>
           </div>
 
-          <div className="product_header">Popular gifts right now</div>
+          <div className="product_header">
+            <span className='product_header_content'>Popular gifts right now</span>
+          </div>
 
           <div className="all_products_container">
             <div className="all_sub_products_container">
@@ -151,7 +153,7 @@ function ProductList() {
                         {renderProductAbout(product.name)}
                       </div>
                     </div>
-                    <div className="product_info">${product.price}</div>
+                    <div className="product_info">{`$${new Intl.NumberFormat().format(product?.price)}`}</div>
                   </NavLink>
                 </div>
               ))}

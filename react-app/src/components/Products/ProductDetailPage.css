@@ -66,6 +66,16 @@ padding: 15px;
         width: 100%;
         font-weight: bold;
 }
+.nologintextlable{
+    width:100%;
+    height:40px;
+    border-radius:25px;
+    border:2px solid black;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:5px;
+}
 
 .descriptiondetail_cart {
     display: flex;
