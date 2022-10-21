@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import CartItem from './CartItem';
 import { Link, NavLink } from 'react-router-dom';
 import './Cart.css';
+import { thunkGetAllProduct } from '../../store/product';
 
 function Cart() {
   const dispatch = useDispatch();
@@ -13,7 +14,11 @@ function Cart() {
   const history = useHistory();
   console.log(items, 'THIS IS ITEMS ======')
 
-  useEffect(() => { dispatch(getCartThunk()) }, [dispatch, items.length])
+  useEffect(() => {
+    dispatch(getCartThunk())
+    dispatch(thunkGetAllProduct())
+
+   }, [dispatch, items.length])
   // useEffect(() => { dispatch(updateCartThunk()) }, [dispatch])
   if (!items || !items.length) return (
     <div className="cart-empty">
@@ -23,11 +28,11 @@ function Cart() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    window.alert(
-      "Purchased the following:\n" +
-      `${items.map(item => `${item.quantity} of ${item.product_details.name}`).join('\n')}`
-    );
-    dispatch(deleteCartThunk());
+    // window.alert(
+    //   "Purchased the following:\n" +
+    //   `${items.map(item => `${item.quantity} of ${item.product_details.name}`).join('\n')}`
+    // );
+    // dispatch(deleteCartThunk());
     history.push(`/order-completed`);
   }
 
@@ -64,7 +69,7 @@ function Cart() {
                   <div className="cart-image-container">
                     <img className='cart-image' src={item?.product_details?.previewImage}></img></div>
 
-                  <div className='cart-product-name'><NavLink className = 'product-link' to={`/products/${item?.product_details?.id}`}> {item?.product_details?.name}</NavLink></div>
+                  <div className='cart-product-name'><NavLink className='product-link' to={`/products/${item?.product_details?.id}`}> {item?.product_details?.name}</NavLink></div>
                   <CartItem key={item.id} item={item} />
 
                 </div>
@@ -83,15 +88,15 @@ function Cart() {
           }
         </div>
         <div className="cart-right-div">
-          <div className = "cart-purchase-container">
-          <div className="cart-item-total">
-            <div className='cart-total'>Items Total &nbsp; </div>
-            <div className='cart-total-price'> ${totalPrice()}</div>
+          <div className="cart-purchase-container">
+            <div className="cart-item-total">
+              <div className='cart-total'>Items Total &nbsp; </div>
+              <div className='cart-total-price'> ${totalPrice()}</div>
+            </div>
+            <form onSubmit={onSubmit}>
+              <button className='cart-purchase-button' type="submit">Proceed to checkout</button>
+            </form>
           </div>
-          <form onSubmit={onSubmit}>
-            <button className='cart-purchase-button' type="submit">Purchase</button>
-          </form>
-        </div>
         </div>
       </div>
     </div>

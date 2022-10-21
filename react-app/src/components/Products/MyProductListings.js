@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { thunkGetCurrentProduct } from "../../store/product";
+import { thunkGetAllProduct, thunkGetCurrentProduct } from "../../store/product";
 import { NavLink } from "react-router-dom";
 import ProductUpdate from "./ProductUpdate";
 import ProductDelete from "./ProductDelete";
@@ -22,13 +22,18 @@ function MyProductListings() {
 
     useEffect(() => {
         dispatch(thunkGetCurrentProduct())
+        dispatch(thunkGetAllProduct())
     }, [dispatch])
 
     if (!user) history.push('/')
 
   return (
     <div className="my_product_listing_div">
-      <h1>{`${user?.firstName}'s Shop`}</h1>
+      { currentProductArr.length===0 ? (<h1>You have no products to sell so far</h1>): (
+        <div>
+
+        <h1>{`${user?.firstName}'s Shop`}</h1>
+
       <div className="my_product_listing_box">
         {currentProductArr.map((product, i) => (
           <div  key={i}>
@@ -58,7 +63,7 @@ function MyProductListings() {
           </div>
           </div>
         ))}
-      </div>
+      </div>  </div>)}
     </div>
   );
 }
