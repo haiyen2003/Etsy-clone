@@ -46,7 +46,7 @@ function ArtCategory() {
                                 <div style={{ fontweight: '700' }}>{product.name}</div>
 
                             </div>
-                            <div className='category_productinfo'>${product.price}</div>
+                            <div className='category_productinfo'>{`$${new Intl.NumberFormat().format(product?.price)}`}</div>
                         </NavLink>
 
                     </div>

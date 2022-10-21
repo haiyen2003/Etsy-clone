@@ -80,7 +80,7 @@ function Cart() {
 
                 </div>
                 <div className='cart-right-container'>
-                  <div className='cart-total-price'>$ {(item?.product_details?.price * item?.quantity).toFixed(2)}</div>
+                  <div className='cart-total-price'> {`$${new Intl.NumberFormat().format((item?.product_details?.price * item?.quantity).toFixed(2))}`}</div>
                   <div className='cart-product-highlight'>{item.product_details?.highlight}</div>
                   <button className="cart-item-button"
                     onClick={async () => await dispatch(deleteItemThunk(item.id))}
@@ -97,7 +97,7 @@ function Cart() {
           <div className="cart-purchase-container">
             <div className="cart-item-total">
               <div className='cart-total'>Items Total &nbsp; </div>
-              <div className='cart-total-price'> ${totalPrice()}</div>
+              <div className='cart-total-price'>{`$${new Intl.NumberFormat().format(totalPrice())}`} </div>
             </div>
             <form onSubmit={onSubmit}>
               <button className='cart-purchase-button' type="submit">Proceed to checkout</button>
