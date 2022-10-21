@@ -64,6 +64,10 @@
 .category_link{
   text-decoration: none;
   cursor: pointer;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .category_img{

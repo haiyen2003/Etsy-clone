@@ -252,7 +252,7 @@ const realAvgStar = Math.round(sum / reviewCount);
             </div> */}
           </div>
           <div className="productdetailname">{product?.name}</div>
-          <div className="productdetailprice">{`$${product?.price}`}</div>
+          <div className="productdetailprice">{`$${new Intl.NumberFormat().format(product?.price)}`}</div>
           <select
             className="select_quantity_main"
             value={quantity}
