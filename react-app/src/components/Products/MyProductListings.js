@@ -21,8 +21,8 @@ function MyProductListings() {
     console.log('product in my product listing', currentProductArr)
 
     useEffect(() => {
+      // dispatch(thunkGetAllProduct())
         dispatch(thunkGetCurrentProduct())
-        dispatch(thunkGetAllProduct())
     }, [dispatch])
 
     if (!user) history.push('/')
