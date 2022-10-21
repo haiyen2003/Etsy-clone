@@ -1,12 +1,14 @@
 .mainproduct_container {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .productcontainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    width: 1200px;
     margin-top: 15px;
 }
 
@@ -250,13 +252,14 @@ justify-content: space-between;
 background-color: rgb(51, 71, 106);
 color: white;
 height: 150px;
+width: 100%;
 padding: 50px;
 }
 
 .footer_main_div {
     display: flex;
     justify-content: space-between;
- 
+    width: 100%;
 }
 
 .footer_text_div {
@@ -279,7 +282,7 @@ padding: 50px;
 .test {
     background-color: rgb(36, 37, 70);
     justify-content: center;
-
+    width: 100%;
     padding: 25px;
         color: white;
 }

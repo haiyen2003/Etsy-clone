@@ -108,8 +108,8 @@
 }
 .all_products_container{
   /* margin-top:330px; */
-  margin-left:40px;
-  margin-right:40px;
+  margin-left:120px;
+  margin-right:120px;
 
   justify-content: center;
   justify-items:center;
@@ -120,6 +120,14 @@
   row-gap:20px;
   position:relative;
   top:70px;
+}
+
+.all_sub_products_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1310px;
 }
 
   .product_header{

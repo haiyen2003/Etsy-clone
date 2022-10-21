@@ -97,8 +97,10 @@
   font-size: 14px;
   font-weight: 500;
   border-radius:6px;
-  /* margin-right:-20px; */
+  margin-left: 20px;
+  width: 100px;
   top:15px;
+  cursor: pointer;
   }
   .homepage_loginbtn:hover{
     background-color: rgb(248, 244, 244);

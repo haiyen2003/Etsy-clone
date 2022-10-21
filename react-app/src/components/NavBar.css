@@ -1,7 +1,7 @@
 #header{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     height: 100px;
     width: 100%;
     border-bottom: solid 1px rgb(209, 207, 207, 0.5)
@@ -28,6 +28,7 @@
     color: orange;
     font-size: 30pt;
     font-family: 'Roboto Serif';
+    margin-right: 85px;
 }
 
 /* #search_bar_container{
@@ -46,6 +47,8 @@
 .profile_button_div {
     display: flex;
     align-items: center;
+    width: 100px;
+    margin-left: 20px;
 }
 
 .profile_button{
@@ -55,14 +58,15 @@
     align-items: center;
     width: 80px;
     height: 50px;
-    border: 1px solid rgba(109, 106, 106, 0.3);
-    border-radius: 20px;
+    border: none;
     position: relative;
     cursor: pointer;
 }
 
 .profile_button:hover{
-    box-shadow: 0 1.5px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 35px;
+    background-color: rgba(211, 211, 211, 0.5);
+    box-shadow: 0 1.5px 2px rgba(226, 226, 226, 0.2);
 }
 
 .profile-dropdown{
@@ -150,17 +154,38 @@
 .cart-badge {
     width: 20px;
     height: 20px;
-    position: relative;
+    position: absolute;
     background-color: orange;
     border-radius: 40px;
     text-align: center;
     font-size: 15px;
     color: black;
+    right: -10px;
+    top: -15px;
 }
+
 .nav-cart-item{
-    padding: 30px 30px 30px 30px
+    display: flex;
+    justify-content: center;
+
 }
 
 a.style{
-    padding: 30px 30px 30px 30px
+    padding: 30px 30px 30px 30px;
+}
+
+
+.test_cart {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+.shoppingcart {
+    margin-left: 110px;
+}
+
+.sub_header_div {
+    display: flex;
 }
