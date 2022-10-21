@@ -5,13 +5,19 @@ import { useEffect, useState } from 'react';
 import CartItem from './CartItem';
 import { Link, NavLink } from 'react-router-dom';
 import './Cart.css';
+import { thunkGetAllProduct } from '../../store/product';
+
 
 function OrderCompleted() {
     const dispatch = useDispatch();
     const cartItems = useSelector(state => state.cart);
     const items = Object.values(cartItems);
     const history = useHistory();
-    useEffect(() => { dispatch(getCartThunk()) }, [dispatch, items.length])
+    useEffect(() => {
+        dispatch(getCartThunk())
+        dispatch(thunkGetAllProduct())
+
+     }, [dispatch, items.length])
     if (!items || !items.length) return (
         <div className="cart-empty">
             No items in the cart. Start selecting items to purchase.
