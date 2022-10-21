@@ -11,6 +11,7 @@
     object-fit: contain;
     width: 160px;
     height: 130px;
+    padding-right: 20px;
 }
 
 .cart-top-div {
@@ -170,13 +171,11 @@
 }
 
 .cart-order-completed{
-    width: 400px;
-    height: 400px;
-    font-size: 16px;
-    color: grey;
+    font-size: 30px;
+    color: black;
     align-items: center;
     justify-content: center;
-    padding: 40px 40px 40px 40px;
+    padding: 40px 40px 40px 60px;
 }
 .cart-empty{
     width: 400px;
@@ -194,4 +193,65 @@
 }
 .cart-product-highlight{
     padding: 10px 10px 10px 10px;
+}
+
+.cart-complete-button{
+    width: 100px;
+    height: 30px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    border-radius: 40px;
+    border: none;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+}
+.cart-complete-button:hover {
+    background-color: grey;
+}
+.cart-review-order{
+    display:flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+.order-review-text{
+    font-size: 30px;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0px 40px 40px;
+}
+.order-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.order-each-item{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px 20px 40px;
+}
+.purchase-mid{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.review-order{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.order-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.purchase-button-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 40px 40px 40px;
 }
