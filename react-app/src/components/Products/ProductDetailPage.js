@@ -67,7 +67,9 @@ const realAvgStar = Math.round(sum / reviewCount);
     dispatch(thunkGetAllProductReview(id));
     dispatch(addItemThunk(id));
     dispatch(thunkGetAllProduct());
+
   }, [dispatch, id]);
+
 
 
 
@@ -84,11 +86,28 @@ const realAvgStar = Math.round(sum / reviewCount);
   );
 
   const addToCart = async () => {
+   
     if (user){
-    await dispatch(addItemThunk(id, { quantity }))}  else{
+
+    await dispatch(addItemThunk(id, { quantity }))
+    history.push('/cart')
+
+    }
+    else{
       alert(`Please sign in to purchase.`)
     }
+
   };
+
+  // const increasequantity = () =>{
+  //   if (quantity ==='') setQuantity(1);
+  //   else setQuantity(quantity+1);
+
+  // }
+
+
+
+
   // console.log("filterereviewid------------", filteredreviewid);
   return (
     <div className="mainproduct_container">
@@ -274,10 +293,13 @@ const realAvgStar = Math.round(sum / reviewCount);
 
 
           {! user ? (<div className='nologintextlable'><span> Please sign in to add to cart</span></div>) :(<div style={{ padding: "5px" }}>
-            <button onClick={() => addToCart()} className="Addtocart_button">
+            <button onClick={() => addToCart()}   className="Addtocart_button">
               Add to cart
             </button>
+
+            {/* <button onClick={()=>increasequantity()}>Increase</button> */}
           </div>)}
+
 
 
 
