@@ -104,6 +104,8 @@ padding: 15px;
 
 .productdetail_text {
     padding: 15px;
+    word-break: break-all;
+    white-space: pre-wrap;
 }
 
 .productdetail_listtext {
