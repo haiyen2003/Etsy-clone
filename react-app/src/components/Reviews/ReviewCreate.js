@@ -20,7 +20,7 @@ function ReviewCreate({ setShowModal, review }) {
 
 
 
-  const [createdStar, setCreatedStar] = useState('');
+  const [createdStar, setCreatedStar] = useState(20);
   const [createdReview, setCreatedReview] = useState('');
   // const [createdReviewImg, setcreatedReviewImg] = useState(review.reviewImg)
   const [submit, setSubmit] = useState(false);
@@ -95,7 +95,8 @@ const starsClick = (rate) => {
           <div style={{ display: "flex" }}>
             <Rating
               onClick={starsClick}
-              allowHover={false}
+              allowHover={true}
+              transition={true}
               size={25}
               fillColor={"black"}
               emptyColor={"lightgrey"}

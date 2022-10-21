@@ -27,8 +27,10 @@ def username_length(form, field):
 
 def validate_email(form, field):
     email = field.data
-    if '@' not in email:
+    #  if not img[-3:] == 'jpg' and (not img[-3:] == 'png') and img[-4:] != 'jpeg' and img[-4:] != 'webp' and img[-3:] != 'gif' and img[-3:] != 'svg':
+    if '@' not in email or  (not email[-4:] == '.com') and (not email[-4:] =='.net') and (not email[-3:]=='.io'):
         raise ValidationError("Invalid email address")
+
 def password_length(form, field):
     password = field.data
     if len(password) < 6:
