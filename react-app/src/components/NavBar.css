@@ -150,7 +150,7 @@
 .cart-badge {
     width: 20px;
     height: 20px;
-    position: absolute;
+    position: relative;
     background-color: orange;
     border-radius: 40px;
     text-align: center;
