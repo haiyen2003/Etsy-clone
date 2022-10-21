@@ -6,23 +6,23 @@ def seed_users():
     demo = User(
         username='Demo', email='demo@aa.io', firstName="Demo", lastName='Demo-User', password='password')
     marnie = User(
-        username='marnie', email='marnie@aa.io',firstName="firstName02", lastName='lastName02', password='password')
+        username='marnie', email='marnie@aa.io',firstName="Marnie", lastName='Schultz', password='password')
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io',firstName="firstName03", lastName='lastName03', password='password')
+        username='bobbie', email='bobbie@aa.io',firstName="Bobbie", lastName='Duarte', password='password')
     jimgreen = User(
-        username='jimgreen', email='jimgreen@aa.io', firstName="firstName04", lastName='lastName04',password='password')
+        username='jimgreen', email='jimgreen@aa.io', firstName="Jimgreen", lastName='Pierce',password='password')
     meimeihan = User(
-        username='meimeihan', email='meimeihan@aa.io', firstName="firstName05", lastName='lastName05',password='password')
+        username='meimeihan', email='meimeihan@aa.io', firstName="Meimeihan", lastName='Palmer',password='password')
     doodle = User(
-        username='doodle', email='doodle@aa.io', firstName="firstName06", lastName='lastName06',password='password')
+        username='doodle', email='doodle@aa.io', firstName="Doodle", lastName='Kline',password='password')
     goofy = User(
-        username='goofy', email='goofy@aa.io', firstName="firstName07", lastName='lastName07',password='password')
+        username='goofy', email='goofy@aa.io', firstName="Goofy", lastName='Allen',password='password')
     charlie = User(
-        username='charlie', email='charlie@aa.io', firstName="firstName08", lastName='lastName08',password='password')
+        username='charlie', email='charlie@aa.io', firstName="Charlie", lastName='Caldwell',password='password')
     william = User(
-        username='william', email='william@aa.io',firstName="firstName09", lastName='lastName09', password='password')
+        username='william', email='william@aa.io',firstName="William", lastName='Rollins', password='password')
     glenny = User(
-        username='glenny', email='glenny@aa.io', firstName="firstName10", lastName='lastName10',password='password')
+        username='glenny', email='glenny@aa.io', firstName="Glenny", lastName='Beasley',password='password')
 
 
 
