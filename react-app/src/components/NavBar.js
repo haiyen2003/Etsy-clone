@@ -42,7 +42,8 @@ const NavBar = ({isLoaded}) => {
 
   return (
     <>
-      <nav id="header">
+      <div id="header">
+        <div className="sub_header_div">
         <div id="header__left">
           <NavLink style={{ textDecoration: "none" }} to="/" exact={true}>
             <div className="nav_artsy_logo">Artsy</div>
@@ -59,12 +60,16 @@ const NavBar = ({isLoaded}) => {
           </NavLink> */}
           {isLoaded && sessionLinks}
         </div>
-        <a classname="nav-cart-item" >
+        <div style={{display:"flex", "alignItems":"center", position:"relative"}}>
+          <div className="test_cart">
+            <NavLink className="shoppingcart" to="/cart" exact>
+              <i className="fa-solid fa-cart-arrow-down fa-2xl"></i>
+            </NavLink>
           <div className="cart-badge">{items.length}</div>
-          <NavLink to="/cart" exact className="shoppingcart">
-            <i className="fa-solid fa-cart-arrow-down fa-2xl"></i>
-          </NavLink>
-        </a>
+          </div>
+        </div>
+
+        </div>
         {/* <div>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign In
@@ -78,7 +83,7 @@ const NavBar = ({isLoaded}) => {
         {/* <div>
           <LogoutButton />
         </div> */}
-      </nav>
+      </div>
     </>
   );
 }

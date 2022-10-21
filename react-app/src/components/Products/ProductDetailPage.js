@@ -510,7 +510,6 @@ const realAvgStar = Math.round(sum / reviewCount);
           </div>
         </div>
       </div>
-      <div>
         <div className="test">
           <div className="footer_main_div">
             <div className="footer_text_div">
@@ -535,7 +534,6 @@ const realAvgStar = Math.round(sum / reviewCount);
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }
