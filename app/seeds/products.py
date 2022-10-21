@@ -34,7 +34,7 @@ def seed_products():
         price= 150,
         userId = 2,
         category= "Clothing & Shoes",
-        highlight = "Materials: Primary fiber: Alpaca; Secondary fiber: Polyamide",
+        highlight = "Materials",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/10304510/r/il/f7568b/2230955130/il_1588xN.2230955130_6yrs.jpg"
@@ -220,7 +220,7 @@ def seed_products():
         description= "This set of Nintendo Switch Joy-Con controllers features a custom painted Nintendo theme. Comes with matching colored wrist straps.",
         price= 204.95,
         userId = 4,
-        category= "Toys & Entertainment",
+        category= "Personalized Gifts",
         highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
@@ -231,11 +231,11 @@ def seed_products():
         description= "Drive with Style and choose handmade covers from shop 'BeutySteeringWheel'. :)",
         price= 25.59,
         userId = 5,
-        category= "Toys & Entertainment",
+        category= "Personalized Gifts",
         highlight = "Materials",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
+        previewImage= "https://i.etsystatic.com/21890027/c/2250/1788/0/605/il/f5413e/3709393363/il_340x270.3709393363_kozp.jpg"
     )
     product22 = Product(
         name= "Meth joke coffee mug. Coffee because meth is illegal.",
@@ -298,7 +298,7 @@ def seed_products():
         price= 19.99,
         userId = 1,
         category= "Wedding & Party",
-        highlight = "Can be personalized",
+        highlight = "Made to Order",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/14466987/r/il/40ede1/2584790379/il_794xN.2584790379_pwyg.jpg"
@@ -309,7 +309,7 @@ def seed_products():
         price= 93.60,
         userId = 2,
         category= "Wedding & Party",
-        highlight = "Can be personalized",
+        highlight = "Made to Order",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://i.etsystatic.com/12896129/r/il/928fc4/1380024725/il_794xN.1380024725_2yrf.jpg"
@@ -353,7 +353,7 @@ def seed_products():
         price= 50,
         userId =1,
         category= "Personalized Gifts",
-        highlight = "Handmade Item",
+        highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://images.pexels.com/photos/860009/pexels-photo-860009.jpeg"
@@ -364,7 +364,7 @@ def seed_products():
         price= 70,
         userId = 2,
         category= "Personalized Gifts",
-        highlight = "Handmade Item",
+        highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://images.pexels.com/photos/965981/pexels-photo-965981.jpeg"
@@ -397,7 +397,7 @@ def seed_products():
         price= 90,
         userId =5,
         category= "Home & Living",
-        highlight = "Fall Finds",
+        highlight = "Materials",
         createdAt= now,
         updatedAt= now,
         previewImage= "https://images.pexels.com/photos/6850482/pexels-photo-6850482.jpeg"
@@ -425,15 +425,15 @@ def seed_products():
         previewImage= "https://images.pexels.com/photos/3811836/pexels-photo-3811836.jpeg"
     )
     product39 = Product(
-        name= "Black Large Wall Clock, Real Mirror Clock ,Black colored numerals on a Silver colored mirror",
-        description= "Our products are produced from real mirror.You should not choose models made with plexi mirror and mirror effect.Pay attention to this detail before ordering.",
-        price= 120,
+        name= "Custom Jordan 4 Retro Red Thunder Custom Gift OG AJ4 Sneakers, Custom Shoes, Basketball Shoes",
+        description= "The Air Jordan IV 'Tech White' features a white leather upper; Jumpman logo on the heel and tongue; and a classic cement texture on the midsole and eyelets. This new colorway refreshes the AJ4 and breathes new life into the classic AJ4 silhouette, while the original shoe box exudes a touch of classicism.",
+        price= 140.00,
         userId = 7,
-        category= "Home & Living",
+        category= "Clothing & Shoes",
         highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
+        previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jphttps://i.etsystatic.com/6162675/r/il/2a760e/4252557132/il_340x270.4252557132_h54s.jpgg"
     )
     product40 = Product(
         name= "Nice handmade gift for friends and families for any home decoration.",
@@ -469,37 +469,103 @@ def seed_products():
         previewImage= "https://images.pexels.com/photos/4830748/pexels-photo-4830748.jpeg"
     )
     product43 = Product(
-        name= "Silicon based art piece that comes in many different colors.",
-        description= "Our products are produced from silicon. Please do not leave in the sun. Shipping may take up to 5 days.",
-        price= 120,
+        name= "Feather Ear Climber Sterling Silver Ear Cuff Boho Earrings Silver Earrings Modern Jewelry Gift for Her Gift for Her.",
+        description= "Feather Ear Climber cast in solid Sterling Silver. The earring has been carefully carved inspired by nature tree leaves. The Earring measures 7/8' (21mm) long.",
+        price= 21.16,
         userId = 10,
-        category= "Home & Living",
-        highlight = "Handmade",
+        category= "Jewelry & Accessories",
+        highlight = "Made to Order",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://images.pexels.com/photos/7175390/pexels-photo-7175390.jpeg"
+        previewImage= "https://i.etsystatic.com/10128979/r/il/4e0eb5/3887165990/il_794xN.3887165990_5jlb.jpg"
     )
     product44 = Product(
-        name= "Recycled cloth shirts that have customized prints.",
-        description= "Customers can choose what kind of print they want depending on the size. Please donate any material to process more shirts.",
-        price= 30,
+        name= "1 Carat Diamond engagement ring vintage-14K Yellow Gold-Promise ring-Pear shaped diamond engagement ring-Baguette diamond ring-Art deco ring",
+        description= "Art deco engagement ring-Diamond Engagement Ring 1 ct-14K Yellow Gold-Promise ring-Pear shape diamond engagement ring-Anniversary ring-Baguette diamond ring",
+        price= 2800.00,
         userId = 9,
-        category= "Home & Living",
-        highlight = "Handmade",
+        category= "Jewelry & Accessories",
+        highlight = "Made to Order",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jpg"
+        previewImage= "https://i.etsystatic.com/8484655/r/il/a2d9c3/2767928906/il_794xN.2767928906_jkai.jpg"
     )
     product45 = Product(
-        name= "Nice gift for those who love to cook and have a nice looking cutting board.",
-        description= "Our products are produced from fallen redwood trees. Burnt to a nice finish. A nice gift all around.",
-        price= 120,
+        name= "Natural Stone Black Obsidian Healing Bracelet-Rainbow Eye Grounding Meditation Balancing Calm Bracelet-Anxiety Stress Relief Bracelet Gift",
+        description= "Rainbow Obsidian usually looks quite black but when polished and exposed to a strong light, it shows bands of beautiful rainbow colors. It is the stone of the gentle, sensitive, and soft-hearted people of the world.",
+        price= 12.90,
         userId = 8,
-        category= "Home & Living",
-        highlight = "Handmade",
+        category= "Jewelry & Accessories",
+        highlight = "Made to Order",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://images.pexels.com/photos/1087909/pexels-photo-1087909.jpeg"
+        previewImage= "https://i.etsystatic.com/22494995/r/il/8aadd1/3740485711/il_794xN.3740485711_8ow7.jpg"
+    )
+    product46 = Product(
+        name= "Watercolor Couple Portrait from Photo, Custom Wedding Anniversary Gift for Wife Husband Parents, Engagement Gift for Friend, Unique Wall Art",
+        description= "Watercolor Couple Portrait from Photo, Custom Wedding Anniversary Gift for Wife Husband Parents, Engagement Gift for Friend, Unique Wall Art",
+        price= 19.99,
+        userId = 8,
+        category= "Wedding & Party",
+        highlight = "Made to Order",
+        createdAt= now,
+        updatedAt= now,
+        previewImage= "https://i.etsystatic.com/30692376/r/il/b70824/3453638616/il_794xN.3453638616_fj3a.jpg"
+    )
+    product47 = Product(
+        name= "Soft Wedding Veil",
+        description= "Free Lace Garter with every Veil Purchase as My Gift to You!",
+        price= 25.00,
+        userId = 8,
+        category= "Wedding & Party",
+        highlight = "Made to Order",
+        createdAt= now,
+        updatedAt= now,
+        previewImage= "https://i.etsystatic.com/6900137/r/il/131085/999671125/il_794xN.999671125_bole.jpg"
+    )
+    product48 = Product(
+        name= "Floral Bridal Party Skinny Can Cooler | Custom Hard Seltzer Holder | Personalized Bridesmaid Gift | Bridesmaid Proposal | Maid of Honor Gift",
+        description= "HAND TO HEART BRIDAL | CUSTOM BRIDAL & BRIDESMAID GIFTS | Skinny Can Cooler",
+        price= 12.95,
+        userId = 8,
+        category= "Wedding & Party",
+        highlight = "Materials",
+        createdAt= now,
+        updatedAt= now,
+        previewImage= "https://i.etsystatic.com/19298872/r/il/902bfb/2696850108/il_794xN.2696850108_inon.jpg"
+    )
+    product49 = Product(
+        name= "Gold Cake topper for Wedding, Personalized cake topper, Rustic wedding cake topper, Custom Mr Mrs cake topper, Anniversary Cake toppers",
+        description= "Gold Cake topper for Wedding, Personalized cake topper, Rustic wedding cake topper, Custom Mr Mrs cake topper, Anniversary Cake toppers",
+        price= 15.99,
+        userId = 8,
+        category= "Wedding & Party",
+        highlight = "Materials",
+        createdAt= now,
+        updatedAt= now,
+        previewImage= "https://i.etsystatic.com/17207134/r/il/913c7a/3121451996/il_794xN.3121451996_695g.jpg"
+    )
+    product50 = Product(
+        name= "Jane - Womens Mary Janes, Leather Mary Jane, Vintage Shoes, Brown Mary Jane shoes, Custom Shoes, FREE customization!!!",
+        description= "Sweet and traditional, these mary janes are a charming addition to your collection. Crafted in soft leather, the pair are detailed with traditional punch-hole, delicate strap and tiny gold-toned buckle fastener.",
+        price= 145.00,
+        userId = 8,
+        category= "Clothing & Shoes",
+        highlight = "Materials",
+        createdAt= now,
+        updatedAt= now,
+        previewImage= "https://i.etsystatic.com/17207134/r/il/913c7a/3121451996/il_794xN.3121451996_695g.jpg"
+    )
+    product51 = Product(
+        name= "Hand Painted Wood Personalized Family Ornament | Wedding Gift| Anniversary Gift | Pet Ornament | In Loving Memory Gift | Christmas",
+        description= " Be specific! If there is anything you'd like me to include or avoid, just let me know. Some specifications for example would be if you want one family member taller than another, put daughters in pink, or if a family member's hair is now shorter than in the picture.",
+        price= 25.00,
+        userId = 8,
+        category= "Personalized Gift",
+        highlight = "Made to Order",
+        createdAt= now,
+        updatedAt= now,
+        previewImage= "https://i.etsystatic.com/22317449/r/il/3e9ea2/2212332372/il_794xN.2212332372_g0t9.jpg"
     )
 
     db.session.add(product01)
@@ -547,6 +613,12 @@ def seed_products():
     db.session.add(product43)
     db.session.add(product44)
     db.session.add(product45)
+    db.session.add(product46)
+    db.session.add(product47)
+    db.session.add(product48)
+    db.session.add(product49)
+    db.session.add(product50)
+    db.session.add(product51)
 
     db.session.commit()
 
