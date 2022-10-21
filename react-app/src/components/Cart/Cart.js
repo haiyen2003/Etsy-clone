@@ -10,9 +10,10 @@ import { thunkGetAllProduct } from '../../store/product';
 function Cart() {
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart);
+  const user = useSelector((state) => state.session.user);
   const items = Object.values(cartItems);
   const history = useHistory();
-  console.log(items, 'THIS IS ITEMS ======')
+  //console.log(items, 'THIS IS ITEMS ======')
 
   useEffect(() => {
     dispatch(getCartThunk())
@@ -25,6 +26,11 @@ function Cart() {
       No items in the cart. Start selecting items to purchase.
     </div>
   );
+  if (!user) return (
+    <div  className="cart-empty">
+      Please log in to checkout your cart
+    </div>
+  )
 
   const onSubmit = (e) => {
     e.preventDefault();
