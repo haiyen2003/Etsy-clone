@@ -59,10 +59,10 @@ const NavBar = ({isLoaded}) => {
           </NavLink> */}
           {isLoaded && sessionLinks}
         </div>
-        <a classname="nav-cart-item">
+        <a classname="nav-cart-item" >
           <div className="cart-badge">{items.length}</div>
           <NavLink to="/cart" exact className="shoppingcart">
-            <i className="fa-solid fa-cart-arrow-down fa-xl"></i>
+            <i className="fa-solid fa-cart-arrow-down fa-2xl"></i>
           </NavLink>
         </a>
         {/* <div>
