@@ -1,0 +1,13 @@
+.signup_error{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  word-wrap:break-word;
+  justify-content: start;
+  align-items: flex-start;
+  line-height: 5px;
+  height: 5px;
+  color: #FF385C;
+
+
+}

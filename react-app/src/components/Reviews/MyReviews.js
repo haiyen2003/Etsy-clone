@@ -7,6 +7,7 @@ import { FaStar } from "react-icons/fa"
 import './MyReviews.css'
 import ReviewDelete from "./ReviewDelete"
 import ReviewUpdateModal from "./ReviewUpdateModal"
+import { thunkGetAllProduct } from "../../store/product"
 
 
 
@@ -23,18 +24,22 @@ function MyReviews() {
 
     useEffect(() => {
         dispatch(thunkGetCurrentReview())
+        dispatch(thunkGetAllProduct())
     },[dispatch])
 
     const myReviews = useSelector(state => state.review)
     const myReviewsArr = Object.values(myReviews)
 
-    // console.log(myReviewsArr, 'this') 
+    // console.log(myReviewsArr, 'this')
 
 
 
     return (
       <div className="my_review_listing_div">
         <div className="my_review_listing_box">
+          { myReviewsArr.length === 0 ? (<h1>Sorry, you have not made any reviews so far</h1>) :(
+            <div>
+              <h2>My Reviews</h2>
           {myReviewsArr.map((review, i) => (
             <div key={i}>
               <div className="my_review_listing_innerbox">
@@ -116,7 +121,7 @@ function MyReviews() {
                 </div>
               </div>
             </div>
-          ))}
+          ))}  </div>)}
         </div>
       </div>
     );

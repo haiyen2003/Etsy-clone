@@ -71,7 +71,7 @@ const SignUpForm = ({setOpenSignup, setOpenLogin, setShowModal}) => {
       <h2 className='signin_head'>Create your account</h2>
       <div>
         {errors.map((error, ind) => (
-          <div key={ind} className='login_error'>{error}</div>
+          <div key={ind} className='signup_error'>{error}</div>
         ))}
       </div>
 
