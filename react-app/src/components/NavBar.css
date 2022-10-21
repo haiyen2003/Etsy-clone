@@ -157,3 +157,10 @@
     font-size: 15px;
     color: black;
 }
+.nav-cart-item{
+    padding: 30px 30px 30px 30px
+}
+
+a.style{
+    padding: 30px 30px 30px 30px
+}
