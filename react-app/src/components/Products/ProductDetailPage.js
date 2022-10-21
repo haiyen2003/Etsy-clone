@@ -252,7 +252,7 @@ const realAvgStar = Math.round(sum / reviewCount);
             </div> */}
           </div>
           <div className="productdetailname">{product?.name}</div>
-          <div className="productdetailprice">{`$${product?.price}`}</div>
+          <div className="productdetailprice">{`$${new Intl.NumberFormat().format(product?.price)}`}</div>
           <select
             className="select_quantity_main"
             value={quantity}
@@ -264,19 +264,20 @@ const realAvgStar = Math.round(sum / reviewCount);
           </select>
 
 
-          <div style={{ padding: "5px" }}>
+          {!user ? (<div className='nologintextlable' ><span >Please sign in to buy it</span></div>) :(
+            <div style={{ padding: "5px" }}>
             <button onClick={buyNow} className="Buynow_button">
               Buy it now
             </button>
-          </div>
+          </div>)}
 
 
 
-          <div style={{ padding: "5px" }}>
+          {! user ? (<div className='nologintextlable'><span> Please sign in to add to cart</span></div>) :(<div style={{ padding: "5px" }}>
             <button onClick={() => addToCart()} className="Addtocart_button">
               Add to cart
             </button>
-          </div>
+          </div>)}
 
 
 

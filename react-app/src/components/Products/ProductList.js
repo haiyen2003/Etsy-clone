@@ -153,7 +153,7 @@ function ProductList() {
                         {renderProductAbout(product.name)}
                       </div>
                     </div>
-                    <div className="product_info">${product.price}</div>
+                    <div className="product_info">{`$${new Intl.NumberFormat().format(product?.price)}`}</div>
                   </NavLink>
                 </div>
               ))}
