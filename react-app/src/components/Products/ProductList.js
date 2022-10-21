@@ -129,9 +129,12 @@ function ProductList() {
             </NavLink>
           </div>
 
-          <div className="product_header">Popular gifts right now</div>
+          <div className="product_header">
+            <span className='product_header_content'>Popular gifts right now</span>
+          </div>
 
           <div className="all_products_container">
+            <div className="all_sub_products_container">
             {allproducts &&
               allproducts.map((product) => (
                 <div key={product.id}>
@@ -154,6 +157,7 @@ function ProductList() {
                   </NavLink>
                 </div>
               ))}
+            </div>
           </div>
           <div style={{height: "120px"}}></div>
         </div>
