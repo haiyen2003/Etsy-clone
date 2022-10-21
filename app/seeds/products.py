@@ -150,15 +150,15 @@ def seed_products():
         previewImage= "https://i.etsystatic.com/5203219/r/il/cba206/4247312242/il_1588xN.4247312242_lalu.jpg"
     )
     product14 = Product(
-        name= "Watercolour painting PRINT of a restaurant at night in Paris, France, Giclee art print",
-        description= " Giclee/ Fine art PRINT of a watercolour painting I did of a restaurant in Paris, France. The city has many different faces and I especially like its look in the evening.",
-        price= 900,
+        name= "Paris Balloon Print - Arc de Triomphe Photo Print - Whimsical Photography Print - Hot Air Balloon Print - Purple Wall Art",
+        description= "Photography print of hot air balloons flying over the Arc de Triomphe. This print would be so fun for a whimsical children's room, nursery, or even a dorm room. The photograph is printed full-bleed (no border) on archival-quality photo paper.",
+        price= 25.00,
         userId = 3,
         category= "Art & Collectibles",
         highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://i.etsystatic.com/23629440/r/il/435525/3007420413/il_1588xN.3007420413_7max.jpg"
+        previewImage= "https://i.etsystatic.com/7037681/r/il/26e6eb/1348793578/il_794xN.1348793578_mqmy.jpg"
     )
     product15 = Product(
         name= "Parisian street scene, vintage Italian oil painting, Parisian piazza, impressionist, signed",
@@ -433,7 +433,7 @@ def seed_products():
         highlight = "Handmade",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://i.etsystatic.com/25075715/r/il/bac101/3141997968/il_794xN.3141997968_2chr.jphttps://i.etsystatic.com/6162675/r/il/2a760e/4252557132/il_340x270.4252557132_h54s.jpgg"
+        previewImage= "https://i.etsystatic.com/6162675/r/il/2a760e/4252557132/il_794xN.4252557132_h54s.jpg"
     )
     product40 = Product(
         name= "Nice handmade gift for friends and families for any home decoration.",
@@ -554,7 +554,7 @@ def seed_products():
         highlight = "Materials",
         createdAt= now,
         updatedAt= now,
-        previewImage= "https://i.etsystatic.com/17207134/r/il/913c7a/3121451996/il_794xN.3121451996_695g.jpg"
+        previewImage= "https://i.etsystatic.com/10731543/r/il/a21ad2/985711808/il_794xN.985711808_ecn8.jpg"
     )
     product51 = Product(
         name= "Hand Painted Wood Personalized Family Ornament | Wedding Gift| Anniversary Gift | Pet Ornament | In Loving Memory Gift | Christmas",
