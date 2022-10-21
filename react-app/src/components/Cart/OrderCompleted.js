@@ -51,6 +51,7 @@ function OrderCompleted() {
                                         <img className='cart-image' src={item?.product_details?.previewImage}></img></div>
                                     <div className='purchase-mid'>
                                         <div className='order-item-name'>{item?.product_details?.name}</div>
+                                        <div className = 'order-quantity'>Quantity: {item?.quantity}</div>
                                         <div className='cart-total-price'>$ {(item?.product_details?.price * item?.quantity).toFixed(2)}</div>
                                     </div>
                                 </div>
@@ -63,7 +64,7 @@ function OrderCompleted() {
 
                 </div>
                 <div className = "purchase-button-container">
-                <div className='cart-total-price'>Total Price: ${totalPrice()}</div>
+                <div className='order-total-price'>Total Price: ${totalPrice()}</div>
                 <form onSubmit={onSubmit}>
                     <button className='cart-complete-button' type="submit">Purchase</button>
                 </form>
