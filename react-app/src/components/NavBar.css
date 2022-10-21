@@ -48,11 +48,6 @@
     align-items: center;
 }
 
-.shoppingcart {
-    display: flex;
-    align-items: center;
-}
-
 .profile_button{
     display: flex;
     flex-direction: row;
@@ -125,7 +120,7 @@
     /* cursor: pointer; */
     font-size: 16px;
     font-weight: 600;
-    
+
 }
 
 .menu-item-link{
@@ -162,4 +157,3 @@
     font-size: 15px;
     color: black;
 }
-
