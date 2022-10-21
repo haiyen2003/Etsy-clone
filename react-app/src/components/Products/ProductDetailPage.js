@@ -30,7 +30,7 @@ function ProductDetailPage() {
 
   // console.log("review array",reviewCount)
 
-  
+
 const avgStar = reviewArray.map((review) => review.stars);
 let sum = 0;
 avgStar.forEach((review) => {
@@ -72,7 +72,9 @@ const realAvgStar = Math.round(sum / reviewCount);
 
 
   const buyNow = () => {
-    alert(`Thank you for purchasing!`);
+    if (user) {alert(`Thank you for purchasing!`)} else{
+      alert(`Please sign in to purchase.`)
+    };
     history.push("/");
   };
   // console.log("product.userId-----", product, "user.id-----", user.id);
@@ -82,7 +84,10 @@ const realAvgStar = Math.round(sum / reviewCount);
   );
 
   const addToCart = async () => {
-    await dispatch(addItemThunk(id, { quantity }));
+    if (user){
+    await dispatch(addItemThunk(id, { quantity }))}  else{
+      alert(`Please sign in to purchase.`)
+    }
   };
   // console.log("filterereviewid------------", filteredreviewid);
   return (
@@ -257,16 +262,24 @@ const realAvgStar = Math.round(sum / reviewCount);
             <option value="1">1</option>
             <option value="2">2</option>
           </select>
+
+
           <div style={{ padding: "5px" }}>
             <button onClick={buyNow} className="Buynow_button">
               Buy it now
             </button>
           </div>
+
+
+
           <div style={{ padding: "5px" }}>
             <button onClick={() => addToCart()} className="Addtocart_button">
               Add to cart
             </button>
           </div>
+
+
+
           <div className="descriptiondetail_cart">
             <i className="fa-solid fa-cart-shopping fa-2xl"></i>
             <div className="descriptiondetail_text">

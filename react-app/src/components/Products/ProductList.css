@@ -2,6 +2,7 @@
   width:100%;
   display:flex;
   flex-direction:column;
+  /* justify-content:center; */
   align-items:center;
   margin-top: -10px;
 }
@@ -131,14 +132,12 @@
 }
 
   .product_header{
+    margin-left:120px;
+    margin-right:120px;
 
-    margin-right: 249px;
-    /* justify-content: flex-start; */
+
    /* justify-items:center; */
    display:flex;
-
-    margin-left:40px;
-    margin-right:249px;
     font-weight:700;
     font-size:28px;
     color:black;
@@ -146,6 +145,10 @@
 
     /* top:60px; */
   }
+  .product_header_content{
+    margin-left:150px;
+  }
+
 .productlist_image{
   height:200px;
   width: 250px;
