@@ -13,7 +13,7 @@ function ReviewUpdate({review, setShowModal}) {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const [updatedStar, setUpdatedStar] = useState(review.stars)
+    const [updatedStar, setUpdatedStar] = useState(review.stars * 20)
     const [updatedReview, setUpdatedReview] = useState(review.review)
     // const [updatedReviewImg, setUpdatedReviewImg] = useState(review.reviewImg)
     const [submit, setSubmit] = useState(false)
@@ -58,7 +58,7 @@ function ReviewUpdate({review, setShowModal}) {
         };
 
         let updatedRevew = await dispatch(thunkUpdateReview(payload))
-          
+
         if (updatedRevew) {
             // history.push(`/products/${payload.productId}`)
             setShowModal(false)
@@ -81,9 +81,10 @@ function ReviewUpdate({review, setShowModal}) {
               ></input>
             </div> */}
             <div style={{ display: "flex" }}>
-              <Rating 
+              <Rating
                 onClick={starsClick}
-                allowHover={false}
+                allowHover={true}
+                transition={true}
                 size={25}
                 fillColor={"black"}
                 emptyColor={"lightgrey"}
