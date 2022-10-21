@@ -20,8 +20,10 @@ function ReviewUpdate({review, setShowModal}) {
     const [validations, setValidations] = useState(false)
 
     const starsClick = (rate) => {
-      setUpdatedStar(rate)
+      setUpdatedStar(rate / 20)
     }
+
+    // console.log(setUpdatedStar, )
 
     useEffect(() => {
         const errors = []
