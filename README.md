@@ -2,7 +2,7 @@
 
 Artsy is a web-application clone inspired by [Etsy](https://www.etsy.com/), that allows users to purchase handmade products. It is also a place to sell crafty products to users who are interested.
 
-* [Click here to view Clone Live Site]()
+* [Artsy](https://artsy-1014.herokuapp.com/)
 
 ### Please see below links to Project Wiki:
 ##### [API Documentation](https://github.com/haiyen2003/Etsy-clone/wiki/API-Documentation)
@@ -94,4 +94,4 @@ Artsy is a web-application clone inspired by [Etsy](https://www.etsy.com/), that
 
   3. For cart feature, we will create a 'You might also like' session where we suggest similar items - using query by category
 
-  4. We can also add favorites feature to all the products. 
+  4. We can also add favorites feature to all the products.

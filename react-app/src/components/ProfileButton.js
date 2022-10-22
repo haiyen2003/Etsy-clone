@@ -35,16 +35,16 @@ function ProfileButton({ user }) {
             {showMenu &&  (
             <div className="profile-dropdown">
 
-            <div className="menu-item1">Hi, {user.firstName}</div>
+            <div className="menu-item1">&nbsp;<i className="fas fa-user-circle fa-lg" /> &nbsp;Hi, {user.firstName}</div>
 
-            <Link  className="menu-item-link" to={`/myproducts`}>My Product Listings</Link>
+            <Link  className="menu-item-link" to={`/myproducts`}><i className="fa-regular fa-rectangle-list fa-lg"></i> &nbsp;My Product Listings</Link>
 
-            <NavLink className='menu-item-link' to={'/seller'}>Create a listing</NavLink>  
+            <NavLink className='menu-item-link' to={'/seller'}><i className="fa-solid fa-store fa-lg"></i> &nbsp;Create a listing</NavLink>
 
-            <Link className="menu-item-link" to={`/myreviews`}>My reviews</Link>
+            <Link className="menu-item-link" to={`/myreviews`}><i className="fa-regular fa-star fa-lg"></i> &nbsp;My reviews</Link>
 
-            <div className="menu-item" >
-                <LogoutButton/>
+            <div className="menu-item"  >
+            <LogoutButton/>
             </div>
 
             </div>
