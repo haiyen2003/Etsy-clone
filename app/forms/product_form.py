@@ -11,13 +11,13 @@ from decimal import ROUND_HALF_UP
 def name_validation(form, field):
     #check name is longer than 5 and less than 100 characters
     name = field.data
-    if len(name) < 5 or len(name) > 100:
+    if len(name) < 5 or len(name) > 1000:
         raise ValidationError("Name must be more than 5 characters and less than 100 characters")
 
 def description_validation(form, field):
     #check description is longer than 20 characters and less than 500 characters
     des = field.data
-    if len(des) < 20 or len(des) > 500:
+    if len(des) < 20 or len(des) > 1000:
         raise ValidationError("Description must be more than 20 characters and less than 500 characters")
 
 def price_validation(form, field):

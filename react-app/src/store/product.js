@@ -112,9 +112,9 @@ export const thunkUpdateProduct = (payload) => async dispatch => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
-    console.log('response', response)
-    console.log('payload', payload)
-    console.log('thunk', payload.id)
+    // console.log('response', response)
+    // console.log('payload', payload)
+    // console.log('thunk', payload.id)
 
     if (response.ok) {
         const data = await response.json()
@@ -140,7 +140,7 @@ const productReducer = (state = initialState, action) => {
     let newState = {...state}
     switch (action.type) {
       case createProduct:
-        
+
         newState[action.product.id] = action.product;
         return newState;
       case getAllProduct:

@@ -41,6 +41,10 @@ function Cart() {
     // dispatch(deleteCartThunk());
     history.push(`/order-completed`);
   }
+  const backtohomepage =(e) =>{
+    e.preventDefault();
+    history.push(`/`)
+  }
 
   const sum = items.reduce((accumulator, object) => {
     return accumulator + object.quantity;
@@ -63,7 +67,7 @@ function Cart() {
     <div className="cart">
       <div className="cart-top-div">
         <div className="cart-item-num">You have {items.length} items in your cart</div>
-        <div className="cart-keep-shopping"><button className="cart-home-link" to={`/`}>Keep Shopping</button></div>
+        <div className="cart-keep-shopping"><button className="cart-home-link" onClick={backtohomepage}>Keep Shopping</button></div>
       </div>
 
       <div className="cart-middle-div">
