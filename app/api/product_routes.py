@@ -120,8 +120,10 @@ def delete_product(id):
 def add_to_cart(id):
     currentUserId = current_user.id
     item = Product.query.get(id)
+
     if item is None:
         return {'message': 'item not found'}, 404
+
 
 
     cartItem = db.session.query(CartItem) \
@@ -132,6 +134,7 @@ def add_to_cart(id):
     form = CartForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        
         if cartItem is None:
             item = CartItem(
                 userId = currentUserId,
@@ -144,7 +147,7 @@ def add_to_cart(id):
             db.session.commit()
             return item.to_dict()
         else:
-            cartItem.quantity = form.data["quantity"]
+            cartItem.quantity += form.data["quantity"]
             cartItem.updateAt = now
             db.session.commit()
             # response = cartItem.to_dict()

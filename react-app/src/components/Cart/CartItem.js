@@ -13,6 +13,7 @@ function CartItem({ item }) {
         dispatch(updateCartThunk(Number(item.id), Number(quantity)))
         setQuantity(e.target.value)
     }
+    
     // useEffect(() => { dispatch(updateCartThunk()) }, [dispatch]) don't put useEffect when you don't use it
     return (
         <div className="cart-item">

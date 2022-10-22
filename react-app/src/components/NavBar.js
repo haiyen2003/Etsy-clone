@@ -62,10 +62,14 @@ const NavBar = ({isLoaded}) => {
         </div>
         <div style={{display:"flex", "alignItems":"center", position:"relative"}}>
           <div className="test_cart">
+
             <NavLink className="shoppingcart" to="/cart" exact>
               <i className="fa-solid fa-cart-arrow-down fa-2xl"></i>
             </NavLink>
-          <div className="cart-badge">{items.length}</div>
+            
+          { !sessionUser ? (<div className="cart-badge">0</div>) : (
+          <div className="cart-badge">{items.length}</div>)
+          }
           </div>
         </div>
 

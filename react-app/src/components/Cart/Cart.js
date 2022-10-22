@@ -10,9 +10,10 @@ import { thunkGetAllProduct } from '../../store/product';
 function Cart() {
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart);
+  const user = useSelector((state) => state.session.user);
   const items = Object.values(cartItems);
   const history = useHistory();
-  console.log(items, 'THIS IS ITEMS ======')
+  //console.log(items, 'THIS IS ITEMS ======')
 
   useEffect(() => {
     dispatch(getCartThunk())
@@ -25,14 +26,19 @@ function Cart() {
       No items in the cart. Start selecting items to purchase.
     </div>
   );
+  if (!user) return (
+    <div  className="cart-empty">
+      Please log in to checkout your cart
+    </div>
+  )
 
   const onSubmit = (e) => {
     e.preventDefault();
-    window.alert(
-      "Purchased the following:\n" +
-      `${items.map(item => `${item.quantity} of ${item.product_details.name}`).join('\n')}`
-    );
-    dispatch(deleteCartThunk());
+    // window.alert(
+    //   "Purchased the following:\n" +
+    //   `${items.map(item => `${item.quantity} of ${item.product_details.name}`).join('\n')}`
+    // );
+    // dispatch(deleteCartThunk());
     history.push(`/order-completed`);
   }
 
@@ -69,12 +75,12 @@ function Cart() {
                   <div className="cart-image-container">
                     <img className='cart-image' src={item?.product_details?.previewImage}></img></div>
 
-                  <div className='cart-product-name'><NavLink className = 'product-link' to={`/products/${item?.product_details?.id}`}> {item?.product_details?.name}</NavLink></div>
+                  <div className='cart-product-name'><NavLink className='product-link' to={`/products/${item?.product_details?.id}`}> {item?.product_details?.name}</NavLink></div>
                   <CartItem key={item.id} item={item} />
 
                 </div>
                 <div className='cart-right-container'>
-                  <div className='cart-total-price'>$ {(item?.product_details?.price * item?.quantity).toFixed(2)}</div>
+                  <div className='cart-total-price'> {`$${new Intl.NumberFormat().format((item?.product_details?.price * item?.quantity).toFixed(2))}`}</div>
                   <div className='cart-product-highlight'>{item.product_details?.highlight}</div>
                   <button className="cart-item-button"
                     onClick={async () => await dispatch(deleteItemThunk(item.id))}
@@ -88,15 +94,15 @@ function Cart() {
           }
         </div>
         <div className="cart-right-div">
-          <div className = "cart-purchase-container">
-          <div className="cart-item-total">
-            <div className='cart-total'>Items Total &nbsp; </div>
-            <div className='cart-total-price'> ${totalPrice()}</div>
+          <div className="cart-purchase-container">
+            <div className="cart-item-total">
+              <div className='cart-total'>Items Total &nbsp; </div>
+              <div className='cart-total-price'>{`$${new Intl.NumberFormat().format(totalPrice())}`} </div>
+            </div>
+            <form onSubmit={onSubmit}>
+              <button className='cart-purchase-button' type="submit">Proceed to checkout</button>
+            </form>
           </div>
-          <form onSubmit={onSubmit}>
-            <button className='cart-purchase-button' type="submit">Purchase</button>
-          </form>
-        </div>
         </div>
       </div>
     </div>
