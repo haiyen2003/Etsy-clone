@@ -9,14 +9,7 @@ function Searchbar(){
   const product = useSelector((state) => state.product)
   const products = Object.values(product);
 
-  // let productcopy = [];
-  // for ( item in products){
-  //   const newitem ={...item}
-  //   productcopy.push(newitem)
-  // }
-
-  // const product = useSelector((state) =>state.search)
-  // const products = Object.values(product);
+  
   const [searchWord, setSearchWord] =useState('');
   const [showDropdown, setShowDropdown] = useState(false);
   const[searchResult, setSearchResult] =useState([]);
