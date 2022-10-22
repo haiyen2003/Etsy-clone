@@ -88,9 +88,9 @@ Artsy is a web-application clone inspired by [Etsy](https://www.etsy.com/), that
 
 
 # Future Focus
-  1. For search bar, We would like to add the cancle button to clear out the search history at once and set the magnifying glass as a button to fetch all the results at an another page.
+  1. For search bar, We would like to add the cancel button to clear out the search history at once and set the magnifying glass as a button to fetch all the results at an another page.
 
-  2. Shipping and Devliery features.
+  2. Shipping and Delivery features.
 
   3. For cart feature, we will create a 'You might also like' session where we suggest similar items - using query by category
 

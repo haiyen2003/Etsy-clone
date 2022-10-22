@@ -14,14 +14,16 @@ function MyProductListings() {
     const history = useHistory()
 
     const user = useSelector(state => state.session.user)
+
     // console.log(user)
     const currentProduct = useSelector(state => state.product)
     // console.log('current', currentProduct)
     const currentProductArr = Object.values(currentProduct)
-    console.log('product in my product listing', currentProductArr)
-
+    //console.log('product in my product listing', currentProductArr)
+    const productfilter = currentProductArr.filter(product => product?.userId === user.id);
+    //console.log('productfilter----------', productfilter);
     useEffect(() => {
-      // dispatch(thunkGetAllProduct())
+      dispatch(thunkGetAllProduct())
         dispatch(thunkGetCurrentProduct())
     }, [dispatch])
 
@@ -29,13 +31,13 @@ function MyProductListings() {
 
   return (
     <div className="my_product_listing_div">
-      { currentProductArr.length===0 ? (<h1>You have no products to sell so far</h1>): (
+      { productfilter.length===0 ? (<h1>You have no products to sell so far</h1>): (
         <div>
 
         <h1>{`${user?.firstName}'s Shop`}</h1>
 
       <div className="my_product_listing_box">
-        {currentProductArr.map((product, i) => (
+        {productfilter.map((product, i) => (
           <div  key={i}>
             <div className="my_product_listing_innerbox">
             <div className="my_product_listing_nav">
