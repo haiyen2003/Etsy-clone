@@ -32,6 +32,8 @@
     padding: 5px;
     width: 200px;
     text-align: center;
+    word-break: break-all;
+    white-space: pre-wrap;
 }
 
 .my_product_listing_img {
