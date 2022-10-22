@@ -20,14 +20,25 @@ function ProductList() {
     // const categoryproducts=[allproducts[9], allproducts[35], allproducts[2], allproducts[12], allproducts[25], allproducts[30]]
     // console.log('categoryproducts', categoryproducts);
     // console.log('previeimage', categoryproducts[0].previewImage)
-    const renderProductAbout =(text)=>{
-        const segments= text.split(" ");
-        if (segments.length <8){
-            return segments.join(" ");
-        } else {
-            return `${segments.slice(0,7).join(" ")}...`
-        }
-    }
+
+    // const renderProductAbout =(text)=>{
+    //     const sixseven = text.slice (0, 68)
+    //     const segments= text.split("");
+    //     if (segments.length <68){
+    //         return segments.join(" ");
+    //     } else {
+    //         return `${segments.slice(0,7).join(" ")}...`
+    //     }
+    // }
+    const renderProductAbout1 =(text)=>{
+
+      const segments= text.split(" ");
+      if (segments.length <8){
+          return segments.join(" ");
+      } else {
+          return `${segments.slice(0,7).join(" ")}...`
+      }
+  }
     useEffect(() => {
         dispatch(thunkGetAllProduct())
     }, [dispatch])
@@ -149,11 +160,12 @@ function ProductList() {
                     ></img>
 
                     <div className="product_info">
-                      <div style={{ fontweight: "700" }}>
-                        {renderProductAbout(product.name)}
+                      <div style={{ fontweight: "700" }} className='product_info_name' >
+                        {/* {renderProductAbout(product?.name)} */}
+                        {product?.name.slice(0,59)+ '...'}
                       </div>
                     </div>
-                    <div className="product_info">{`$${new Intl.NumberFormat().format(product?.price)}`}</div>
+                    <div className="product_info_price">{`$${new Intl.NumberFormat().format(product?.price)}`}</div>
                   </NavLink>
                 </div>
               ))}

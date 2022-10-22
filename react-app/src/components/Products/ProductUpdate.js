@@ -10,9 +10,9 @@ function ProductUpdate() {
 
   let product = useSelector(state => Object.values(state.product))
   const {id} = useParams()
-  console.log("editporductid", id)
+  //console.log("editporductid", id)
   let editProduct= product.find(ele => ele.id == id)
-  console.log("editporduct", editProduct)
+  //console.log("editporduct", editProduct)
 
   const [name, setName] = useState(editProduct.name);
   const [description, setDescription] = useState(editProduct.description);
