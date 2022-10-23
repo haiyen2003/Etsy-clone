@@ -27,35 +27,38 @@ function ClothingCategory() {
     useEffect(() => {
         dispatch(thunkGetAllProduct())
     }, [dispatch])
-        // dispatch(thunkGetAllProduct());
+    // dispatch(thunkGetAllProduct());
 
 
-        return (
-            <div className='category-container'>
-                    <div>
-                        <h1 className="category-container-header">Find something you love in Clothing & Shoes</h1>
-                    </div>
-                    <div className='category_products_container'>
+    return (
+        <div className='category-container'>
+
+
+            <div className='all_products_container_outermost'>
+                <div>
+                    <h1 className="category-container-header">Find something you love in Clothing & Shoes</h1>
+                </div>
+                <div className='all_sub_products_container'>
                     {categoryproducts && categoryproducts?.map((product) => (
-                    <div calssName= 'category_product' key={product.id}>
+                        <div calssName='category_product' key={product.id}>
 
-                        <NavLink to={`/products/${product.id}`} className='category_product_navlink'>
-                        <img src={product.previewImage} alt="product" className='category_product_image'></img>
+                            <NavLink to={`/products/${product.id}`} className='category_product_navlink'>
+                                <img src={product.previewImage} alt="product" className='category_product_image'></img>
 
-                        <div className='category_productinfo'>
-                            <div style={{ fontweight: '700' }}>{product.name}</div>
+                                <div className='category_productinfo'>
+                                    <div style={{ fontweight: '700' }} > {product?.name.slice(0, 50) + '...'}</div>
+
+                                </div>
+                                <div className='category_productinfo'>{`$${new Intl.NumberFormat().format(product?.price)}`}</div>
+                            </NavLink>
 
                         </div>
-                        <div className='category_productinfo'>{`$${new Intl.NumberFormat().format(product?.price)}`}</div>
-                        </NavLink>
-
-                    </div>
                     ))}
-
                 </div>
             </div>
+        </div>
 
-        )
+    )
 }
 
 export default ClothingCategory
