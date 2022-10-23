@@ -20,7 +20,7 @@ function MyProductListings() {
     // console.log('current', currentProduct)
     const currentProductArr = Object.values(currentProduct)
     //console.log('product in my product listing', currentProductArr)
-    const productfilter = currentProductArr.filter(product => product?.userId === user.id);
+    const productfilter = currentProductArr.filter(product => product?.userId === user?.id);
     //console.log('productfilter----------', productfilter);
     useEffect(() => {
       dispatch(thunkGetAllProduct())
