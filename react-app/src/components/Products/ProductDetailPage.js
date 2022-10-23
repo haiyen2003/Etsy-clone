@@ -176,7 +176,7 @@ const realAvgStar = Math.round(sum / reviewCount);
               </div>
 
               {!user ||
-              product?.userId === user.id ||
+              product?.userId === user?.id ||
               filteredreviewid.length ? (
                 <div></div>
               ) : (
