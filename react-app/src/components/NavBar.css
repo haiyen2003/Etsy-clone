@@ -72,14 +72,14 @@
 .profile-dropdown{
     width: 250px;
     padding: 10px;
-    top:7vh;
+    top:9vh;
     border: 1px solid #ccc;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     position: absolute;
     border-radius: 10px;
     z-index: 1;
     background-color: #ffffff;
-
+    
     display: flex;
     flex-direction: column;
     /* right: 17%; */
