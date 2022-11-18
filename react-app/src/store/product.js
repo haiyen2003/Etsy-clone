@@ -53,11 +53,13 @@ const actionDeleteProduct = (id) => {
 
 
 // THUNKS
-export const thunkCreateProduct = (payload) => async dispatch => {
+export const thunkCreateProduct = (formData) => async dispatch => {
+    console.log("createproduct", formData.keys())
     const response = await fetch('/api/products/new', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(payload)
+        // headers: {'Content-Type': 'application/json'},
+        // body: JSON.stringify(formData)
+        body: formData
     })
     if (response.ok) {
         const data = await response.json()

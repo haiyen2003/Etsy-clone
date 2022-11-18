@@ -30,11 +30,11 @@ def highlights_validation(form, field):
     if len(hl) < 5 or len(hl) > 100:
         raise ValidationError("highlights must be more than 5 characters and less than 100 characters")
 
-def imageURL_validation(form, field):
-    img = field.data
-    if not img[-3:] == 'jpg' and (not img[-3:] == 'png') and img[-4:] != 'jpeg' and img[-4:] != 'webp' and img[-3:] != 'gif' and img[-3:] != 'svg':
+# def imageURL_validation(form, field):
+#     img = field.data
+#     if not img[-3:] == 'jpg' and (not img[-3:] == 'png') and img[-4:] != 'jpeg' and img[-4:] != 'webp' and img[-3:] != 'gif' and img[-3:] != 'svg':
 
-        raise ValidationError("Input must be a valid Image Url")
+#         raise ValidationError("Input must be a valid Image Url")
 
 Categories_Choices = ["Home & Living", "Art & Collectibles", "Clothing & Shoes", "Jewelry & Accessories", "Wedding & Party", "Personalized Gifts"]
 
@@ -47,4 +47,4 @@ class ProductForm(FlaskForm):
     price = DecimalField("Price", validators=[DataRequired(), price_validation], places=2, rounding = ROUND_HALF_UP)
     category = SelectField("Category",choices = Categories_Choices, validators=[DataRequired()])
     highlight = SelectField("Highlights", choices = Highlight_Choices, validators=[DataRequired()])
-    previewImage = StringField("Image URL", validators= [DataRequired(), imageURL_validation])
+    previewImage = StringField("Image URL", validators= [DataRequired()])

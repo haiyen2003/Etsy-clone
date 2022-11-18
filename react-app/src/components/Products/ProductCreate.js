@@ -15,7 +15,7 @@ function ProductCreate() {
     const [price, setPrice] = useState()
     const [category, setCategory] = useState('')
     const [highlight, setHighlight] = useState('')
-    const [previewImage, setPreviewImage] = useState('')
+    const [previewImage, setPreviewImage] = useState(null)
     // // const [submit, setSubmit] = useState(false)
     const [validations, setValidations] = useState([])
 
@@ -26,14 +26,15 @@ function ProductCreate() {
         if (!price || price>1000000) errors.push('Please enter a valid price')
         // if (!category.length) errors.push('Please enter a category')
         // if (!highlight.length || !highlight.length < 10) errors.push('Please enter a highlight more than 10 characters')
-        if (
-          (!previewImage.includes("jpg") &&
-            !previewImage.includes("png") &&
-            !previewImage.includes("jpeg") &&
-            !previewImage.includes("svg")) ||
-          (!previewImage.includes("https") && !previewImage.includes("http"))
-        )
-          errors.push("Please enter a valid url image");
+        // if (
+        //   (!previewImage.includes("jpg") &&
+        //     !previewImage.includes("png") &&
+        //     !previewImage.includes("jpeg") &&
+        //     !previewImage.includes("svg"))
+          //   ||
+          // (!previewImage.includes("https") && !previewImage.includes("http"))
+        // )
+        //   errors.push("Please enter a valid url image");
         setValidations(errors)
     }, [name, description, price, previewImage])
 
@@ -53,16 +54,24 @@ function ProductCreate() {
     const onSubmit = async (event) => {
         event.preventDefault()
         // // setSubmit(!submit)
-        const payload = {
-            name,
-            description,
-            price,
-            category,
-            highlight,
-            previewImage
-        }
+        const formData = new FormData()
 
-        let createdProduct = await dispatch(thunkCreateProduct(payload))
+        formData.append('name', name)
+        formData.append('description', description)
+        formData.append('price', price)
+        formData.append('category', category)
+        formData.append('highlight', highlight)
+        formData.append('previewImage', previewImage)
+        // const payload = {
+        //     name,
+        //     description,
+        //     price,
+        //     category,
+        //     highlight,
+        //     previewImage
+        // }
+        console.log("onsubmit", formData)
+        let createdProduct = await dispatch(thunkCreateProduct(formData))
 
         if (createdProduct) {
             history.push(`/products/${createdProduct.id}`)
@@ -74,6 +83,10 @@ function ProductCreate() {
 
     let Highlight_Choices = ["Materials", "Handmade", "Made to Order"]
 
+    const addImage = (e) => {
+      const file = e.target.files[0]
+      setPreviewImage(file)
+    }
 
     return (
       <div className="create_product_main">
@@ -220,11 +233,12 @@ function ProductCreate() {
               </div>
               <div>
                 <input
-                  type="text"
+                  type="file"
+                  accept="image/*"
                   name="previewImage"
-                  value={previewImage}
+                  // value={previewImage}
                   className="create_product_input_inner"
-                  onChange={(event) => setPreviewImage(event.target.value)}
+                  onChange={addImage}
                   required
                 ></input>
               </div>
